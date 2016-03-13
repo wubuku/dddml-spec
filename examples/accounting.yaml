@@ -1,0 +1,339 @@
+#%DDDML 0.1
+---
+
+aggregates:
+  defaultModule: Examples.Accouting.Conceptual
+
+# ---------------------------------  
+  Account:
+
+    id:
+      name: Id
+      genericType: TId
+    
+    properties:
+    
+      Balance:
+        genericType: TQuantity
+
+      #ParentAccountId:
+      #  genericType: TId
+      
+    subtypes:
+    
+      SummaryAccount:
+        
+        subtypes:
+
+          AccountType:
+        
+      MemoAccount:
+
+# ---------------------------------  
+  AccountingEventType:
+  
+    id: 
+      name: Id
+      type: int
+
+    properties:
+      
+      Names:
+        type: string
+        
+    # ---------------------------------  
+    # subtypes:
+      
+      
+
+
+# ---------------------------------  
+  AccountingEvent:
+    immutable: True
+
+
+    id:
+      name: Id
+      type: long
+      
+    properties:  
+
+      #AccountingEventType's Id
+      EventTypeId:
+        # type: int
+        referenceType: AccountingEventType
+        referenceName: EventType
+
+      WhenNoticed: 
+        type: DateTime
+      
+      WhenOccured: 
+        type: DateTime 
+
+      # @OneToMany(cascade=CascadeType.ALL, orphanRemoval=true, mappedBy="event")
+      # Set<Entry> resultingEntries = new HashSet<>()
+      
+      ResultingEntries:
+        itemType: Entry
+        # Entry has a reference named AccountingEvent
+        inverseOf: AccountingEvent
+        
+      # Transaction consequences
+      ResultingTransactions:
+        itemType: AccountingTransaction
+        inverseOf: AccountingEvent
+
+      BaseEventId:
+        referenceType: AccountingEvent
+        referenceName: BaseEvent
+        
+      #class AccountingEvent ...
+      #  private List secondaryEvents = new ArrayList();
+      #  void friendAddSecondaryEvent (AccountingEvent arg) {
+      #    // only to be called by the secondary event's setting method
+      #    secondaryEvents.add(arg); 
+      #  }
+
+      SecondaryEvents:
+        itemType: AccountingEvent
+        inverseOf: BaseEvent
+      
+    #methods:
+    #  Process: 
+    #    abstract: Ture
+
+      #Set getAllResultingEntries() {
+      #  Set result = new HashSet(); result.addAll(resultingEntries);
+      #  Iterator it = secondaryEvents.iterator(); while (it.hasNext()) {
+      #    AccountingEvent each = (AccountingEvent) it.next();
+      #    result.addAll(each.getResultingEntries()); 
+      #  }
+      #  return result; 
+      #}
+
+    subtypes:    
+
+      AccountTriggerPostingRuleFiringEvent:
+         
+        properties:
+          
+          # -----------------------------
+          # 来源条目的 IDs
+          SourceEntryIdentifiers:
+            itemType: SourceEntryIdentifier
+            # itemName: SourceEntryId
+        
+        entities:
+        
+          # -----------------------------
+          SourceEntryIdentifier:
+            
+            id: 
+              name: SourceEntryId
+              type: long
+              
+            properties:  
+              EventTypeId: 
+                type: int
+
+            # ------------------------------
+            # 唯一约束
+            uniqueConstraints:
+              # 约束名称
+              UniqueEventTypeSourceEntry: [EventTypeId, SourceEntryId]
+            
+            
+# ---------------------------------  
+  AccountingEventProcessLog:
+    # immutalbe: False
+    
+    id:
+      name: EventId
+      referenceName: Event
+      referenceType: AccountingEvent
+    
+    properties:
+    
+      # 是否已经处理了
+      Processed:
+        type: bool
+      
+      ReplacementEventId:
+        referenceName: ReplacementEvent
+        referenceType: AccountingEvent
+    
+      AdjustedEventId:
+        referenceName: AdjustedEvent
+        referenceType: AccountingEvent
+      
+      # 是否已经被撤销了
+      Reversed:
+        type: bool
+        
+      #ResultingEntries:
+      #  derived: Ture
+      #  itemType: Entry
+      #  code: 
+      #    - "Event.ResultingEntries"
+
+
+    # ------------------------------------  
+    #methods:    
+    #  protected boolean hasBeenAdjusted() 
+    #    { return (replacementEvent != null);
+    #  }
+            
+      
+      
+# ---------------------------------  
+
+  PostingRule:
+    
+    id:
+      name: Id
+      type: string 
+
+    properties:
+
+      # @NotNull @Enumerated
+      # EntryType type
+
+      # @NotNull @Enumerated
+      # AccountingEventType
+      EventTypeId:
+        type: int
+    
+    #methods:
+    #    # abstract void process(AccountingEvent event)
+    #    Process:
+    #      parameters:
+    #        event: 
+    #          type: AccountingEvent
+
+    # ---------------------------------
+    subtypes:
+
+      AccountTriggerPostingRule:
+        
+        # ------------------------------
+        # 唯一约束
+        uniqueConstraints:
+          # 约束名称
+          UniqueTriggerOutput: [TriggerId, OutputId]
+            
+        properties:
+          # 触发器
+          TriggerId:
+            genericType: TAccountId
+            referenceName: Trigger
+            referenceType: Account
+          # 输出
+          OutputId:        
+            genericType: TAccountId
+            referenceName: Output
+            referenceType: Account
+
+
+# ---------------------------------  
+
+  AccountingTransaction:
+    
+    id:
+      name: Id
+      type: long
+      
+    properties:
+      
+      # -----------------------------------
+      # the PostingRule Creator's Id
+      PostingRuleId:
+        # type: string
+        referenceName: PostingRule
+        referenceType: PostingRule 
+      
+      # 来源事件
+      EventId:
+        # type: long
+        referenceName: AccountingEvent
+        referenceType: AccountingEvent
+      
+      Entries:
+        itemType: TransactionalEntry
+        inverseOf: Transaction
+
+
+      # ------------------------------------
+      #Sources:
+      #  itemType: Entry
+      #  derived: True
+      #  code: 
+      #    - "event = AccountingEvent as AccountTriggerPostingRuleFiringEvent"
+      #    - "MapToEntriesFromIds(event.SourceEntries)"
+
+
+# ---------------------------------  
+  Entry:
+    immutable: True
+    
+    id:
+      name: Id
+      type: long
+
+    properties:
+
+      #@NotNull @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
+      #DateTime date
+      CreatedAt: DateTime
+      
+      # AccountingEvent's Id
+      #@NotNull @ManyToOne
+      EventId:
+        # type: long
+        referenceName: AccountingEvent
+        referenceType: AccountingEvent
+
+      # @NotNull @ManyToOne
+      AccountId:
+        genericType: TAccountId
+        referenceName: Account
+        referenceType: Account
+
+      # PostingRule' Id
+      PostingRuleId:
+        # type: string
+        referenceName: PostingRule
+        referenceType: PostingRule 
+        
+      Amount:
+        genericType: TQuantity
+
+      # @NotNull @Enumerated
+      # EntryType entryType  
+      
+      # ------------------------------------
+      # 一到多个条目可能“产生”一到多个新的事务      
+      #Consequences:
+      #  itemType: Transaction
+      #  derived: True
+      #  code: 
+      #    - "AccountingEvent.ResultingTransactions"     
+      
+        
+    
+    # ---------------------------------      
+    subtypes:
+      
+      # --------------------------------- 
+      # "有事务的”的 Entry
+      TransactionalEntry:  
+        
+        properties:
+
+          # AccountingTransaction's Id
+          TransactionId:
+            # type: long
+            referenceName: Transaction
+            referenceType: AccountingTransaction
+
+
+
