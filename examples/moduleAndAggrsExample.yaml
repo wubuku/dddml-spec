@@ -40,10 +40,12 @@ aggregates:
 
   Person:
     
-    #imports:
-    #  Test.Example:
-    #    PersonalName:
-    #    Address:
+    imports:
+      Test.Example:
+        description:
+        #types:
+        #  PersonalName:
+        #  Address:
         
     id:
       name: PersonID
