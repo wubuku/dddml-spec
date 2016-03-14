@@ -1,0 +1,107 @@
+#%DDDML 0.1
+---
+
+
+aggregates:
+  #defaultModule: Test.DDD
+  
+
+# ---------------------------------  
+
+  Car:
+    
+    id:
+      name: Id
+    
+    properties:
+      
+      Wheels:
+        itemType: Wheel                  
+
+      Tires:
+        itemType: Tire
+
+    # -----------------------------
+    entities:
+
+      # -----------------------------      
+      Wheel:     
+
+        id:
+          name: WheelId
+          type: WheelId
+      
+      # -----------------------------      
+      Tire:
+
+        id:
+          name: TireId
+          # 默认是本地的 id
+          # id 的值可以任意取（arbitrary）
+          arbitrary: True
+        
+        properties: 
+
+          # -------------------------------
+          # Tire <-> Position
+          # 从 Tire 到 Position 是一对多
+          Positions:
+            itemType: Position
+            
+    # -----------------------------
+    # 将 Position 作为值类型建模？   
+    # valueTypes:
+    #  Position: ... 
+        
+        # ------------------------------
+        # 将 Position 作为 Tire 的实体 
+        entities:
+        
+          # -----------------------------
+          # 表示“轮胎”什么时候在哪个“轮子”上，行驶了多少里程
+          Position:
+
+            properties:  
+
+              # 时间期间
+              TimePeriod: 
+                type: TimePeriod
+                
+              # 里程数
+              MileAge:
+                type: long
+                
+              # -------------------------  
+              WheelId:
+                # Position -> Wheel
+                # 关联到 1 个 Wheel
+                referenceType: Wheel
+                # type: WheelId
+    
+    # -----------------------------
+    valueObjects:
+                
+          TimePeriod:
+            properties:
+              From: 
+                type: date  
+              To: 
+                type: date
+                 
+    # -----------------------------        
+    enumObjects:
+
+          WheelId:
+            baseType: string
+              
+            values:
+              LF:
+                description: left front
+              LR:
+                description: left rear 
+              RF: 
+                description: right front
+              RR:
+                description: right rear
+      
+
