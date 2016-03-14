@@ -2,7 +2,7 @@
 ---
 
 aggregates:
-  defaultModule: Examples.Accouting.Conceptual
+  # defaultModule: Examples.Accouting.Conceptual
 
 # ---------------------------------  
   Account:
@@ -26,8 +26,10 @@ aggregates:
         subtypes:
 
           AccountType:
+            description: A AccountType is also a Account.
         
       MemoAccount:
+        description: Memo Account
 
 # ---------------------------------  
   AccountingEventType:
@@ -283,7 +285,8 @@ aggregates:
 
       #@NotNull @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
       #DateTime date
-      CreatedAt: DateTime
+      CreatedAt: 
+        type: DateTime
       
       # AccountingEvent's Id
       #@NotNull @ManyToOne

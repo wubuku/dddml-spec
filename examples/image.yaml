@@ -1,0 +1,78 @@
+#%DDDML 0.1
+---
+
+aggregates:
+  # defaultModule: Examples.Cms.Conceptual
+
+# ------------------------------
+
+  # Aggregate(Aggregate Root) Name
+
+  Image:
+    description: "图片"
+    
+    id:
+      name: Id
+      type: long
+      description: 图片 Id。
+    
+    properties:
+    
+      ImageName: 
+        type: string
+
+
+
+      ImagePath:
+        type: string
+
+      ImageType: 
+        type:
+
+      IsDefault: 
+        type: bool
+
+      SortNumber:
+        type: int
+
+      RefererId:
+        type: long
+
+      Description: 
+        type: string
+        description: 图片说明
+        
+      # -----------------------
+      Active:
+        type: bool      
+      CreatedBy:
+        type: string
+      CreatedAt:
+        type: DateTime
+      UpdatedBy:
+        type: string
+      UpdatedAt:
+        type: DateTime      
+
+      # -----------------------
+      ImageType:
+        type: string
+        
+    discriminator: ImageType
+
+    subtypes:
+        
+      ProductImage:
+        discriminatorValue: "PRODUCT"
+
+      ProductQRCodeImage:
+        discriminatorValue: "PRODUCT_QR_CODE"
+
+      OrderRemarkImage:
+        discriminatorValue: "ORDER_REMARK"
+
+      BrandImage:
+        discriminatorValue: "BRAND"
+
+      DesignPlanImage:
+        discriminatorValue: "DESIGN_PLAN"
