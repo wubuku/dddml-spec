@@ -1,0 +1,266 @@
+#%DDDML 0.1
+---
+
+aggregates:
+  # defaultModule: Northwind
+
+
+# ------------------------------
+
+  # 聚合名称（聚合根）
+  Category:
+    description: "产品分类"
+    # module: Northwind
+    
+    id:
+      name: CategoryID
+      type: int
+      description: 类型ID；
+    
+    properties:
+    
+      CategoryName: 
+        type: string
+        description: 类型名;
+      Description: 
+        description: 类型说明;
+      Picture: 
+        description: 产品样本
+  
+  
+# ------------------------------
+
+  Customer:
+    description: 客户
+
+    id:
+      name: CustomerID
+      type: int
+      description: 客户ID；
+      
+    properties:
+      
+      CompanyName:
+        description: 所在公司名称；
+      ContactName:
+        description: 客户姓名；
+      ContactTitle:
+        description: 客户头衔；
+      Address:
+        description: 联系地址；
+      City:
+        description: 所在城市;
+      Region:
+        description: 所在地区;
+      PostalCode:
+        description: 邮编;
+      Country:
+        description: 国家
+      Phone:
+        description: 电话；
+      Fax:
+        description: 传真    
+
+        
+# ------------------------------
+
+  Employee:
+    
+    description: 员工
+  
+    id:
+      name: EmployeeID
+      description: 员工代号;
+    
+    properties: 
+
+      LastName:
+        type: string
+      FirstName:
+        type: string
+        
+      Title:
+        description: 头衔;
+      TitleOfCourtesy:
+        description: 尊称;
+      BirthDate:
+        type: date
+        description: 出生日期;
+      HireDate:
+        type: date
+        description: 雇用日期;
+      Address:
+        description: 家庭地址；
+      City:
+        description: 所在城市;
+      Region:
+        description: 所在地区;
+      PostalCode:
+        description: 邮编;
+      Country:
+        description: 国家；
+      HomePhone:
+        description: 宅电;
+      Extension:
+        description: 分机;
+      Phone:
+        description: 电话;
+      #Notes:照片；
+      ReportsTo: 
+        description: 上级;
+      PhotoPath:
+        description: 照片
+        
+
+# ------------------------------
+
+  Product:
+    description: 产品
+    
+    id:
+      name: ProductID
+      description: 产品ID；
+    
+    properties:  
+
+      ProductName:
+        description: 产品名称；
+      SupplierID:
+        description: 供应商ID；
+      CategoryID:
+        description: 类型ID；
+      QuantityPerUnit:
+          description: 数量；
+      UnitPrice:
+        description: 单价;
+      UnitsInStock:
+        description: 库存数量；
+      UnitsOnOrder:
+        description: 订购量；
+      ReorderLevel:
+        description: 再次订购量;
+      Discontinued:
+        description: 中止
+
+
+# ------------------------------
+
+
+  Order:
+    description: 订单
+    
+    id: 
+      name: OrderID
+      type: int
+      description: 订单编号；
+    
+    properties:  
+    
+      CustomerID:
+        description: 客户编号;
+      EmployeeID:
+        description: 员工编号；
+      OrderDate:
+        description: 订购日期；
+      RequiredDate:
+        description: 预计到达日期;
+      ShippedDate:
+        description: 发货日期;
+      ShipVia:
+        description: 运货商;
+      Freight:
+        description: 运费;
+      ShipName:
+        description: 货主姓名；
+      ShipAddress:
+        description: 货主地址
+      ShipCity:
+        description: 货主所在城市；
+      ShipRegion:
+        description: 货主所在地区；
+      ShipPostalCode:
+        description: 货主邮编;
+      ShipCountry:
+        description: 货主所在国家
+      
+      Details:
+        itemType: OrderDetail
+        # itemType 和  type 不能同时出现。当有 itemType 的时候，表明这是一个集合属性（hasMany）。
+    
+    # ------------------------------
+    # Nested Entities    
+    entities: 
+    
+      # ------------------------------
+      # 聚合中的实体名称
+      OrderDetail:
+        description: 订单明细
+        
+        id:
+          name: ProductID
+          description: 产品编号；
+          
+        outerId:
+          name: OrderID
+          description: 订单编号；
+          # 该属性是外部实体 的 Id（类似 Sql 的“外键”）。
+          # 在这里外部实体是 Order，Order 的 Id 不是组合 Id
+          # the type is the Outer-Entity-Id's type.  
+          # type: int
+            
+          
+          
+        properties:
+        
+          UnitPrice:
+            description: 单价;
+          Quantity:
+            description: 订购数量；
+          Discount:
+            description: 折扣
+
+# ------------------------------
+
+  Territory:
+    description: 业务分区
+      
+    id:
+      name: TerritoryID
+      description: 地域编号；
+      
+    properties:  
+    
+      TerritoryDescription:
+        description: 地域描述；
+        
+      RegionID:
+        description: 地区编号
+
+
+# ------------------------------
+
+  EmployeeTerritory:
+    description: 员工业务分区
+    
+    id:
+      name: EmployeeTerritoryID
+      type: EmployeeTerritoryID
+
+    # ------------------------------
+    # Nested Value Types
+    valueObjects:
+      
+      EmployeeTerritoryID:
+        
+        properties:
+          EmployeeID:
+            description: 员工编号 Id；
+            referenceType: Employee
+            
+          TerritoryID: 
+            description: 业务分区 Id
+            referenceType: Territory
+            
+
+
+      
