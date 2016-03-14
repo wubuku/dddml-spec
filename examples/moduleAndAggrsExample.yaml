@@ -1,0 +1,144 @@
+#%DDDML 0.1
+
+---
+
+# ------------------------------
+modules:
+
+  # Module Name
+  Test.Example:
+  
+    # ------------------------------
+    # 模块中可以定义值类型
+    valueObjects:
+
+      # ------------------------------
+      # Value Type Name      
+      PersonalName:
+      
+        properties:
+          FirstName:
+            description: First Name
+          LastName:  
+            description: Last Name
+        
+      # ------------------------------
+        
+      Address:
+        properties:
+          street:
+            type: string
+          city:
+            type: string
+          state:
+            type: string
+          zipCode:
+            type: string
+
+# ------------------------------
+aggregates:
+
+  Person:
+    
+    #imports:
+    #  Test.Example:
+    #    PersonalName:
+    #    Address:
+        
+    id:
+      name: PersonID
+    
+    properties:
+    
+      PersonalName:
+        type: PersonalName
+          
+      BirthDate:
+        type: date
+        description: 出生日期
+      
+      Address:
+        type: Address
+
+
+# ------------------------------
+
+  Event:
+    module: Test.Example
+
+    
+    id:
+      name: eventId
+      type: EventId
+      
+    properties:      
+    
+      whenNoticed: 
+        type: DateTime 
+      whenOccured:
+        type: DateTime
+      message:
+        type: string
+        
+      processLog:
+        itemType: EventProcessLog
+
+    # ------------------------------
+    # Nested Entities    
+    entities: 
+    
+      # ------------------------------
+      EventProcessLog:
+        
+        id: 
+          name: eventProcessLogId
+          type: int
+        
+        outerId:
+          name: eventId
+          # 外部实体使用的是组合 Id
+          #eventType:
+          #  # 在“外部实体组合 Id”中对应的属性名称
+          #  outerIdPropertyName: eventType
+          #  # type: EventType
+          #eventSequence:
+          #  # 在“外部实体组合 Id”中对应的属性名称
+          #  outerIdPropertyName: sequence
+
+        properties:
+
+          processed:
+            type: bool
+
+
+    # ------------------------------
+    valueObjects:
+      EventId:
+        properties:
+          eventType:
+            type: EventType
+          sequence:
+            type: long
+
+
+    # ------------------------------
+    # Nested enum Types
+    enumObjects:
+      
+      # ------------------------------
+      # Enum Type Name      
+      EventType:
+        baseType: string
+
+        values:              
+          REGISTER:
+            stringValue: REGISTER
+          WORKING:
+            stringValue: WORKING
+          FINISH:
+            stringValue: FINISH
+          PAYMENT:
+            stringValue: PAYMENT
+
+
+
