@@ -1,0 +1,70 @@
+#%DDDML 0.1
+
+---
+
+# ------------------------------
+aggregates:
+
+  Garden:
+            
+    id:
+      name: Id
+      type: string
+      
+    properties:
+    
+      Address:
+        type: string
+          
+      City:
+        type: string
+      
+      Buildings:
+        itemType: Building
+          
+    # ------------------------------
+    # Nested Entities    
+    entities: 
+    
+      # ------------------------------
+      Building:
+        
+        id: 
+          name: BuildingNumber
+          type: string
+        
+        outerId:
+          name: GardenId
+
+        properties:
+
+          Name:
+            type: string
+          Description: 
+            type: string  
+
+          Rooms:
+            itemType: Room
+              
+        # ------------------------------
+        # Nested Nested Entities    
+        entities: 
+          
+          Room:
+          
+            id:
+              name: RoomNumber
+              type: string
+            
+            outerIds:
+              GardenId:
+                referenceType: Garden
+              BuidingNumber:  
+                referenceType: Building
+            
+            properties:
+              Name:
+                type: string   
+              Description:
+                type: string
+
