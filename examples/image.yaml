@@ -52,12 +52,24 @@ aggregates:
       UpdatedBy:
         type: string
       UpdatedAt:
-        type: DateTime      
-
+        type: DateTime  
+      Version:
+        type: int
+        
       # -----------------------
       ImageType:
         type: string
-        
+    
+    # -----------------------
+    reservedProperties:
+      active: Active
+      createdBy: CreatedBy
+      createdAt: CreatedAt
+      updatedBy: UpdatedBy
+      updatedAt: UpdatedAt
+      deleted: Deleted
+      version: Version
+                
     discriminator: ImageType
 
     subtypes:
