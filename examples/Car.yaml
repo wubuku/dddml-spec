@@ -30,13 +30,15 @@ aggregates:
         id:
           name: WheelId
           type: WheelId
+          local: true
       
       # -----------------------------      
       Tire:
 
         id:
           name: TireId
-          # 默认是本地的 id
+          # 本地的 id
+          local: true
           # id 的值可以任意取（arbitrary）
           arbitrary: True
         
@@ -60,6 +62,9 @@ aggregates:
           # -----------------------------
           # 表示“轮胎”什么时候在哪个“轮子”上，行驶了多少里程
           Position:
+            # TODO
+            #id:
+            #  local: true
 
             properties:  
 

@@ -95,6 +95,8 @@ aggregates:
         id: 
           name: eventProcessLogId
           type: int
+          # local: false 
+          # global: true
         
         outerId:
           name: eventId

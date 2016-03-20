@@ -199,6 +199,7 @@ aggregates:
         id:
           name: ProductID
           description: 产品编号；
+          local: true
           
         outerId:
           name: OrderID
