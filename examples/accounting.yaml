@@ -121,14 +121,14 @@ aggregates:
           
           # -----------------------------
           # 来源条目的 IDs
-          SourceEntryIdentifiers:
-            itemType: SourceEntryIdentifier
+          SourceEntries:
+            itemType: SourceEntry
             # itemName: SourceEntryId
         
         entities:
         
           # -----------------------------
-          SourceEntryIdentifier:
+          SourceEntry:
             
             id: 
               name: SourceEntryId

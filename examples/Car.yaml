@@ -31,7 +31,11 @@ aggregates:
           name: WheelId
           type: WheelId
           local: true
-      
+        #   
+        # outerId:
+        #   name: CarId
+        # 系统应该为 Wheel 生成一个 Global Id。命名可以是 CarWheelId
+    
       # -----------------------------      
       Tire:
 
@@ -62,9 +66,11 @@ aggregates:
           # -----------------------------
           # 表示“轮胎”什么时候在哪个“轮子”上，行驶了多少里程
           Position:
-            # TODO
-            #id:
-            #  local: true
+          
+            id:
+              type: long
+              local: true
+              arbitrary: true
 
             properties:  
 

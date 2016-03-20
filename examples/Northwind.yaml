@@ -208,8 +208,21 @@ aggregates:
           # 在这里外部实体是 Order，Order 的 Id 不是组合 Id
           # the type is the Outer-Entity-Id's type.  
           # type: int
-            
-          
+
+        # ---------------------------  
+        # Id 的另一种写法            
+        # id:
+        #   name: OrderDetailID
+        #   type: OrderDetailID
+        #   local: false
+        #   # global: true
+        # valueObjects:  
+        #   OrderDetailID:
+        #     properties:
+        #       OrderID: 
+        #         referenceType: Order
+        #       ProductID:
+        #         referenceType: Product
           
         properties:
         
