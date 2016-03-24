@@ -10,6 +10,7 @@ aggregates:
     id:
       name: Id
       type: string
+      length: 50
       
     properties:
     
@@ -32,10 +33,14 @@ aggregates:
         id: 
           name: BuildingNumber
           type: string
+          length: 50
           local: true
         
         outerId:
           name: GardenId
+          
+        globalId:
+          name: BuildingId
 
         properties:
 
@@ -56,13 +61,17 @@ aggregates:
             id:
               name: RoomNumber
               type: string
-              local: true
+              length: 50
+              local: true              
             
             outerIds:
               GardenId:
                 referenceType: Garden
               BuidingNumber:  
                 referenceType: Building
+                
+            globalId:
+              name: RoomId
             
             properties:
               Name:
