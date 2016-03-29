@@ -199,7 +199,7 @@ aggregates:
         id:
           name: ProductID
           description: 产品编号；
-          local: true
+          #local: true
           
         outerId:
           name: OrderID
@@ -210,7 +210,8 @@ aggregates:
           # type: int
 
         # ---------------------------  
-        # Id 的另一种写法            
+        # 考虑支持 Id 的另一种写法？
+        # （支持只定义 Global Id？那么 Global Id 中的 Outer Id 怎么定义？）            
         # id:
         #   name: OrderDetailID
         #   type: OrderDetailID

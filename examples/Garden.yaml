@@ -34,7 +34,7 @@ aggregates:
           name: BuildingNumber
           type: string
           length: 50
-          local: true
+          #local: true
         
         outerId:
           name: GardenId
@@ -62,7 +62,7 @@ aggregates:
               name: RoomNumber
               type: string
               length: 50
-              local: true              
+              #local: true              
             
             outerIds:
               GardenId:

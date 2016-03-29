@@ -133,7 +133,7 @@ aggregates:
             id: 
               name: SourceEntryId
               type: long
-              local: true
+              #local: true
               
             properties:  
               EventTypeId: 
