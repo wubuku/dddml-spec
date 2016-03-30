@@ -30,7 +30,7 @@ aggregates:
         id:
           name: WheelId
           type: WheelId
-          local: true
+          #local: true
         #   
         # outerId:
         #   name: CarId
@@ -42,7 +42,7 @@ aggregates:
         id:
           name: TireId
           # 本地的 id
-          local: true
+          #local: true
           # id 的值可以任意取（arbitrary）
           arbitrary: True
         
