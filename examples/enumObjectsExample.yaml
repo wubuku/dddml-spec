@@ -1,0 +1,27 @@
+#%DDDML 0.1
+---
+
+# ------------------------------
+# 定义枚举类型
+enumObjects:
+
+  # ------------------------------
+  # Enum Type Name      
+  EventType:
+    baseType: int
+    
+    values:              
+      REGISTER:
+        intValue: 1
+      WORKING:
+        intValue: 2
+      FINISH:
+        intValue: 3
+      PAYMENT:
+        intValue: 4
+          
+
+
+      
+
+

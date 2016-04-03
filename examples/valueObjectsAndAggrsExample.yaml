@@ -3,37 +3,31 @@
 ---
 
 # ------------------------------
-modules:
+# 定义值类型
+valueObjects:
 
-  # Module Name
-  Test.Example:
+  # ------------------------------
+  # Value Type Name      
+  PersonalName:
   
-    # ------------------------------
-    # 模块中可以定义值类型
-    valueObjects:
-
-      # ------------------------------
-      # Value Type Name      
-      PersonalName:
-      
-        properties:
-          FirstName:
-            description: First Name
-          LastName:  
-            description: Last Name
-        
-      # ------------------------------
-        
-      Address:
-        properties:
-          street:
-            type: string
-          city:
-            type: string
-          state:
-            type: string
-          zipCode:
-            type: string
+    properties:
+      FirstName:
+        description: First Name
+      LastName:  
+        description: Last Name
+    
+  # ------------------------------
+    
+  Address:
+    properties:
+      street:
+        type: string
+      city:
+        type: string
+      state:
+        type: string
+      zipCode:
+        type: string
 
 # ------------------------------
 aggregates:
