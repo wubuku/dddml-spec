@@ -1,0 +1,64 @@
+#%DDDML 0.1
+
+---
+
+# ------------------------------
+# 定义值类型
+valueObjects:
+
+  # ------------------------------
+  # Value Type Name      
+  PersonalName:
+  
+    properties:
+      FirstName:
+        description: First Name
+        length: 50
+      LastName:  
+        description: Last Name
+        length: 50
+    
+# ------------------------------
+aggregates:
+
+  PersonEvent:
+    
+    id:
+      name: PersonEventId
+      type: PersonEventId
+      
+    properties:      
+    
+      Description: 
+        type: string
+        length: 500
+      
+      SourceEventId:
+        type: PersonEventId  
+
+
+    # -------------- Nested value objects ----------------
+    valueObjects:
+    
+      PersonEventId:
+        properties:
+          PersonalName:
+            type: PersonalName
+          Sequence:
+            type: long
+
+
+
+# --------------- aggregate ---------------
+  Person:
+
+    id:
+      name: PersonalName
+      type: PersonalName
+    
+    properties:
+    
+      BirthDate:
+        type: DateTime
+        description: 出生日期
+
