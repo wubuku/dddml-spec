@@ -1,0 +1,120 @@
+#%DDDML 0.1
+
+---
+
+# ------------------------------
+# 定义值类型
+valueObjects:
+
+  # ------------------------------
+  # Value Type Name      
+  PersonalName:
+  
+    properties:
+      FirstName:
+        description: First Name
+        length: 50
+      LastName:  
+        description: Last Name
+        length: 50
+    
+# ------------------------------
+aggregates:
+
+
+# --------------- aggregate ---------------
+  Person:
+
+    id:
+      name: PersonalName
+      type: PersonalName
+    
+    properties:
+    
+      BirthDate:
+        type: DateTime
+        description: 出生日期
+        
+      YearPlans:
+        itemType: YearPlan
+        
+    
+    entities:
+      
+      YearPlan:
+            
+        id:
+          name: Year
+          type: int
+          
+        outerId:
+          name: PersonalName
+          
+        globalId: 
+          name: YearPlanId
+          
+        properties:      
+        
+          Description: 
+            type: string
+            length: 500
+            
+          MonthPlans:
+            itemType: MonthPlan
+            
+        entities:
+          
+          MonthPlan:
+          
+            id:
+              name: Month
+              type: int
+              
+            outerIds:
+              PersonalName:
+                referenceType: Person
+              Year:  
+                referenceType: YearPlan
+              
+            globalId:
+              name: MonthPlanId
+            
+            properties:      
+            
+              Description: 
+                type: string
+                length: 500
+              
+              DayPlans:
+                itemType: DayPlan 
+                
+            entities:
+
+              DayPlan:
+              
+                id:
+                  name: Day
+                  type: int
+                  
+                outerIds:
+                  PersonalName:
+                    referenceType: Person
+                  Year:  
+                    referenceType: YearPlan
+                  Month:
+                    referenceType: MonthPlan
+                  
+                globalId:
+                  name: DayPlanId
+                
+                properties:      
+                
+                  Description: 
+                    type: string
+                    length: 500
+
+
+            
+
+
+
