@@ -67,7 +67,7 @@ aggregates:
             outerIds:
               GardenId:
                 referenceType: Garden
-              BuidingNumber:  
+              BuildingNumber:  
                 referenceType: Building
                 
             globalId:
