@@ -95,9 +95,9 @@ aggregates:
           TimePeriod:
             properties:
               From: 
-                type: date  
+                type: DateTime  
               To: 
-                type: date
+                type: DateTime
                  
     # -----------------------------        
     enumObjects:
