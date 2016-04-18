@@ -34,9 +34,9 @@ aggregates:
 
   Person:
     
-    imports:
-      Test.Example:
-        description:
+    #imports:
+    #  Test.Example:
+    #    description:
         #types:
         #  PersonalName:
         #  Address:
