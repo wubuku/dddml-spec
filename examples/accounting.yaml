@@ -9,7 +9,7 @@ aggregates:
 
     id:
       name: Id
-      genericType: TId
+      genericType: TAccountId
     
     properties:
     
@@ -17,7 +17,7 @@ aggregates:
         genericType: TQuantity
 
       #ParentAccountId:
-      #  genericType: TId
+      #  genericType: TAccountId
       
     subtypes:
     
