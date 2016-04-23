@@ -1,0 +1,108 @@
+#%DDDML 0.1
+
+---
+
+valueObjects:
+
+  DddmlObjectId:
+  
+    properties:
+      Name:
+        displayName: Name
+    
+    # ------------------------------
+    subtypes:
+    
+      ValueObjectId:
+        displayName: Value object Id.
+        
+        subtypes:
+        
+          BoundedContextValueObjectId:
+            displayName: 
+              BoundedContext value object Id.
+              
+                
+          AggregateValueObjectId:
+            displayName: Aggregate Value object Id.
+            
+            properties:
+              AggregateName:
+                type: string
+
+      RreferenceObjectId:
+        displayName: Reference objecjt Id.
+        
+        subtypes:
+        
+          AggregateId:
+            displayName: Aggregate Id.
+            
+          EntityId:
+            displayName: Entity Id.
+            
+            properties:
+              AggregateName:
+                type: string
+            
+              
+
+# ------------------------------
+
+referenceObjects:
+
+  DddmlObject:
+    displayName: DDDML object 
+      
+    #id:
+    #  name: ObjectId
+    #  type: DddmlObjectId
+          
+    subtypes:
+      ValueObject:
+      
+        subtypes:
+            
+          BoundedContextValueObject:
+            displayName: BoundedContext value object
+            
+            subtypes:
+            
+              BoundedContextEnumObject:
+                displayName: BoundedContext enum object
+            
+          AggregateValueObject:
+            displayName: Aggregate value object
+            
+            subtypes:
+            
+              AggregateEnumObject:
+                displayName: Aggregate enum object
+                
+      
+      ReferenceObject:
+      
+        subtypes:
+        
+          Aggregate:
+            displayName: Aggregate
+            
+          Entity:
+            displayName: Entity
+             
+
+aggregates:
+
+  BoundedContextValueObject:
+  
+  BoundedContextEnumObject:
+  
+  AggregateValueObject:
+  
+  AggregateEnumObject:
+  
+  Aggregate:
+  
+  Entity:
+  
+  
