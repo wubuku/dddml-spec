@@ -7,9 +7,15 @@ valueObjects:
   DddmlObjectId:
   
     properties:
-      Name:
-        displayName: Name
+
+      BoundedContextName:
+        displayName: BoundedContext name
+        type: string
     
+      Name:
+        type: string
+        
+ 
     # ------------------------------
     subtypes:
     
@@ -27,11 +33,12 @@ valueObjects:
             displayName: Aggregate Value object Id.
             
             properties:
+            
               AggregateName:
                 type: string
 
       RreferenceObjectId:
-        displayName: Reference objecjt Id.
+        displayName: Reference object Id.
         
         subtypes:
         
@@ -57,6 +64,7 @@ referenceObjects:
     #id:
     #  name: ObjectId
     #  type: DddmlObjectId
+    
           
     subtypes:
       ValueObject:
@@ -93,16 +101,26 @@ referenceObjects:
 
 aggregates:
 
+  BoundedContext:
+    displayName: Bounded Context
+    
   BoundedContextValueObject:
+    displayName: BoundedContext value object
   
   BoundedContextEnumObject:
+    displayName: BoundedContext enum object
   
   AggregateValueObject:
+    displayName: Aggregate value object
   
   AggregateEnumObject:
+    displayName: Aggregate enum object
   
   Aggregate:
+    displayName: aggregate
   
   Entity:
-  
-  
+    displayName: entity
+
+    
+    
