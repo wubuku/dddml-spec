@@ -18,39 +18,20 @@ valueObjects:
  
     # ------------------------------
     subtypes:
-    
-      ValueObjectId:
-        displayName: Value object Id.
         
-        subtypes:
         
-          BoundedContextValueObjectId:
-            displayName: 
-              BoundedContext value object Id.
-              
-                
-          AggregateValueObjectId:
-            displayName: Aggregate Value object Id.
-            
-            properties:
-            
-              AggregateName:
-                type: string
+      BoundedContextObjectId:
+        displayName: 
+          BoundedContext object Id.
+          
+      AggregateObjectId:
+        displayName: Aggregate object Id.
+        
+        properties:
+        
+          AggregateName:
+            type: string
 
-      RreferenceObjectId:
-        displayName: Reference object Id.
-        
-        subtypes:
-        
-          AggregateId:
-            displayName: Aggregate Id.
-            
-          EntityId:
-            displayName: Entity Id.
-            
-            properties:
-              AggregateName:
-                type: string
             
               
 
@@ -67,36 +48,33 @@ referenceObjects:
     
           
     subtypes:
-      ValueObject:
-      
-        subtypes:
             
-          BoundedContextValueObject:
-            displayName: BoundedContext value object
-            
-            subtypes:
-            
-              BoundedContextEnumObject:
-                displayName: BoundedContext enum object
-            
-          AggregateValueObject:
-            displayName: Aggregate value object
-            
-            subtypes:
-            
-              AggregateEnumObject:
-                displayName: Aggregate enum object
-                
-      
-      ReferenceObject:
-      
-        subtypes:
+      BoundedContextObject:
+        displayName: BoundedContext object
         
-          Aggregate:
-            displayName: Aggregate
+        id:
+          name: BoundedContextObjectId
+          type: BoundedContextObjectId
+        
+      AggregateObject:
+        displayName: Aggregate object
+        
+        id:
+          name: AggregateObjectId
+          type: AggregateObjectId
+        
+      ValueObject:
+        displayName: Value object
+        classifiers: [Interface]
+        
+        subtypes:
+          
+          EnumObject:
+            displayName: Enum object
             
-          Entity:
-            displayName: Entity
+      ReferenceObject:
+        displayName: Reference object
+        classifiers: [Interface]
              
 
 aggregates:
@@ -106,21 +84,32 @@ aggregates:
     
   BoundedContextValueObject:
     displayName: BoundedContext value object
+    extends: BoundedContextObject
+    implements: ValueObject
   
   BoundedContextEnumObject:
     displayName: BoundedContext enum object
+    extends: BoundedContextObject
+    implements: EnumObject
   
   AggregateValueObject:
     displayName: Aggregate value object
+    extends: AggregateObject
+    implements: ValueObject
   
   AggregateEnumObject:
     displayName: Aggregate enum object
+    extends: AggregateObject
+    implements: EnumObject
   
   Aggregate:
-    displayName: aggregate
+    displayName: Aggregate
+    implements: ReferenceObject
   
   Entity:
-    displayName: entity
+    displayName: Entity
+    extends: AggregateObject
+    implements: ReferenceObject
 
     
     
