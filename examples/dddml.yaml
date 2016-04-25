@@ -41,11 +41,6 @@ referenceObjects:
 
   DddmlObject:
     displayName: DDDML object 
-      
-    #id:
-    #  name: ObjectId
-    #  type: DddmlObjectId
-    
           
     subtypes:
             
@@ -84,32 +79,33 @@ aggregates:
     
   BoundedContextValueObject:
     displayName: BoundedContext value object
-    extends: BoundedContextObject
-    implements: ValueObject
+    extends: [BoundedContextObject]
+    implements: [ValueObject]
   
   BoundedContextEnumObject:
     displayName: BoundedContext enum object
-    extends: BoundedContextObject
-    implements: EnumObject
+    extends: [BoundedContextObject]
+    implements: [EnumObject]
   
   AggregateValueObject:
     displayName: Aggregate value object
-    extends: AggregateObject
-    implements: ValueObject
+    extends: [AggregateObject]
+    implements: [ValueObject]
   
   AggregateEnumObject:
     displayName: Aggregate enum object
-    extends: AggregateObject
-    implements: EnumObject
+    extends: [AggregateObject]
+    implements: [EnumObject]
   
   Aggregate:
     displayName: Aggregate
-    implements: ReferenceObject
+    extends: [BoundedContextObject]
+    implements: [ReferenceObject]
   
   Entity:
     displayName: Entity
-    extends: AggregateObject
-    implements: ReferenceObject
+    extends: [AggregateObject]
+    implements: [ReferenceObject]
 
     
     
