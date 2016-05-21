@@ -11,6 +11,8 @@ aggregates:
       name: Id
       type: string
       length: 50
+      arbitrary: true
+      isServerSideGenerated: true
       
     properties:
     
