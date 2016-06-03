@@ -37,7 +37,9 @@ aggregates:
         
       YearPlans:
         itemType: YearPlan
-        
+      
+      Loves:
+        type: PersonalName
     
     entities:
       
