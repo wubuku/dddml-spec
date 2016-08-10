@@ -120,3 +120,18 @@ aggregates:
 
 
 
+# --------------- aggregate ---------------
+  Team:
+    id:
+      name: TeamName
+      type: string
+      
+    properties:
+      Description:
+        type: string
+        
+      Players:
+        itemType: PersonalName
+      #Mascots
+      #  itemType: string
+      
