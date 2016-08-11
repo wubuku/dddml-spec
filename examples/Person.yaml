@@ -132,6 +132,6 @@ aggregates:
         
       Players:
         itemType: PersonalName
-      #Mascots
-      #  itemType: string
+      Mascots:
+        itemType: string
       
