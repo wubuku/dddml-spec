@@ -72,6 +72,8 @@ aggregates:
                 
     discriminator: ImageType
 
+    discriminatorValue: "*"
+    
     subtypes:
         
       ProductImage:
