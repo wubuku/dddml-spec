@@ -7,7 +7,6 @@
 valueObjects:
 
   # ------------------------------
-  # Value Type Name      
   PersonalName:
   
     properties:
@@ -17,6 +16,17 @@ valueObjects:
       LastName:  
         description: Last Name
         length: 50
+    
+  # ------------------------------
+  Contact:
+    
+    properties:
+      PersonalName:
+        type: PersonalName
+      PhoneNumber:
+        type: string
+      Address:
+        type: string
     
 # ------------------------------
 aggregates:
@@ -41,6 +51,9 @@ aggregates:
       Loves:
         type: PersonalName
     
+      EmergencyContact:
+        type: Contact
+      
     entities:
       
       YearPlan:
