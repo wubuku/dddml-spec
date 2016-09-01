@@ -54,6 +54,11 @@ aggregates:
       EmergencyContact:
         type: Contact
       
+      CreatedBy:
+        type: string
+      UpdatedBy:
+        type: string
+        
     entities:
       
       YearPlan:
@@ -76,6 +81,11 @@ aggregates:
             
           MonthPlans:
             itemType: MonthPlan
+            
+          CreatedBy:
+            type: string
+          UpdatedBy:
+            type: string
             
         entities:
           
@@ -102,6 +112,11 @@ aggregates:
               
               DayPlans:
                 itemType: DayPlan 
+                        
+              CreatedBy:
+                type: string
+              UpdatedBy:
+                type: string
                 
             entities:
 
@@ -128,7 +143,10 @@ aggregates:
                     type: string
                     length: 500
 
-
+                  CreatedBy:
+                    type: string
+                  UpdatedBy:
+                    type: string
             
 
 
