@@ -1,0 +1,286 @@
+#%DDDML 0.1
+---
+
+# ++++++++++++++++++++++++++++++++++++++        
+valueObjects:
+
+  # ----------------------------
+  ServiceInterfaceId:
+
+    properties:
+    
+      ClientContextId:
+        type: string
+        length: 50
+
+      InterfaceId:
+        type: string
+        length: 50
+        
+      InterfaceVersion:
+        type: string
+        length: 20
+      
+  # ----------------------------
+  ContextAppId:
+ 
+    properties:
+    
+      ContextId:
+        type: string
+        length: 50
+
+      AppId:
+        type: string
+        length: 50
+
+  # ----------------------------
+  TenentContextUseId:
+ 
+    properties:
+    
+      TenantId:
+        type: string
+        length: 50
+     
+      ContextId:
+        type: string
+        length: 50
+
+  # ----------------------------
+  ServiceInjectionId:
+    
+    properties:
+
+      TenantId:
+        type: string
+        length: 50
+    
+      ServiceInterfaceId:
+        type: ServiceInterfaceId
+
+
+  # ----------------------------
+  ServicePluginId:
+ 
+    properties:
+
+      TenantId:
+        type: string
+        length: 50
+    
+      ServiceInterfaceId:
+        type: ServiceInterfaceId
+        
+      ServiceContextAppId:
+        type: ContextAppId
+
+        
+  # ----------------------------
+  ContextDataSourceUseId:
+ 
+    properties:
+    
+      ContextId:
+        type: string
+        length: 50
+        
+      DataSourceType:
+        type: string
+        length: 20
+
+  # ----------------------------
+  TenantContextDataSourceUseId:
+ 
+    properties:
+    
+      TenantId:
+        type: string
+        length: 50
+     
+      ContextId:
+        type: string
+        length: 50
+        
+      DataSourceType:
+        type: string
+        length: 20
+
+        
+# ++++++++++++++++++++++++++++++++++++++        
+aggregates:
+  
+  # ----------------------------
+  Context:
+  
+    id:
+      name: ContextId
+      type: string
+      length: 50
+    
+    properties:
+          
+      RequiredServiceInterfaceIds:
+        itemType: ServiceInterfaceId
+
+      SupportedPluginInterfaceIds:
+        itemType: ServiceInterfaceId
+
+        
+  # ----------------------------
+  ContextApp:
+     
+    id:
+      name: ContextAppId
+      type: ContextAppId
+     
+    properties:
+    
+      BaseUriTemplate:
+        type: string
+    
+      GlobalAppId:
+        type: string
+        length: 50
+      
+      ImplementedInterfaceIds: 
+        itemType: ServiceInterfaceId
+        
+      TenantId:
+        type: string
+        length: 50
+
+  # ----------------------------
+  Tenant:
+ 
+   id:
+     name: TenantId
+     type: string
+     length: 50
+   
+   properties:
+     
+     Hosts:
+       itemType: string
+
+  # ----------------------------
+  DataSource:
+    id:
+      name: DataSourceId
+      type: string
+    
+    properties:
+    
+      DataSourceType:
+        type: string
+        length: 20
+      
+      DatabaseName:
+        type: string
+        length: 50
+     
+      SchemaName:
+        type: string
+        length: 50
+     
+      ContextId:
+        type: string
+        length: 50
+      
+      TenantId:
+        type: string
+        length: 50
+    
+    discriminator: DataSourceType
+    
+    subtypes:
+    
+      MongoDBDataSource:
+        discriminatorValue: "MongoDB"
+        
+      MySqlDataSource:
+        discriminatorValue: "MySQL"
+        
+      SqlServerDataSource:
+        discriminatorValue: "SqlServer"
+        
+        
+  # ----------------------------
+  ServiceInterface:
+  
+    id:
+      name: ServiceInterfaceId
+      type: ServiceInterfaceId
+
+    properties:
+
+      DescriptionLanguage:
+        type: string
+        length: 50
+     
+      DescriptionUri:
+        type: string
+
+  # ----------------------------
+  ServiceInjection:
+    
+    id:
+      name: ServiceInjectionId
+      type: ServiceInjectionId
+    
+    properties:
+    
+      ServiceContextAppId:
+        type: ContextAppId
+      
+    
+  # ----------------------------
+  ServicePlugin:
+  
+    id:
+      name: ServicePluginId
+      type: ServicePluginId
+
+  # ----------------------------
+  TenentContextUse:
+    
+    id:
+      name: TenentContextUseId
+      type: TenentContextUseId
+     
+    properties:
+    
+      Initialized:
+        type: bool
+      
+  # ----------------------------
+  ContextDataSourceUse:
+ 
+    id: 
+      name: ContextDataSourceUseId
+      type: ContextDataSourceUseId
+  
+    properties:
+    
+      IsTeanantDataSourceSeparated:
+        type: bool
+  
+      DataSourceId:
+        type: string
+
+  # ----------------------------
+  TenantContextDataSourceUse:
+ 
+    id:
+      name: TenantContextDataSourceUseId
+      type: TenantContextDataSourceUseId
+    
+    properties:
+    
+      Initialized:
+        type: bool
+     
+      DataSourceId:
+        type: string
+
+
