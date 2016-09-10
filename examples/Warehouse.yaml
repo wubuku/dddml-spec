@@ -1,0 +1,83 @@
+#%DDDML 0.1
+
+---
+
+# ------------------------------
+aggregates:
+
+    # --------------- aggregate ---------------
+    Warehouse:
+      
+      id:
+        name: WarehouseId
+        type: string
+
+      properties:
+
+        Name:
+          type: string
+          
+        Description:
+          type: string
+
+        IsInTransit:
+          type: bool
+          
+        #c_location_id numeric(10,0) NOT NULL,
+
+        #Separator # character(1) NOT NULL,
+
+        #m_warehousesource_id numeric(10,0),
+
+        #replenishmentclass character varying(60),
+
+          
+    # --------------- aggregate ---------------
+    Locator:
+
+      id:
+        name: LocatorId
+        type: string
+
+      properties:
+
+        WarehouseId:
+          type: string
+          notNull: true
+
+        ParentLocatorId:
+          type: string
+
+        LocatorType:
+          type: string
+
+        PriorityNumber:
+          type: string
+
+        IsDefault:
+          type: bool
+
+        X:
+          type: string
+
+        Y:
+          type: string
+
+        Z:
+          type: string
+
+
+# -------------------------------------
+
+trees:
+    
+    LocatorTree:
+    
+      nodeContentType: Locator
+      
+      parentId: ParentLocatorId
+      
+      rootParentIdValues: [null, ""]
+        
+        
+          

@@ -1,0 +1,84 @@
+#%DDDML 0.1
+
+---
+# ------------------------------
+valueObjects:
+
+    # --------------- valueObject ---------------
+    
+    OrganizationStructureId:
+      
+      properties:
+        
+        OrganizationStructureTypeId:
+          referenceType: OrganizationStructureType
+          
+        ParentId:
+          referenceType: Organization
+
+        SubsidiaryId:
+          referenceType: Organization
+
+
+# ------------------------------
+aggregates:
+
+    # --------------- aggregate ---------------
+    Organization:
+      
+      id:
+        name: OrganizationId
+        type: string
+
+      properties:
+
+        Name:
+          type: string
+          
+        Description:
+          type: string
+          
+        Type:
+          type: string
+
+        IsSummary:
+          type: bool
+
+        # ad_replicationstrategy_id numeric,
+
+          
+    # --------------- aggregate ---------------
+    OrganizationStructureType:
+    
+      id: 
+        name: Id
+        type: string
+    
+          
+    # --------------- aggregate ---------------
+    OrganizationStructure:
+
+      id:
+        name: Id
+        type: OrganizationStructureId
+
+      # properties:
+
+
+# -------------------------------------
+
+trees:
+    
+    OrganizationTree:
+    
+      nodeContentType: Organization
+      
+      structureType: OrganizationStructure
+      
+      parentId: Id.ParentId
+      
+      childId: Id.SubsidiaryId
+      
+      rootParentIdValues: [""]
+
+      
