@@ -54,6 +54,9 @@ aggregates:
       EmergencyContact:
         type: Contact
       
+      Email:
+        type: Email
+      
       CreatedBy:
         type: string
       UpdatedBy:
