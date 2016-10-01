@@ -1,0 +1,60 @@
+#%DDDML 0.1
+
+---
+
+# ------------------------------
+aggregates:
+
+  Mom:
+            
+    id:
+      name: Id
+      type: string
+      length: 50
+      
+    properties:
+    
+      StartTime:
+        type: DateTime
+          
+      EndTime:
+        type: DateTime
+        
+      ChairPerson:
+        type: string
+      
+      DiscussionLines:
+        itemType: DiscussionLine
+        
+      ParticipantLines:
+        itemType: ParticipantLine
+          
+    # ------------------------------
+    # Nested Entities    
+    entities: 
+    
+      # ------------------------------
+      DiscussionLine:
+        
+        id: 
+          name: LineNumber
+          type: string
+          length: 50
+        
+        properties:
+        
+          Description: 
+            type: string  
+
+      ParticipantLine:
+      
+        id:
+          name: Name
+          type: string
+          length: 50
+          
+        properties:
+          
+          Company:
+            type: string
+            
