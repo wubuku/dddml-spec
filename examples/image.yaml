@@ -54,7 +54,7 @@ aggregates:
       UpdatedAt:
         type: DateTime  
       Version:
-        type: int
+        type: long
         
       # -----------------------
       ImageType:
