@@ -38,6 +38,7 @@ aggregates:
       id:
         name: LocatorId
         type: string
+        constraints: [numericDashAlphabetic]
 
       properties:
 
