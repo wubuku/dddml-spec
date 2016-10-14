@@ -43,7 +43,8 @@ aggregates:
       properties:
 
         WarehouseId:
-          type: string
+          #type: string
+          referenceType: Warehouse
           notNull: true
 
         ParentLocatorId:
