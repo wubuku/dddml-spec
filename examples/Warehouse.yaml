@@ -23,15 +23,16 @@ aggregates:
         IsInTransit:
           type: bool
           
+        Locators:
+          itemType: Locator
+          inverseOf: Warehouse
+          
         #c_location_id numeric(10,0) NOT NULL,
-
         #Separator # character(1) NOT NULL,
-
         #m_warehousesource_id numeric(10,0),
-
         #replenishmentclass character varying(60),
 
-          
+        
     # --------------- aggregate ---------------
     Locator:
 
@@ -45,6 +46,7 @@ aggregates:
         WarehouseId:
           #type: string
           referenceType: Warehouse
+          referenceName: Warehouse
           notNull: true
 
         ParentLocatorId:
