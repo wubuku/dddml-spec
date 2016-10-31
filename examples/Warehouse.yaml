@@ -84,4 +84,34 @@ trees:
       rootParentIdValues: [null, ""]
         
         
+services:
+  
+    MovementService:
+  
+      methods:
+      
+        MoveInSameHouse:
+      
+          parameters:
           
+            SourceLocatorId:
+              referenceType: Locator
+          
+            TargetLocatorId:
+              referenceType: Locator
+              
+            ProductId:
+              type: string
+          
+            Amount:
+              type: int
+          
+          return:
+            type: string
+            name: MovementId
+            
+        #authorizationEnabled: true
+        #requiredRoles: [xxxx]
+    
+            
+        
