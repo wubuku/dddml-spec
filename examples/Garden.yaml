@@ -24,7 +24,29 @@ aggregates:
       
       Buildings:
         itemType: Building
-          
+
+    methods:
+      
+      RenameBuilding:
+        parameters:
+          GardenId:
+            type: string
+            isAggregateId: true
+          GardenVersion:
+            type: long
+            isAggregateVersion: true
+          BuildingNumber:
+            type: string
+          BuildingName:
+            type: string
+          CommandId:
+            type: string
+            isCommandId: true
+          RequesterId:
+            type: long
+            isRequesterId: true
+
+    
     # ------------------------------
     # Nested Entities    
     entities: 
