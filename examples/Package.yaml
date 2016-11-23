@@ -1,0 +1,122 @@
+#%DDDML 0.1
+---
+
+# ---------------------------------  
+aggregates:
+
+
+  # ---------------------------------  
+  Package:
+    immutable: True
+    implements: [Article]
+
+    id:
+      name: PackageId
+      type: long
+    
+    properties:
+    
+      RowVersion:
+        type: long
+        
+      PackageParts:
+        itemType: PackagePart
+
+    reservedProperties:
+      version: RowVersion
+
+    # -----------------------------
+    entities:
+
+      # -----------------------------      
+      PackagePart:
+        implements: [Article]
+
+        id:
+          name: PartId
+          type: long
+
+        # outerId:
+        #   name: ...
+        globalId:
+          name: PackagePartId
+
+        properties:
+        
+          RowVersion:
+            type: long
+
+          ParentPackagePartId:
+            referenceType: PackagePart
+            referenceName: ParentPackagePart
+          
+          #ChildPackageParts:
+          #  itemType: PackagePart
+          #  inverseOf: ParentPackagePart
+
+        reservedProperties:
+          version: RowVersion
+          
+          
+    # -----------------------------        
+    enumObjects:
+
+      PackageType:
+        baseType: int
+          
+        values:
+          Piece:
+            intValue: 1
+          Box:
+            intValue: 2
+          BigBox:
+            intValue: 3
+
+      PackagePartType:
+        baseType: int
+        
+        values:
+          Piece:
+            intValue: 1
+          Box:
+            intValue: 2
+          Lot:
+            intValue: 4
+
+            
+            
+# ---------------------------------  
+referenceObjects:
+  
+  Article:
+    
+    properties:
+    
+      SerialNumber:
+        type: string
+
+      MaterialNumber:
+        type: string
+
+      CustomerNumber:
+        type: string
+
+      WorkOrderNumber:
+        type: string
+
+      LotNumber:
+        type: string
+        
+      Rank:
+        type: string
+      
+      Version:
+        type: String
+
+      Quantity:
+        type: int
+
+      IsMixed:
+        type: bool
+
+        
