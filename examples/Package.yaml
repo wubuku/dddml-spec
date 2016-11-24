@@ -111,7 +111,7 @@ referenceObjects:
         type: string
       
       Version:
-        type: String
+        type: string
 
       Quantity:
         type: int
