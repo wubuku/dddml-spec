@@ -50,7 +50,7 @@ aggregates:
             type: long
             
           PackagePartType:
-            type: PackageType
+            type: PackagePartType
 
           ParentPackagePartId:
             referenceType: PackagePart
