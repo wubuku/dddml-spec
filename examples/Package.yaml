@@ -19,6 +19,9 @@ aggregates:
       RowVersion:
         type: long
         
+      PackageType:
+        type: PackageType
+        
       PackageParts:
         itemType: PackagePart
 
@@ -45,6 +48,9 @@ aggregates:
         
           RowVersion:
             type: long
+            
+          PackagePartType:
+            type: PackageType
 
           ParentPackagePartId:
             referenceType: PackagePart
@@ -115,6 +121,7 @@ referenceObjects:
 
       Quantity:
         type: int
+        notNull: True
 
       IsMixed:
         type: bool
