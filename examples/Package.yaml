@@ -56,9 +56,9 @@ aggregates:
             referenceType: PackagePart
             referenceName: ParentPackagePart
           
-          #ChildPackageParts:
-          #  itemType: PackagePart
-          #  inverseOf: ParentPackagePart
+          ChildPackageParts:
+            itemType: PackagePart
+            inverseOf: ParentPackagePart
 
         reservedProperties:
           version: RowVersion
