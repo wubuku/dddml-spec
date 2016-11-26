@@ -25,6 +25,12 @@ aggregates:
       PackageParts:
         itemType: PackagePart
 
+      RootPackageParts:
+        itemType: PackagePart
+        isDerived: True
+        filter:
+          CSharp: "e => e.ParentPackagePartId == 0"
+      
     reservedProperties:
       version: RowVersion
 
