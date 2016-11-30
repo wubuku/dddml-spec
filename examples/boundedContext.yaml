@@ -1,0 +1,188 @@
+#%DDDML 0.1
+---
+
+configuration:
+
+  boundedContextName: "DddmlTests"
+  
+  defaultModule: "Dddml.T4.Templates.Tests.Generated"
+
+  genericTypes: ["TAccountId", "TQuantity"]
+  isGenericTypeAsType: true
+  baseUri: "/api"
+  
+  valueObjectBaseTypes:
+    "Email": "string"
+
+  defaultReservedProperties:
+    active: Active
+    createdBy: CreatedBy
+    createdAt: CreatedAt
+    updatedBy: UpdatedBy
+    updatedAt: UpdatedAt
+    deleted: Deleted
+    version: Version
+    
+  metadata:
+    
+    HttpServicesAuthorizationEnabled: false
+    
+    MvoUsingRViewAsMView: true
+    MvoStateDatabaseTableNameFormat: "{0}s"
+    MvoHttpServiceResourceCollectionNameFormat: "{0}s"
+    MvoClrAggregateDomainSubNamespaceName: "MViews"
+    MvoJavaAggregateDomainSubPackageName: "mviews"
+    
+    ClrDomainServiceSubNamespaceName: "Services"
+    ClrHttpServiceSetRequesterIdAttributeEnabled: false
+    ClrHttpServiceJsonContractResolver: "Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver"
+    ClrHttpServiceJsonConverters: [
+        "Dddml.Wms.HttpServices.JsonConverters.LongConverter",
+        "Dddml.Wms.HttpServices.JsonConverters.DecimalConverter"]
+        
+    ClrRamlVersion: "0.8"
+    ClrRamlClientNamespace: "Dddml.T4.Templates.Tests.Generated.HttpServices.ClientProxies.Raml"
+    ClrRamlClientMainClassName: "DddmlTestsRamlClient"
+
+    TypeScriptJsonUsingCamelCasePropertyName: true
+
+    
+  clr:
+    specializationNamespace: "Dddml.T4.Templates.Tests.Specialization"
+    isUsingSeparatedDomainAggregateNamespace: true
+    domainAssembly: "Dddml.T4.Templates.Tests"
+    serviceAssembly: "Dddml.T4.Templates.Tests"
+  
+  cSharp: 
+    defaultUserIdType: "long"
+    
+  java:
+  
+    boundedContextPackage: "org.dddml.templates.tests"
+    specializationPackage: "org.dddml.templates.tests.specialization"
+    isUsingSeparatedDomainAggregatePackage: false
+    defaultUserIdType: "string"
+    #JavaSerializationAnnotationTypes: {}
+    
+    typeMappings: 
+      "bool": "Boolean"
+      "bool?": "Boolean"
+      "DateTime": "Date"
+      "DateTime?": "Date"
+      "decimal": "BigDecimal"
+      "decimal?": "BigDecimal"
+      "int": "Integer"
+      "int?": "Integer"
+      "long": "Long"
+      "long?": "Long"
+      "string": "String"
+      "String": "String"
+   
+    typePackages:
+      "BigDecimal": "java.math"
+      "Date": "java.util"
+      "Money": "org.joda.money"
+      
+  php:
+  
+    boundedContextNamespace: "Dddml\\T4\\Templates\\Tests"
+    specializationNamespace: "Dddml"
+    defaultUserIdType: "string"
+    isUsingSeparatedDomainAggregateNamespace: false
+    
+    typeMappings:
+      "bool": "boolean"
+      "bool?": "boolean"
+      "DateTime": "\\DateTime"
+      "DateTime?": "\\DateTime"
+      "decimal": "Decimal"
+      "decimal?": "Decimal"
+      "int": "integer"
+      "int?": "integer"
+      "long": "Long"
+      "long?": "Long"
+      "Money": "Money"
+      "string": "string"
+    
+    serializationAnnotationTypes:
+      "bool": "boolean"
+      "bool?": "boolean"
+      "int": "integer"
+      "int?": "integer"
+      "string": "string"
+      "decimal": "Dddml\\Serializer\\Type\\Decimal"
+      "decimal?": "Dddml\\Serializer\\Type\\Decimal"
+      "long": "Dddml\\Serializer\\Type\\Long"
+      "long?": "Dddml\\Serializer\\Type\\Long"
+      "Money": "Dddml\\Serializer\\Type\\Money"
+      "DateTime": "DateTime"
+      "DateTime?": "DateTime"
+      
+    typeNamespaces:
+      "Money": "NodaMoney"
+      
+    defaultFieldTypes:
+      "bool": "CheckboxType"
+      "bool?": "CheckboxType"
+      "DateTime": "DateTimeType"
+      "DateTime?": "DateTimeType"
+      "decimal": "NumberType"
+      "decimal?": "NumberType"
+      "int": "IntegerType"
+      "int?": "IntegerType"
+      "long": "IntegerType"
+      "long?": "IntegerType"
+      "string": "TextType"
+      "Money": "MoneyType"
+        
+  typeScript:
+  
+    specializationNamespace: "Dddml"
+    isUsingSeparatedDomainAggregateNamespace: false
+    boundedContextNamespace: "Dddml.T4.Templates.Php.Tests"
+    
+    typeNamespaces:
+      "Money": "NodaMoney"
+  
+    typeMappings:
+      "bool": "boolean"
+      "bool?": "boolean"
+      "DateTime": "string"
+      "DateTime?": "string"
+      "decimal": "string"
+      "decimal?": "string"
+      "int": "number"
+      "int?": "number"
+      "float": "number"
+      "double": "number"
+      "long": "string"
+      "long?": "string"
+      "Money": "Money"
+      "string": "string"
+            
+  hibernate:
+  
+    hibernateTypes:
+      Money:
+        mappingType: "org.dddml.wms.domain.hibernate.usertypes.MoneyType"
+        propertyNames: ["Amount", "Currency"] 
+        propertyJavaTypes: [BigDecimal", "String"]
+        
+  nHibernate:
+    
+    nHibernateTypes:
+      Money:
+        mappingType: "Dddml.Wms.Services.Domain.NHibernate.NodaMoneyType, Dddml.Wms.Services"
+        propertyNames: ["Amount", "Currency"]
+        propertyTypes: ["decimal", "string"]
+
+  aggregates:
+  
+    Garden:
+    
+      metadata:
+        CascadeStateEvent: true
+        #SoftDeleteCurrentState: true
+
+        
+        
