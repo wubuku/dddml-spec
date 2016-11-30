@@ -37,8 +37,9 @@ configuration:
     ClrHttpServiceSetRequesterIdAttributeEnabled: false
     ClrHttpServiceJsonContractResolver: "Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver"
     ClrHttpServiceJsonConverters: [
-        "Dddml.Wms.HttpServices.JsonConverters.LongConverter",
-        "Dddml.Wms.HttpServices.JsonConverters.DecimalConverter"]
+        "Dddml.T4.Templates.Tests.HttpServices.JsonConverters.LongConverter",
+        "Dddml.T4.Templates.Tests.HttpServices.JsonConverters.DecimalConverter"]
+    #ClrHttpServiceDtoJObjectMapperAssembly: ...
         
     ClrRamlVersion: "0.8"
     ClrRamlClientNamespace: "Dddml.T4.Templates.Tests.Generated.HttpServices.ClientProxies.Raml"
@@ -48,11 +49,17 @@ configuration:
 
     
   clr:
+  
     specializationNamespace: "Dddml.T4.Templates.Tests.Specialization"
     isUsingSeparatedDomainAggregateNamespace: true
     domainAssembly: "Dddml.T4.Templates.Tests"
     serviceAssembly: "Dddml.T4.Templates.Tests"
-  
+    
+    clrValueTypes: ["Money"]
+    
+    typeNamespaces:
+    #  "Money": "NodaMoney"
+
   cSharp: 
     defaultUserIdType: "long"
     
@@ -118,8 +125,8 @@ configuration:
       "DateTime": "DateTime"
       "DateTime?": "DateTime"
       
-    typeNamespaces:
-      "Money": "NodaMoney"
+    #typeNamespaces:
+    #  "Money": "NodaMoney"
       
     defaultFieldTypes:
       "bool": "CheckboxType"
@@ -166,7 +173,7 @@ configuration:
       Money:
         mappingType: "org.dddml.wms.domain.hibernate.usertypes.MoneyType"
         propertyNames: ["Amount", "Currency"] 
-        propertyJavaTypes: [BigDecimal", "String"]
+        propertyTypes: ["decimal", "string"]
         
   nHibernate:
     
