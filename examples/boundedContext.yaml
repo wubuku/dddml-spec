@@ -40,9 +40,9 @@ configuration:
         "Dddml.T4.Templates.Tests.HttpServices.JsonConverters.LongConverter",
         "Dddml.T4.Templates.Tests.HttpServices.JsonConverters.DecimalConverter"]
     #ClrHttpServiceDtoJObjectMapperAssembly: ...
-        
+
     ClrRamlVersion: "0.8"
-    ClrRamlClientNamespace: "Dddml.T4.Templates.Tests.Generated.HttpServices.ClientProxies.Raml"
+    ClrRamlClientSubNamespace: "HttpServices.ClientProxies.Raml"
     ClrRamlClientMainClassName: "DddmlTestsRamlClient"
 
     JavaRestfulClientPackage: "org.dddml.templates.tests.rest"
