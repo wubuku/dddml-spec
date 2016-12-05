@@ -98,7 +98,7 @@ aggregates:
             
             
 # ---------------------------------  
-referenceObjects:
+superObjects:
   
   Article:
     
