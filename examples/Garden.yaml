@@ -102,4 +102,17 @@ aggregates:
                 type: string   
               Description:
                 type: string
+                
+            # --------------    
+            methods:
 
+              RenameRoom:
+                parameters:
+                  GardenVersion:
+                    type: long
+                    isAggregateVersion: true
+                  RoomName:
+                    type: string
+
+                    
+                    
