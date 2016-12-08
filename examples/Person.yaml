@@ -11,9 +11,11 @@ valueObjects:
   
     properties:
       FirstName:
+        type: string
         description: First Name
         length: 50
       LastName:  
+        type: string
         description: Last Name
         length: 50
     

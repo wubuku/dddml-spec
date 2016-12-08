@@ -12,6 +12,7 @@ aggregates:
     
     id:
       name: Id
+      type: string
     
     properties:
       
@@ -44,6 +45,7 @@ aggregates:
           # 本地的 id
           #local: true
           # id 的值可以任意取（arbitrary）
+          type: string
           arbitrary: True
         
         properties: 

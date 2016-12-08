@@ -148,7 +148,8 @@ configuration:
     specializationNamespace: "Dddml"
     isUsingSeparatedDomainAggregateNamespace: false
     boundedContextNamespace: "Dddml.T4.Templates.Php.Tests"
-    
+    defaultUserIdType: "string"
+
     typeNamespaces:
       "Money": "NodaMoney"
   
