@@ -16,10 +16,6 @@ aggregates:
       Balance:
         genericType: TQuantity
         
-      #TestReferenceToEntityInAnotherAggregateInst:
-      #  type: PackagePartId
-      #  referenceType: PackagePart
-        
       #Paren  ountId:
       #  genericType: TAccountId
       

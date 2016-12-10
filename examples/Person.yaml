@@ -43,6 +43,10 @@ aggregates:
     
     properties:
     
+      RefToEntInAnotherAggInst:
+        type: PackagePartId
+        referenceType: PackagePart
+      
       BirthDate:
         type: DateTime
         description: 出生日期
