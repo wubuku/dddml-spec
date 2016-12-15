@@ -70,6 +70,28 @@ aggregates:
         Z:
           type: string
 
+    # ---------------------------
+    Storage:
+    
+      id:
+        name: StorageId
+        type: StorageId
+        
+      properties:
+        Quantity:
+          type: int
+          notNull: true
+        
+      # ---------------------------  
+      valueObjects:
+      
+        StorageId: 
+          properties:
+            ProductId:
+              type: string
+            LocatorId:
+              type: string
+              referenceType: Locator
 
 # -------------------------------------
 
@@ -103,7 +125,7 @@ services:
             ProductId:
               type: string
           
-            Amount:
+            Quantity:
               type: int
           
           return:
