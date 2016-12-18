@@ -93,6 +93,60 @@ aggregates:
               type: string
               referenceType: Locator
 
+
+    # ---------------------------  
+    MovementProcess:
+      id:
+        name: MovementProcessId
+        type: string
+        
+      properties:
+      
+        SourceLocatorId:
+          referenceType: Locator
+      
+        TargetLocatorId:
+          referenceType: Locator
+          
+        ProductId:
+          type: string
+      
+        Quantity:
+          type: int
+          
+        IsInSameHouse:
+          type: bool
+        
+        ProcessStatus:
+          type: string
+          
+        MovementEntries:
+          itemType: MovementEntry
+        
+      entities:
+      
+        MovementEntry:
+          id:
+            name: EntryName
+            type: string
+          globalId: 
+            name: MovementEntryId
+          
+          properties:
+            
+            LocatorId:
+              referenceType: Locator
+              
+            Quantity:
+              type: int
+            
+            TaskState:
+              type: string
+            
+            ErrorName:
+              type: string
+            
+
 # -------------------------------------
 
 trees:
