@@ -78,7 +78,8 @@ aggregates:
         type: StorageId
         
       properties:
-        Quantity:
+      
+        Quantity:        
           type: int
           notNull: true
         
@@ -95,9 +96,9 @@ aggregates:
 
 
     # ---------------------------  
-    MovementProcess:
+    MovementTransaction:
       id:
-        name: MovementProcessId
+        name: MovementTransactionId
         type: string
         
       properties:
@@ -117,12 +118,17 @@ aggregates:
         IsInSameHouse:
           type: bool
         
-        ProcessStatus:
+        ProcessState:
+          type: string
+          
+        ErrorName:
+          type: string
+        Message:
           type: string
           
         MovementEntries:
           itemType: MovementEntry
-        
+          
       entities:
       
         MovementEntry:
@@ -137,8 +143,12 @@ aggregates:
             LocatorId:
               referenceType: Locator
               
+            ProductId:
+              type: string
+
             Quantity:
               type: int
+              notNull: true
             
             TaskState:
               type: string
@@ -184,7 +194,7 @@ services:
           
           return:
             type: string
-            name: MovementId
+            name: MovementTransactionId
             
         #authorizationEnabled: true
         #requiredRoles: [xxxx]
