@@ -149,6 +149,10 @@ aggregates:
             Quantity:
               type: int
               notNull: true
+              
+            StorageQuantity:
+              type: int
+              notNull: true
             
             TaskState:
               type: string
