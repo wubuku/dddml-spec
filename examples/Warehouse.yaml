@@ -153,6 +153,12 @@ aggregates:
             TaskState:
               type: string
             
+            StorageVersion:
+              type: long
+              
+            TaskCommandId:
+              type: string
+              
             ErrorName:
               type: string
             
