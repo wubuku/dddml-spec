@@ -24,7 +24,7 @@ configuration:
     version: Version
     
   namedStringPatterns:
-    "GlossaryTerm": "^[\\(A-Za-z0-9][A-Za-z0-9-\\(\\)\\'\\s]*[A-Za-z0-9-\\(\\)\\']"
+    "GlossaryTerm": "^[\\(A-Za-z0-9][A-Za-z0-9-\\(\\)\\'.\\s]*[A-Za-z0-9-\\(\\)\\.']"
     
   metadata:
     
