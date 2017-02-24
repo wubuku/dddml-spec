@@ -78,12 +78,12 @@ enumObjects:
       
     values:
       Adj:
-        description: Adjective
+        displayName: Adjective
       Adv:
-        description: Adverb 
+        displayName: Adverb 
       V: 
-        description: Verb
+        displayName: Verb
       N:
-        description: Noun
+        displayName: Noun
       
 
