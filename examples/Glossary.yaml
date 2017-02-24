@@ -1,0 +1,89 @@
+#%DDDML 0.1
+---
+
+
+aggregates:
+  
+
+  # ---------------------------------  
+
+  Term:
+    
+    id:
+      name: TermId
+      type: string
+    
+    properties:
+      
+      ContextId:
+        type: string
+        notNull: true
+        # referenceType: Context
+        
+      Expression:
+        type: string
+        constraints: [GlossaryTerm]
+        
+      WordClasses:
+        itemType: PartOfSpeech
+
+      ChineseExpression:
+        type: string
+        
+      Tags:
+        itemType: TermTag
+      
+      Definition:
+        type: string
+        length: 1024
+
+    # -----------------------------
+    entities:
+
+      # -----------------------------      
+      TermTag:     
+
+        id:
+          name: TagId
+          type: string
+          referenceType: Tag
+          
+        properties:
+        
+          Sequence:
+            type: int
+
+          
+  # -----------------------------      
+  
+  Tag:     
+
+    id:
+      name: TagId
+      type: string
+    
+    properties: 
+
+      Name:
+        type: string
+        length: 64
+        constraints: [GlossaryTerm]
+                 
+                 
+# -----------------------------        
+enumObjects:
+
+  PartOfSpeech:
+    baseType: string
+      
+    values:
+      Adj:
+        description: Adjective
+      Adv:
+        description: Adverb 
+      V: 
+        description: Verb
+      N:
+        description: Noun
+      
+
