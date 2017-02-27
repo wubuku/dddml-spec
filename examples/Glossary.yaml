@@ -4,7 +4,19 @@
 
 aggregates:
   
-
+  Context:
+  
+    id:
+      name: ContextId
+      type: string
+      constraints: [alphabeticDashNumeric]
+      
+    properties:
+    
+      Description:
+        type: string
+        length: 255
+        
   # ---------------------------------  
 
   Term:
@@ -18,7 +30,7 @@ aggregates:
       ContextId:
         type: string
         notNull: true
-        # referenceType: Context
+        referenceType: Context
         
       Expression:
         type: string
