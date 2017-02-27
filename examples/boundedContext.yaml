@@ -200,5 +200,18 @@ configuration:
     
       metadata:
         NoEventSourcing: true
+  
+    Term:
+      metadata:
+        CreationWithoutIdEnabled: true
+        HttpPostCreationEnabled: true
+        GeneratingAbstractIdGenerator: true
+
+    Tag:
+      metadata:
+        CreationWithoutIdEnabled: true
+        HttpPostCreationEnabled: true
+        GeneratingAbstractIdGenerator: true
+
         
         

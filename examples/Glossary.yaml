@@ -68,6 +68,10 @@ aggregates:
         type: string
         length: 64
         constraints: [GlossaryTerm]
+      
+      OrganizationId:
+        type: string
+        length: 64
                  
                  
 # -----------------------------        
