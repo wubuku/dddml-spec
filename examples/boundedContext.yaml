@@ -34,7 +34,7 @@ configuration:
     MvoStateDatabaseTableNameFormat: "{0}s"
     MvoHttpServiceResourceCollectionNameFormat: "{0}s"
     #MvoClrAggregateDomainSubNamespaceName: "MViews"
-    MvoJavaAggregateDomainSubPackageName: "mviews"
+    #MvoJavaAggregateDomainSubPackageName: "mviews"
     
     ClrDomainServiceSubNamespaceName: "Services"
     ClrHttpServiceSetRequesterIdAttributeEnabled: false
@@ -71,7 +71,7 @@ configuration:
   
     boundedContextPackage: "org.dddml.templates.tests"
     specializationPackage: "org.dddml.templates.tests.specialization"
-    isUsingSeparatedDomainAggregatePackage: false
+    isUsingSeparatedDomainAggregatePackage: true
     defaultUserIdType: "string"
     #JavaSerializationAnnotationTypes: {}
     
