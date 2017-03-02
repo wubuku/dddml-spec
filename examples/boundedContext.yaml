@@ -33,7 +33,7 @@ configuration:
     MvoUsingRViewAsMView: true
     MvoStateDatabaseTableNameFormat: "{0}s"
     MvoHttpServiceResourceCollectionNameFormat: "{0}s"
-    MvoClrAggregateDomainSubNamespaceName: "MViews"
+    #MvoClrAggregateDomainSubNamespaceName: "MViews"
     MvoJavaAggregateDomainSubPackageName: "mviews"
     
     ClrDomainServiceSubNamespaceName: "Services"
