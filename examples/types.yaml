@@ -1,0 +1,156 @@
+﻿typeDefinitions:
+  blob:
+    name: blob
+    sqlType: LONGBLOB
+    cSharpType: byte[]
+    javaType: java.sql.Blob
+  byte-array:
+    name: byte-array
+    sqlType: LONGBLOB
+    cSharpType: byte[]
+    javaType: byte[]
+  object:
+    name: object
+    sqlType: LONGBLOB
+    cSharpType: object
+    javaType: Object
+  date-time:
+    name: date-time
+    sqlType: DATETIME
+    cSharpType: DateTime?
+    javaType: java.sql.Timestamp
+  date:
+    name: date
+    sqlType: DATE
+    cSharpType: DateTime?
+    javaType: java.sql.Date
+  time:
+    name: time
+    sqlType: TIME
+    cSharpType: DateTime?
+    javaType: java.sql.Time
+  currency-amount:
+    name: currency-amount
+    sqlType: DECIMAL(18,2)
+    cSharpType: decimal?
+    javaType: java.math.BigDecimal
+  currency-precise:
+    name: currency-precise
+    sqlType: DECIMAL(18,3)
+    cSharpType: decimal?
+    javaType: java.math.BigDecimal
+  fixed-point:
+    name: fixed-point
+    sqlType: DECIMAL(18,6)
+    cSharpType: decimal?
+    javaType: java.math.BigDecimal
+  floating-point:
+    name: floating-point
+    sqlType: DOUBLE
+    cSharpType: double?
+    javaType: Double
+  numeric:
+    name: numeric
+    sqlType: DECIMAL(20,0)
+    cSharpType: long?
+    javaType: Long
+  id:
+    name: id
+    sqlType: VARCHAR(20)
+    cSharpType: string
+    javaType: String
+  id-long:
+    name: id-long
+    sqlType: VARCHAR(60)
+    cSharpType: string
+    javaType: String
+  id-vlong:
+    name: id-vlong
+    sqlType: VARCHAR(250)
+    cSharpType: string
+    javaType: String
+  indicator:
+    name: indicator
+    sqlType: CHAR(1)
+    cSharpType: string
+    javaType: String
+  very-short:
+    name: very-short
+    sqlType: VARCHAR(10)
+    cSharpType: string
+    javaType: String
+  short-varchar:
+    name: short-varchar
+    sqlType: VARCHAR(60)
+    cSharpType: string
+    javaType: String
+  long-varchar:
+    name: long-varchar
+    sqlType: VARCHAR(255)
+    cSharpType: string
+    javaType: String
+  very-long:
+    name: very-long
+    sqlType: LONGTEXT
+    cSharpType: string
+    javaType: String
+  comment:
+    name: comment
+    sqlType: VARCHAR(255)
+    cSharpType: string
+    javaType: String
+  description:
+    name: description
+    sqlType: VARCHAR(255)
+    cSharpType: string
+    javaType: String
+  name:
+    name: name
+    sqlType: VARCHAR(100)
+    cSharpType: string
+    javaType: String
+  value:
+    name: value
+    sqlType: VARCHAR(255)
+    cSharpType: string
+    javaType: String
+  credit-card-number:
+    name: credit-card-number
+    sqlType: VARCHAR(255)
+    cSharpType: string
+    javaType: String
+  credit-card-date:
+    name: credit-card-date
+    sqlType: VARCHAR(7)
+    cSharpType: string
+    javaType: String
+  email:
+    name: email
+    sqlType: VARCHAR(320)
+    cSharpType: string
+    javaType: String
+  url:
+    name: url
+    sqlType: VARCHAR(2000)
+    cSharpType: string
+    javaType: String
+  id-ne:
+    name: id-ne
+    sqlType: VARCHAR(20)
+    cSharpType: string
+    javaType: String
+  id-long-ne:
+    name: id-long-ne
+    sqlType: VARCHAR(60)
+    cSharpType: string
+    javaType: String
+  id-vlong-ne:
+    name: id-vlong-ne
+    sqlType: VARCHAR(250)
+    cSharpType: string
+    javaType: String
+  tel-number:
+    name: tel-number
+    sqlType: VARCHAR(60)
+    cSharpType: string
+    javaType: String
