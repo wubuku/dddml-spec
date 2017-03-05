@@ -1,0 +1,63 @@
+﻿!Dddml.Core.Domain.DocumentRoot,%20Dddml.Core,%20Version=1.0.6273.26312,%20Culture=neutral,%20PublicKeyToken=null
+aggregates:
+  Party: &o0
+    name: Party
+    id:
+      name: PartyId
+      entity: *o0
+      type: id-ne
+    properties:
+      PartyTypeId:
+        name: PartyTypeId
+        entity: *o0
+        type: id-ne
+      ExternalId:
+        name: ExternalId
+        entity: *o0
+        type: id
+      PreferredCurrencyUomId:
+        name: PreferredCurrencyUomId
+        entity: *o0
+        type: id-ne
+      Description:
+        name: Description
+        entity: *o0
+        type: very-long
+      StatusId:
+        name: StatusId
+        entity: *o0
+        type: id-ne
+      CreatedDate:
+        name: CreatedDate
+        entity: *o0
+        type: date-time
+      CreatedByUserLogin:
+        name: CreatedByUserLogin
+        entity: *o0
+        type: id-vlong
+      LastModifiedDate:
+        name: LastModifiedDate
+        entity: *o0
+        type: date-time
+      LastModifiedByUserLogin:
+        name: LastModifiedByUserLogin
+        entity: *o0
+        type: id-vlong
+      DataSourceId:
+        name: DataSourceId
+        entity: *o0
+        type: id
+      IsUnread:
+        name: IsUnread
+        entity: *o0
+        type: indicator
+    reservedProperties:
+      active: Active
+      createdBy: CreatedByUserLogin
+      createdAt: CreatedDate
+      updatedBy: LastModifiedByUserLogin
+      updatedAt: LastModifiedDate
+      deleted: Deleted
+      version: Version
+      entity: *o0
+    metadata: !System.Collections.Generic.Dictionary%602[[System.String,%20mscorlib,%20Version=4.0.0.0,%20Culture=neutral,%20PublicKeyToken=b77a5c561934e089],[System.Object,%20mscorlib,%20Version=4.0.0.0,%20Culture=neutral,%20PublicKeyToken=b77a5c561934e089]],%20mscorlib,%20Version=4.0.0.0,%20Culture=neutral,%20PublicKeyToken=b77a5c561934e089 {}
