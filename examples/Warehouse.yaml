@@ -103,28 +103,18 @@ aggregates:
         
       properties:
       
-        SourceLocatorId:
-          referenceType: Locator
-      
-        TargetLocatorId:
-          referenceType: Locator
-          
-        ProductId:
-          type: string
-      
-        Quantity:
-          type: int
-          
-        IsInSameHouse:
-          type: bool
-        
-        ProcessState:
-          type: string
-          
-        ErrorName:
-          type: string
-        Message:
-          type: string
+        #SourceLocatorId:
+        #  referenceType: Locator
+        #TargetLocatorId:
+        #  referenceType: Locator
+        #ProductId:
+        #  type: string
+        #Quantity:
+        #  type: int
+        #IsInSameHouse:
+        #  type: bool
+        #ProcessState:
+        #  type: string
           
         MovementEntries:
           itemType: MovementEntry
@@ -154,19 +144,36 @@ aggregates:
               type: int
               notNull: true
             
-            TaskState:
-              type: string
-            
             StorageVersion:
               type: long
               
             TaskCommandId:
               type: string
               
+            TaskState:
+              type: string
+            
             ErrorName:
               type: string
             
+            #Message:
+            #  type: string
+              
+      metadata:
 
+        # +++++++++++++++++++++++++++++++++++
+        IsEventuallyConsistentProcessAggregate: true
+        ProcessAggregateConfiguration:
+          "ProcessName": "MovementProcess"
+          #"ProcessStatePropertyName": "ProcessState"
+          "ProcessTypePropertyName": "ProcessType"
+          "ProcessTaskEntityName": "MovementEntry"
+          "ProcessTaskStatePropertyName": "TaskState"
+          "ProcessTaskSequenceIdPropertyName": "SequenceId"
+          "ProcessTaskErrorPropertyName": "ErrorName"
+          "ProcessTaskName": "MovementEntryTask"
+
+          
 # -------------------------------------
 
 trees:
@@ -205,6 +212,13 @@ services:
           return:
             type: string
             name: MovementTransactionId
+            
+          metadata:
+          
+            # +++++++++++++++++++++++++++++++++++
+            GeneratingEventuallyConsistentProcessEnabled: true
+            ProcessAggregateName: "MovementTransaction"
+            ProcessAggregateAutoPropertiesEnabled: true
             
         #authorizationEnabled: true
         #requiredRoles: [xxxx]
