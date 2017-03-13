@@ -171,6 +171,7 @@ aggregates:
           "ProcessTaskStatePropertyName": "TaskState"
           "ProcessTaskSequenceIdPropertyName": "SequenceId"
           "ProcessTaskErrorPropertyName": "ErrorName"
+          "ProcessTaskErrorCountPropertyName": "ErrorCount"
           "ProcessTaskName": "MovementEntryTask"
 
           
