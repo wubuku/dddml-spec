@@ -130,32 +130,27 @@ aggregates:
           
           properties:
             
+            # +++++++++++++++++++++++++++++++++
             LocatorId:
               referenceType: Locator
-              
             ProductId:
               type: string
-
             Quantity:
               type: int
               notNull: true
-              
             StorageQuantity:
               type: int
               notNull: true
-            
             StorageVersion:
               type: long
+            # +++++++++++++++++++++++++++++++++
               
             TaskCommandId:
               type: string
-              
             TaskState:
               type: string
-            
             ErrorName:
               type: string
-            
             #Message:
             #  type: string
               
