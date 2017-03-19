@@ -1,0 +1,96 @@
+﻿!Dddml.Core.Domain.DocumentRoot,%20Dddml.Core,%20Version=1.0.6286.39120,%20Culture=neutral,%20PublicKeyToken=null
+aggregates:
+  Agreement: &o0
+    name: Agreement
+    id:
+      name: AgreementId
+      entity: *o0
+      type: id-ne
+    properties:
+      ProductId:
+        name: ProductId
+        entity: *o0
+        type: id
+      PartyIdFrom:
+        name: PartyIdFrom
+        entity: *o0
+        type: id
+      PartyIdTo:
+        name: PartyIdTo
+        entity: *o0
+        type: id
+      RoleTypeIdFrom:
+        name: RoleTypeIdFrom
+        entity: *o0
+        type: id
+      RoleTypeIdTo:
+        name: RoleTypeIdTo
+        entity: *o0
+        type: id
+      AgreementTypeId:
+        name: AgreementTypeId
+        entity: *o0
+        type: id
+      AgreementDate:
+        name: AgreementDate
+        entity: *o0
+        type: date-time
+      FromDate:
+        name: FromDate
+        entity: *o0
+        type: date-time
+      ThruDate:
+        name: ThruDate
+        entity: *o0
+        type: date-time
+      Description:
+        name: Description
+        entity: *o0
+        type: description
+      TextData:
+        name: TextData
+        entity: *o0
+        type: very-long
+    references:
+      PartyIdFrom:
+        name: PartyIdFrom
+        displayName: PARTY-ID-FROM
+        description: From
+        type: Party
+        properties:
+        - PartyIdFrom
+      PartyIdFromAndRoleTypeIdFrom:
+        name: PartyIdFromAndRoleTypeIdFrom
+        displayName: PARTY-ID-FROM and ROLE-TYPE-ID-FROM
+        description: From
+        type: PartyRole
+        properties:
+        - PartyIdFrom
+        - RoleTypeIdFrom
+        foreignKeyName: AGRMNT_FPRTYRLE
+      PartyIdTo:
+        name: PartyIdTo
+        displayName: PARTY-ID-TO
+        description: To
+        type: Party
+        properties:
+        - PartyIdTo
+      PartyIdToAndRoleTypeIdTo:
+        name: PartyIdToAndRoleTypeIdTo
+        displayName: PARTY-ID-TO and ROLE-TYPE-ID-TO
+        description: To
+        type: PartyRole
+        properties:
+        - PartyIdTo
+        - RoleTypeIdTo
+        foreignKeyName: AGRMNT_TPRTYRLE
+    reservedProperties:
+      active: Active
+      createdBy: CreatedBy
+      createdAt: CreatedAt
+      updatedBy: UpdatedBy
+      updatedAt: UpdatedAt
+      deleted: Deleted
+      version: Version
+      entity: *o0
+    metadata: !System.Collections.Generic.Dictionary%602[[System.String,%20mscorlib,%20Version=4.0.0.0,%20Culture=neutral,%20PublicKeyToken=b77a5c561934e089],[System.Object,%20mscorlib,%20Version=4.0.0.0,%20Culture=neutral,%20PublicKeyToken=b77a5c561934e089]],%20mscorlib,%20Version=4.0.0.0,%20Culture=neutral,%20PublicKeyToken=b77a5c561934e089 {}

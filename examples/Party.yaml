@@ -1,4 +1,4 @@
-﻿!Dddml.Core.Domain.DocumentRoot,%20Dddml.Core,%20Version=1.0.6273.26312,%20Culture=neutral,%20PublicKeyToken=null
+﻿!Dddml.Core.Domain.DocumentRoot,%20Dddml.Core,%20Version=1.0.6286.39120,%20Culture=neutral,%20PublicKeyToken=null
 aggregates:
   Party: &o0
     name: Party
@@ -51,6 +51,7 @@ aggregates:
         name: IsUnread
         entity: *o0
         type: indicator
+    references: {}
     reservedProperties:
       active: Active
       createdBy: CreatedByUserLogin
