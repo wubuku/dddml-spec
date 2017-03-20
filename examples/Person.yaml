@@ -69,6 +69,26 @@ aggregates:
       UpdatedBy:
         type: string
         
+    methods:
+      
+      ChangeEmail:
+        parameters:
+          PersonalName:
+            type: PersonalName
+            isAggregateId: true
+          PersonVersion:
+            type: long
+            isAggregateVersion: true
+          NewEmail:
+            type: string
+            constraints: [Email]
+          CommandId:
+            type: string
+            isCommandId: true
+          RequesterId:
+            isRequesterId: true
+
+            
     entities:
       
       YearPlan:
