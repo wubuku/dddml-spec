@@ -51,6 +51,20 @@ aggregates:
         name: TextData
         entity: *o0
         type: very-long
+        
+      PartyRelationships:
+        itemType: PartyRelationship
+        isDerived: true
+        itemMap:
+        - propertyName: RoleTypeIdFrom
+          relativePropertyName: PartyRelationshipId.RoleTypeIdFrom
+        - propertyName: RoleTypeIdTo
+          relativePropertyName: PartyRelationshipId.RoleTypeIdTo
+        - propertyName: PartyIdFrom
+          relativePropertyName: PartyRelationshipId.PartyIdFrom
+        - propertyName: PartyIdTo
+          relativePropertyName: PartyRelationshipId.PartyIdTo
+        
     references:
       PartyIdFrom:
         name: PartyIdFrom
