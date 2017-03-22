@@ -55,7 +55,7 @@ aggregates:
       PartyRelationships:
         itemType: PartyRelationship
         isDerived: true
-        itemMap:
+        itemPropertyMap:
         - propertyName: RoleTypeIdFrom
           relativePropertyName: PartyRelationshipId.RoleTypeIdFrom
         - propertyName: RoleTypeIdTo
