@@ -80,8 +80,8 @@ aggregates:
             type: long
             isAggregateVersion: true
           NewEmail:
-            type: string
-            constraints: [Email]
+            type: Email
+            #constraints: [Email]
           CommandId:
             type: string
             isCommandId: true
