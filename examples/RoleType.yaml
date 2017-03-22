@@ -1,27 +1,33 @@
 ﻿!Dddml.Core.Domain.DocumentRoot,%20Dddml.Core,%20Version=1.0.6290.29785,%20Culture=neutral,%20PublicKeyToken=null
 aggregates:
-  PartyRole: &o0
-    name: PartyRole
+  RoleType: &o0
+    name: RoleType
     id:
-      name: PartyRoleId
+      name: RoleTypeId
       entity: *o0
-      type: PartyRoleId
-    properties: {}
+      type: id-ne
+    properties:
+      ParentTypeId:
+        name: ParentTypeId
+        entity: *o0
+        type: id
+      HasTable:
+        name: HasTable
+        entity: *o0
+        type: indicator
+      Description:
+        name: Description
+        entity: *o0
+        type: description
     references:
-      Party:
-        name: Party
-        displayName: Party
-        type: Party
-        properties:
-        - PartyRoleId.PartyId
-        foreignKeyName: PARTY_RLE_PARTY
-      RoleType:
-        name: RoleType
-        displayName: RoleType
+      ParentTypeId:
+        name: ParentTypeId
+        displayName: PARENT-TYPE-ID
+        description: Parent
         type: RoleType
         properties:
-        - PartyRoleId.RoleTypeId
-        foreignKeyName: PARTY_RLE_ROLE
+        - ParentTypeId
+        foreignKeyName: ROLE_TYPE_PAR
     reservedProperties:
       active: Active
       createdBy: CreatedBy
@@ -31,15 +37,4 @@ aggregates:
       deleted: Deleted
       version: Version
       entity: *o0
-    valueObjects:
-      PartyRoleId:
-        name: PartyRoleId
-        properties:
-          PartyId:
-            name: PartyId
-            type: id-ne
-          RoleTypeId:
-            name: RoleTypeId
-            type: id-ne
-        outerEntity: *o0
     metadata: !System.Collections.Generic.Dictionary%602[[System.String,%20mscorlib,%20Version=4.0.0.0,%20Culture=neutral,%20PublicKeyToken=b77a5c561934e089],[System.Object,%20mscorlib,%20Version=4.0.0.0,%20Culture=neutral,%20PublicKeyToken=b77a5c561934e089]],%20mscorlib,%20Version=4.0.0.0,%20Culture=neutral,%20PublicKeyToken=b77a5c561934e089 {}

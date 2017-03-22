@@ -1,0 +1,124 @@
+﻿!Dddml.Core.Domain.DocumentRoot,%20Dddml.Core,%20Version=1.0.6290.29785,%20Culture=neutral,%20PublicKeyToken=null
+aggregates:
+  PartyRelationship: &o0
+    name: PartyRelationship
+    id:
+      name: PartyRelationshipId
+      entity: *o0
+      type: PartyRelationshipId
+    properties:
+      ThruDate:
+        name: ThruDate
+        entity: *o0
+        type: date-time
+      StatusId:
+        name: StatusId
+        entity: *o0
+        type: id
+      RelationshipName:
+        name: RelationshipName
+        description: Official name of relationship, such as title in a company
+        entity: *o0
+        type: name
+      SecurityGroupId:
+        name: SecurityGroupId
+        entity: *o0
+        type: id-ne
+      PriorityTypeId:
+        name: PriorityTypeId
+        entity: *o0
+        type: id
+      PartyRelationshipTypeId:
+        name: PartyRelationshipTypeId
+        entity: *o0
+        type: id
+      PermissionsEnumId:
+        name: PermissionsEnumId
+        entity: *o0
+        type: id-ne
+      PositionTitle:
+        name: PositionTitle
+        description: The exact word used within the company
+        entity: *o0
+        type: name
+      Comments:
+        name: Comments
+        entity: *o0
+        type: comment
+    references:
+      PartyIdFrom:
+        name: PartyIdFrom
+        displayName: PARTY-ID-FROM
+        description: From
+        type: Party
+        properties:
+        - PartyRelationshipId.PartyIdFrom
+      PartyIdTo:
+        name: PartyIdTo
+        displayName: PARTY-ID-TO
+        description: To
+        type: Party
+        properties:
+        - PartyRelationshipId.PartyIdTo
+      RoleTypeIdFrom:
+        name: RoleTypeIdFrom
+        displayName: ROLE-TYPE-ID-FROM
+        description: From
+        type: RoleType
+        properties:
+        - PartyRelationshipId.RoleTypeIdFrom
+      RoleTypeIdTo:
+        name: RoleTypeIdTo
+        displayName: ROLE-TYPE-ID-TO
+        description: To
+        type: RoleType
+        properties:
+        - PartyRelationshipId.RoleTypeIdTo
+      PartyIdFromAndRoleTypeIdFrom:
+        name: PartyIdFromAndRoleTypeIdFrom
+        displayName: PARTY-ID-FROM and ROLE-TYPE-ID-FROM
+        description: From
+        type: PartyRole
+        properties:
+        - PartyRelationshipId.PartyIdFrom
+        - PartyRelationshipId.RoleTypeIdFrom
+        foreignKeyName: PARTY_REL_FPROLE
+      PartyIdToAndRoleTypeIdTo:
+        name: PartyIdToAndRoleTypeIdTo
+        displayName: PARTY-ID-TO and ROLE-TYPE-ID-TO
+        description: To
+        type: PartyRole
+        properties:
+        - PartyRelationshipId.PartyIdTo
+        - PartyRelationshipId.RoleTypeIdTo
+        foreignKeyName: PARTY_REL_TPROLE
+    reservedProperties:
+      active: Active
+      createdBy: CreatedBy
+      createdAt: CreatedAt
+      updatedBy: UpdatedBy
+      updatedAt: UpdatedAt
+      deleted: Deleted
+      version: Version
+      entity: *o0
+    valueObjects:
+      PartyRelationshipId:
+        name: PartyRelationshipId
+        properties:
+          PartyIdFrom:
+            name: PartyIdFrom
+            type: id-ne
+          PartyIdTo:
+            name: PartyIdTo
+            type: id-ne
+          RoleTypeIdFrom:
+            name: RoleTypeIdFrom
+            type: id-ne
+          RoleTypeIdTo:
+            name: RoleTypeIdTo
+            type: id-ne
+          FromDate:
+            name: FromDate
+            type: date-time
+        outerEntity: *o0
+    metadata: !System.Collections.Generic.Dictionary%602[[System.String,%20mscorlib,%20Version=4.0.0.0,%20Culture=neutral,%20PublicKeyToken=b77a5c561934e089],[System.Object,%20mscorlib,%20Version=4.0.0.0,%20Culture=neutral,%20PublicKeyToken=b77a5c561934e089]],%20mscorlib,%20Version=4.0.0.0,%20Culture=neutral,%20PublicKeyToken=b77a5c561934e089 {}

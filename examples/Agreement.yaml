@@ -1,4 +1,4 @@
-﻿!Dddml.Core.Domain.DocumentRoot,%20Dddml.Core,%20Version=1.0.6286.39120,%20Culture=neutral,%20PublicKeyToken=null
+﻿!Dddml.Core.Domain.DocumentRoot,%20Dddml.Core,%20Version=1.0.6290.29785,%20Culture=neutral,%20PublicKeyToken=null
 aggregates:
   Agreement: &o0
     name: Agreement
@@ -59,6 +59,13 @@ aggregates:
         type: Party
         properties:
         - PartyIdFrom
+      RoleTypeIdFrom:
+        name: RoleTypeIdFrom
+        displayName: ROLE-TYPE-ID-FROM
+        description: From
+        type: RoleType
+        properties:
+        - RoleTypeIdFrom
       PartyIdFromAndRoleTypeIdFrom:
         name: PartyIdFromAndRoleTypeIdFrom
         displayName: PARTY-ID-FROM and ROLE-TYPE-ID-FROM
@@ -75,6 +82,13 @@ aggregates:
         type: Party
         properties:
         - PartyIdTo
+      RoleTypeIdTo:
+        name: RoleTypeIdTo
+        displayName: ROLE-TYPE-ID-TO
+        description: To
+        type: RoleType
+        properties:
+        - RoleTypeIdTo
       PartyIdToAndRoleTypeIdTo:
         name: PartyIdToAndRoleTypeIdTo
         displayName: PARTY-ID-TO and ROLE-TYPE-ID-TO
