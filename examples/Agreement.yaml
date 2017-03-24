@@ -1,4 +1,4 @@
-﻿!Dddml.Core.Domain.DocumentRoot,%20Dddml.Core,%20Version=1.0.6290.29785,%20Culture=neutral,%20PublicKeyToken=null
+﻿!Dddml.Core.Domain.DocumentRoot,%20Dddml.Core,%20Version=1.0.6292.30786,%20Culture=neutral,%20PublicKeyToken=null
 aggregates:
   Agreement: &o0
     name: Agreement
@@ -51,20 +51,21 @@ aggregates:
         name: TextData
         entity: *o0
         type: very-long
-        
       PartyRelationships:
+        name: PartyRelationships
         itemType: PartyRelationship
+        entity: *o0
         isDerived: true
+        isTransient: true
         itemPropertyMap:
         - propertyName: RoleTypeIdFrom
-          relativePropertyName: PartyRelationshipId.RoleTypeIdFrom
+          relatedPropertyName: PartyRelationshipId.RoleTypeIdFrom
         - propertyName: RoleTypeIdTo
-          relativePropertyName: PartyRelationshipId.RoleTypeIdTo
+          relatedPropertyName: PartyRelationshipId.RoleTypeIdTo
         - propertyName: PartyIdFrom
-          relativePropertyName: PartyRelationshipId.PartyIdFrom
+          relatedPropertyName: PartyRelationshipId.PartyIdFrom
         - propertyName: PartyIdTo
-          relativePropertyName: PartyRelationshipId.PartyIdTo
-        
+          relatedPropertyName: PartyRelationshipId.PartyIdTo
     references:
       PartyIdFrom:
         name: PartyIdFrom
