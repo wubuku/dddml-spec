@@ -56,7 +56,6 @@ aggregates:
         itemType: PartyRelationship
         entity: *o0
         isDerived: true
-        isTransient: true
         itemPropertyMap:
         - propertyName: RoleTypeIdFrom
           relatedPropertyName: PartyRelationshipId.RoleTypeIdFrom
