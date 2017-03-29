@@ -44,10 +44,18 @@ aggregates:
       properties:
 
         WarehouseId:
-          #type: string
+          # type: string
           referenceType: Warehouse
           referenceName: Warehouse
           notNull: true
+          # -----------------------------------------
+          # only reference to "Active" warehouse.
+          referenceFilter:
+            "Criterion":
+              type: "eq"
+              property: "active"
+              value: true
+          # -----------------------------------------
 
         ParentLocatorId:
           type: string
