@@ -62,7 +62,7 @@ aggregates:
           
         properties:
         
-          Sequence:
+          SequenceNumber:
             type: int
 
           
