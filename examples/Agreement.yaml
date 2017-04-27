@@ -1,54 +1,67 @@
-﻿!Dddml.Core.Domain.DocumentRoot,%20Dddml.Core,%20Version=1.0.6292.30786,%20Culture=neutral,%20PublicKeyToken=null
+﻿!Dddml.Core.Domain.DocumentRoot,%20Dddml.Core,%20Version=1.0.6326.34973,%20Culture=neutral,%20PublicKeyToken=null
 aggregates:
   Agreement: &o0
     name: Agreement
+    tableName: AGREEMENT
     id:
       name: AgreementId
+      columnName: AGREEMENT_ID
       entity: *o0
       type: id-ne
     properties:
       ProductId:
         name: ProductId
+        columnName: PRODUCT_ID
         entity: *o0
         type: id
       PartyIdFrom:
         name: PartyIdFrom
+        columnName: PARTY_ID_FROM
         entity: *o0
         type: id
       PartyIdTo:
         name: PartyIdTo
+        columnName: PARTY_ID_TO
         entity: *o0
         type: id
       RoleTypeIdFrom:
         name: RoleTypeIdFrom
+        columnName: ROLE_TYPE_ID_FROM
         entity: *o0
         type: id
       RoleTypeIdTo:
         name: RoleTypeIdTo
+        columnName: ROLE_TYPE_ID_TO
         entity: *o0
         type: id
       AgreementTypeId:
         name: AgreementTypeId
+        columnName: AGREEMENT_TYPE_ID
         entity: *o0
         type: id
       AgreementDate:
         name: AgreementDate
+        columnName: AGREEMENT_DATE
         entity: *o0
         type: date-time
       FromDate:
         name: FromDate
+        columnName: FROM_DATE
         entity: *o0
         type: date-time
       ThruDate:
         name: ThruDate
+        columnName: THRU_DATE
         entity: *o0
         type: date-time
       Description:
         name: Description
+        columnName: DESCRIPTION
         entity: *o0
         type: description
       TextData:
         name: TextData
+        columnName: TEXT_DATA
         entity: *o0
         type: very-long
       PartyRelationships:

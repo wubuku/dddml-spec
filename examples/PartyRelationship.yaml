@@ -1,48 +1,64 @@
-﻿!Dddml.Core.Domain.DocumentRoot,%20Dddml.Core,%20Version=1.0.6290.29785,%20Culture=neutral,%20PublicKeyToken=null
+﻿!Dddml.Core.Domain.DocumentRoot,%20Dddml.Core,%20Version=1.0.6326.34973,%20Culture=neutral,%20PublicKeyToken=null
 aggregates:
   PartyRelationship: &o0
     name: PartyRelationship
+    tableName: PARTY_RELATIONSHIP
     id:
       name: PartyRelationshipId
+      columnNames: !System.Collections.Generic.List%601[[System.String,%20mscorlib,%20Version=4.0.0.0,%20Culture=neutral,%20PublicKeyToken=b77a5c561934e089]],%20mscorlib,%20Version=4.0.0.0,%20Culture=neutral,%20PublicKeyToken=b77a5c561934e089
+      - PARTY_ID_FROM
+      - PARTY_ID_TO
+      - ROLE_TYPE_ID_FROM
+      - ROLE_TYPE_ID_TO
+      - FROM_DATE
       entity: *o0
       type: PartyRelationshipId
     properties:
       ThruDate:
         name: ThruDate
+        columnName: THRU_DATE
         entity: *o0
         type: date-time
       StatusId:
         name: StatusId
+        columnName: STATUS_ID
         entity: *o0
         type: id
       RelationshipName:
         name: RelationshipName
         description: Official name of relationship, such as title in a company
+        columnName: RELATIONSHIP_NAME
         entity: *o0
         type: name
       SecurityGroupId:
         name: SecurityGroupId
+        columnName: SECURITY_GROUP_ID
         entity: *o0
         type: id-ne
       PriorityTypeId:
         name: PriorityTypeId
+        columnName: PRIORITY_TYPE_ID
         entity: *o0
         type: id
       PartyRelationshipTypeId:
         name: PartyRelationshipTypeId
+        columnName: PARTY_RELATIONSHIP_TYPE_ID
         entity: *o0
         type: id
       PermissionsEnumId:
         name: PermissionsEnumId
+        columnName: PERMISSIONS_ENUM_ID
         entity: *o0
         type: id-ne
       PositionTitle:
         name: PositionTitle
         description: The exact word used within the company
+        columnName: POSITION_TITLE
         entity: *o0
         type: name
       Comments:
         name: Comments
+        columnName: COMMENTS
         entity: *o0
         type: comment
     references:
@@ -107,18 +123,23 @@ aggregates:
         properties:
           PartyIdFrom:
             name: PartyIdFrom
+            columnName: PARTY_ID_FROM
             type: id-ne
           PartyIdTo:
             name: PartyIdTo
+            columnName: PARTY_ID_TO
             type: id-ne
           RoleTypeIdFrom:
             name: RoleTypeIdFrom
+            columnName: ROLE_TYPE_ID_FROM
             type: id-ne
           RoleTypeIdTo:
             name: RoleTypeIdTo
+            columnName: ROLE_TYPE_ID_TO
             type: id-ne
           FromDate:
             name: FromDate
+            columnName: FROM_DATE
             type: date-time
         outerEntity: *o0
     metadata: !System.Collections.Generic.Dictionary%602[[System.String,%20mscorlib,%20Version=4.0.0.0,%20Culture=neutral,%20PublicKeyToken=b77a5c561934e089],[System.Object,%20mscorlib,%20Version=4.0.0.0,%20Culture=neutral,%20PublicKeyToken=b77a5c561934e089]],%20mscorlib,%20Version=4.0.0.0,%20Culture=neutral,%20PublicKeyToken=b77a5c561934e089 {}

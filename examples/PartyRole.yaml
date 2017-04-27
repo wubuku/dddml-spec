@@ -1,9 +1,13 @@
-﻿!Dddml.Core.Domain.DocumentRoot,%20Dddml.Core,%20Version=1.0.6290.29785,%20Culture=neutral,%20PublicKeyToken=null
+﻿!Dddml.Core.Domain.DocumentRoot,%20Dddml.Core,%20Version=1.0.6326.34973,%20Culture=neutral,%20PublicKeyToken=null
 aggregates:
   PartyRole: &o0
     name: PartyRole
+    tableName: PARTY_ROLE
     id:
       name: PartyRoleId
+      columnNames: !System.Collections.Generic.List%601[[System.String,%20mscorlib,%20Version=4.0.0.0,%20Culture=neutral,%20PublicKeyToken=b77a5c561934e089]],%20mscorlib,%20Version=4.0.0.0,%20Culture=neutral,%20PublicKeyToken=b77a5c561934e089
+      - PARTY_ID
+      - ROLE_TYPE_ID
       entity: *o0
       type: PartyRoleId
     properties: {}
@@ -37,9 +41,11 @@ aggregates:
         properties:
           PartyId:
             name: PartyId
+            columnName: PARTY_ID
             type: id-ne
           RoleTypeId:
             name: RoleTypeId
+            columnName: ROLE_TYPE_ID
             type: id-ne
         outerEntity: *o0
     metadata: !System.Collections.Generic.Dictionary%602[[System.String,%20mscorlib,%20Version=4.0.0.0,%20Culture=neutral,%20PublicKeyToken=b77a5c561934e089],[System.Object,%20mscorlib,%20Version=4.0.0.0,%20Culture=neutral,%20PublicKeyToken=b77a5c561934e089]],%20mscorlib,%20Version=4.0.0.0,%20Culture=neutral,%20PublicKeyToken=b77a5c561934e089 {}

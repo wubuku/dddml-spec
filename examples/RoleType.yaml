@@ -1,22 +1,27 @@
-﻿!Dddml.Core.Domain.DocumentRoot,%20Dddml.Core,%20Version=1.0.6290.29785,%20Culture=neutral,%20PublicKeyToken=null
+﻿!Dddml.Core.Domain.DocumentRoot,%20Dddml.Core,%20Version=1.0.6326.34973,%20Culture=neutral,%20PublicKeyToken=null
 aggregates:
   RoleType: &o0
     name: RoleType
+    tableName: ROLE_TYPE
     id:
       name: RoleTypeId
+      columnName: ROLE_TYPE_ID
       entity: *o0
       type: id-ne
     properties:
       ParentTypeId:
         name: ParentTypeId
+        columnName: PARENT_TYPE_ID
         entity: *o0
         type: id
       HasTable:
         name: HasTable
+        columnName: HAS_TABLE
         entity: *o0
         type: indicator
       Description:
         name: Description
+        columnName: DESCRIPTION
         entity: *o0
         type: description
     references:
