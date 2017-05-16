@@ -1,4 +1,4 @@
-﻿!Dddml.Core.Domain.DocumentRoot,%20Dddml.Core,%20Version=1.0.6339.26203,%20Culture=neutral,%20PublicKeyToken=null
+﻿!Dddml.Core.Domain.DocumentRoot,%20Dddml.Core,%20Version=1.0.6345.24862,%20Culture=neutral,%20PublicKeyToken=null
 aggregates:
   PartyRole: &o0
     name: PartyRole
@@ -34,7 +34,6 @@ aggregates:
       updatedAt: UpdatedAt
       deleted: Deleted
       version: Version
-      entity: *o0
     valueObjects:
       PartyRoleId:
         name: PartyRoleId

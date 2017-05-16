@@ -1,4 +1,4 @@
-﻿!Dddml.Core.Domain.DocumentRoot,%20Dddml.Core,%20Version=1.0.6339.26203,%20Culture=neutral,%20PublicKeyToken=null
+﻿!Dddml.Core.Domain.DocumentRoot,%20Dddml.Core,%20Version=1.0.6345.24862,%20Culture=neutral,%20PublicKeyToken=null
 aggregates:
   Agreement: &o0
     name: Agreement
@@ -133,6 +133,5 @@ aggregates:
       updatedAt: UpdatedAt
       deleted: Deleted
       version: Version
-      entity: *o0
     metadata: !System.Collections.Generic.Dictionary%602[[System.String,%20mscorlib,%20Version=4.0.0.0,%20Culture=neutral,%20PublicKeyToken=b77a5c561934e089],[System.Object,%20mscorlib,%20Version=4.0.0.0,%20Culture=neutral,%20PublicKeyToken=b77a5c561934e089]],%20mscorlib,%20Version=4.0.0.0,%20Culture=neutral,%20PublicKeyToken=b77a5c561934e089
       StateEventDatabaseTableName: AGREEMENT_STATE_EVENT
