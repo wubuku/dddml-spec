@@ -30,6 +30,7 @@ aggregates:
         isDerived: True
         filter:
           CSharp: "e => e.ParentPackagePartId == 0"
+          Java: "e -> e.getParentPackagePartId() == null || e.getParentPackagePartId().equals(0L)"
       
     reservedProperties:
       version: RowVersion
