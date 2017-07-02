@@ -73,5 +73,32 @@ aggregates:
       updatedAt: LastModifiedDate
       deleted: Deleted
       version: Version
+      
+    # --------------------------  
+    discriminator: PartyTypeId
+    discriminatorValue: "*"
+    inheritanceMappingStrategy: tpcc
+    
+    subtypes:
+    
+      LegalOrganization:
+        discriminatorValue: "LegalOrganization"
+        properties:
+          TaxIdNum:
+            type: string
+            
+      InformalOrganization:
+        discriminatorValue: "InformalOrganization"
+        abstract: true
+        
+        subtypes:
+        
+          Family:            
+            discriminatorValue: "Family"
+            properties:
+              Surname:
+                type: string
+                
+    # --------------------------  
     metadata: !System.Collections.Generic.Dictionary%602[[System.String,%20mscorlib,%20Version=4.0.0.0,%20Culture=neutral,%20PublicKeyToken=b77a5c561934e089],[System.Object,%20mscorlib,%20Version=4.0.0.0,%20Culture=neutral,%20PublicKeyToken=b77a5c561934e089]],%20mscorlib,%20Version=4.0.0.0,%20Culture=neutral,%20PublicKeyToken=b77a5c561934e089
       StateEventDatabaseTableName: PARTY_STATE_EVENT
