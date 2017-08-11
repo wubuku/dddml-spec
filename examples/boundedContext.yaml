@@ -31,8 +31,8 @@ configuration:
     HttpServicesAuthorizationEnabled: false
     
     MvoUsingRViewAsMView: true
-    MvoStateDatabaseTableNameFormat: "{0}s"
-    MvoHttpServiceResourceCollectionNameFormat: "{0}s"
+    #MvoStateDatabaseTableNameFormat: "{0}s"
+    #MvoHttpServiceResourceCollectionNameFormat: "{0}s"
     #MvoClrAggregateDomainSubNamespaceName: "MViews"
     #MvoJavaAggregateDomainSubPackageName: "mviews"
     
