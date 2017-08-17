@@ -227,5 +227,11 @@ services:
         #authorizationEnabled: true
         #requiredRoles: [xxxx]
     
-            
+        EmptyMultiLocatorToOneTarget:
+          parameters:
+            SourceLocatorIds:
+              itemType: string
+            TargetLocatorId:
+              referenceType: Locator
+        
         
