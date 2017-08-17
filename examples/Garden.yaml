@@ -75,6 +75,15 @@ aggregates:
 
           Rooms:
             itemType: Room
+            
+        methods:
+          AddRooms:
+            parameters:
+              GardenVersion:
+                type: long
+                isAggregateVersion: true
+              RoomIds:
+                itemType: string
               
         # ------------------------------
         # Nested Nested Entities    
