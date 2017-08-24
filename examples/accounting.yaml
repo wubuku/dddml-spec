@@ -115,36 +115,35 @@ aggregates:
 
     subtypes:    
 
-      PostingRuleTriggeredEvent:
-         
+      # ------------------------------------------------
+      AtprTriggeredEvent:
+        description: Account-Trigger-PostingRule Triggered Event.
+                
         properties:
-          
           PostingRuleId:
             referenceType: PostingRule
-            
-          SourceEntryId:
-            referenceType: Entry
-            # type: long
-            
-        # ------------------------------
-        # 唯一约束
-        uniqueConstraints:
-          # 约束名称
-          UniqueSourceEntryPR: [SourceEntryId, PostingRuleId]
+          Sources: 
+            itemType: AtprTriggeredEventSource
+        
+        entities:
+        
+          AtprTriggeredEventSource:
+            id: 
+              name: SourceId
+              type: long
               
-          # -----------------------------
-          # 来源条目的 IDs
-          # Sources:
-            # itemType: PostingRuleTriggeredEventSource
-            # itemName: SourceEntryId
-        #entities:
-          # -----------------------------
-          # PostingRuleTriggeredEventSource:
-            # id: 
-            # properties:  
-                
-            
-            
+            properties:
+              PostingRuleId:
+                referenceType: PostingRule
+              SourceEntryId:
+                referenceType: Entry
+            # ------------------------------
+            # 唯一约束
+            uniqueConstraints:
+              # 约束名称
+              UniqueSourceEntryPR: [SourceEntryId, PostingRuleId]          
+      
+   
 # ---------------------------------  
   AccountingEventProcessLog:
     # immutalbe: False
