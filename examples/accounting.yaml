@@ -122,32 +122,27 @@ aggregates:
           PostingRuleId:
             referenceType: PostingRule
             
+          SourceEntryId:
+            referenceType: Entry
+            # type: long
+            
+        # ------------------------------
+        # 唯一约束
+        uniqueConstraints:
+          # 约束名称
+          UniqueSourceEntryPR: [SourceEntryId, PostingRuleId]
+              
           # -----------------------------
           # 来源条目的 IDs
-          Sources:
-            itemType: PostingRuleTriggeredEventSource
+          # Sources:
+            # itemType: PostingRuleTriggeredEventSource
             # itemName: SourceEntryId
-        
-        entities:
-        
+        #entities:
           # -----------------------------
-          PostingRuleTriggeredEventSource:
-            
-            id: 
-              name: SourceEntryId
-              type: long
-              #local: true
-              
-            properties:  
-              # 冗余字段
-              PostingRuleId: 
-                referenceType: PostingRule
-
-            # ------------------------------
-            # 唯一约束
-            uniqueConstraints:
-              # 约束名称
-              UniqueEventTypeSourceEntry: [SourceEntryId, PostingRuleId]
+          # PostingRuleTriggeredEventSource:
+            # id: 
+            # properties:  
+                
             
             
 # ---------------------------------  
