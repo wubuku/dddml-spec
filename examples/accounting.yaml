@@ -115,20 +115,23 @@ aggregates:
 
     subtypes:    
 
-      AccountTriggerPostingRuleFiringEvent:
+      PostingRuleTriggeredEvent:
          
         properties:
           
+          PostingRuleId:
+            referenceType: PostingRule
+            
           # -----------------------------
           # 来源条目的 IDs
-          SourceEntries:
-            itemType: AccountingEventSourceEntry
+          Sources:
+            itemType: PostingRuleTriggeredEventSource
             # itemName: SourceEntryId
         
         entities:
         
           # -----------------------------
-          AccountingEventSourceEntry:
+          PostingRuleTriggeredEventSource:
             
             id: 
               name: SourceEntryId
@@ -136,14 +139,15 @@ aggregates:
               #local: true
               
             properties:  
-              EventTypeId: 
-                type: int
+              # 冗余字段
+              PostingRuleId: 
+                referenceType: PostingRule
 
             # ------------------------------
             # 唯一约束
             uniqueConstraints:
               # 约束名称
-              UniqueEventTypeSourceEntry: [EventTypeId, SourceEntryId]
+              UniqueEventTypeSourceEntry: [SourceEntryId, PostingRuleId]
             
             
 # ---------------------------------  
@@ -220,9 +224,9 @@ aggregates:
         
         # ------------------------------
         # 唯一约束
-        uniqueConstraints:
+        # uniqueConstraints:
           # 约束名称
-          UniqueTriggerOutput: [TriggerId, OutputId]
+          # UniqueTriggerOutput: [TriggerId, OutputId]
             
         properties:
           # 触发器
