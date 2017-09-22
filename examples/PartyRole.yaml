@@ -26,14 +26,6 @@ aggregates:
         properties:
         - PartyRoleId.RoleTypeId
         foreignKeyName: PARTY_RLE_ROLE
-    reservedProperties:
-      active: Active
-      createdBy: CreatedBy
-      createdAt: CreatedAt
-      updatedBy: UpdatedBy
-      updatedAt: UpdatedAt
-      deleted: Deleted
-      version: Version
     valueObjects:
       PartyRoleId:
         name: PartyRoleId
