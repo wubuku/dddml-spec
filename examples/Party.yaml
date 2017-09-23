@@ -3,6 +3,7 @@ aggregates:
   Party: &o0
     name: Party
     tableName: PARTY
+    polymorphic: true
     id:
       name: PartyId
       columnName: PARTY_ID
