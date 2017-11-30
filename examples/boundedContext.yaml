@@ -26,6 +26,17 @@ configuration:
   namedStringPatterns:
     "GlossaryTerm": "^[\\(A-Za-z0-9][A-Za-z0-9-\\(\\)\\'.\\s]*[A-Za-z0-9-\\(\\)\\.']"
     
+  # -----------------------------------------
+  accountingQuantityTypes:
+    decimal:
+      zeroLogic:
+        Java: "BigDecimal.ZERO"
+      addLogic:
+        Java: "{0}.add({1})"
+      negateLogic:
+        Java: "{0}.negate()"
+        
+  # -----------------------------------------
   metadata:
     
     HttpServicesAuthorizationEnabled: false
