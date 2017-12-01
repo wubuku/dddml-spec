@@ -32,7 +32,7 @@ configuration:
       zeroLogic:
         Java: "BigDecimal.ZERO"
       addLogic:
-        Java: "{0}.add({1})"
+        Java: "{fst}.add({snd} != null ? {snd} : BigDecimal.ZERO)"
       negateLogic:
         Java: "{0}.negate()"
         
