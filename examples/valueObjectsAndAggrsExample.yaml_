@@ -32,6 +32,7 @@ valueObjects:
 # ------------------------------
 aggregates:
 
+
   Person:
     
     #imports:
@@ -139,5 +140,32 @@ aggregates:
           PAYMENT:
             stringValue: PAYMENT
 
+
+    # # 任务
+    # Task:
+    
+        # # 省略其他
+        
+        # properties:
+        
+            # # 触发时机
+            # Trigger:
+                # type: Trigger
+                # # 默认值逻辑
+                # defaultLogic: 
+                    # # 伪代码
+                    # # 每年执行一次
+                    # PseudoCode: "@yearly"
+                    # # 或者这样……
+                    # # 每周执行一次
+                    # PseudoCode: "@monthly"
+                    # # 每星期执行一次
+                    # PseudoCode: "@weekly"
+                    # # 每星期二上午 9 点执行一次
+                    # PseudoCode: "@every Tuesday 9:00 AM"
+                    # # 只执行一次，不再重复
+                    # PseudoCode: "@2009-12-30 8:55:55"
+
+                    
 
 
