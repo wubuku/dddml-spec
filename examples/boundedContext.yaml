@@ -13,7 +13,17 @@ configuration:
   
   valueObjectBaseTypes:
     "Email": "string"
+    "id": "string"
+    "id-ne": "string"
+    "date-time": "DateTime?"
+    "description": "string"
+    "very-long": "string"
+    "indicator": "string"
+    "id-vlong": "string"
+    "name": "string"
+    "comment": "string"
 
+    
   defaultReservedProperties:
     active: Active
     createdBy: CreatedBy
@@ -125,6 +135,13 @@ configuration:
       "long?": "Long"
       "Money": "Money"
       "string": "string"
+      # "id": "string"
+      # "id-ne": "string"
+      # "date-time": "\\DateTime"
+      # "description": "string"
+      # "very-long": "string"
+      # "indicator": "string"
+      # "id-vlong": "string"
     
     serializationAnnotationTypes:
       "bool": "boolean"
@@ -139,6 +156,13 @@ configuration:
       "Money": "Dddml\\Serializer\\Type\\Money"
       "DateTime": "DateTime"
       "DateTime?": "DateTime"
+      # "id": "string"
+      # "id-ne": "string"
+      # "date-time": "DateTime"
+      # "description": "string"
+      # "very-long": "string"
+      # "indicator": "string"
+      # "id-vlong": "string"
       
     #typeNamespaces:
     #  "Money": "NodaMoney"
@@ -156,6 +180,14 @@ configuration:
       "long?": "IntegerType"
       "string": "TextType"
       "Money": "MoneyType"
+      # "id": "TextType"
+      # "id-ne": "TextType"
+      # "date-time": "DateTimeType"
+      # "description": "TextType"
+      # "very-long": "TextType"
+      # "indicator": "TextType"
+      # "id-vlong": "TextType"
+      
         
   typeScript:
   
