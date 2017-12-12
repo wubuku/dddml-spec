@@ -195,4 +195,8 @@ aggregates:
         itemType: PersonalName
       Mascots:
         itemType: string
+        
+    metadata:
+      AbsolutelyNoEventSourcing: true
+      
       
