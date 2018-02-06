@@ -240,7 +240,7 @@ configuration:
         
   nHibernate:
     
-    createdAtType: DateTimeUtc
+    timestampMappingType: DateTimeUtc
     nHibernateTypes:
       Money:
         mappingType: "Dddml.Wms.Services.Domain.NHibernate.NodaMoneyType, Dddml.Wms.Services"
