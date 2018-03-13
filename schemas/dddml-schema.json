@@ -1,0 +1,181 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+
+    "definitions": {
+
+        "property": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "itemType": {
+                    "type": "string"
+                },
+                "isDerived": {
+                    "type": "boolean"
+                },
+                "sequenceNumber": {
+                    "type": "number"
+                }
+            }
+        },
+
+        "valueObject": {
+            "type": "object",
+            "properties": {
+                "properties": {
+                    "type": "object",
+                    "patternProperties": {
+                        "^[A-Z_][A-Za-z_0-9]*": {
+                            "$ref": "#/definitions/property"
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            }
+        },
+
+        "method": {
+            "type": "object",
+            "properties": {
+                "parameters": {
+                    "type": "object",
+                    "patternProperties": {
+                        "^[A-Z_][A-Za-z_0-9]*": {
+                            "type": "object",
+                            "properties": {
+                                "type": {
+                                    "type": "string"
+                                },
+                                "itemType": {
+                                    "type": "string"
+                                },
+                                "sequenceNumber": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "isInternal": {
+                    "type": "boolean"
+                }
+            }
+        },
+
+        "entity": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "allOf": [ 
+                        { 
+                            "$ref": "#/definitions/property" 
+                        },
+                        {
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "arbitrary": {
+                                    "type": "boolean"
+                                },
+                                "isServerSideGenerated": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "properties": {
+                    "type": "object",
+                    "patternProperties": {
+                        "^[A-Z_][A-Za-z_0-9]*": {
+                            "$ref": "#/definitions/property"
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "entities": {
+                    "type": "object",
+                    "patternProperties": {
+                        "^[A-Z_][A-Za-z_0-9]*": {
+                            "$ref": "#/definitions/entity"
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "methods": {
+                    "type": "object",
+                    "patternProperties": {
+                        "^[A-Z_][A-Za-z_0-9]*": {
+                            "$ref": "#/definitions/method"
+                        }
+                    },
+                    "additionalProperties": false
+                }
+
+            }
+        }
+
+    },
+
+    "type": "object",
+
+    "properties": {
+
+        "valueObjects": {
+            "type": "object",
+            "patternProperties": {
+                "^[A-Z_][A-Za-z_0-9]*": {
+                    "$ref": "#/definitions/valueObject"
+                }
+            },
+            "additionalProperties": false
+        },
+
+        "aggregates": {
+            "type": "object",
+            "patternProperties": {
+                "^[A-Z_][A-Za-z_0-9]*": {
+                    "allOf": [ 
+                        { 
+                            "$ref": "#/definitions/entity"
+                        },
+                        {
+                            "properties": {
+                                "aggregateRootName": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            "additionalProperties": false
+        },
+
+        "services": {
+            "type": "object",
+            "patternProperties": {
+                "^[A-Z_][A-Za-z_0-9]*": {
+                    "type": "object",
+                    "properties": {
+                        "methods": {
+                            "type": "object",
+                            "patternProperties": {
+                                "^[A-Z_][A-Za-z_0-9]*": {
+                                    "$ref": "#/definitions/method"
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    }
+                }
+            },
+            "additionalProperties": false
+        }
+ 
+    }
+}
