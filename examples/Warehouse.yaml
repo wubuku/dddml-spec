@@ -213,7 +213,7 @@ services:
             Quantity:
               type: int
           
-          return:
+          result:
             type: string
             name: MovementTransactionId
             
