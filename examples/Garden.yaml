@@ -84,7 +84,24 @@ aggregates:
                 isAggregateVersion: true
               RoomIds:
                 itemType: string
-              
+                
+        # polymorphic: true
+        # subtypes:
+          # SpecialBuilding:
+            # properties: 
+              # SpecialRooms:
+                # itemType: SpecialRoom
+            # entities:
+              # SpecialRoom:
+                # id:
+                  # name: RoomNumber
+                  # type: string
+                  # length: 50
+                # properties: {}
+                # subtypes:
+                  # SpecialSpecialRoom:
+                    # properties: {}
+          
         # ------------------------------
         # Nested Nested Entities    
         entities: 
@@ -123,5 +140,5 @@ aggregates:
                   RoomName:
                     type: string
 
-                    
+                
                     
