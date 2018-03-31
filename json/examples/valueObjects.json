@@ -1,0 +1,172 @@
+{
+  "enumObjects": {
+    "PartOfSpeech": {
+      "values": {
+        "Unclassified": {
+          "sequenceNumber": 0,
+          "value": "Unclassified"
+        },
+        "Adj": {
+          "displayName": "Adjective",
+          "sequenceNumber": 1,
+          "value": "Adj"
+        },
+        "Adv": {
+          "displayName": "Adverb",
+          "sequenceNumber": 2,
+          "value": "Adv"
+        },
+        "V": {
+          "displayName": "Verb",
+          "sequenceNumber": 3,
+          "value": "V"
+        },
+        "N": {
+          "displayName": "Noun",
+          "sequenceNumber": 4,
+          "value": "N"
+        }
+      }
+    },
+    "AccountClass": {
+      "values": {
+        "SummaryAccount": {
+          "sequenceNumber": 0,
+          "value": "SummaryAccount"
+        },
+        "AccountType": {
+          "sequenceNumber": 1,
+          "value": "AccountType"
+        },
+        "MemoAccount": {
+          "sequenceNumber": 2,
+          "value": "MemoAccount"
+        }
+      }
+    },
+    "AccountingEventClass": {
+      "values": {
+        "AtprTriggeredEvent": {
+          "sequenceNumber": 0,
+          "value": "AtprTriggeredEvent"
+        }
+      }
+    },
+    "PostingRuleClass": {
+      "values": {
+        "AccountTriggerPostingRule": {
+          "sequenceNumber": 0,
+          "value": "AccountTriggerPostingRule"
+        }
+      }
+    },
+    "EntryClass": {
+      "values": {
+        "TransactionalEntry": {
+          "sequenceNumber": 0,
+          "value": "TransactionalEntry"
+        }
+      }
+    },
+    "WheelId": {
+      "values": {
+        "LF": {
+          "sequenceNumber": 0,
+          "value": "LF"
+        },
+        "LR": {
+          "sequenceNumber": 1,
+          "value": "LR"
+        },
+        "RF": {
+          "sequenceNumber": 2,
+          "value": "RF"
+        },
+        "RR": {
+          "sequenceNumber": 3,
+          "value": "RR"
+        }
+      }
+    },
+    "ImageType": {
+      "values": {
+        "Image": {
+          "sequenceNumber": 0,
+          "value": "*"
+        },
+        "ProductImage": {
+          "sequenceNumber": 1,
+          "value": "PRODUCT"
+        },
+        "ProductQRCodeImage": {
+          "sequenceNumber": 2,
+          "value": "PRODUCT_QR_CODE"
+        },
+        "OrderRemarkImage": {
+          "sequenceNumber": 3,
+          "value": "ORDER_REMARK"
+        },
+        "BrandImage": {
+          "sequenceNumber": 4,
+          "value": "BRAND"
+        },
+        "DesignPlanImage": {
+          "sequenceNumber": 5,
+          "value": "DESIGN_PLAN"
+        }
+      }
+    },
+    "PackageType": {
+      "values": {
+        "Piece": {
+          "sequenceNumber": 0,
+          "value": 1
+        },
+        "Box": {
+          "sequenceNumber": 1,
+          "value": 2
+        },
+        "BigBox": {
+          "sequenceNumber": 2,
+          "value": 3
+        }
+      }
+    },
+    "PackagePartType": {
+      "values": {
+        "Piece": {
+          "sequenceNumber": 0,
+          "value": 1
+        },
+        "Box": {
+          "sequenceNumber": 1,
+          "value": 2
+        },
+        "Lot": {
+          "sequenceNumber": 2,
+          "value": 4
+        }
+      }
+    },
+    "PartyTypeId": {
+      "values": {
+        "Party": {
+          "sequenceNumber": 0,
+          "value": "*"
+        },
+        "LegalOrganization": {
+          "sequenceNumber": 1,
+          "value": "LegalOrganization"
+        },
+        "InformalOrganization": {
+          "sequenceNumber": 2,
+          "value": "InformalOrganization"
+        },
+        "Family": {
+          "sequenceNumber": 3,
+          "value": "Family"
+        }
+      }
+    }
+  }
+}

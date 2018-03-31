@@ -1,0 +1,3264 @@
+{
+  "aggregates": {
+    "Account": {
+      "id": {
+        "name": "id",
+        "type": "TAccountId"
+      },
+      "properties": {
+        "balance": {
+          "type": "TQuantity"
+        },
+        "version": {
+          "type": "long"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        },
+        "accountClass": {
+          "type": "string",
+          "enumType": "AccountClass"
+        }
+      },
+      "references": {},
+      "reservedProperties": {}
+    },
+    "AccountingEventType": {
+      "id": {
+        "name": "id",
+        "type": "int"
+      },
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "version": {
+          "type": "long"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        }
+      },
+      "references": {},
+      "reservedProperties": {}
+    },
+    "AccountingEvent": {
+      "id": {
+        "name": "id",
+        "type": "long"
+      },
+      "properties": {
+        "eventTypeId": {
+          "type": "int",
+          "referenceType": "AccountingEventType",
+          "referenceName": "EventType"
+        },
+        "whenNoticed": {
+          "type": "DateTime"
+        },
+        "whenOccured": {
+          "type": "DateTime"
+        },
+        "resultingEntries": {
+          "itemType": "Entry",
+          "isDerived": true
+        },
+        "resultingTransactions": {
+          "itemType": "AccountingTransaction",
+          "isDerived": true
+        },
+        "baseEventId": {
+          "type": "long",
+          "referenceType": "AccountingEvent",
+          "referenceName": "BaseEvent"
+        },
+        "secondaryEvents": {
+          "itemType": "AccountingEvent",
+          "isDerived": true
+        },
+        "postingRuleId": {
+          "type": "string",
+          "referenceType": "PostingRule"
+        },
+        "version": {
+          "type": "long"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        },
+        "accountingEventClass": {
+          "type": "string",
+          "enumType": "AccountingEventClass"
+        },
+        "sources": {
+          "itemType": "AtprTriggeredEventSource"
+        }
+      },
+      "references": {
+        "EventType": {
+          "type": "AccountingEventType",
+          "properties": [
+            "eventTypeId"
+          ]
+        },
+        "BaseEvent": {
+          "type": "AccountingEvent",
+          "properties": [
+            "baseEventId"
+          ]
+        }
+      },
+      "reservedProperties": {},
+      "entities": {
+        "AtprTriggeredEventSource": {
+          "id": {
+            "name": "sourceId",
+            "type": "long"
+          },
+          "properties": {
+            "postingRuleId": {
+              "type": "string",
+              "referenceType": "PostingRule"
+            },
+            "sourceEntryId": {
+              "type": "long",
+              "referenceType": "Entry"
+            },
+            "version": {
+              "type": "long"
+            },
+            "createdBy": {
+              "type": "string"
+            },
+            "createdAt": {
+              "type": "DateTime"
+            },
+            "updatedBy": {
+              "type": "string"
+            },
+            "updatedAt": {
+              "type": "DateTime"
+            },
+            "active": {
+              "type": "bool"
+            },
+            "deleted": {
+              "type": "bool"
+            }
+          },
+          "references": {},
+          "reservedProperties": {}
+        }
+      }
+    },
+    "AccountingEventProcessLog": {
+      "id": {
+        "name": "eventId",
+        "type": "long",
+        "referenceType": "AccountingEvent",
+        "referenceName": "Event"
+      },
+      "properties": {
+        "processed": {
+          "type": "bool"
+        },
+        "replacementEventId": {
+          "type": "long",
+          "referenceType": "AccountingEvent",
+          "referenceName": "ReplacementEvent"
+        },
+        "adjustedEventId": {
+          "type": "long",
+          "referenceType": "AccountingEvent",
+          "referenceName": "AdjustedEvent"
+        },
+        "reversed": {
+          "type": "bool"
+        },
+        "version": {
+          "type": "long"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        }
+      },
+      "references": {
+        "ReplacementEvent": {
+          "type": "AccountingEvent",
+          "properties": [
+            "replacementEventId"
+          ]
+        },
+        "AdjustedEvent": {
+          "type": "AccountingEvent",
+          "properties": [
+            "adjustedEventId"
+          ]
+        },
+        "Event": {
+          "type": "AccountingEvent",
+          "properties": [
+            "eventId"
+          ]
+        }
+      },
+      "reservedProperties": {}
+    },
+    "PostingRule": {
+      "id": {
+        "name": "id",
+        "type": "string"
+      },
+      "properties": {
+        "eventTypeId": {
+          "type": "int"
+        },
+        "triggerId": {
+          "type": "TAccountId",
+          "referenceType": "Account",
+          "referenceName": "Trigger"
+        },
+        "outputId": {
+          "type": "TAccountId",
+          "referenceType": "Account",
+          "referenceName": "Output"
+        },
+        "version": {
+          "type": "long"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        },
+        "postingRuleClass": {
+          "type": "string",
+          "enumType": "PostingRuleClass"
+        }
+      },
+      "references": {
+        "Trigger": {
+          "type": "Account",
+          "properties": [
+            "triggerId"
+          ]
+        },
+        "Output": {
+          "type": "Account",
+          "properties": [
+            "outputId"
+          ]
+        }
+      },
+      "reservedProperties": {}
+    },
+    "AccountingTransaction": {
+      "id": {
+        "name": "id",
+        "type": "long"
+      },
+      "properties": {
+        "postingRuleId": {
+          "type": "string",
+          "referenceType": "PostingRule",
+          "referenceName": "PostingRule"
+        },
+        "eventId": {
+          "type": "long",
+          "referenceType": "AccountingEvent",
+          "referenceName": "AccountingEvent"
+        },
+        "entries": {
+          "itemType": "TransactionalEntry",
+          "isDerived": true
+        },
+        "version": {
+          "type": "long"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        }
+      },
+      "references": {
+        "PostingRule": {
+          "type": "PostingRule",
+          "properties": [
+            "postingRuleId"
+          ]
+        },
+        "AccountingEvent": {
+          "type": "AccountingEvent",
+          "properties": [
+            "eventId"
+          ]
+        }
+      },
+      "reservedProperties": {}
+    },
+    "Entry": {
+      "id": {
+        "name": "id",
+        "type": "long"
+      },
+      "properties": {
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "eventId": {
+          "type": "long",
+          "referenceType": "AccountingEvent",
+          "referenceName": "AccountingEvent"
+        },
+        "accountId": {
+          "type": "TAccountId",
+          "referenceType": "Account",
+          "referenceName": "Account"
+        },
+        "postingRuleId": {
+          "type": "string",
+          "referenceType": "PostingRule",
+          "referenceName": "PostingRule"
+        },
+        "amount": {
+          "type": "TQuantity"
+        },
+        "transactionId": {
+          "type": "long",
+          "referenceType": "AccountingTransaction",
+          "referenceName": "Transaction"
+        },
+        "version": {
+          "type": "long"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        },
+        "entryClass": {
+          "type": "string",
+          "enumType": "EntryClass"
+        }
+      },
+      "references": {
+        "AccountingEvent": {
+          "type": "AccountingEvent",
+          "properties": [
+            "eventId"
+          ]
+        },
+        "Account": {
+          "type": "Account",
+          "properties": [
+            "accountId"
+          ]
+        },
+        "PostingRule": {
+          "type": "PostingRule",
+          "properties": [
+            "postingRuleId"
+          ]
+        },
+        "Transaction": {
+          "type": "AccountingTransaction",
+          "properties": [
+            "transactionId"
+          ]
+        }
+      },
+      "reservedProperties": {}
+    },
+    "Agreement": {
+      "id": {
+        "name": "agreementId",
+        "type": "string"
+      },
+      "properties": {
+        "productId": {
+          "type": "string"
+        },
+        "partyIdFrom": {
+          "type": "string",
+          "referenceType": "Party",
+          "referenceName": "PartyIdFrom"
+        },
+        "partyIdTo": {
+          "type": "string",
+          "referenceType": "Party",
+          "referenceName": "PartyIdTo"
+        },
+        "roleTypeIdFrom": {
+          "type": "string",
+          "referenceType": "RoleType",
+          "referenceName": "RoleTypeIdFrom"
+        },
+        "roleTypeIdTo": {
+          "type": "string",
+          "referenceType": "RoleType",
+          "referenceName": "RoleTypeIdTo"
+        },
+        "agreementTypeId": {
+          "type": "string"
+        },
+        "agreementDate": {
+          "type": "DateTime?"
+        },
+        "fromDate": {
+          "type": "DateTime?"
+        },
+        "thruDate": {
+          "type": "DateTime?"
+        },
+        "description": {
+          "type": "string"
+        },
+        "textData": {
+          "type": "string"
+        },
+        "partyRelationships": {
+          "itemType": "PartyRelationship",
+          "isDerived": true
+        },
+        "version": {
+          "type": "long"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        }
+      },
+      "references": {
+        "PartyIdFrom": {
+          "type": "Party",
+          "description": "From",
+          "properties": [
+            "partyIdFrom"
+          ]
+        },
+        "RoleTypeIdFrom": {
+          "type": "RoleType",
+          "description": "From",
+          "properties": [
+            "roleTypeIdFrom"
+          ]
+        },
+        "PartyIdFromAndRoleTypeIdFrom": {
+          "type": "PartyRole",
+          "description": "From",
+          "properties": [
+            "partyIdFrom",
+            "roleTypeIdFrom"
+          ]
+        },
+        "PartyIdTo": {
+          "type": "Party",
+          "description": "To",
+          "properties": [
+            "partyIdTo"
+          ]
+        },
+        "RoleTypeIdTo": {
+          "type": "RoleType",
+          "description": "To",
+          "properties": [
+            "roleTypeIdTo"
+          ]
+        },
+        "PartyIdToAndRoleTypeIdTo": {
+          "type": "PartyRole",
+          "description": "To",
+          "properties": [
+            "partyIdTo",
+            "roleTypeIdTo"
+          ]
+        }
+      },
+      "reservedProperties": {}
+    },
+    "Car": {
+      "id": {
+        "name": "id",
+        "type": "string"
+      },
+      "properties": {
+        "version": {
+          "type": "long"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        },
+        "wheels": {
+          "itemType": "Wheel"
+        },
+        "tires": {
+          "itemType": "Tire"
+        }
+      },
+      "references": {},
+      "reservedProperties": {},
+      "entities": {
+        "Wheel": {
+          "id": {
+            "name": "wheelId",
+            "type": "string",
+            "enumType": "WheelId"
+          },
+          "properties": {
+            "version": {
+              "type": "long"
+            },
+            "createdBy": {
+              "type": "string"
+            },
+            "createdAt": {
+              "type": "DateTime"
+            },
+            "updatedBy": {
+              "type": "string"
+            },
+            "updatedAt": {
+              "type": "DateTime"
+            },
+            "active": {
+              "type": "bool"
+            },
+            "deleted": {
+              "type": "bool"
+            }
+          },
+          "references": {},
+          "reservedProperties": {}
+        },
+        "Tire": {
+          "id": {
+            "name": "tireId",
+            "type": "string"
+          },
+          "properties": {
+            "version": {
+              "type": "long"
+            },
+            "createdBy": {
+              "type": "string"
+            },
+            "createdAt": {
+              "type": "DateTime"
+            },
+            "updatedBy": {
+              "type": "string"
+            },
+            "updatedAt": {
+              "type": "DateTime"
+            },
+            "active": {
+              "type": "bool"
+            },
+            "deleted": {
+              "type": "bool"
+            },
+            "positions": {
+              "itemType": "Position"
+            }
+          },
+          "references": {},
+          "reservedProperties": {},
+          "entities": {
+            "Position": {
+              "id": {
+                "name": "id",
+                "type": "long"
+              },
+              "properties": {
+                "timePeriod": {
+                  "type": "TimePeriod"
+                },
+                "mileAge": {
+                  "type": "long"
+                },
+                "wheelId": {
+                  "type": "string",
+                  "enumType": "WheelId",
+                  "referenceType": "Wheel"
+                },
+                "version": {
+                  "type": "long"
+                },
+                "createdBy": {
+                  "type": "string"
+                },
+                "createdAt": {
+                  "type": "DateTime"
+                },
+                "updatedBy": {
+                  "type": "string"
+                },
+                "updatedAt": {
+                  "type": "DateTime"
+                },
+                "active": {
+                  "type": "bool"
+                },
+                "deleted": {
+                  "type": "bool"
+                }
+              },
+              "references": {},
+              "reservedProperties": {}
+            }
+          }
+        }
+      }
+    },
+    "Garden": {
+      "id": {
+        "name": "id",
+        "type": "string"
+      },
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "version": {
+          "type": "long"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        },
+        "buildings": {
+          "itemType": "Building"
+        }
+      },
+      "references": {},
+      "reservedProperties": {},
+      "methods": {
+        "RenameBuilding": {
+          "parameters": {
+            "gardenId": {
+              "type": "string",
+              "isAggregateId": true
+            },
+            "gardenVersion": {
+              "type": "long",
+              "isAggregateVersion": true
+            },
+            "buildingNumber": {
+              "type": "string"
+            },
+            "buildingName": {
+              "type": "string"
+            },
+            "commandId": {
+              "type": "string",
+              "isCommandId": true
+            },
+            "requesterId": {
+              "type": "string",
+              "isRequesterId": true
+            }
+          }
+        }
+      },
+      "entities": {
+        "Building": {
+          "id": {
+            "name": "buildingNumber",
+            "type": "string"
+          },
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "version": {
+              "type": "long"
+            },
+            "createdBy": {
+              "type": "string"
+            },
+            "createdAt": {
+              "type": "DateTime"
+            },
+            "updatedBy": {
+              "type": "string"
+            },
+            "updatedAt": {
+              "type": "DateTime"
+            },
+            "active": {
+              "type": "bool"
+            },
+            "deleted": {
+              "type": "bool"
+            },
+            "rooms": {
+              "itemType": "Room"
+            }
+          },
+          "references": {},
+          "reservedProperties": {},
+          "methods": {
+            "AddRooms": {
+              "parameters": {
+                "gardenVersion": {
+                  "type": "long",
+                  "isAggregateVersion": true
+                },
+                "roomIds": {
+                  "itemType": "string"
+                },
+                "buildingId": {
+                  "type": "BuildingId",
+                  "isEntityGlobalId": true
+                },
+                "commandId": {
+                  "type": "string",
+                  "isCommandId": true
+                },
+                "requesterId": {
+                  "type": "string",
+                  "isRequesterId": true
+                }
+              }
+            }
+          },
+          "entities": {
+            "Room": {
+              "id": {
+                "name": "roomNumber",
+                "type": "string"
+              },
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "version": {
+                  "type": "long"
+                },
+                "createdBy": {
+                  "type": "string"
+                },
+                "createdAt": {
+                  "type": "DateTime"
+                },
+                "updatedBy": {
+                  "type": "string"
+                },
+                "updatedAt": {
+                  "type": "DateTime"
+                },
+                "active": {
+                  "type": "bool"
+                },
+                "deleted": {
+                  "type": "bool"
+                }
+              },
+              "references": {},
+              "reservedProperties": {},
+              "methods": {
+                "RenameRoom": {
+                  "parameters": {
+                    "gardenVersion": {
+                      "type": "long",
+                      "isAggregateVersion": true
+                    },
+                    "roomName": {
+                      "type": "string"
+                    },
+                    "roomId": {
+                      "type": "RoomId",
+                      "isEntityGlobalId": true
+                    },
+                    "commandId": {
+                      "type": "string",
+                      "isCommandId": true
+                    },
+                    "requesterId": {
+                      "type": "string",
+                      "isRequesterId": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Context": {
+      "id": {
+        "name": "contextId",
+        "type": "string",
+        "constraints": [
+          "alphabeticDashNumeric"
+        ]
+      },
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "version": {
+          "type": "long"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        }
+      },
+      "references": {},
+      "reservedProperties": {}
+    },
+    "Term": {
+      "id": {
+        "name": "termId",
+        "type": "string"
+      },
+      "properties": {
+        "contextId": {
+          "type": "string",
+          "referenceType": "Context"
+        },
+        "expression": {
+          "type": "string",
+          "constraints": [
+            "GlossaryTerm"
+          ]
+        },
+        "chineseExpression": {
+          "type": "string"
+        },
+        "version": {
+          "type": "long"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        },
+        "definitions": {
+          "itemType": "TermDefinition"
+        },
+        "tags": {
+          "itemType": "TermTag"
+        }
+      },
+      "references": {},
+      "reservedProperties": {},
+      "entities": {
+        "TermDefinition": {
+          "id": {
+            "name": "sequenceNumber",
+            "type": "int"
+          },
+          "properties": {
+            "wordClass": {
+              "type": "string",
+              "enumType": "PartOfSpeech"
+            },
+            "definition": {
+              "type": "string"
+            },
+            "version": {
+              "type": "long"
+            },
+            "createdBy": {
+              "type": "string"
+            },
+            "createdAt": {
+              "type": "DateTime"
+            },
+            "updatedBy": {
+              "type": "string"
+            },
+            "updatedAt": {
+              "type": "DateTime"
+            },
+            "active": {
+              "type": "bool"
+            },
+            "deleted": {
+              "type": "bool"
+            }
+          },
+          "references": {},
+          "reservedProperties": {}
+        },
+        "TermTag": {
+          "id": {
+            "name": "tagId",
+            "type": "string",
+            "referenceType": "Tag"
+          },
+          "properties": {
+            "sequenceNumber": {
+              "type": "int"
+            },
+            "version": {
+              "type": "long"
+            },
+            "createdBy": {
+              "type": "string"
+            },
+            "createdAt": {
+              "type": "DateTime"
+            },
+            "updatedBy": {
+              "type": "string"
+            },
+            "updatedAt": {
+              "type": "DateTime"
+            },
+            "active": {
+              "type": "bool"
+            },
+            "deleted": {
+              "type": "bool"
+            }
+          },
+          "references": {},
+          "reservedProperties": {}
+        }
+      }
+    },
+    "Tag": {
+      "id": {
+        "name": "tagId",
+        "type": "string"
+      },
+      "properties": {
+        "name": {
+          "type": "string",
+          "constraints": [
+            "GlossaryTerm"
+          ]
+        },
+        "organizationId": {
+          "type": "string"
+        },
+        "version": {
+          "type": "long"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        }
+      },
+      "references": {},
+      "reservedProperties": {}
+    },
+    "Image": {
+      "id": {
+        "name": "id",
+        "type": "long"
+      },
+      "properties": {
+        "imageName": {
+          "type": "string"
+        },
+        "imagePath": {
+          "type": "string"
+        },
+        "imageType": {
+          "type": "string",
+          "enumType": "ImageType"
+        },
+        "isDefault": {
+          "type": "bool"
+        },
+        "sortNumber": {
+          "type": "int"
+        },
+        "refererId": {
+          "type": "long"
+        },
+        "description": {
+          "type": "string"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "version": {
+          "type": "long"
+        },
+        "deleted": {
+          "type": "bool"
+        }
+      },
+      "references": {},
+      "reservedProperties": {}
+    },
+    "Organization": {
+      "id": {
+        "name": "organizationId",
+        "type": "string"
+      },
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "isSummary": {
+          "type": "bool"
+        },
+        "version": {
+          "type": "long"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        }
+      },
+      "references": {},
+      "reservedProperties": {}
+    },
+    "OrganizationStructureType": {
+      "id": {
+        "name": "id",
+        "type": "string"
+      },
+      "properties": {
+        "version": {
+          "type": "long"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        }
+      },
+      "references": {},
+      "reservedProperties": {}
+    },
+    "OrganizationStructure": {
+      "id": {
+        "name": "id",
+        "type": "OrganizationStructureId"
+      },
+      "properties": {
+        "version": {
+          "type": "long"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        }
+      },
+      "references": {},
+      "reservedProperties": {}
+    },
+    "Package": {
+      "id": {
+        "name": "packageId",
+        "type": "long"
+      },
+      "properties": {
+        "rowVersion": {
+          "type": "long"
+        },
+        "packageType": {
+          "type": "int",
+          "enumType": "PackageType"
+        },
+        "rootPackageParts": {
+          "itemType": "PackagePart",
+          "isDerived": true
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        },
+        "serialNumber": {
+          "type": "string"
+        },
+        "materialNumber": {
+          "type": "string"
+        },
+        "customerNumber": {
+          "type": "string"
+        },
+        "workOrderNumber": {
+          "type": "string"
+        },
+        "lotNumber": {
+          "type": "string"
+        },
+        "rank": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "int"
+        },
+        "isMixed": {
+          "type": "bool"
+        },
+        "packageParts": {
+          "itemType": "PackagePart"
+        }
+      },
+      "references": {},
+      "reservedProperties": {
+        "version": "rowVersion"
+      },
+      "entities": {
+        "PackagePart": {
+          "id": {
+            "name": "partId",
+            "type": "long"
+          },
+          "properties": {
+            "rowVersion": {
+              "type": "long"
+            },
+            "packagePartType": {
+              "type": "int",
+              "enumType": "PackagePartType"
+            },
+            "parentPackagePartId": {
+              "type": "long",
+              "referenceType": "PackagePart",
+              "referenceName": "ParentPackagePart"
+            },
+            "childPackageParts": {
+              "itemType": "PackagePart",
+              "isDerived": true
+            },
+            "createdBy": {
+              "type": "string"
+            },
+            "createdAt": {
+              "type": "DateTime"
+            },
+            "updatedBy": {
+              "type": "string"
+            },
+            "updatedAt": {
+              "type": "DateTime"
+            },
+            "active": {
+              "type": "bool"
+            },
+            "deleted": {
+              "type": "bool"
+            },
+            "serialNumber": {
+              "type": "string"
+            },
+            "materialNumber": {
+              "type": "string"
+            },
+            "customerNumber": {
+              "type": "string"
+            },
+            "workOrderNumber": {
+              "type": "string"
+            },
+            "lotNumber": {
+              "type": "string"
+            },
+            "rank": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            },
+            "quantity": {
+              "type": "int"
+            },
+            "isMixed": {
+              "type": "bool"
+            }
+          },
+          "references": {
+            "ParentPackagePart": {
+              "type": "PackagePart",
+              "properties": [
+                "parentPackagePartId"
+              ]
+            }
+          },
+          "reservedProperties": {
+            "version": "rowVersion"
+          }
+        }
+      }
+    },
+    "Party": {
+      "id": {
+        "name": "partyId",
+        "type": "string"
+      },
+      "properties": {
+        "partyTypeId": {
+          "type": "string",
+          "enumType": "PartyTypeId"
+        },
+        "externalId": {
+          "type": "string"
+        },
+        "preferredCurrencyUomId": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "statusId": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "DateTime?"
+        },
+        "createdByUserLogin": {
+          "type": "string"
+        },
+        "lastModifiedDate": {
+          "type": "DateTime?"
+        },
+        "lastModifiedByUserLogin": {
+          "type": "string"
+        },
+        "dataSourceId": {
+          "type": "string"
+        },
+        "isUnread": {
+          "type": "string"
+        },
+        "version": {
+          "type": "long"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        },
+        "taxIdNum": {
+          "type": "string"
+        },
+        "surname": {
+          "type": "string"
+        }
+      },
+      "references": {},
+      "reservedProperties": {
+        "createdBy": "createdByUserLogin",
+        "createdAt": "createdDate",
+        "updatedBy": "lastModifiedByUserLogin",
+        "updatedAt": "lastModifiedDate"
+      },
+      "methods": {
+        "ChangeSurname": {
+          "parameters": {
+            "newName": {
+              "type": "string"
+            },
+            "partyId": {
+              "type": "string",
+              "isAggregateId": true
+            },
+            "version": {
+              "type": "long",
+              "isAggregateVersion": true
+            },
+            "commandId": {
+              "type": "string",
+              "isCommandId": true
+            },
+            "requesterId": {
+              "type": "string",
+              "isRequesterId": true
+            }
+          }
+        }
+      }
+    },
+    "PartyRelationship": {
+      "id": {
+        "name": "partyRelationshipId",
+        "type": "PartyRelationshipId"
+      },
+      "properties": {
+        "thruDate": {
+          "type": "DateTime?"
+        },
+        "statusId": {
+          "type": "string"
+        },
+        "relationshipName": {
+          "type": "string"
+        },
+        "securityGroupId": {
+          "type": "string"
+        },
+        "priorityTypeId": {
+          "type": "string"
+        },
+        "partyRelationshipTypeId": {
+          "type": "string"
+        },
+        "permissionsEnumId": {
+          "type": "string"
+        },
+        "positionTitle": {
+          "type": "string"
+        },
+        "comments": {
+          "type": "string"
+        },
+        "version": {
+          "type": "long"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        }
+      },
+      "references": {
+        "PartyIdFrom": {
+          "type": "Party",
+          "description": "From",
+          "properties": [
+            "partyRelationshipId.partyIdFrom"
+          ]
+        },
+        "PartyIdTo": {
+          "type": "Party",
+          "description": "To",
+          "properties": [
+            "partyRelationshipId.partyIdTo"
+          ]
+        },
+        "RoleTypeIdFrom": {
+          "type": "RoleType",
+          "description": "From",
+          "properties": [
+            "partyRelationshipId.roleTypeIdFrom"
+          ]
+        },
+        "RoleTypeIdTo": {
+          "type": "RoleType",
+          "description": "To",
+          "properties": [
+            "partyRelationshipId.roleTypeIdTo"
+          ]
+        },
+        "PartyIdFromAndRoleTypeIdFrom": {
+          "type": "PartyRole",
+          "description": "From",
+          "properties": [
+            "partyRelationshipId.partyIdFrom",
+            "partyRelationshipId.roleTypeIdFrom"
+          ]
+        },
+        "PartyIdToAndRoleTypeIdTo": {
+          "type": "PartyRole",
+          "description": "To",
+          "properties": [
+            "partyRelationshipId.partyIdTo",
+            "partyRelationshipId.roleTypeIdTo"
+          ]
+        }
+      },
+      "reservedProperties": {}
+    },
+    "PartyRole": {
+      "id": {
+        "name": "partyRoleId",
+        "type": "PartyRoleId"
+      },
+      "properties": {
+        "version": {
+          "type": "long"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        }
+      },
+      "references": {
+        "Party": {
+          "type": "Party",
+          "properties": [
+            "partyRoleId.partyId"
+          ]
+        },
+        "RoleType": {
+          "type": "RoleType",
+          "properties": [
+            "partyRoleId.roleTypeId"
+          ]
+        }
+      },
+      "reservedProperties": {}
+    },
+    "Person": {
+      "id": {
+        "name": "personalName",
+        "type": "PersonalName"
+      },
+      "properties": {
+        "refToEntInAnotherAggInst": {
+          "type": "PackagePartId",
+          "referenceType": "PackagePart"
+        },
+        "birthDate": {
+          "type": "DateTime"
+        },
+        "loves": {
+          "type": "PersonalName",
+          "referenceType": "Person"
+        },
+        "emergencyContact": {
+          "type": "Contact"
+        },
+        "email": {
+          "type": "string",
+          "constraints": [
+            "Email"
+          ]
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "version": {
+          "type": "long"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        },
+        "yearPlans": {
+          "itemType": "YearPlan"
+        }
+      },
+      "references": {},
+      "reservedProperties": {},
+      "methods": {
+        "ChangeEmail": {
+          "parameters": {
+            "personalName": {
+              "type": "PersonalName",
+              "isAggregateId": true
+            },
+            "personVersion": {
+              "type": "long",
+              "isAggregateVersion": true
+            },
+            "newEmail": {
+              "type": "string",
+              "constraints": [
+                "Email"
+              ]
+            },
+            "commandId": {
+              "type": "string",
+              "isCommandId": true
+            },
+            "requesterId": {
+              "type": "string",
+              "isRequesterId": true
+            }
+          }
+        }
+      },
+      "entities": {
+        "YearPlan": {
+          "id": {
+            "name": "year",
+            "type": "int"
+          },
+          "properties": {
+            "description": {
+              "type": "string"
+            },
+            "createdBy": {
+              "type": "string"
+            },
+            "updatedBy": {
+              "type": "string"
+            },
+            "version": {
+              "type": "long"
+            },
+            "createdAt": {
+              "type": "DateTime"
+            },
+            "updatedAt": {
+              "type": "DateTime"
+            },
+            "active": {
+              "type": "bool"
+            },
+            "deleted": {
+              "type": "bool"
+            },
+            "monthPlans": {
+              "itemType": "MonthPlan"
+            }
+          },
+          "references": {},
+          "reservedProperties": {},
+          "entities": {
+            "MonthPlan": {
+              "id": {
+                "name": "month",
+                "type": "int"
+              },
+              "properties": {
+                "description": {
+                  "type": "string"
+                },
+                "createdBy": {
+                  "type": "string"
+                },
+                "updatedBy": {
+                  "type": "string"
+                },
+                "version": {
+                  "type": "long"
+                },
+                "createdAt": {
+                  "type": "DateTime"
+                },
+                "updatedAt": {
+                  "type": "DateTime"
+                },
+                "active": {
+                  "type": "bool"
+                },
+                "deleted": {
+                  "type": "bool"
+                },
+                "dayPlans": {
+                  "itemType": "DayPlan"
+                }
+              },
+              "references": {},
+              "reservedProperties": {},
+              "entities": {
+                "DayPlan": {
+                  "id": {
+                    "name": "day",
+                    "type": "int"
+                  },
+                  "properties": {
+                    "description": {
+                      "type": "string"
+                    },
+                    "createdBy": {
+                      "type": "string"
+                    },
+                    "updatedBy": {
+                      "type": "string"
+                    },
+                    "version": {
+                      "type": "long"
+                    },
+                    "createdAt": {
+                      "type": "DateTime"
+                    },
+                    "updatedAt": {
+                      "type": "DateTime"
+                    },
+                    "active": {
+                      "type": "bool"
+                    },
+                    "deleted": {
+                      "type": "bool"
+                    }
+                  },
+                  "references": {},
+                  "reservedProperties": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Team": {
+      "id": {
+        "name": "teamName",
+        "type": "string"
+      },
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "players": {
+          "itemType": "PersonalName"
+        },
+        "mascots": {
+          "itemType": "string"
+        },
+        "version": {
+          "type": "long"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        }
+      },
+      "references": {},
+      "reservedProperties": {}
+    },
+    "RoleType": {
+      "id": {
+        "name": "roleTypeId",
+        "type": "string"
+      },
+      "properties": {
+        "parentTypeId": {
+          "type": "string",
+          "referenceType": "RoleType",
+          "referenceName": "ParentTypeId"
+        },
+        "hasTable": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "version": {
+          "type": "long"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        }
+      },
+      "references": {
+        "ParentTypeId": {
+          "type": "RoleType",
+          "description": "Parent",
+          "properties": [
+            "parentTypeId"
+          ]
+        }
+      },
+      "reservedProperties": {}
+    },
+    "Warehouse": {
+      "id": {
+        "name": "warehouseId",
+        "type": "string"
+      },
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "isInTransit": {
+          "type": "bool"
+        },
+        "locators": {
+          "itemType": "Locator",
+          "isDerived": true
+        },
+        "version": {
+          "type": "long"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        }
+      },
+      "references": {},
+      "reservedProperties": {}
+    },
+    "Locator": {
+      "id": {
+        "name": "locatorId",
+        "type": "string",
+        "constraints": [
+          "numericDashAlphabetic"
+        ]
+      },
+      "properties": {
+        "warehouseId": {
+          "type": "string",
+          "referenceType": "Warehouse",
+          "referenceName": "Warehouse",
+          "referenceFilter": {
+            "Criterion": {
+              "type": "eq",
+              "property": "active",
+              "value": "true"
+            }
+          }
+        },
+        "parentLocatorId": {
+          "type": "string"
+        },
+        "locatorType": {
+          "type": "string"
+        },
+        "priorityNumber": {
+          "type": "string"
+        },
+        "isDefault": {
+          "type": "bool"
+        },
+        "x": {
+          "type": "string"
+        },
+        "y": {
+          "type": "string"
+        },
+        "z": {
+          "type": "string"
+        },
+        "version": {
+          "type": "long"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        }
+      },
+      "references": {
+        "Warehouse": {
+          "type": "Warehouse",
+          "properties": [
+            "warehouseId"
+          ]
+        }
+      },
+      "reservedProperties": {}
+    },
+    "Storage": {
+      "id": {
+        "name": "storageId",
+        "type": "StorageId"
+      },
+      "properties": {
+        "quantity": {
+          "type": "int"
+        },
+        "version": {
+          "type": "long"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        }
+      },
+      "references": {},
+      "reservedProperties": {}
+    },
+    "MovementTransaction": {
+      "id": {
+        "name": "movementTransactionId",
+        "type": "string"
+      },
+      "properties": {
+        "sourceLocatorId": {
+          "type": "string",
+          "referenceType": "Locator"
+        },
+        "targetLocatorId": {
+          "type": "string",
+          "referenceType": "Locator"
+        },
+        "productId": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "int"
+        },
+        "version": {
+          "type": "long"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        },
+        "processState": {
+          "type": "string"
+        },
+        "processType": {
+          "type": "string"
+        },
+        "movementEntries": {
+          "itemType": "MovementEntry"
+        }
+      },
+      "references": {},
+      "reservedProperties": {},
+      "entities": {
+        "MovementEntry": {
+          "id": {
+            "name": "entryName",
+            "type": "string"
+          },
+          "properties": {
+            "locatorId": {
+              "type": "string",
+              "referenceType": "Locator"
+            },
+            "productId": {
+              "type": "string"
+            },
+            "quantity": {
+              "type": "int"
+            },
+            "storageQuantity": {
+              "type": "int"
+            },
+            "storageVersion": {
+              "type": "long"
+            },
+            "taskCommandId": {
+              "type": "string"
+            },
+            "taskState": {
+              "type": "string"
+            },
+            "errorName": {
+              "type": "string"
+            },
+            "version": {
+              "type": "long"
+            },
+            "createdBy": {
+              "type": "string"
+            },
+            "createdAt": {
+              "type": "DateTime"
+            },
+            "updatedBy": {
+              "type": "string"
+            },
+            "updatedAt": {
+              "type": "DateTime"
+            },
+            "active": {
+              "type": "bool"
+            },
+            "deleted": {
+              "type": "bool"
+            },
+            "sequenceId": {
+              "type": "int"
+            },
+            "errorCount": {
+              "type": "int"
+            },
+            "message": {
+              "type": "string"
+            }
+          },
+          "references": {},
+          "reservedProperties": {}
+        }
+      }
+    },
+    "WheelMvo": {
+      "id": {
+        "name": "carWheelId",
+        "type": "CarWheelId"
+      },
+      "properties": {
+        "version": {
+          "type": "long"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        },
+        "carVersion": {
+          "type": "long"
+        },
+        "carCreatedBy": {
+          "type": "string"
+        },
+        "carCreatedAt": {
+          "type": "DateTime"
+        },
+        "carUpdatedBy": {
+          "type": "string"
+        },
+        "carUpdatedAt": {
+          "type": "DateTime"
+        },
+        "carActive": {
+          "type": "bool"
+        },
+        "carDeleted": {
+          "type": "bool"
+        }
+      },
+      "references": {},
+      "reservedProperties": {
+        "version": "carVersion"
+      }
+    },
+    "TireMvo": {
+      "id": {
+        "name": "carTireId",
+        "type": "CarTireId"
+      },
+      "properties": {
+        "version": {
+          "type": "long"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        },
+        "carVersion": {
+          "type": "long"
+        },
+        "carCreatedBy": {
+          "type": "string"
+        },
+        "carCreatedAt": {
+          "type": "DateTime"
+        },
+        "carUpdatedBy": {
+          "type": "string"
+        },
+        "carUpdatedAt": {
+          "type": "DateTime"
+        },
+        "carActive": {
+          "type": "bool"
+        },
+        "carDeleted": {
+          "type": "bool"
+        }
+      },
+      "references": {},
+      "reservedProperties": {
+        "version": "carVersion"
+      }
+    },
+    "PositionMvo": {
+      "id": {
+        "name": "carPositionId",
+        "type": "CarPositionId"
+      },
+      "properties": {
+        "timePeriod": {
+          "type": "TimePeriod"
+        },
+        "mileAge": {
+          "type": "long"
+        },
+        "wheelId": {
+          "type": "string",
+          "enumType": "WheelId"
+        },
+        "version": {
+          "type": "long"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        },
+        "tireVersion": {
+          "type": "long"
+        },
+        "tireCreatedBy": {
+          "type": "string"
+        },
+        "tireCreatedAt": {
+          "type": "DateTime"
+        },
+        "tireUpdatedBy": {
+          "type": "string"
+        },
+        "tireUpdatedAt": {
+          "type": "DateTime"
+        },
+        "tireActive": {
+          "type": "bool"
+        },
+        "tireDeleted": {
+          "type": "bool"
+        },
+        "carVersion": {
+          "type": "long"
+        },
+        "carCreatedBy": {
+          "type": "string"
+        },
+        "carCreatedAt": {
+          "type": "DateTime"
+        },
+        "carUpdatedBy": {
+          "type": "string"
+        },
+        "carUpdatedAt": {
+          "type": "DateTime"
+        },
+        "carActive": {
+          "type": "bool"
+        },
+        "carDeleted": {
+          "type": "bool"
+        }
+      },
+      "references": {},
+      "reservedProperties": {
+        "version": "carVersion"
+      }
+    },
+    "BuildingMvo": {
+      "id": {
+        "name": "buildingId",
+        "type": "BuildingId"
+      },
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "version": {
+          "type": "long"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        },
+        "gardenAddress": {
+          "type": "string"
+        },
+        "gardenCity": {
+          "type": "string"
+        },
+        "gardenVersion": {
+          "type": "long"
+        },
+        "gardenCreatedBy": {
+          "type": "string"
+        },
+        "gardenCreatedAt": {
+          "type": "DateTime"
+        },
+        "gardenUpdatedBy": {
+          "type": "string"
+        },
+        "gardenUpdatedAt": {
+          "type": "DateTime"
+        },
+        "gardenActive": {
+          "type": "bool"
+        },
+        "gardenDeleted": {
+          "type": "bool"
+        }
+      },
+      "references": {},
+      "reservedProperties": {
+        "version": "gardenVersion"
+      }
+    },
+    "RoomMvo": {
+      "id": {
+        "name": "roomId",
+        "type": "RoomId"
+      },
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "version": {
+          "type": "long"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        },
+        "buildingName": {
+          "type": "string"
+        },
+        "buildingDescription": {
+          "type": "string"
+        },
+        "buildingVersion": {
+          "type": "long"
+        },
+        "buildingCreatedBy": {
+          "type": "string"
+        },
+        "buildingCreatedAt": {
+          "type": "DateTime"
+        },
+        "buildingUpdatedBy": {
+          "type": "string"
+        },
+        "buildingUpdatedAt": {
+          "type": "DateTime"
+        },
+        "buildingActive": {
+          "type": "bool"
+        },
+        "buildingDeleted": {
+          "type": "bool"
+        },
+        "gardenAddress": {
+          "type": "string"
+        },
+        "gardenCity": {
+          "type": "string"
+        },
+        "gardenVersion": {
+          "type": "long"
+        },
+        "gardenCreatedBy": {
+          "type": "string"
+        },
+        "gardenCreatedAt": {
+          "type": "DateTime"
+        },
+        "gardenUpdatedBy": {
+          "type": "string"
+        },
+        "gardenUpdatedAt": {
+          "type": "DateTime"
+        },
+        "gardenActive": {
+          "type": "bool"
+        },
+        "gardenDeleted": {
+          "type": "bool"
+        }
+      },
+      "references": {},
+      "reservedProperties": {
+        "version": "gardenVersion"
+      }
+    },
+    "TermDefinitionMvo": {
+      "id": {
+        "name": "termDefinitionId",
+        "type": "TermDefinitionId"
+      },
+      "properties": {
+        "wordClass": {
+          "type": "string",
+          "enumType": "PartOfSpeech"
+        },
+        "definition": {
+          "type": "string"
+        },
+        "version": {
+          "type": "long"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        },
+        "termContextId": {
+          "type": "string"
+        },
+        "termExpression": {
+          "type": "string",
+          "constraints": [
+            "GlossaryTerm"
+          ]
+        },
+        "termChineseExpression": {
+          "type": "string"
+        },
+        "termVersion": {
+          "type": "long"
+        },
+        "termCreatedBy": {
+          "type": "string"
+        },
+        "termCreatedAt": {
+          "type": "DateTime"
+        },
+        "termUpdatedBy": {
+          "type": "string"
+        },
+        "termUpdatedAt": {
+          "type": "DateTime"
+        },
+        "termActive": {
+          "type": "bool"
+        },
+        "termDeleted": {
+          "type": "bool"
+        }
+      },
+      "references": {},
+      "reservedProperties": {
+        "version": "termVersion"
+      }
+    },
+    "TermTagMvo": {
+      "id": {
+        "name": "termTagId",
+        "type": "TermTagId"
+      },
+      "properties": {
+        "sequenceNumber": {
+          "type": "int"
+        },
+        "version": {
+          "type": "long"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        },
+        "termContextId": {
+          "type": "string"
+        },
+        "termExpression": {
+          "type": "string",
+          "constraints": [
+            "GlossaryTerm"
+          ]
+        },
+        "termChineseExpression": {
+          "type": "string"
+        },
+        "termVersion": {
+          "type": "long"
+        },
+        "termCreatedBy": {
+          "type": "string"
+        },
+        "termCreatedAt": {
+          "type": "DateTime"
+        },
+        "termUpdatedBy": {
+          "type": "string"
+        },
+        "termUpdatedAt": {
+          "type": "DateTime"
+        },
+        "termActive": {
+          "type": "bool"
+        },
+        "termDeleted": {
+          "type": "bool"
+        }
+      },
+      "references": {},
+      "reservedProperties": {
+        "version": "termVersion"
+      }
+    },
+    "PackagePartMvo": {
+      "id": {
+        "name": "packagePartId",
+        "type": "PackagePartId"
+      },
+      "properties": {
+        "rowVersion": {
+          "type": "long"
+        },
+        "packagePartType": {
+          "type": "int",
+          "enumType": "PackagePartType"
+        },
+        "parentPackagePartId": {
+          "type": "long",
+          "referenceName": "ParentPackagePart"
+        },
+        "childPackageParts": {
+          "itemType": "PackagePart",
+          "isDerived": true
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        },
+        "serialNumber": {
+          "type": "string"
+        },
+        "materialNumber": {
+          "type": "string"
+        },
+        "customerNumber": {
+          "type": "string"
+        },
+        "workOrderNumber": {
+          "type": "string"
+        },
+        "lotNumber": {
+          "type": "string"
+        },
+        "rank": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "int"
+        },
+        "isMixed": {
+          "type": "bool"
+        },
+        "packageRowVersion": {
+          "type": "long"
+        },
+        "packagePackageType": {
+          "type": "int",
+          "enumType": "PackageType"
+        },
+        "packageCreatedBy": {
+          "type": "string"
+        },
+        "packageCreatedAt": {
+          "type": "DateTime"
+        },
+        "packageUpdatedBy": {
+          "type": "string"
+        },
+        "packageUpdatedAt": {
+          "type": "DateTime"
+        },
+        "packageActive": {
+          "type": "bool"
+        },
+        "packageSerialNumber": {
+          "type": "string"
+        },
+        "packageMaterialNumber": {
+          "type": "string"
+        },
+        "packageCustomerNumber": {
+          "type": "string"
+        },
+        "packageWorkOrderNumber": {
+          "type": "string"
+        },
+        "packageLotNumber": {
+          "type": "string"
+        },
+        "packageRank": {
+          "type": "string"
+        },
+        "packageVersion": {
+          "type": "string"
+        },
+        "packageQuantity": {
+          "type": "int"
+        },
+        "packageIsMixed": {
+          "type": "bool"
+        }
+      },
+      "references": {},
+      "reservedProperties": {
+        "version": "packageRowVersion"
+      }
+    },
+    "YearPlanMvo": {
+      "id": {
+        "name": "yearPlanId",
+        "type": "YearPlanId"
+      },
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "version": {
+          "type": "long"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        },
+        "personRefToEntInAnotherAggInst": {
+          "type": "PackagePartId"
+        },
+        "personBirthDate": {
+          "type": "DateTime"
+        },
+        "personLoves": {
+          "type": "PersonalName"
+        },
+        "personEmergencyContact": {
+          "type": "Contact"
+        },
+        "personEmail": {
+          "type": "string",
+          "constraints": [
+            "Email"
+          ]
+        },
+        "personCreatedBy": {
+          "type": "string"
+        },
+        "personUpdatedBy": {
+          "type": "string"
+        },
+        "personVersion": {
+          "type": "long"
+        },
+        "personCreatedAt": {
+          "type": "DateTime"
+        },
+        "personUpdatedAt": {
+          "type": "DateTime"
+        },
+        "personActive": {
+          "type": "bool"
+        },
+        "personDeleted": {
+          "type": "bool"
+        }
+      },
+      "references": {},
+      "reservedProperties": {
+        "version": "personVersion"
+      }
+    },
+    "MonthPlanMvo": {
+      "id": {
+        "name": "monthPlanId",
+        "type": "MonthPlanId"
+      },
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "version": {
+          "type": "long"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        },
+        "yearPlanDescription": {
+          "type": "string"
+        },
+        "yearPlanCreatedBy": {
+          "type": "string"
+        },
+        "yearPlanUpdatedBy": {
+          "type": "string"
+        },
+        "yearPlanVersion": {
+          "type": "long"
+        },
+        "yearPlanCreatedAt": {
+          "type": "DateTime"
+        },
+        "yearPlanUpdatedAt": {
+          "type": "DateTime"
+        },
+        "yearPlanActive": {
+          "type": "bool"
+        },
+        "yearPlanDeleted": {
+          "type": "bool"
+        },
+        "personRefToEntInAnotherAggInst": {
+          "type": "PackagePartId"
+        },
+        "personBirthDate": {
+          "type": "DateTime"
+        },
+        "personLoves": {
+          "type": "PersonalName"
+        },
+        "personEmergencyContact": {
+          "type": "Contact"
+        },
+        "personEmail": {
+          "type": "string",
+          "constraints": [
+            "Email"
+          ]
+        },
+        "personCreatedBy": {
+          "type": "string"
+        },
+        "personUpdatedBy": {
+          "type": "string"
+        },
+        "personVersion": {
+          "type": "long"
+        },
+        "personCreatedAt": {
+          "type": "DateTime"
+        },
+        "personUpdatedAt": {
+          "type": "DateTime"
+        },
+        "personActive": {
+          "type": "bool"
+        },
+        "personDeleted": {
+          "type": "bool"
+        }
+      },
+      "references": {},
+      "reservedProperties": {
+        "version": "personVersion"
+      }
+    },
+    "DayPlanMvo": {
+      "id": {
+        "name": "dayPlanId",
+        "type": "DayPlanId"
+      },
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "version": {
+          "type": "long"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        },
+        "monthPlanDescription": {
+          "type": "string"
+        },
+        "monthPlanCreatedBy": {
+          "type": "string"
+        },
+        "monthPlanUpdatedBy": {
+          "type": "string"
+        },
+        "monthPlanVersion": {
+          "type": "long"
+        },
+        "monthPlanCreatedAt": {
+          "type": "DateTime"
+        },
+        "monthPlanUpdatedAt": {
+          "type": "DateTime"
+        },
+        "monthPlanActive": {
+          "type": "bool"
+        },
+        "monthPlanDeleted": {
+          "type": "bool"
+        },
+        "yearPlanDescription": {
+          "type": "string"
+        },
+        "yearPlanCreatedBy": {
+          "type": "string"
+        },
+        "yearPlanUpdatedBy": {
+          "type": "string"
+        },
+        "yearPlanVersion": {
+          "type": "long"
+        },
+        "yearPlanCreatedAt": {
+          "type": "DateTime"
+        },
+        "yearPlanUpdatedAt": {
+          "type": "DateTime"
+        },
+        "yearPlanActive": {
+          "type": "bool"
+        },
+        "yearPlanDeleted": {
+          "type": "bool"
+        },
+        "personRefToEntInAnotherAggInst": {
+          "type": "PackagePartId"
+        },
+        "personBirthDate": {
+          "type": "DateTime"
+        },
+        "personLoves": {
+          "type": "PersonalName"
+        },
+        "personEmergencyContact": {
+          "type": "Contact"
+        },
+        "personEmail": {
+          "type": "string",
+          "constraints": [
+            "Email"
+          ]
+        },
+        "personCreatedBy": {
+          "type": "string"
+        },
+        "personUpdatedBy": {
+          "type": "string"
+        },
+        "personVersion": {
+          "type": "long"
+        },
+        "personCreatedAt": {
+          "type": "DateTime"
+        },
+        "personUpdatedAt": {
+          "type": "DateTime"
+        },
+        "personActive": {
+          "type": "bool"
+        },
+        "personDeleted": {
+          "type": "bool"
+        }
+      },
+      "references": {},
+      "reservedProperties": {
+        "version": "personVersion"
+      }
+    },
+    "MovementEntryMvo": {
+      "id": {
+        "name": "movementEntryId",
+        "type": "MovementEntryId"
+      },
+      "properties": {
+        "locatorId": {
+          "type": "string"
+        },
+        "productId": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "int"
+        },
+        "storageQuantity": {
+          "type": "int"
+        },
+        "storageVersion": {
+          "type": "long"
+        },
+        "taskCommandId": {
+          "type": "string"
+        },
+        "taskState": {
+          "type": "string"
+        },
+        "errorName": {
+          "type": "string"
+        },
+        "version": {
+          "type": "long"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "DateTime"
+        },
+        "updatedBy": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "DateTime"
+        },
+        "active": {
+          "type": "bool"
+        },
+        "deleted": {
+          "type": "bool"
+        },
+        "sequenceId": {
+          "type": "int"
+        },
+        "errorCount": {
+          "type": "int"
+        },
+        "message": {
+          "type": "string"
+        },
+        "movementTransactionSourceLocatorId": {
+          "type": "string"
+        },
+        "movementTransactionTargetLocatorId": {
+          "type": "string"
+        },
+        "movementTransactionProductId": {
+          "type": "string"
+        },
+        "movementTransactionQuantity": {
+          "type": "int"
+        },
+        "movementTransactionVersion": {
+          "type": "long"
+        },
+        "movementTransactionCreatedBy": {
+          "type": "string"
+        },
+        "movementTransactionCreatedAt": {
+          "type": "DateTime"
+        },
+        "movementTransactionUpdatedBy": {
+          "type": "string"
+        },
+        "movementTransactionUpdatedAt": {
+          "type": "DateTime"
+        },
+        "movementTransactionActive": {
+          "type": "bool"
+        },
+        "movementTransactionDeleted": {
+          "type": "bool"
+        },
+        "movementTransactionProcessState": {
+          "type": "string"
+        },
+        "movementTransactionProcessType": {
+          "type": "string"
+        }
+      },
+      "references": {},
+      "reservedProperties": {
+        "version": "movementTransactionVersion"
+      }
+    }
+  }
+}
