@@ -1,0 +1,38 @@
+{
+  "referenceObjects": {
+    "AccountingEvent": {
+      "properties": {
+        "secondaryEvents": {
+          "resourceName": "SecondaryEvents"
+        }
+      }
+    },
+    "Agreement": {
+      "properties": {
+        "partyRelationships": {
+          "resourceName": "PartyRelationships"
+        }
+      }
+    },
+    "Term": {
+      "httpPostCreationEnabled": true
+    },
+    "Tag": {
+      "httpPostCreationEnabled": true
+    },
+    "Package": {
+      "properties": {
+        "rootPackageParts": {
+          "resourceName": "RootPackageParts"
+        }
+      }
+    },
+    "PackagePart": {
+      "properties": {
+        "childPackageParts": {
+          "resourceName": "ChildPackageParts"
+        }
+      }
+    }
+  }
+}

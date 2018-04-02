@@ -1,0 +1,237 @@
+{
+  "Account": [
+    "Account"
+  ],
+  "SummaryAccount": [
+    "Account",
+    "#SummaryAccount"
+  ],
+  "AccountType": [
+    "Account",
+    "#SummaryAccount",
+    "#AccountType"
+  ],
+  "MemoAccount": [
+    "Account",
+    "#MemoAccount"
+  ],
+  "AccountingEventType": [
+    "AccountingEventType"
+  ],
+  "AccountingEvent": [
+    "AccountingEvent"
+  ],
+  "AtprTriggeredEvent": [
+    "AccountingEvent",
+    "#AtprTriggeredEvent"
+  ],
+  "AtprTriggeredEventSource": [
+    "AccountingEvent",
+    "AtprTriggeredEventSource"
+  ],
+  "AccountingEventProcessLog": [
+    "AccountingEventProcessLog"
+  ],
+  "PostingRule": [
+    "PostingRule"
+  ],
+  "AccountTriggerPostingRule": [
+    "PostingRule",
+    "#AccountTriggerPostingRule"
+  ],
+  "AccountingTransaction": [
+    "AccountingTransaction"
+  ],
+  "Entry": [
+    "Entry"
+  ],
+  "TransactionalEntry": [
+    "Entry",
+    "#TransactionalEntry"
+  ],
+  "Agreement": [
+    "Agreement"
+  ],
+  "Car": [
+    "Car"
+  ],
+  "Wheel": [
+    "Car",
+    "Wheel"
+  ],
+  "Tire": [
+    "Car",
+    "Tire"
+  ],
+  "Position": [
+    "Car",
+    "Tire",
+    "Position"
+  ],
+  "Garden": [
+    "Garden"
+  ],
+  "Building": [
+    "Garden",
+    "Building"
+  ],
+  "Room": [
+    "Garden",
+    "Building",
+    "Room"
+  ],
+  "Context": [
+    "Context"
+  ],
+  "Term": [
+    "Term"
+  ],
+  "TermDefinition": [
+    "Term",
+    "TermDefinition"
+  ],
+  "TermTag": [
+    "Term",
+    "TermTag"
+  ],
+  "Tag": [
+    "Tag"
+  ],
+  "Image": [
+    "Image"
+  ],
+  "ProductImage": [
+    "Image",
+    "#ProductImage"
+  ],
+  "ProductQRCodeImage": [
+    "Image",
+    "#ProductQRCodeImage"
+  ],
+  "OrderRemarkImage": [
+    "Image",
+    "#OrderRemarkImage"
+  ],
+  "BrandImage": [
+    "Image",
+    "#BrandImage"
+  ],
+  "DesignPlanImage": [
+    "Image",
+    "#DesignPlanImage"
+  ],
+  "Organization": [
+    "Organization"
+  ],
+  "OrganizationStructureType": [
+    "OrganizationStructureType"
+  ],
+  "OrganizationStructure": [
+    "OrganizationStructure"
+  ],
+  "Package": [
+    "Package"
+  ],
+  "PackagePart": [
+    "Package",
+    "PackagePart"
+  ],
+  "Party": [
+    "Party"
+  ],
+  "LegalOrganization": [
+    "Party",
+    "#LegalOrganization"
+  ],
+  "InformalOrganization": [
+    "Party",
+    "#InformalOrganization"
+  ],
+  "Family": [
+    "Party",
+    "#InformalOrganization",
+    "#Family"
+  ],
+  "PartyRelationship": [
+    "PartyRelationship"
+  ],
+  "PartyRole": [
+    "PartyRole"
+  ],
+  "Person": [
+    "Person"
+  ],
+  "YearPlan": [
+    "Person",
+    "YearPlan"
+  ],
+  "MonthPlan": [
+    "Person",
+    "YearPlan",
+    "MonthPlan"
+  ],
+  "DayPlan": [
+    "Person",
+    "YearPlan",
+    "MonthPlan",
+    "DayPlan"
+  ],
+  "Team": [
+    "Team"
+  ],
+  "RoleType": [
+    "RoleType"
+  ],
+  "Warehouse": [
+    "Warehouse"
+  ],
+  "Locator": [
+    "Locator"
+  ],
+  "Storage": [
+    "Storage"
+  ],
+  "MovementTransaction": [
+    "MovementTransaction"
+  ],
+  "MovementEntry": [
+    "MovementTransaction",
+    "MovementEntry"
+  ],
+  "WheelMvo": [
+    "WheelMvo"
+  ],
+  "TireMvo": [
+    "TireMvo"
+  ],
+  "PositionMvo": [
+    "PositionMvo"
+  ],
+  "BuildingMvo": [
+    "BuildingMvo"
+  ],
+  "RoomMvo": [
+    "RoomMvo"
+  ],
+  "TermDefinitionMvo": [
+    "TermDefinitionMvo"
+  ],
+  "TermTagMvo": [
+    "TermTagMvo"
+  ],
+  "PackagePartMvo": [
+    "PackagePartMvo"
+  ],
+  "YearPlanMvo": [
+    "YearPlanMvo"
+  ],
+  "MonthPlanMvo": [
+    "MonthPlanMvo"
+  ],
+  "DayPlanMvo": [
+    "DayPlanMvo"
+  ],
+  "MovementEntryMvo": [
+    "MovementEntryMvo"
+  ]
+}

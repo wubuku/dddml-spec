@@ -1,0 +1,2856 @@
+{
+  "aggregates": {
+    "Account": {
+      "filteringProperties": {
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        },
+        "AccountClass": {
+          "type": "string",
+          "canonicalName": "accountClass"
+        }
+      }
+    },
+    "AccountingEventType": {
+      "filteringProperties": {
+        "Id": {
+          "type": "int",
+          "canonicalName": "id"
+        },
+        "Name": {
+          "type": "string",
+          "canonicalName": "name"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        }
+      }
+    },
+    "AccountingEvent": {
+      "filteringProperties": {
+        "Id": {
+          "type": "long",
+          "canonicalName": "id"
+        },
+        "EventTypeId": {
+          "type": "int",
+          "canonicalName": "eventTypeId"
+        },
+        "WhenNoticed": {
+          "type": "DateTime",
+          "canonicalName": "whenNoticed"
+        },
+        "WhenOccured": {
+          "type": "DateTime",
+          "canonicalName": "whenOccured"
+        },
+        "BaseEventId": {
+          "type": "long",
+          "canonicalName": "baseEventId"
+        },
+        "PostingRuleId": {
+          "type": "string",
+          "canonicalName": "postingRuleId"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        },
+        "AccountingEventClass": {
+          "type": "string",
+          "canonicalName": "accountingEventClass"
+        }
+      }
+    },
+    "AccountingEventProcessLog": {
+      "filteringProperties": {
+        "EventId": {
+          "type": "long",
+          "canonicalName": "eventId"
+        },
+        "Processed": {
+          "type": "bool",
+          "canonicalName": "processed"
+        },
+        "ReplacementEventId": {
+          "type": "long",
+          "canonicalName": "replacementEventId"
+        },
+        "AdjustedEventId": {
+          "type": "long",
+          "canonicalName": "adjustedEventId"
+        },
+        "Reversed": {
+          "type": "bool",
+          "canonicalName": "reversed"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        }
+      }
+    },
+    "PostingRule": {
+      "filteringProperties": {
+        "Id": {
+          "type": "string",
+          "canonicalName": "id"
+        },
+        "EventTypeId": {
+          "type": "int",
+          "canonicalName": "eventTypeId"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        },
+        "PostingRuleClass": {
+          "type": "string",
+          "canonicalName": "postingRuleClass"
+        }
+      }
+    },
+    "AccountingTransaction": {
+      "filteringProperties": {
+        "Id": {
+          "type": "long",
+          "canonicalName": "id"
+        },
+        "PostingRuleId": {
+          "type": "string",
+          "canonicalName": "postingRuleId"
+        },
+        "EventId": {
+          "type": "long",
+          "canonicalName": "eventId"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        }
+      }
+    },
+    "Entry": {
+      "filteringProperties": {
+        "Id": {
+          "type": "long",
+          "canonicalName": "id"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "EventId": {
+          "type": "long",
+          "canonicalName": "eventId"
+        },
+        "PostingRuleId": {
+          "type": "string",
+          "canonicalName": "postingRuleId"
+        },
+        "TransactionId": {
+          "type": "long",
+          "canonicalName": "transactionId"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        },
+        "EntryClass": {
+          "type": "string",
+          "canonicalName": "entryClass"
+        }
+      }
+    },
+    "Agreement": {
+      "filteringProperties": {
+        "AgreementId": {
+          "type": "string",
+          "canonicalName": "agreementId"
+        },
+        "ProductId": {
+          "type": "string",
+          "canonicalName": "productId"
+        },
+        "PartyIdFrom": {
+          "type": "string",
+          "canonicalName": "partyIdFrom"
+        },
+        "PartyIdTo": {
+          "type": "string",
+          "canonicalName": "partyIdTo"
+        },
+        "RoleTypeIdFrom": {
+          "type": "string",
+          "canonicalName": "roleTypeIdFrom"
+        },
+        "RoleTypeIdTo": {
+          "type": "string",
+          "canonicalName": "roleTypeIdTo"
+        },
+        "AgreementTypeId": {
+          "type": "string",
+          "canonicalName": "agreementTypeId"
+        },
+        "AgreementDate": {
+          "type": "DateTime?",
+          "canonicalName": "agreementDate"
+        },
+        "FromDate": {
+          "type": "DateTime?",
+          "canonicalName": "fromDate"
+        },
+        "ThruDate": {
+          "type": "DateTime?",
+          "canonicalName": "thruDate"
+        },
+        "Description": {
+          "type": "string",
+          "canonicalName": "description"
+        },
+        "TextData": {
+          "type": "string",
+          "canonicalName": "textData"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        }
+      }
+    },
+    "Car": {
+      "filteringProperties": {
+        "Id": {
+          "type": "string",
+          "canonicalName": "id"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        }
+      }
+    },
+    "Garden": {
+      "filteringProperties": {
+        "Id": {
+          "type": "string",
+          "canonicalName": "id"
+        },
+        "Address": {
+          "type": "string",
+          "canonicalName": "address"
+        },
+        "City": {
+          "type": "string",
+          "canonicalName": "city"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        }
+      }
+    },
+    "Context": {
+      "filteringProperties": {
+        "ContextId": {
+          "type": "string",
+          "canonicalName": "contextId"
+        },
+        "Description": {
+          "type": "string",
+          "canonicalName": "description"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        }
+      }
+    },
+    "Term": {
+      "filteringProperties": {
+        "TermId": {
+          "type": "string",
+          "canonicalName": "termId"
+        },
+        "ContextId": {
+          "type": "string",
+          "canonicalName": "contextId"
+        },
+        "Expression": {
+          "type": "string",
+          "canonicalName": "expression"
+        },
+        "ChineseExpression": {
+          "type": "string",
+          "canonicalName": "chineseExpression"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        }
+      }
+    },
+    "Tag": {
+      "filteringProperties": {
+        "TagId": {
+          "type": "string",
+          "canonicalName": "tagId"
+        },
+        "Name": {
+          "type": "string",
+          "canonicalName": "name"
+        },
+        "OrganizationId": {
+          "type": "string",
+          "canonicalName": "organizationId"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        }
+      }
+    },
+    "Image": {
+      "filteringProperties": {
+        "Id": {
+          "type": "long",
+          "canonicalName": "id"
+        },
+        "ImageName": {
+          "type": "string",
+          "canonicalName": "imageName"
+        },
+        "ImagePath": {
+          "type": "string",
+          "canonicalName": "imagePath"
+        },
+        "ImageType": {
+          "type": "string",
+          "canonicalName": "imageType"
+        },
+        "IsDefault": {
+          "type": "bool",
+          "canonicalName": "isDefault"
+        },
+        "SortNumber": {
+          "type": "int",
+          "canonicalName": "sortNumber"
+        },
+        "RefererId": {
+          "type": "long",
+          "canonicalName": "refererId"
+        },
+        "Description": {
+          "type": "string",
+          "canonicalName": "description"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        }
+      }
+    },
+    "Organization": {
+      "filteringProperties": {
+        "OrganizationId": {
+          "type": "string",
+          "canonicalName": "organizationId"
+        },
+        "Name": {
+          "type": "string",
+          "canonicalName": "name"
+        },
+        "Description": {
+          "type": "string",
+          "canonicalName": "description"
+        },
+        "Type": {
+          "type": "string",
+          "canonicalName": "type"
+        },
+        "IsSummary": {
+          "type": "bool",
+          "canonicalName": "isSummary"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        }
+      }
+    },
+    "OrganizationStructureType": {
+      "filteringProperties": {
+        "Id": {
+          "type": "string",
+          "canonicalName": "id"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        }
+      }
+    },
+    "OrganizationStructure": {
+      "filteringProperties": {
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        },
+        "Id.OrganizationStructureTypeId": {
+          "type": "string",
+          "canonicalName": "id.organizationStructureTypeId"
+        },
+        "Id.ParentId": {
+          "type": "string",
+          "canonicalName": "id.parentId"
+        },
+        "Id.SubsidiaryId": {
+          "type": "string",
+          "canonicalName": "id.subsidiaryId"
+        }
+      }
+    },
+    "Package": {
+      "filteringProperties": {
+        "PackageId": {
+          "type": "long",
+          "canonicalName": "packageId"
+        },
+        "RowVersion": {
+          "type": "long",
+          "canonicalName": "rowVersion"
+        },
+        "PackageType": {
+          "type": "int",
+          "canonicalName": "packageType"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        },
+        "SerialNumber": {
+          "type": "string",
+          "canonicalName": "serialNumber"
+        },
+        "MaterialNumber": {
+          "type": "string",
+          "canonicalName": "materialNumber"
+        },
+        "CustomerNumber": {
+          "type": "string",
+          "canonicalName": "customerNumber"
+        },
+        "WorkOrderNumber": {
+          "type": "string",
+          "canonicalName": "workOrderNumber"
+        },
+        "LotNumber": {
+          "type": "string",
+          "canonicalName": "lotNumber"
+        },
+        "Rank": {
+          "type": "string",
+          "canonicalName": "rank"
+        },
+        "Version": {
+          "type": "string",
+          "canonicalName": "version"
+        },
+        "Quantity": {
+          "type": "int",
+          "canonicalName": "quantity"
+        },
+        "IsMixed": {
+          "type": "bool",
+          "canonicalName": "isMixed"
+        }
+      }
+    },
+    "Party": {
+      "filteringProperties": {
+        "PartyId": {
+          "type": "string",
+          "canonicalName": "partyId"
+        },
+        "PartyTypeId": {
+          "type": "string",
+          "canonicalName": "partyTypeId"
+        },
+        "ExternalId": {
+          "type": "string",
+          "canonicalName": "externalId"
+        },
+        "PreferredCurrencyUomId": {
+          "type": "string",
+          "canonicalName": "preferredCurrencyUomId"
+        },
+        "Description": {
+          "type": "string",
+          "canonicalName": "description"
+        },
+        "StatusId": {
+          "type": "string",
+          "canonicalName": "statusId"
+        },
+        "CreatedDate": {
+          "type": "DateTime?",
+          "canonicalName": "createdDate"
+        },
+        "CreatedByUserLogin": {
+          "type": "string",
+          "canonicalName": "createdByUserLogin"
+        },
+        "LastModifiedDate": {
+          "type": "DateTime?",
+          "canonicalName": "lastModifiedDate"
+        },
+        "LastModifiedByUserLogin": {
+          "type": "string",
+          "canonicalName": "lastModifiedByUserLogin"
+        },
+        "DataSourceId": {
+          "type": "string",
+          "canonicalName": "dataSourceId"
+        },
+        "IsUnread": {
+          "type": "string",
+          "canonicalName": "isUnread"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        },
+        "TaxIdNum": {
+          "type": "string",
+          "canonicalName": "taxIdNum"
+        },
+        "Surname": {
+          "type": "string",
+          "canonicalName": "surname"
+        }
+      }
+    },
+    "PartyRelationship": {
+      "filteringProperties": {
+        "ThruDate": {
+          "type": "DateTime?",
+          "canonicalName": "thruDate"
+        },
+        "StatusId": {
+          "type": "string",
+          "canonicalName": "statusId"
+        },
+        "RelationshipName": {
+          "type": "string",
+          "canonicalName": "relationshipName"
+        },
+        "SecurityGroupId": {
+          "type": "string",
+          "canonicalName": "securityGroupId"
+        },
+        "PriorityTypeId": {
+          "type": "string",
+          "canonicalName": "priorityTypeId"
+        },
+        "PartyRelationshipTypeId": {
+          "type": "string",
+          "canonicalName": "partyRelationshipTypeId"
+        },
+        "PermissionsEnumId": {
+          "type": "string",
+          "canonicalName": "permissionsEnumId"
+        },
+        "PositionTitle": {
+          "type": "string",
+          "canonicalName": "positionTitle"
+        },
+        "Comments": {
+          "type": "string",
+          "canonicalName": "comments"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        },
+        "PartyRelationshipId.PartyIdFrom": {
+          "type": "string",
+          "canonicalName": "partyRelationshipId.partyIdFrom"
+        },
+        "PartyRelationshipId.PartyIdTo": {
+          "type": "string",
+          "canonicalName": "partyRelationshipId.partyIdTo"
+        },
+        "PartyRelationshipId.RoleTypeIdFrom": {
+          "type": "string",
+          "canonicalName": "partyRelationshipId.roleTypeIdFrom"
+        },
+        "PartyRelationshipId.RoleTypeIdTo": {
+          "type": "string",
+          "canonicalName": "partyRelationshipId.roleTypeIdTo"
+        },
+        "PartyRelationshipId.FromDate": {
+          "type": "DateTime?",
+          "canonicalName": "partyRelationshipId.fromDate"
+        }
+      }
+    },
+    "PartyRole": {
+      "filteringProperties": {
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        },
+        "PartyRoleId.PartyId": {
+          "type": "string",
+          "canonicalName": "partyRoleId.partyId"
+        },
+        "PartyRoleId.RoleTypeId": {
+          "type": "string",
+          "canonicalName": "partyRoleId.roleTypeId"
+        }
+      }
+    },
+    "Person": {
+      "filteringProperties": {
+        "BirthDate": {
+          "type": "DateTime",
+          "canonicalName": "birthDate"
+        },
+        "Email": {
+          "type": "string",
+          "canonicalName": "email"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        },
+        "PersonalName.FirstName": {
+          "type": "string",
+          "canonicalName": "personalName.firstName"
+        },
+        "PersonalName.LastName": {
+          "type": "string",
+          "canonicalName": "personalName.lastName"
+        },
+        "RefToEntInAnotherAggInst.PackageId": {
+          "type": "long",
+          "canonicalName": "refToEntInAnotherAggInst.packageId"
+        },
+        "RefToEntInAnotherAggInst.PartId": {
+          "type": "long",
+          "canonicalName": "refToEntInAnotherAggInst.partId"
+        },
+        "Loves.FirstName": {
+          "type": "string",
+          "canonicalName": "loves.firstName"
+        },
+        "Loves.LastName": {
+          "type": "string",
+          "canonicalName": "loves.lastName"
+        },
+        "EmergencyContact.PersonalNameFirstName": {
+          "type": "string",
+          "canonicalName": "emergencyContact.personalName.firstName"
+        },
+        "EmergencyContact.PersonalNameLastName": {
+          "type": "string",
+          "canonicalName": "emergencyContact.personalName.lastName"
+        },
+        "EmergencyContact.PhoneNumber": {
+          "type": "string",
+          "canonicalName": "emergencyContact.phoneNumber"
+        },
+        "EmergencyContact.Address": {
+          "type": "string",
+          "canonicalName": "emergencyContact.address"
+        }
+      }
+    },
+    "Team": {
+      "filteringProperties": {
+        "TeamName": {
+          "type": "string",
+          "canonicalName": "teamName"
+        },
+        "Description": {
+          "type": "string",
+          "canonicalName": "description"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        }
+      }
+    },
+    "RoleType": {
+      "filteringProperties": {
+        "RoleTypeId": {
+          "type": "string",
+          "canonicalName": "roleTypeId"
+        },
+        "ParentTypeId": {
+          "type": "string",
+          "canonicalName": "parentTypeId"
+        },
+        "HasTable": {
+          "type": "string",
+          "canonicalName": "hasTable"
+        },
+        "Description": {
+          "type": "string",
+          "canonicalName": "description"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        }
+      }
+    },
+    "Warehouse": {
+      "filteringProperties": {
+        "WarehouseId": {
+          "type": "string",
+          "canonicalName": "warehouseId"
+        },
+        "Name": {
+          "type": "string",
+          "canonicalName": "name"
+        },
+        "Description": {
+          "type": "string",
+          "canonicalName": "description"
+        },
+        "IsInTransit": {
+          "type": "bool",
+          "canonicalName": "isInTransit"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        }
+      }
+    },
+    "Locator": {
+      "filteringProperties": {
+        "LocatorId": {
+          "type": "string",
+          "canonicalName": "locatorId"
+        },
+        "WarehouseId": {
+          "type": "string",
+          "canonicalName": "warehouseId"
+        },
+        "ParentLocatorId": {
+          "type": "string",
+          "canonicalName": "parentLocatorId"
+        },
+        "LocatorType": {
+          "type": "string",
+          "canonicalName": "locatorType"
+        },
+        "PriorityNumber": {
+          "type": "string",
+          "canonicalName": "priorityNumber"
+        },
+        "IsDefault": {
+          "type": "bool",
+          "canonicalName": "isDefault"
+        },
+        "X": {
+          "type": "string",
+          "canonicalName": "x"
+        },
+        "Y": {
+          "type": "string",
+          "canonicalName": "y"
+        },
+        "Z": {
+          "type": "string",
+          "canonicalName": "z"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        }
+      }
+    },
+    "Storage": {
+      "filteringProperties": {
+        "Quantity": {
+          "type": "int",
+          "canonicalName": "quantity"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        },
+        "StorageId.ProductId": {
+          "type": "string",
+          "canonicalName": "storageId.productId"
+        },
+        "StorageId.LocatorId": {
+          "type": "string",
+          "canonicalName": "storageId.locatorId"
+        }
+      }
+    },
+    "MovementTransaction": {
+      "filteringProperties": {
+        "MovementTransactionId": {
+          "type": "string",
+          "canonicalName": "movementTransactionId"
+        },
+        "SourceLocatorId": {
+          "type": "string",
+          "canonicalName": "sourceLocatorId"
+        },
+        "TargetLocatorId": {
+          "type": "string",
+          "canonicalName": "targetLocatorId"
+        },
+        "ProductId": {
+          "type": "string",
+          "canonicalName": "productId"
+        },
+        "Quantity": {
+          "type": "int",
+          "canonicalName": "quantity"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        },
+        "ProcessState": {
+          "type": "string",
+          "canonicalName": "processState"
+        },
+        "ProcessType": {
+          "type": "string",
+          "canonicalName": "processType"
+        }
+      }
+    },
+    "WheelMvo": {
+      "filteringProperties": {
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        },
+        "CarVersion": {
+          "type": "long",
+          "canonicalName": "carVersion"
+        },
+        "CarCreatedBy": {
+          "type": "string",
+          "canonicalName": "carCreatedBy"
+        },
+        "CarCreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "carCreatedAt"
+        },
+        "CarUpdatedBy": {
+          "type": "string",
+          "canonicalName": "carUpdatedBy"
+        },
+        "CarUpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "carUpdatedAt"
+        },
+        "CarActive": {
+          "type": "bool",
+          "canonicalName": "carActive"
+        },
+        "CarDeleted": {
+          "type": "bool",
+          "canonicalName": "carDeleted"
+        },
+        "CarWheelId.CarId": {
+          "type": "string",
+          "canonicalName": "carWheelId.carId"
+        },
+        "CarWheelId.WheelId": {
+          "type": "string",
+          "canonicalName": "carWheelId.wheelId"
+        }
+      }
+    },
+    "TireMvo": {
+      "filteringProperties": {
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        },
+        "CarVersion": {
+          "type": "long",
+          "canonicalName": "carVersion"
+        },
+        "CarCreatedBy": {
+          "type": "string",
+          "canonicalName": "carCreatedBy"
+        },
+        "CarCreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "carCreatedAt"
+        },
+        "CarUpdatedBy": {
+          "type": "string",
+          "canonicalName": "carUpdatedBy"
+        },
+        "CarUpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "carUpdatedAt"
+        },
+        "CarActive": {
+          "type": "bool",
+          "canonicalName": "carActive"
+        },
+        "CarDeleted": {
+          "type": "bool",
+          "canonicalName": "carDeleted"
+        },
+        "CarTireId.CarId": {
+          "type": "string",
+          "canonicalName": "carTireId.carId"
+        },
+        "CarTireId.TireId": {
+          "type": "string",
+          "canonicalName": "carTireId.tireId"
+        }
+      }
+    },
+    "PositionMvo": {
+      "filteringProperties": {
+        "MileAge": {
+          "type": "long",
+          "canonicalName": "mileAge"
+        },
+        "WheelId": {
+          "type": "string",
+          "canonicalName": "wheelId"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        },
+        "TireVersion": {
+          "type": "long",
+          "canonicalName": "tireVersion"
+        },
+        "TireCreatedBy": {
+          "type": "string",
+          "canonicalName": "tireCreatedBy"
+        },
+        "TireCreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "tireCreatedAt"
+        },
+        "TireUpdatedBy": {
+          "type": "string",
+          "canonicalName": "tireUpdatedBy"
+        },
+        "TireUpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "tireUpdatedAt"
+        },
+        "TireActive": {
+          "type": "bool",
+          "canonicalName": "tireActive"
+        },
+        "TireDeleted": {
+          "type": "bool",
+          "canonicalName": "tireDeleted"
+        },
+        "CarVersion": {
+          "type": "long",
+          "canonicalName": "carVersion"
+        },
+        "CarCreatedBy": {
+          "type": "string",
+          "canonicalName": "carCreatedBy"
+        },
+        "CarCreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "carCreatedAt"
+        },
+        "CarUpdatedBy": {
+          "type": "string",
+          "canonicalName": "carUpdatedBy"
+        },
+        "CarUpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "carUpdatedAt"
+        },
+        "CarActive": {
+          "type": "bool",
+          "canonicalName": "carActive"
+        },
+        "CarDeleted": {
+          "type": "bool",
+          "canonicalName": "carDeleted"
+        },
+        "CarPositionId.CarId": {
+          "type": "string",
+          "canonicalName": "carPositionId.carId"
+        },
+        "CarPositionId.TireId": {
+          "type": "string",
+          "canonicalName": "carPositionId.tireId"
+        },
+        "CarPositionId.Id": {
+          "type": "long",
+          "canonicalName": "carPositionId.id"
+        },
+        "TimePeriod.From": {
+          "type": "DateTime",
+          "canonicalName": "timePeriod.from"
+        },
+        "TimePeriod.To": {
+          "type": "DateTime",
+          "canonicalName": "timePeriod.to"
+        }
+      }
+    },
+    "BuildingMvo": {
+      "filteringProperties": {
+        "Name": {
+          "type": "string",
+          "canonicalName": "name"
+        },
+        "Description": {
+          "type": "string",
+          "canonicalName": "description"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        },
+        "GardenAddress": {
+          "type": "string",
+          "canonicalName": "gardenAddress"
+        },
+        "GardenCity": {
+          "type": "string",
+          "canonicalName": "gardenCity"
+        },
+        "GardenVersion": {
+          "type": "long",
+          "canonicalName": "gardenVersion"
+        },
+        "GardenCreatedBy": {
+          "type": "string",
+          "canonicalName": "gardenCreatedBy"
+        },
+        "GardenCreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "gardenCreatedAt"
+        },
+        "GardenUpdatedBy": {
+          "type": "string",
+          "canonicalName": "gardenUpdatedBy"
+        },
+        "GardenUpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "gardenUpdatedAt"
+        },
+        "GardenActive": {
+          "type": "bool",
+          "canonicalName": "gardenActive"
+        },
+        "GardenDeleted": {
+          "type": "bool",
+          "canonicalName": "gardenDeleted"
+        },
+        "BuildingId.GardenId": {
+          "type": "string",
+          "canonicalName": "buildingId.gardenId"
+        },
+        "BuildingId.BuildingNumber": {
+          "type": "string",
+          "canonicalName": "buildingId.buildingNumber"
+        }
+      }
+    },
+    "RoomMvo": {
+      "filteringProperties": {
+        "Name": {
+          "type": "string",
+          "canonicalName": "name"
+        },
+        "Description": {
+          "type": "string",
+          "canonicalName": "description"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        },
+        "BuildingName": {
+          "type": "string",
+          "canonicalName": "buildingName"
+        },
+        "BuildingDescription": {
+          "type": "string",
+          "canonicalName": "buildingDescription"
+        },
+        "BuildingVersion": {
+          "type": "long",
+          "canonicalName": "buildingVersion"
+        },
+        "BuildingCreatedBy": {
+          "type": "string",
+          "canonicalName": "buildingCreatedBy"
+        },
+        "BuildingCreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "buildingCreatedAt"
+        },
+        "BuildingUpdatedBy": {
+          "type": "string",
+          "canonicalName": "buildingUpdatedBy"
+        },
+        "BuildingUpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "buildingUpdatedAt"
+        },
+        "BuildingActive": {
+          "type": "bool",
+          "canonicalName": "buildingActive"
+        },
+        "BuildingDeleted": {
+          "type": "bool",
+          "canonicalName": "buildingDeleted"
+        },
+        "GardenAddress": {
+          "type": "string",
+          "canonicalName": "gardenAddress"
+        },
+        "GardenCity": {
+          "type": "string",
+          "canonicalName": "gardenCity"
+        },
+        "GardenVersion": {
+          "type": "long",
+          "canonicalName": "gardenVersion"
+        },
+        "GardenCreatedBy": {
+          "type": "string",
+          "canonicalName": "gardenCreatedBy"
+        },
+        "GardenCreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "gardenCreatedAt"
+        },
+        "GardenUpdatedBy": {
+          "type": "string",
+          "canonicalName": "gardenUpdatedBy"
+        },
+        "GardenUpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "gardenUpdatedAt"
+        },
+        "GardenActive": {
+          "type": "bool",
+          "canonicalName": "gardenActive"
+        },
+        "GardenDeleted": {
+          "type": "bool",
+          "canonicalName": "gardenDeleted"
+        },
+        "RoomId.GardenId": {
+          "type": "string",
+          "canonicalName": "roomId.gardenId"
+        },
+        "RoomId.BuildingNumber": {
+          "type": "string",
+          "canonicalName": "roomId.buildingNumber"
+        },
+        "RoomId.RoomNumber": {
+          "type": "string",
+          "canonicalName": "roomId.roomNumber"
+        }
+      }
+    },
+    "TermDefinitionMvo": {
+      "filteringProperties": {
+        "WordClass": {
+          "type": "string",
+          "canonicalName": "wordClass"
+        },
+        "Definition": {
+          "type": "string",
+          "canonicalName": "definition"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        },
+        "TermContextId": {
+          "type": "string",
+          "canonicalName": "termContextId"
+        },
+        "TermExpression": {
+          "type": "string",
+          "canonicalName": "termExpression"
+        },
+        "TermChineseExpression": {
+          "type": "string",
+          "canonicalName": "termChineseExpression"
+        },
+        "TermVersion": {
+          "type": "long",
+          "canonicalName": "termVersion"
+        },
+        "TermCreatedBy": {
+          "type": "string",
+          "canonicalName": "termCreatedBy"
+        },
+        "TermCreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "termCreatedAt"
+        },
+        "TermUpdatedBy": {
+          "type": "string",
+          "canonicalName": "termUpdatedBy"
+        },
+        "TermUpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "termUpdatedAt"
+        },
+        "TermActive": {
+          "type": "bool",
+          "canonicalName": "termActive"
+        },
+        "TermDeleted": {
+          "type": "bool",
+          "canonicalName": "termDeleted"
+        },
+        "TermDefinitionId.TermId": {
+          "type": "string",
+          "canonicalName": "termDefinitionId.termId"
+        },
+        "TermDefinitionId.SequenceNumber": {
+          "type": "int",
+          "canonicalName": "termDefinitionId.sequenceNumber"
+        }
+      }
+    },
+    "TermTagMvo": {
+      "filteringProperties": {
+        "SequenceNumber": {
+          "type": "int",
+          "canonicalName": "sequenceNumber"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        },
+        "TermContextId": {
+          "type": "string",
+          "canonicalName": "termContextId"
+        },
+        "TermExpression": {
+          "type": "string",
+          "canonicalName": "termExpression"
+        },
+        "TermChineseExpression": {
+          "type": "string",
+          "canonicalName": "termChineseExpression"
+        },
+        "TermVersion": {
+          "type": "long",
+          "canonicalName": "termVersion"
+        },
+        "TermCreatedBy": {
+          "type": "string",
+          "canonicalName": "termCreatedBy"
+        },
+        "TermCreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "termCreatedAt"
+        },
+        "TermUpdatedBy": {
+          "type": "string",
+          "canonicalName": "termUpdatedBy"
+        },
+        "TermUpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "termUpdatedAt"
+        },
+        "TermActive": {
+          "type": "bool",
+          "canonicalName": "termActive"
+        },
+        "TermDeleted": {
+          "type": "bool",
+          "canonicalName": "termDeleted"
+        },
+        "TermTagId.TermId": {
+          "type": "string",
+          "canonicalName": "termTagId.termId"
+        },
+        "TermTagId.TagId": {
+          "type": "string",
+          "canonicalName": "termTagId.tagId"
+        }
+      }
+    },
+    "PackagePartMvo": {
+      "filteringProperties": {
+        "RowVersion": {
+          "type": "long",
+          "canonicalName": "rowVersion"
+        },
+        "PackagePartType": {
+          "type": "int",
+          "canonicalName": "packagePartType"
+        },
+        "ParentPackagePartId": {
+          "type": "long",
+          "canonicalName": "parentPackagePartId"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        },
+        "SerialNumber": {
+          "type": "string",
+          "canonicalName": "serialNumber"
+        },
+        "MaterialNumber": {
+          "type": "string",
+          "canonicalName": "materialNumber"
+        },
+        "CustomerNumber": {
+          "type": "string",
+          "canonicalName": "customerNumber"
+        },
+        "WorkOrderNumber": {
+          "type": "string",
+          "canonicalName": "workOrderNumber"
+        },
+        "LotNumber": {
+          "type": "string",
+          "canonicalName": "lotNumber"
+        },
+        "Rank": {
+          "type": "string",
+          "canonicalName": "rank"
+        },
+        "Version": {
+          "type": "string",
+          "canonicalName": "version"
+        },
+        "Quantity": {
+          "type": "int",
+          "canonicalName": "quantity"
+        },
+        "IsMixed": {
+          "type": "bool",
+          "canonicalName": "isMixed"
+        },
+        "PackageRowVersion": {
+          "type": "long",
+          "canonicalName": "packageRowVersion"
+        },
+        "PackagePackageType": {
+          "type": "int",
+          "canonicalName": "packagePackageType"
+        },
+        "PackageCreatedBy": {
+          "type": "string",
+          "canonicalName": "packageCreatedBy"
+        },
+        "PackageCreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "packageCreatedAt"
+        },
+        "PackageUpdatedBy": {
+          "type": "string",
+          "canonicalName": "packageUpdatedBy"
+        },
+        "PackageUpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "packageUpdatedAt"
+        },
+        "PackageActive": {
+          "type": "bool",
+          "canonicalName": "packageActive"
+        },
+        "PackageSerialNumber": {
+          "type": "string",
+          "canonicalName": "packageSerialNumber"
+        },
+        "PackageMaterialNumber": {
+          "type": "string",
+          "canonicalName": "packageMaterialNumber"
+        },
+        "PackageCustomerNumber": {
+          "type": "string",
+          "canonicalName": "packageCustomerNumber"
+        },
+        "PackageWorkOrderNumber": {
+          "type": "string",
+          "canonicalName": "packageWorkOrderNumber"
+        },
+        "PackageLotNumber": {
+          "type": "string",
+          "canonicalName": "packageLotNumber"
+        },
+        "PackageRank": {
+          "type": "string",
+          "canonicalName": "packageRank"
+        },
+        "PackageVersion": {
+          "type": "string",
+          "canonicalName": "packageVersion"
+        },
+        "PackageQuantity": {
+          "type": "int",
+          "canonicalName": "packageQuantity"
+        },
+        "PackageIsMixed": {
+          "type": "bool",
+          "canonicalName": "packageIsMixed"
+        },
+        "PackagePartId.PackageId": {
+          "type": "long",
+          "canonicalName": "packagePartId.packageId"
+        },
+        "PackagePartId.PartId": {
+          "type": "long",
+          "canonicalName": "packagePartId.partId"
+        }
+      }
+    },
+    "YearPlanMvo": {
+      "filteringProperties": {
+        "Description": {
+          "type": "string",
+          "canonicalName": "description"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        },
+        "PersonBirthDate": {
+          "type": "DateTime",
+          "canonicalName": "personBirthDate"
+        },
+        "PersonEmail": {
+          "type": "string",
+          "canonicalName": "personEmail"
+        },
+        "PersonCreatedBy": {
+          "type": "string",
+          "canonicalName": "personCreatedBy"
+        },
+        "PersonUpdatedBy": {
+          "type": "string",
+          "canonicalName": "personUpdatedBy"
+        },
+        "PersonVersion": {
+          "type": "long",
+          "canonicalName": "personVersion"
+        },
+        "PersonCreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "personCreatedAt"
+        },
+        "PersonUpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "personUpdatedAt"
+        },
+        "PersonActive": {
+          "type": "bool",
+          "canonicalName": "personActive"
+        },
+        "PersonDeleted": {
+          "type": "bool",
+          "canonicalName": "personDeleted"
+        },
+        "YearPlanId.PersonalNameFirstName": {
+          "type": "string",
+          "canonicalName": "yearPlanId.personalName.firstName"
+        },
+        "YearPlanId.PersonalNameLastName": {
+          "type": "string",
+          "canonicalName": "yearPlanId.personalName.lastName"
+        },
+        "YearPlanId.Year": {
+          "type": "int",
+          "canonicalName": "yearPlanId.year"
+        },
+        "PersonRefToEntInAnotherAggInst.PackageId": {
+          "type": "long",
+          "canonicalName": "personRefToEntInAnotherAggInst.packageId"
+        },
+        "PersonRefToEntInAnotherAggInst.PartId": {
+          "type": "long",
+          "canonicalName": "personRefToEntInAnotherAggInst.partId"
+        },
+        "PersonLoves.FirstName": {
+          "type": "string",
+          "canonicalName": "personLoves.firstName"
+        },
+        "PersonLoves.LastName": {
+          "type": "string",
+          "canonicalName": "personLoves.lastName"
+        },
+        "PersonEmergencyContact.PersonalNameFirstName": {
+          "type": "string",
+          "canonicalName": "personEmergencyContact.personalName.firstName"
+        },
+        "PersonEmergencyContact.PersonalNameLastName": {
+          "type": "string",
+          "canonicalName": "personEmergencyContact.personalName.lastName"
+        },
+        "PersonEmergencyContact.PhoneNumber": {
+          "type": "string",
+          "canonicalName": "personEmergencyContact.phoneNumber"
+        },
+        "PersonEmergencyContact.Address": {
+          "type": "string",
+          "canonicalName": "personEmergencyContact.address"
+        }
+      }
+    },
+    "MonthPlanMvo": {
+      "filteringProperties": {
+        "Description": {
+          "type": "string",
+          "canonicalName": "description"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        },
+        "YearPlanDescription": {
+          "type": "string",
+          "canonicalName": "yearPlanDescription"
+        },
+        "YearPlanCreatedBy": {
+          "type": "string",
+          "canonicalName": "yearPlanCreatedBy"
+        },
+        "YearPlanUpdatedBy": {
+          "type": "string",
+          "canonicalName": "yearPlanUpdatedBy"
+        },
+        "YearPlanVersion": {
+          "type": "long",
+          "canonicalName": "yearPlanVersion"
+        },
+        "YearPlanCreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "yearPlanCreatedAt"
+        },
+        "YearPlanUpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "yearPlanUpdatedAt"
+        },
+        "YearPlanActive": {
+          "type": "bool",
+          "canonicalName": "yearPlanActive"
+        },
+        "YearPlanDeleted": {
+          "type": "bool",
+          "canonicalName": "yearPlanDeleted"
+        },
+        "PersonBirthDate": {
+          "type": "DateTime",
+          "canonicalName": "personBirthDate"
+        },
+        "PersonEmail": {
+          "type": "string",
+          "canonicalName": "personEmail"
+        },
+        "PersonCreatedBy": {
+          "type": "string",
+          "canonicalName": "personCreatedBy"
+        },
+        "PersonUpdatedBy": {
+          "type": "string",
+          "canonicalName": "personUpdatedBy"
+        },
+        "PersonVersion": {
+          "type": "long",
+          "canonicalName": "personVersion"
+        },
+        "PersonCreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "personCreatedAt"
+        },
+        "PersonUpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "personUpdatedAt"
+        },
+        "PersonActive": {
+          "type": "bool",
+          "canonicalName": "personActive"
+        },
+        "PersonDeleted": {
+          "type": "bool",
+          "canonicalName": "personDeleted"
+        },
+        "MonthPlanId.PersonalNameFirstName": {
+          "type": "string",
+          "canonicalName": "monthPlanId.personalName.firstName"
+        },
+        "MonthPlanId.PersonalNameLastName": {
+          "type": "string",
+          "canonicalName": "monthPlanId.personalName.lastName"
+        },
+        "MonthPlanId.Year": {
+          "type": "int",
+          "canonicalName": "monthPlanId.year"
+        },
+        "MonthPlanId.Month": {
+          "type": "int",
+          "canonicalName": "monthPlanId.month"
+        },
+        "PersonRefToEntInAnotherAggInst.PackageId": {
+          "type": "long",
+          "canonicalName": "personRefToEntInAnotherAggInst.packageId"
+        },
+        "PersonRefToEntInAnotherAggInst.PartId": {
+          "type": "long",
+          "canonicalName": "personRefToEntInAnotherAggInst.partId"
+        },
+        "PersonLoves.FirstName": {
+          "type": "string",
+          "canonicalName": "personLoves.firstName"
+        },
+        "PersonLoves.LastName": {
+          "type": "string",
+          "canonicalName": "personLoves.lastName"
+        },
+        "PersonEmergencyContact.PersonalNameFirstName": {
+          "type": "string",
+          "canonicalName": "personEmergencyContact.personalName.firstName"
+        },
+        "PersonEmergencyContact.PersonalNameLastName": {
+          "type": "string",
+          "canonicalName": "personEmergencyContact.personalName.lastName"
+        },
+        "PersonEmergencyContact.PhoneNumber": {
+          "type": "string",
+          "canonicalName": "personEmergencyContact.phoneNumber"
+        },
+        "PersonEmergencyContact.Address": {
+          "type": "string",
+          "canonicalName": "personEmergencyContact.address"
+        }
+      }
+    },
+    "DayPlanMvo": {
+      "filteringProperties": {
+        "Description": {
+          "type": "string",
+          "canonicalName": "description"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        },
+        "MonthPlanDescription": {
+          "type": "string",
+          "canonicalName": "monthPlanDescription"
+        },
+        "MonthPlanCreatedBy": {
+          "type": "string",
+          "canonicalName": "monthPlanCreatedBy"
+        },
+        "MonthPlanUpdatedBy": {
+          "type": "string",
+          "canonicalName": "monthPlanUpdatedBy"
+        },
+        "MonthPlanVersion": {
+          "type": "long",
+          "canonicalName": "monthPlanVersion"
+        },
+        "MonthPlanCreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "monthPlanCreatedAt"
+        },
+        "MonthPlanUpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "monthPlanUpdatedAt"
+        },
+        "MonthPlanActive": {
+          "type": "bool",
+          "canonicalName": "monthPlanActive"
+        },
+        "MonthPlanDeleted": {
+          "type": "bool",
+          "canonicalName": "monthPlanDeleted"
+        },
+        "YearPlanDescription": {
+          "type": "string",
+          "canonicalName": "yearPlanDescription"
+        },
+        "YearPlanCreatedBy": {
+          "type": "string",
+          "canonicalName": "yearPlanCreatedBy"
+        },
+        "YearPlanUpdatedBy": {
+          "type": "string",
+          "canonicalName": "yearPlanUpdatedBy"
+        },
+        "YearPlanVersion": {
+          "type": "long",
+          "canonicalName": "yearPlanVersion"
+        },
+        "YearPlanCreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "yearPlanCreatedAt"
+        },
+        "YearPlanUpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "yearPlanUpdatedAt"
+        },
+        "YearPlanActive": {
+          "type": "bool",
+          "canonicalName": "yearPlanActive"
+        },
+        "YearPlanDeleted": {
+          "type": "bool",
+          "canonicalName": "yearPlanDeleted"
+        },
+        "PersonBirthDate": {
+          "type": "DateTime",
+          "canonicalName": "personBirthDate"
+        },
+        "PersonEmail": {
+          "type": "string",
+          "canonicalName": "personEmail"
+        },
+        "PersonCreatedBy": {
+          "type": "string",
+          "canonicalName": "personCreatedBy"
+        },
+        "PersonUpdatedBy": {
+          "type": "string",
+          "canonicalName": "personUpdatedBy"
+        },
+        "PersonVersion": {
+          "type": "long",
+          "canonicalName": "personVersion"
+        },
+        "PersonCreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "personCreatedAt"
+        },
+        "PersonUpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "personUpdatedAt"
+        },
+        "PersonActive": {
+          "type": "bool",
+          "canonicalName": "personActive"
+        },
+        "PersonDeleted": {
+          "type": "bool",
+          "canonicalName": "personDeleted"
+        },
+        "DayPlanId.PersonalNameFirstName": {
+          "type": "string",
+          "canonicalName": "dayPlanId.personalName.firstName"
+        },
+        "DayPlanId.PersonalNameLastName": {
+          "type": "string",
+          "canonicalName": "dayPlanId.personalName.lastName"
+        },
+        "DayPlanId.Year": {
+          "type": "int",
+          "canonicalName": "dayPlanId.year"
+        },
+        "DayPlanId.Month": {
+          "type": "int",
+          "canonicalName": "dayPlanId.month"
+        },
+        "DayPlanId.Day": {
+          "type": "int",
+          "canonicalName": "dayPlanId.day"
+        },
+        "PersonRefToEntInAnotherAggInst.PackageId": {
+          "type": "long",
+          "canonicalName": "personRefToEntInAnotherAggInst.packageId"
+        },
+        "PersonRefToEntInAnotherAggInst.PartId": {
+          "type": "long",
+          "canonicalName": "personRefToEntInAnotherAggInst.partId"
+        },
+        "PersonLoves.FirstName": {
+          "type": "string",
+          "canonicalName": "personLoves.firstName"
+        },
+        "PersonLoves.LastName": {
+          "type": "string",
+          "canonicalName": "personLoves.lastName"
+        },
+        "PersonEmergencyContact.PersonalNameFirstName": {
+          "type": "string",
+          "canonicalName": "personEmergencyContact.personalName.firstName"
+        },
+        "PersonEmergencyContact.PersonalNameLastName": {
+          "type": "string",
+          "canonicalName": "personEmergencyContact.personalName.lastName"
+        },
+        "PersonEmergencyContact.PhoneNumber": {
+          "type": "string",
+          "canonicalName": "personEmergencyContact.phoneNumber"
+        },
+        "PersonEmergencyContact.Address": {
+          "type": "string",
+          "canonicalName": "personEmergencyContact.address"
+        }
+      }
+    },
+    "MovementEntryMvo": {
+      "filteringProperties": {
+        "LocatorId": {
+          "type": "string",
+          "canonicalName": "locatorId"
+        },
+        "ProductId": {
+          "type": "string",
+          "canonicalName": "productId"
+        },
+        "Quantity": {
+          "type": "int",
+          "canonicalName": "quantity"
+        },
+        "StorageQuantity": {
+          "type": "int",
+          "canonicalName": "storageQuantity"
+        },
+        "StorageVersion": {
+          "type": "long",
+          "canonicalName": "storageVersion"
+        },
+        "TaskCommandId": {
+          "type": "string",
+          "canonicalName": "taskCommandId"
+        },
+        "TaskState": {
+          "type": "string",
+          "canonicalName": "taskState"
+        },
+        "ErrorName": {
+          "type": "string",
+          "canonicalName": "errorName"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        },
+        "SequenceId": {
+          "type": "int",
+          "canonicalName": "sequenceId"
+        },
+        "ErrorCount": {
+          "type": "int",
+          "canonicalName": "errorCount"
+        },
+        "Message": {
+          "type": "string",
+          "canonicalName": "message"
+        },
+        "MovementTransactionSourceLocatorId": {
+          "type": "string",
+          "canonicalName": "movementTransactionSourceLocatorId"
+        },
+        "MovementTransactionTargetLocatorId": {
+          "type": "string",
+          "canonicalName": "movementTransactionTargetLocatorId"
+        },
+        "MovementTransactionProductId": {
+          "type": "string",
+          "canonicalName": "movementTransactionProductId"
+        },
+        "MovementTransactionQuantity": {
+          "type": "int",
+          "canonicalName": "movementTransactionQuantity"
+        },
+        "MovementTransactionVersion": {
+          "type": "long",
+          "canonicalName": "movementTransactionVersion"
+        },
+        "MovementTransactionCreatedBy": {
+          "type": "string",
+          "canonicalName": "movementTransactionCreatedBy"
+        },
+        "MovementTransactionCreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "movementTransactionCreatedAt"
+        },
+        "MovementTransactionUpdatedBy": {
+          "type": "string",
+          "canonicalName": "movementTransactionUpdatedBy"
+        },
+        "MovementTransactionUpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "movementTransactionUpdatedAt"
+        },
+        "MovementTransactionActive": {
+          "type": "bool",
+          "canonicalName": "movementTransactionActive"
+        },
+        "MovementTransactionDeleted": {
+          "type": "bool",
+          "canonicalName": "movementTransactionDeleted"
+        },
+        "MovementTransactionProcessState": {
+          "type": "string",
+          "canonicalName": "movementTransactionProcessState"
+        },
+        "MovementTransactionProcessType": {
+          "type": "string",
+          "canonicalName": "movementTransactionProcessType"
+        },
+        "MovementEntryId.MovementTransactionId": {
+          "type": "string",
+          "canonicalName": "movementEntryId.movementTransactionId"
+        },
+        "MovementEntryId.EntryName": {
+          "type": "string",
+          "canonicalName": "movementEntryId.entryName"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "services": {
+    "MovementService": {
+      "methods": {
+        "MoveInSameHouse": {
+          "parameters": {
+            "sourceLocatorId": {
+              "type": "string",
+              "referenceType": "Locator"
+            },
+            "targetLocatorId": {
+              "type": "string",
+              "referenceType": "Locator"
+            },
+            "productId": {
+              "type": "string"
+            },
+            "quantity": {
+              "type": "int"
+            },
+            "commandId": {
+              "type": "string",
+              "isCommandId": true
+            },
+            "requesterId": {
+              "type": "string",
+              "isRequesterId": true
+            }
+          },
+          "result": {
+            "type": "string",
+            "name": "MovementTransactionId"
+          }
+        },
+        "EmptyMultiLocatorToOneTarget": {
+          "parameters": {
+            "sourceLocatorIds": {
+              "itemType": "string"
+            },
+            "targetLocatorId": {
+              "type": "string",
+              "referenceType": "Locator"
+            },
+            "commandId": {
+              "type": "string",
+              "isCommandId": true
+            },
+            "requesterId": {
+              "type": "string",
+              "isRequesterId": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

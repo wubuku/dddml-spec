@@ -1,0 +1,37 @@
+{
+  "boundedContext": {
+    "naming": {
+      "requesterId": "requesterId",
+      "commandType": "commandType",
+      "commandId": "commandId",
+      "httpServiceOrdersQueryName": "sort",
+      "httpServiceFirstResultQueryName": "firstResult",
+      "httpServiceMaxResultsQueryName": "maxResults",
+      "httpServiceReturnedFieldsQueryName": "fields",
+      "httpServiceFilterQueryName": "filter"
+    },
+    "defaultReservedProperties": {
+      "active": "active",
+      "createdBy": "createdBy",
+      "createdAt": "createdAt",
+      "updatedBy": "updatedBy",
+      "updatedAt": "updatedAt",
+      "deleted": "deleted",
+      "version": "version"
+    },
+    "namedStringPatterns": {
+      "Email": null,
+      "IPAddress": null,
+      "CreditcardNumber": null,
+      "Ean": null,
+      "Iban": null,
+      "GlossaryTerm": "^[\\(A-Za-z0-9][A-Za-z0-9-\\(\\)\\'.\\s]*[A-Za-z0-9-\\(\\)\\.']",
+      "alphabeticNumeric": "^[A-Za-z][A-Za-z0-9]*",
+      "numericAlphabetic": "^[0-9][A-Za-z0-9]*",
+      "alphabeticDashNumeric": "^[A-Za-z][A-Za-z0-9-]*",
+      "numericDashAlphabetic": "^[0-9][A-Za-z0-9-]*",
+      "underscoreAlphabeticNumeric": "^[_A-Za-z][A-Za-z0-9_]*",
+      "alphabeticUnderscoreNumeric": "^[A-Za-z][A-Za-z0-9_]*"
+    }
+  }
+}

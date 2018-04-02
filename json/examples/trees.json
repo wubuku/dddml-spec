@@ -1,0 +1,14 @@
+{
+  "trees": {
+    "OrganizationTree": {
+      "nodeContentType": "Organization",
+      "structureType": "OrganizationStructure",
+      "parentId": "id.parentId",
+      "childId": "id.subsidiaryId"
+    },
+    "LocatorTree": {
+      "nodeContentType": "Locator",
+      "parentId": "parentLocatorId"
+    }
+  }
+}

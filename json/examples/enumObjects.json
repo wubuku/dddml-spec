@@ -1,825 +1,170 @@
 {
-  "valueObjects": {
-    "OrganizationStructureId": {
-      "properties": {
-        "organizationStructureTypeId": {
-          "type": "string",
-          "referenceType": "OrganizationStructureType"
+  "enumObjects": {
+    "PartOfSpeech": {
+      "values": {
+        "Unclassified": {
+          "sequenceNumber": 0,
+          "value": "Unclassified"
         },
-        "parentId": {
-          "type": "string",
-          "referenceType": "Organization"
+        "Adj": {
+          "displayName": "Adjective",
+          "sequenceNumber": 1,
+          "value": "Adj"
         },
-        "subsidiaryId": {
-          "type": "string",
-          "referenceType": "Organization"
-        }
-      }
-    },
-    "PersonalName": {
-      "properties": {
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
-        }
-      }
-    },
-    "Contact": {
-      "properties": {
-        "personalName": {
-          "type": "PersonalName"
-        },
-        "phoneNumber": {
-          "type": "string"
-        },
-        "address": {
-          "type": "string"
-        }
-      }
-    },
-    "AccountEventId": {
-      "properties": {
-        "id": {
-          "type": "TAccountId"
-        },
-        "version": {
-          "type": "long"
-        }
-      }
-    },
-    "AccountingEventTypeEventId": {
-      "properties": {
-        "id": {
-          "type": "int"
-        },
-        "version": {
-          "type": "long"
-        }
-      }
-    },
-    "AccountingEventAtprTriggeredEventSourceId": {
-      "properties": {
-        "accountingEventId": {
-          "type": "long"
-        },
-        "sourceId": {
-          "type": "long"
-        }
-      }
-    },
-    "AccountingEventEventId": {
-      "properties": {
-        "id": {
-          "type": "long"
-        },
-        "version": {
-          "type": "long"
-        }
-      }
-    },
-    "AtprTriggeredEventSourceEventId": {
-      "properties": {
-        "accountingEventId": {
-          "type": "long"
-        },
-        "sourceId": {
-          "type": "long"
-        },
-        "accountingEventVersion": {
-          "type": "long"
-        }
-      }
-    },
-    "AccountingEventProcessLogEventId": {
-      "properties": {
-        "eventId": {
-          "type": "long",
-          "referenceType": "AccountingEvent"
-        },
-        "version": {
-          "type": "long"
-        }
-      }
-    },
-    "PostingRuleEventId": {
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "version": {
-          "type": "long"
-        }
-      }
-    },
-    "AccountingTransactionEventId": {
-      "properties": {
-        "id": {
-          "type": "long"
-        },
-        "version": {
-          "type": "long"
-        }
-      }
-    },
-    "EntryEventId": {
-      "properties": {
-        "id": {
-          "type": "long"
-        },
-        "version": {
-          "type": "long"
-        }
-      }
-    },
-    "AgreementEventId": {
-      "properties": {
-        "agreementId": {
-          "type": "string"
-        },
-        "version": {
-          "type": "long"
-        }
-      }
-    },
-    "TimePeriod": {
-      "properties": {
-        "from": {
-          "type": "DateTime"
-        },
-        "to": {
-          "type": "DateTime"
-        }
-      }
-    },
-    "CarWheelId": {
-      "properties": {
-        "carId": {
-          "type": "string"
-        },
-        "wheelId": {
-          "type": "string",
-          "enumType": "WheelId"
-        }
-      }
-    },
-    "CarTireId": {
-      "properties": {
-        "carId": {
-          "type": "string"
-        },
-        "tireId": {
-          "type": "string"
-        }
-      }
-    },
-    "CarPositionId": {
-      "properties": {
-        "carId": {
-          "type": "string"
-        },
-        "tireId": {
-          "type": "string"
-        },
-        "id": {
-          "type": "long"
-        }
-      }
-    },
-    "CarEventId": {
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "version": {
-          "type": "long"
-        }
-      }
-    },
-    "WheelEventId": {
-      "properties": {
-        "carId": {
-          "type": "string"
-        },
-        "wheelId": {
-          "type": "string",
-          "enumType": "WheelId"
-        },
-        "carVersion": {
-          "type": "long"
-        }
-      }
-    },
-    "TireEventId": {
-      "properties": {
-        "carId": {
-          "type": "string"
-        },
-        "tireId": {
-          "type": "string"
-        },
-        "carVersion": {
-          "type": "long"
-        }
-      }
-    },
-    "PositionEventId": {
-      "properties": {
-        "carId": {
-          "type": "string"
-        },
-        "tireId": {
-          "type": "string"
-        },
-        "id": {
-          "type": "long"
-        },
-        "carVersion": {
-          "type": "long"
-        }
-      }
-    },
-    "BuildingId": {
-      "properties": {
-        "gardenId": {
-          "type": "string"
-        },
-        "buildingNumber": {
-          "type": "string"
-        }
-      }
-    },
-    "RoomId": {
-      "properties": {
-        "gardenId": {
-          "type": "string"
-        },
-        "buildingNumber": {
-          "type": "string"
-        },
-        "roomNumber": {
-          "type": "string"
-        }
-      }
-    },
-    "GardenEventId": {
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "version": {
-          "type": "long"
-        }
-      }
-    },
-    "BuildingEventId": {
-      "properties": {
-        "gardenId": {
-          "type": "string"
-        },
-        "buildingNumber": {
-          "type": "string"
-        },
-        "gardenVersion": {
-          "type": "long"
-        }
-      }
-    },
-    "RoomEventId": {
-      "properties": {
-        "gardenId": {
-          "type": "string"
-        },
-        "buildingNumber": {
-          "type": "string"
-        },
-        "roomNumber": {
-          "type": "string"
-        },
-        "gardenVersion": {
-          "type": "long"
-        }
-      }
-    },
-    "ContextEventId": {
-      "properties": {
-        "contextId": {
-          "type": "string"
-        },
-        "version": {
-          "type": "long"
-        }
-      }
-    },
-    "TermDefinitionId": {
-      "properties": {
-        "termId": {
-          "type": "string"
-        },
-        "sequenceNumber": {
-          "type": "int"
-        }
-      }
-    },
-    "TermTagId": {
-      "properties": {
-        "termId": {
-          "type": "string"
-        },
-        "tagId": {
-          "type": "string",
-          "referenceType": "Tag"
-        }
-      }
-    },
-    "TermEventId": {
-      "properties": {
-        "termId": {
-          "type": "string"
-        },
-        "version": {
-          "type": "long"
-        }
-      }
-    },
-    "TermDefinitionEventId": {
-      "properties": {
-        "termId": {
-          "type": "string"
-        },
-        "sequenceNumber": {
-          "type": "int"
-        },
-        "termVersion": {
-          "type": "long"
-        }
-      }
-    },
-    "TermTagEventId": {
-      "properties": {
-        "termId": {
-          "type": "string"
-        },
-        "tagId": {
-          "type": "string",
-          "referenceType": "Tag"
-        },
-        "termVersion": {
-          "type": "long"
-        }
-      }
-    },
-    "TagEventId": {
-      "properties": {
-        "tagId": {
-          "type": "string"
-        },
-        "version": {
-          "type": "long"
-        }
-      }
-    },
-    "ImageEventId": {
-      "properties": {
-        "id": {
-          "type": "long"
-        },
-        "version": {
-          "type": "long"
-        }
-      }
-    },
-    "OrganizationEventId": {
-      "properties": {
-        "organizationId": {
-          "type": "string"
-        },
-        "version": {
-          "type": "long"
-        }
-      }
-    },
-    "OrganizationStructureTypeEventId": {
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "version": {
-          "type": "long"
-        }
-      }
-    },
-    "OrganizationStructureEventId": {
-      "properties": {
-        "id": {
-          "type": "OrganizationStructureId"
-        },
-        "version": {
-          "type": "long"
-        }
-      }
-    },
-    "PackagePartId": {
-      "properties": {
-        "packageId": {
-          "type": "long"
-        },
-        "partId": {
-          "type": "long"
-        }
-      }
-    },
-    "PackageEventId": {
-      "properties": {
-        "packageId": {
-          "type": "long"
-        },
-        "rowVersion": {
-          "type": "long"
-        }
-      }
-    },
-    "PackagePartEventId": {
-      "properties": {
-        "packageId": {
-          "type": "long"
-        },
-        "partId": {
-          "type": "long"
-        },
-        "packageRowVersion": {
-          "type": "long"
-        }
-      }
-    },
-    "PartyEventId": {
-      "properties": {
-        "partyId": {
-          "type": "string"
-        },
-        "version": {
-          "type": "long"
-        }
-      }
-    },
-    "PartyRelationshipId": {
-      "properties": {
-        "partyIdFrom": {
-          "type": "string"
-        },
-        "partyIdTo": {
-          "type": "string"
-        },
-        "roleTypeIdFrom": {
-          "type": "string"
-        },
-        "roleTypeIdTo": {
-          "type": "string"
-        },
-        "fromDate": {
-          "type": "DateTime?"
-        }
-      }
-    },
-    "PartyRelationshipEventId": {
-      "properties": {
-        "partyRelationshipId": {
-          "type": "PartyRelationshipId"
-        },
-        "version": {
-          "type": "long"
-        }
-      }
-    },
-    "PartyRoleId": {
-      "properties": {
-        "partyId": {
-          "type": "string"
-        },
-        "roleTypeId": {
-          "type": "string"
-        }
-      }
-    },
-    "PartyRoleEventId": {
-      "properties": {
-        "partyRoleId": {
-          "type": "PartyRoleId"
-        },
-        "version": {
-          "type": "long"
-        }
-      }
-    },
-    "YearPlanId": {
-      "properties": {
-        "personalName": {
-          "type": "PersonalName"
-        },
-        "year": {
-          "type": "int"
-        }
-      }
-    },
-    "MonthPlanId": {
-      "properties": {
-        "personalName": {
-          "type": "PersonalName"
-        },
-        "year": {
-          "type": "int"
+        "Adv": {
+          "displayName": "Adverb",
+          "sequenceNumber": 2,
+          "value": "Adv"
         },
-        "month": {
-          "type": "int"
-        }
-      }
-    },
-    "DayPlanId": {
-      "properties": {
-        "personalName": {
-          "type": "PersonalName"
-        },
-        "year": {
-          "type": "int"
-        },
-        "month": {
-          "type": "int"
-        },
-        "day": {
-          "type": "int"
-        }
-      }
-    },
-    "PersonEventId": {
-      "properties": {
-        "personalName": {
-          "type": "PersonalName"
-        },
-        "version": {
-          "type": "long"
-        }
-      }
-    },
-    "YearPlanEventId": {
-      "properties": {
-        "personalName": {
-          "type": "PersonalName"
-        },
-        "year": {
-          "type": "int"
-        },
-        "personVersion": {
-          "type": "long"
-        }
-      }
-    },
-    "MonthPlanEventId": {
-      "properties": {
-        "personalName": {
-          "type": "PersonalName"
-        },
-        "year": {
-          "type": "int"
-        },
-        "month": {
-          "type": "int"
-        },
-        "personVersion": {
-          "type": "long"
-        }
-      }
-    },
-    "DayPlanEventId": {
-      "properties": {
-        "personalName": {
-          "type": "PersonalName"
-        },
-        "year": {
-          "type": "int"
-        },
-        "month": {
-          "type": "int"
-        },
-        "day": {
-          "type": "int"
-        },
-        "personVersion": {
-          "type": "long"
-        }
-      }
-    },
-    "TeamEventId": {
-      "properties": {
-        "teamName": {
-          "type": "string"
-        },
-        "version": {
-          "type": "long"
-        }
-      }
-    },
-    "RoleTypeEventId": {
-      "properties": {
-        "roleTypeId": {
-          "type": "string"
+        "V": {
+          "displayName": "Verb",
+          "sequenceNumber": 3,
+          "value": "V"
         },
-        "version": {
-          "type": "long"
+        "N": {
+          "displayName": "Noun",
+          "sequenceNumber": 4,
+          "value": "N"
         }
       }
     },
-    "WarehouseEventId": {
-      "properties": {
-        "warehouseId": {
-          "type": "string"
+    "AccountClass": {
+      "values": {
+        "SummaryAccount": {
+          "sequenceNumber": 0,
+          "value": "SummaryAccount"
         },
-        "version": {
-          "type": "long"
-        }
-      }
-    },
-    "LocatorEventId": {
-      "properties": {
-        "locatorId": {
-          "type": "string"
+        "AccountType": {
+          "sequenceNumber": 1,
+          "value": "AccountType"
         },
-        "version": {
-          "type": "long"
+        "MemoAccount": {
+          "sequenceNumber": 2,
+          "value": "MemoAccount"
         }
       }
     },
-    "StorageId": {
-      "properties": {
-        "productId": {
-          "type": "string"
-        },
-        "locatorId": {
-          "type": "string",
-          "referenceType": "Locator"
+    "AccountingEventClass": {
+      "values": {
+        "AtprTriggeredEvent": {
+          "sequenceNumber": 0,
+          "value": "AtprTriggeredEvent"
         }
       }
     },
-    "StorageEventId": {
-      "properties": {
-        "storageId": {
-          "type": "StorageId"
-        },
-        "version": {
-          "type": "long"
+    "PostingRuleClass": {
+      "values": {
+        "AccountTriggerPostingRule": {
+          "sequenceNumber": 0,
+          "value": "AccountTriggerPostingRule"
         }
       }
     },
-    "MovementEntryId": {
-      "properties": {
-        "movementTransactionId": {
-          "type": "string"
-        },
-        "entryName": {
-          "type": "string"
+    "EntryClass": {
+      "values": {
+        "TransactionalEntry": {
+          "sequenceNumber": 0,
+          "value": "TransactionalEntry"
         }
       }
     },
-    "MovementTransactionEventId": {
-      "properties": {
-        "movementTransactionId": {
-          "type": "string"
+    "WheelId": {
+      "values": {
+        "LF": {
+          "sequenceNumber": 0,
+          "value": "LF"
         },
-        "version": {
-          "type": "long"
-        }
-      }
-    },
-    "MovementEntryEventId": {
-      "properties": {
-        "movementTransactionId": {
-          "type": "string"
+        "LR": {
+          "sequenceNumber": 1,
+          "value": "LR"
         },
-        "entryName": {
-          "type": "string"
+        "RF": {
+          "sequenceNumber": 2,
+          "value": "RF"
         },
-        "movementTransactionVersion": {
-          "type": "long"
+        "RR": {
+          "sequenceNumber": 3,
+          "value": "RR"
         }
       }
     },
-    "WheelMvoEventId": {
-      "properties": {
-        "carWheelId": {
-          "type": "CarWheelId"
+    "ImageType": {
+      "values": {
+        "Image": {
+          "sequenceNumber": 0,
+          "value": "*"
         },
-        "carVersion": {
-          "type": "long"
-        }
-      }
-    },
-    "TireMvoEventId": {
-      "properties": {
-        "carTireId": {
-          "type": "CarTireId"
+        "ProductImage": {
+          "sequenceNumber": 1,
+          "value": "PRODUCT"
         },
-        "carVersion": {
-          "type": "long"
-        }
-      }
-    },
-    "PositionMvoEventId": {
-      "properties": {
-        "carPositionId": {
-          "type": "CarPositionId"
+        "ProductQRCodeImage": {
+          "sequenceNumber": 2,
+          "value": "PRODUCT_QR_CODE"
         },
-        "carVersion": {
-          "type": "long"
-        }
-      }
-    },
-    "BuildingMvoEventId": {
-      "properties": {
-        "buildingId": {
-          "type": "BuildingId"
+        "OrderRemarkImage": {
+          "sequenceNumber": 3,
+          "value": "ORDER_REMARK"
         },
-        "gardenVersion": {
-          "type": "long"
-        }
-      }
-    },
-    "RoomMvoEventId": {
-      "properties": {
-        "roomId": {
-          "type": "RoomId"
+        "BrandImage": {
+          "sequenceNumber": 4,
+          "value": "BRAND"
         },
-        "gardenVersion": {
-          "type": "long"
+        "DesignPlanImage": {
+          "sequenceNumber": 5,
+          "value": "DESIGN_PLAN"
         }
       }
     },
-    "TermDefinitionMvoEventId": {
-      "properties": {
-        "termDefinitionId": {
-          "type": "TermDefinitionId"
+    "PackageType": {
+      "values": {
+        "Piece": {
+          "sequenceNumber": 0,
+          "value": 1
         },
-        "termVersion": {
-          "type": "long"
-        }
-      }
-    },
-    "TermTagMvoEventId": {
-      "properties": {
-        "termTagId": {
-          "type": "TermTagId"
+        "Box": {
+          "sequenceNumber": 1,
+          "value": 2
         },
-        "termVersion": {
-          "type": "long"
+        "BigBox": {
+          "sequenceNumber": 2,
+          "value": 3
         }
       }
     },
-    "PackagePartMvoEventId": {
-      "properties": {
-        "packagePartId": {
-          "type": "PackagePartId"
+    "PackagePartType": {
+      "values": {
+        "Piece": {
+          "sequenceNumber": 0,
+          "value": 1
         },
-        "packageRowVersion": {
-          "type": "long"
-        }
-      }
-    },
-    "YearPlanMvoEventId": {
-      "properties": {
-        "yearPlanId": {
-          "type": "YearPlanId"
+        "Box": {
+          "sequenceNumber": 1,
+          "value": 2
         },
-        "personVersion": {
-          "type": "long"
+        "Lot": {
+          "sequenceNumber": 2,
+          "value": 4
         }
       }
     },
-    "MonthPlanMvoEventId": {
-      "properties": {
-        "monthPlanId": {
-          "type": "MonthPlanId"
+    "PartyTypeId": {
+      "values": {
+        "Party": {
+          "sequenceNumber": 0,
+          "value": "*"
         },
-        "personVersion": {
-          "type": "long"
-        }
-      }
-    },
-    "DayPlanMvoEventId": {
-      "properties": {
-        "dayPlanId": {
-          "type": "DayPlanId"
+        "LegalOrganization": {
+          "sequenceNumber": 1,
+          "value": "LegalOrganization"
         },
-        "personVersion": {
-          "type": "long"
-        }
-      }
-    },
-    "MovementEntryMvoEventId": {
-      "properties": {
-        "movementEntryId": {
-          "type": "MovementEntryId"
+        "InformalOrganization": {
+          "sequenceNumber": 2,
+          "value": "InformalOrganization"
         },
-        "movementTransactionVersion": {
-          "type": "long"
+        "Family": {
+          "sequenceNumber": 3,
+          "value": "Family"
         }
       }
     }
