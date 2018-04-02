@@ -1,0 +1,3779 @@
+{
+  "referenceObjects": {
+    "Account": {
+      "properties": {
+        "balance": {
+          "labelText": "Balance"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        },
+        "accountClass": {
+          "labelText": "Account Class"
+        }
+      },
+      "methods": {},
+      "labelText": "Account",
+      "collectionLabelText": "Accounts"
+    },
+    "AccountingEventType": {
+      "properties": {
+        "name": {
+          "labelText": "Name"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Accounting Event Type",
+      "collectionLabelText": "Accounting Event Types"
+    },
+    "AccountingEvent": {
+      "properties": {
+        "eventTypeId": {
+          "labelText": "Event Type Id"
+        },
+        "whenNoticed": {
+          "labelText": "When Noticed"
+        },
+        "whenOccured": {
+          "labelText": "When Occured"
+        },
+        "resultingEntries": {
+          "labelText": "Resulting Entries"
+        },
+        "resultingTransactions": {
+          "labelText": "Resulting Transactions"
+        },
+        "baseEventId": {
+          "labelText": "Base Event Id"
+        },
+        "secondaryEvents": {
+          "labelText": "Secondary Events"
+        },
+        "postingRuleId": {
+          "labelText": "Posting Rule Id"
+        },
+        "sources": {
+          "labelText": "Sources"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        },
+        "accountingEventClass": {
+          "labelText": "Accounting Event Class"
+        }
+      },
+      "methods": {},
+      "labelText": "Accounting Event",
+      "collectionLabelText": "Accounting Events"
+    },
+    "AtprTriggeredEventSource": {
+      "properties": {
+        "postingRuleId": {
+          "labelText": "Posting Rule Id"
+        },
+        "sourceEntryId": {
+          "labelText": "Source Entry Id"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Atpr Triggered Event Source",
+      "collectionLabelText": "Atpr Triggered Event Sources"
+    },
+    "AccountingEventProcessLog": {
+      "properties": {
+        "processed": {
+          "labelText": "Processed"
+        },
+        "replacementEventId": {
+          "labelText": "Replacement Event Id"
+        },
+        "adjustedEventId": {
+          "labelText": "Adjusted Event Id"
+        },
+        "reversed": {
+          "labelText": "Reversed"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Accounting Event Process Log",
+      "collectionLabelText": "Accounting Event Process Logs"
+    },
+    "PostingRule": {
+      "properties": {
+        "eventTypeId": {
+          "labelText": "Event Type Id"
+        },
+        "triggerId": {
+          "labelText": "Trigger Id"
+        },
+        "outputId": {
+          "labelText": "Output Id"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        },
+        "postingRuleClass": {
+          "labelText": "Posting Rule Class"
+        }
+      },
+      "methods": {},
+      "labelText": "Posting Rule",
+      "collectionLabelText": "Posting Rules"
+    },
+    "AccountingTransaction": {
+      "properties": {
+        "postingRuleId": {
+          "labelText": "Posting Rule Id"
+        },
+        "eventId": {
+          "labelText": "Event Id"
+        },
+        "entries": {
+          "labelText": "Entries"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Accounting Transaction",
+      "collectionLabelText": "Accounting Transactions"
+    },
+    "Entry": {
+      "properties": {
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "eventId": {
+          "labelText": "Event Id"
+        },
+        "accountId": {
+          "labelText": "Account Id"
+        },
+        "postingRuleId": {
+          "labelText": "Posting Rule Id"
+        },
+        "amount": {
+          "labelText": "Amount"
+        },
+        "transactionId": {
+          "labelText": "Transaction Id"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        },
+        "entryClass": {
+          "labelText": "Entry Class"
+        }
+      },
+      "methods": {},
+      "labelText": "Entry",
+      "collectionLabelText": "Entries"
+    },
+    "Agreement": {
+      "properties": {
+        "productId": {
+          "labelText": "Product Id"
+        },
+        "partyIdFrom": {
+          "labelText": "Party Id From"
+        },
+        "partyIdTo": {
+          "labelText": "Party Id To"
+        },
+        "roleTypeIdFrom": {
+          "labelText": "Role Type Id From"
+        },
+        "roleTypeIdTo": {
+          "labelText": "Role Type Id To"
+        },
+        "agreementTypeId": {
+          "labelText": "Agreement Type Id"
+        },
+        "agreementDate": {
+          "labelText": "Agreement Date"
+        },
+        "fromDate": {
+          "labelText": "From Date"
+        },
+        "thruDate": {
+          "labelText": "Thru Date"
+        },
+        "description": {
+          "labelText": "Description"
+        },
+        "textData": {
+          "labelText": "Text Data"
+        },
+        "partyRelationships": {
+          "labelText": "Party Relationships"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Agreement",
+      "collectionLabelText": "Agreements"
+    },
+    "Car": {
+      "properties": {
+        "wheels": {
+          "labelText": "Wheels"
+        },
+        "tires": {
+          "labelText": "Tires"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Car",
+      "collectionLabelText": "Cars"
+    },
+    "Wheel": {
+      "properties": {
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Wheel",
+      "collectionLabelText": "Wheels"
+    },
+    "Tire": {
+      "properties": {
+        "positions": {
+          "labelText": "Positions"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Tire",
+      "collectionLabelText": "Tires"
+    },
+    "Position": {
+      "properties": {
+        "timePeriod": {
+          "labelText": "Time Period"
+        },
+        "mileAge": {
+          "labelText": "Mile Age"
+        },
+        "wheelId": {
+          "labelText": "Wheel Id"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Position",
+      "collectionLabelText": "Positions"
+    },
+    "Garden": {
+      "properties": {
+        "address": {
+          "labelText": "Address"
+        },
+        "city": {
+          "labelText": "City"
+        },
+        "buildings": {
+          "labelText": "Buildings"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {
+        "RenameBuilding": {
+          "parameters": {
+            "gardenId": {
+              "labelText": "Garden Id"
+            },
+            "gardenVersion": {
+              "labelText": "Garden Version"
+            },
+            "buildingNumber": {
+              "labelText": "Building Number"
+            },
+            "buildingName": {
+              "labelText": "Building Name"
+            },
+            "commandId": {
+              "labelText": "Command Id"
+            },
+            "requesterId": {
+              "labelText": "Requester Id"
+            }
+          },
+          "labelText": "Rename Building"
+        }
+      },
+      "labelText": "Garden",
+      "collectionLabelText": "Gardens"
+    },
+    "Building": {
+      "properties": {
+        "name": {
+          "labelText": "Name"
+        },
+        "description": {
+          "labelText": "Description"
+        },
+        "rooms": {
+          "labelText": "Rooms"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {
+        "AddRooms": {
+          "parameters": {
+            "gardenVersion": {
+              "labelText": "Garden Version"
+            },
+            "roomIds": {
+              "labelText": "Room Ids"
+            },
+            "buildingId": {
+              "labelText": "Building Id"
+            },
+            "commandId": {
+              "labelText": "Command Id"
+            },
+            "requesterId": {
+              "labelText": "Requester Id"
+            }
+          },
+          "labelText": "Add Rooms"
+        }
+      },
+      "labelText": "Building",
+      "collectionLabelText": "Buildings"
+    },
+    "Room": {
+      "properties": {
+        "name": {
+          "labelText": "Name"
+        },
+        "description": {
+          "labelText": "Description"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {
+        "RenameRoom": {
+          "parameters": {
+            "gardenVersion": {
+              "labelText": "Garden Version"
+            },
+            "roomName": {
+              "labelText": "Room Name"
+            },
+            "roomId": {
+              "labelText": "Room Id"
+            },
+            "commandId": {
+              "labelText": "Command Id"
+            },
+            "requesterId": {
+              "labelText": "Requester Id"
+            }
+          },
+          "labelText": "Rename Room"
+        }
+      },
+      "labelText": "Room",
+      "collectionLabelText": "Rooms"
+    },
+    "Context": {
+      "properties": {
+        "description": {
+          "labelText": "Description"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Context",
+      "collectionLabelText": "Contexts"
+    },
+    "Term": {
+      "properties": {
+        "contextId": {
+          "labelText": "Context Id"
+        },
+        "expression": {
+          "labelText": "Expression"
+        },
+        "chineseExpression": {
+          "labelText": "Chinese Expression"
+        },
+        "tags": {
+          "labelText": "Tags"
+        },
+        "definitions": {
+          "labelText": "Definitions"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Term",
+      "collectionLabelText": "Terms"
+    },
+    "TermDefinition": {
+      "properties": {
+        "wordClass": {
+          "labelText": "Word Class"
+        },
+        "definition": {
+          "labelText": "Definition"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Term Definition",
+      "collectionLabelText": "Term Definitions"
+    },
+    "TermTag": {
+      "properties": {
+        "sequenceNumber": {
+          "labelText": "Sequence Number"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Term Tag",
+      "collectionLabelText": "Term Tags"
+    },
+    "Tag": {
+      "properties": {
+        "name": {
+          "labelText": "Name"
+        },
+        "organizationId": {
+          "labelText": "Organization Id"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Tag",
+      "collectionLabelText": "Tags"
+    },
+    "Image": {
+      "properties": {
+        "imageName": {
+          "labelText": "Image Name"
+        },
+        "imagePath": {
+          "labelText": "Image Path"
+        },
+        "imageType": {
+          "labelText": "Image Type"
+        },
+        "isDefault": {
+          "labelText": "Is Default"
+        },
+        "sortNumber": {
+          "labelText": "Sort Number"
+        },
+        "refererId": {
+          "labelText": "Referer Id"
+        },
+        "description": {
+          "labelText": "Description"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Image",
+      "collectionLabelText": "Images"
+    },
+    "Organization": {
+      "properties": {
+        "name": {
+          "labelText": "Name"
+        },
+        "description": {
+          "labelText": "Description"
+        },
+        "type": {
+          "labelText": "Type"
+        },
+        "isSummary": {
+          "labelText": "Is Summary"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Organization",
+      "collectionLabelText": "Organizations"
+    },
+    "OrganizationStructureType": {
+      "properties": {
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Organization Structure Type",
+      "collectionLabelText": "Organization Structure Types"
+    },
+    "OrganizationStructure": {
+      "properties": {
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Organization Structure",
+      "collectionLabelText": "Organization Structures"
+    },
+    "Package": {
+      "properties": {
+        "rowVersion": {
+          "labelText": "Row Version"
+        },
+        "packageType": {
+          "labelText": "Package Type"
+        },
+        "packageParts": {
+          "labelText": "Package Parts"
+        },
+        "rootPackageParts": {
+          "labelText": "Root Package Parts"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        },
+        "serialNumber": {
+          "labelText": "Serial Number"
+        },
+        "materialNumber": {
+          "labelText": "Material Number"
+        },
+        "customerNumber": {
+          "labelText": "Customer Number"
+        },
+        "workOrderNumber": {
+          "labelText": "Work Order Number"
+        },
+        "lotNumber": {
+          "labelText": "Lot Number"
+        },
+        "rank": {
+          "labelText": "Rank"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "quantity": {
+          "labelText": "Quantity"
+        },
+        "isMixed": {
+          "labelText": "Is Mixed"
+        }
+      },
+      "methods": {},
+      "labelText": "Package",
+      "collectionLabelText": "Packages"
+    },
+    "PackagePart": {
+      "properties": {
+        "rowVersion": {
+          "labelText": "Row Version"
+        },
+        "packagePartType": {
+          "labelText": "Package Part Type"
+        },
+        "parentPackagePartId": {
+          "labelText": "Parent Package Part Id"
+        },
+        "childPackageParts": {
+          "labelText": "Child Package Parts"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        },
+        "serialNumber": {
+          "labelText": "Serial Number"
+        },
+        "materialNumber": {
+          "labelText": "Material Number"
+        },
+        "customerNumber": {
+          "labelText": "Customer Number"
+        },
+        "workOrderNumber": {
+          "labelText": "Work Order Number"
+        },
+        "lotNumber": {
+          "labelText": "Lot Number"
+        },
+        "rank": {
+          "labelText": "Rank"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "quantity": {
+          "labelText": "Quantity"
+        },
+        "isMixed": {
+          "labelText": "Is Mixed"
+        }
+      },
+      "methods": {},
+      "labelText": "Package Part",
+      "collectionLabelText": "Package Parts"
+    },
+    "Party": {
+      "properties": {
+        "partyTypeId": {
+          "labelText": "Party Type Id"
+        },
+        "externalId": {
+          "labelText": "External Id"
+        },
+        "preferredCurrencyUomId": {
+          "labelText": "Preferred Currency Uom Id"
+        },
+        "description": {
+          "labelText": "Description"
+        },
+        "statusId": {
+          "labelText": "Status Id"
+        },
+        "createdDate": {
+          "labelText": "Created Date"
+        },
+        "createdByUserLogin": {
+          "labelText": "Created By User Login"
+        },
+        "lastModifiedDate": {
+          "labelText": "Last Modified Date"
+        },
+        "lastModifiedByUserLogin": {
+          "labelText": "Last Modified By User Login"
+        },
+        "dataSourceId": {
+          "labelText": "Data Source Id"
+        },
+        "isUnread": {
+          "labelText": "Is Unread"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Party",
+      "collectionLabelText": "Parties"
+    },
+    "PartyRelationship": {
+      "properties": {
+        "thruDate": {
+          "labelText": "Thru Date"
+        },
+        "statusId": {
+          "labelText": "Status Id"
+        },
+        "relationshipName": {
+          "labelText": "Relationship Name"
+        },
+        "securityGroupId": {
+          "labelText": "Security Group Id"
+        },
+        "priorityTypeId": {
+          "labelText": "Priority Type Id"
+        },
+        "partyRelationshipTypeId": {
+          "labelText": "Party Relationship Type Id"
+        },
+        "permissionsEnumId": {
+          "labelText": "Permissions Enum Id"
+        },
+        "positionTitle": {
+          "labelText": "Position Title"
+        },
+        "comments": {
+          "labelText": "Comments"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Party Relationship",
+      "collectionLabelText": "Party Relationships"
+    },
+    "PartyRole": {
+      "properties": {
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Party Role",
+      "collectionLabelText": "Party Roles"
+    },
+    "Person": {
+      "properties": {
+        "refToEntInAnotherAggInst": {
+          "labelText": "Ref To Ent In Another Agg Inst"
+        },
+        "birthDate": {
+          "labelText": "Birth Date"
+        },
+        "yearPlans": {
+          "labelText": "Year Plans"
+        },
+        "loves": {
+          "labelText": "Loves"
+        },
+        "emergencyContact": {
+          "labelText": "Emergency Contact"
+        },
+        "email": {
+          "labelText": "Email"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {
+        "ChangeEmail": {
+          "parameters": {
+            "personalName": {
+              "labelText": "Personal Name"
+            },
+            "personVersion": {
+              "labelText": "Person Version"
+            },
+            "newEmail": {
+              "labelText": "New Email"
+            },
+            "commandId": {
+              "labelText": "Command Id"
+            },
+            "requesterId": {
+              "labelText": "Requester Id"
+            }
+          },
+          "labelText": "Change Email"
+        }
+      },
+      "labelText": "Person",
+      "collectionLabelText": "People"
+    },
+    "YearPlan": {
+      "properties": {
+        "description": {
+          "labelText": "Description"
+        },
+        "monthPlans": {
+          "labelText": "Month Plans"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Year Plan",
+      "collectionLabelText": "Year Plans"
+    },
+    "MonthPlan": {
+      "properties": {
+        "description": {
+          "labelText": "Description"
+        },
+        "dayPlans": {
+          "labelText": "Day Plans"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Month Plan",
+      "collectionLabelText": "Month Plans"
+    },
+    "DayPlan": {
+      "properties": {
+        "description": {
+          "labelText": "Description"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Day Plan",
+      "collectionLabelText": "Day Plans"
+    },
+    "Team": {
+      "properties": {
+        "description": {
+          "labelText": "Description"
+        },
+        "players": {
+          "labelText": "Players"
+        },
+        "mascots": {
+          "labelText": "Mascots"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Team",
+      "collectionLabelText": "Teams"
+    },
+    "RoleType": {
+      "properties": {
+        "parentTypeId": {
+          "labelText": "Parent Type Id"
+        },
+        "hasTable": {
+          "labelText": "Has Table"
+        },
+        "description": {
+          "labelText": "Description"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Role Type",
+      "collectionLabelText": "Role Types"
+    },
+    "Warehouse": {
+      "properties": {
+        "name": {
+          "labelText": "Name"
+        },
+        "description": {
+          "labelText": "Description"
+        },
+        "isInTransit": {
+          "labelText": "Is In Transit"
+        },
+        "locators": {
+          "labelText": "Locators"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Warehouse",
+      "collectionLabelText": "Warehouses"
+    },
+    "Locator": {
+      "properties": {
+        "warehouseId": {
+          "labelText": "Warehouse Id"
+        },
+        "parentLocatorId": {
+          "labelText": "Parent Locator Id"
+        },
+        "locatorType": {
+          "labelText": "Locator Type"
+        },
+        "priorityNumber": {
+          "labelText": "Priority Number"
+        },
+        "isDefault": {
+          "labelText": "Is Default"
+        },
+        "x": {
+          "labelText": "X"
+        },
+        "y": {
+          "labelText": "Y"
+        },
+        "z": {
+          "labelText": "Z"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Locator",
+      "collectionLabelText": "Locators"
+    },
+    "Storage": {
+      "properties": {
+        "quantity": {
+          "labelText": "Quantity"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Storage",
+      "collectionLabelText": "Storages"
+    },
+    "MovementTransaction": {
+      "properties": {
+        "movementEntries": {
+          "labelText": "Movement Entries"
+        },
+        "sourceLocatorId": {
+          "labelText": "Source Locator Id"
+        },
+        "targetLocatorId": {
+          "labelText": "Target Locator Id"
+        },
+        "productId": {
+          "labelText": "Product Id"
+        },
+        "quantity": {
+          "labelText": "Quantity"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        },
+        "processState": {
+          "labelText": "Process State"
+        },
+        "processType": {
+          "labelText": "Process Type"
+        }
+      },
+      "methods": {},
+      "labelText": "Movement Transaction",
+      "collectionLabelText": "Movement Transactions"
+    },
+    "MovementEntry": {
+      "properties": {
+        "locatorId": {
+          "labelText": "Locator Id"
+        },
+        "productId": {
+          "labelText": "Product Id"
+        },
+        "quantity": {
+          "labelText": "Quantity"
+        },
+        "storageQuantity": {
+          "labelText": "Storage Quantity"
+        },
+        "storageVersion": {
+          "labelText": "Storage Version"
+        },
+        "taskCommandId": {
+          "labelText": "Task Command Id"
+        },
+        "taskState": {
+          "labelText": "Task State"
+        },
+        "errorName": {
+          "labelText": "Error Name"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        },
+        "sequenceId": {
+          "labelText": "Sequence Id"
+        },
+        "errorCount": {
+          "labelText": "Error Count"
+        },
+        "message": {
+          "labelText": "Message"
+        }
+      },
+      "methods": {},
+      "labelText": "Movement Entry",
+      "collectionLabelText": "Movement Entries"
+    },
+    "WheelMvo": {
+      "properties": {
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        },
+        "carWheels": {
+          "labelText": "Car Wheels"
+        },
+        "carTires": {
+          "labelText": "Car Tires"
+        },
+        "carVersion": {
+          "labelText": "Car Version"
+        },
+        "carCreatedBy": {
+          "labelText": "Car Created By"
+        },
+        "carCreatedAt": {
+          "labelText": "Car Created At"
+        },
+        "carUpdatedBy": {
+          "labelText": "Car Updated By"
+        },
+        "carUpdatedAt": {
+          "labelText": "Car Updated At"
+        },
+        "carActive": {
+          "labelText": "Car Active"
+        },
+        "carDeleted": {
+          "labelText": "Car Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Wheel Mvo",
+      "collectionLabelText": "Wheel Mvos"
+    },
+    "TireMvo": {
+      "properties": {
+        "positions": {
+          "labelText": "Positions"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        },
+        "carWheels": {
+          "labelText": "Car Wheels"
+        },
+        "carTires": {
+          "labelText": "Car Tires"
+        },
+        "carVersion": {
+          "labelText": "Car Version"
+        },
+        "carCreatedBy": {
+          "labelText": "Car Created By"
+        },
+        "carCreatedAt": {
+          "labelText": "Car Created At"
+        },
+        "carUpdatedBy": {
+          "labelText": "Car Updated By"
+        },
+        "carUpdatedAt": {
+          "labelText": "Car Updated At"
+        },
+        "carActive": {
+          "labelText": "Car Active"
+        },
+        "carDeleted": {
+          "labelText": "Car Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Tire Mvo",
+      "collectionLabelText": "Tire Mvos"
+    },
+    "PositionMvo": {
+      "properties": {
+        "timePeriod": {
+          "labelText": "Time Period"
+        },
+        "mileAge": {
+          "labelText": "Mile Age"
+        },
+        "wheelId": {
+          "labelText": "Wheel Id"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        },
+        "tirePositions": {
+          "labelText": "Tire Positions"
+        },
+        "tireVersion": {
+          "labelText": "Tire Version"
+        },
+        "tireCreatedBy": {
+          "labelText": "Tire Created By"
+        },
+        "tireCreatedAt": {
+          "labelText": "Tire Created At"
+        },
+        "tireUpdatedBy": {
+          "labelText": "Tire Updated By"
+        },
+        "tireUpdatedAt": {
+          "labelText": "Tire Updated At"
+        },
+        "tireActive": {
+          "labelText": "Tire Active"
+        },
+        "tireDeleted": {
+          "labelText": "Tire Deleted"
+        },
+        "carWheels": {
+          "labelText": "Car Wheels"
+        },
+        "carTires": {
+          "labelText": "Car Tires"
+        },
+        "carVersion": {
+          "labelText": "Car Version"
+        },
+        "carCreatedBy": {
+          "labelText": "Car Created By"
+        },
+        "carCreatedAt": {
+          "labelText": "Car Created At"
+        },
+        "carUpdatedBy": {
+          "labelText": "Car Updated By"
+        },
+        "carUpdatedAt": {
+          "labelText": "Car Updated At"
+        },
+        "carActive": {
+          "labelText": "Car Active"
+        },
+        "carDeleted": {
+          "labelText": "Car Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Position Mvo",
+      "collectionLabelText": "Position Mvos"
+    },
+    "BuildingMvo": {
+      "properties": {
+        "name": {
+          "labelText": "Name"
+        },
+        "description": {
+          "labelText": "Description"
+        },
+        "rooms": {
+          "labelText": "Rooms"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        },
+        "gardenAddress": {
+          "labelText": "Garden Address"
+        },
+        "gardenCity": {
+          "labelText": "Garden City"
+        },
+        "gardenBuildings": {
+          "labelText": "Garden Buildings"
+        },
+        "gardenVersion": {
+          "labelText": "Garden Version"
+        },
+        "gardenCreatedBy": {
+          "labelText": "Garden Created By"
+        },
+        "gardenCreatedAt": {
+          "labelText": "Garden Created At"
+        },
+        "gardenUpdatedBy": {
+          "labelText": "Garden Updated By"
+        },
+        "gardenUpdatedAt": {
+          "labelText": "Garden Updated At"
+        },
+        "gardenActive": {
+          "labelText": "Garden Active"
+        },
+        "gardenDeleted": {
+          "labelText": "Garden Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Building Mvo",
+      "collectionLabelText": "Building Mvos"
+    },
+    "RoomMvo": {
+      "properties": {
+        "name": {
+          "labelText": "Name"
+        },
+        "description": {
+          "labelText": "Description"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        },
+        "buildingName": {
+          "labelText": "Building Name"
+        },
+        "buildingDescription": {
+          "labelText": "Building Description"
+        },
+        "buildingRooms": {
+          "labelText": "Building Rooms"
+        },
+        "buildingVersion": {
+          "labelText": "Building Version"
+        },
+        "buildingCreatedBy": {
+          "labelText": "Building Created By"
+        },
+        "buildingCreatedAt": {
+          "labelText": "Building Created At"
+        },
+        "buildingUpdatedBy": {
+          "labelText": "Building Updated By"
+        },
+        "buildingUpdatedAt": {
+          "labelText": "Building Updated At"
+        },
+        "buildingActive": {
+          "labelText": "Building Active"
+        },
+        "buildingDeleted": {
+          "labelText": "Building Deleted"
+        },
+        "gardenAddress": {
+          "labelText": "Garden Address"
+        },
+        "gardenCity": {
+          "labelText": "Garden City"
+        },
+        "gardenBuildings": {
+          "labelText": "Garden Buildings"
+        },
+        "gardenVersion": {
+          "labelText": "Garden Version"
+        },
+        "gardenCreatedBy": {
+          "labelText": "Garden Created By"
+        },
+        "gardenCreatedAt": {
+          "labelText": "Garden Created At"
+        },
+        "gardenUpdatedBy": {
+          "labelText": "Garden Updated By"
+        },
+        "gardenUpdatedAt": {
+          "labelText": "Garden Updated At"
+        },
+        "gardenActive": {
+          "labelText": "Garden Active"
+        },
+        "gardenDeleted": {
+          "labelText": "Garden Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Room Mvo",
+      "collectionLabelText": "Room Mvos"
+    },
+    "TermDefinitionMvo": {
+      "properties": {
+        "wordClass": {
+          "labelText": "Word Class"
+        },
+        "definition": {
+          "labelText": "Definition"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        },
+        "termContextId": {
+          "labelText": "Term Context Id"
+        },
+        "termExpression": {
+          "labelText": "Term Expression"
+        },
+        "termChineseExpression": {
+          "labelText": "Term Chinese Expression"
+        },
+        "termTags": {
+          "labelText": "Term Tags"
+        },
+        "termDefinitions": {
+          "labelText": "Term Definitions"
+        },
+        "termVersion": {
+          "labelText": "Term Version"
+        },
+        "termCreatedBy": {
+          "labelText": "Term Created By"
+        },
+        "termCreatedAt": {
+          "labelText": "Term Created At"
+        },
+        "termUpdatedBy": {
+          "labelText": "Term Updated By"
+        },
+        "termUpdatedAt": {
+          "labelText": "Term Updated At"
+        },
+        "termActive": {
+          "labelText": "Term Active"
+        },
+        "termDeleted": {
+          "labelText": "Term Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Term Definition Mvo",
+      "collectionLabelText": "Term Definition Mvos"
+    },
+    "TermTagMvo": {
+      "properties": {
+        "sequenceNumber": {
+          "labelText": "Sequence Number"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        },
+        "termContextId": {
+          "labelText": "Term Context Id"
+        },
+        "termExpression": {
+          "labelText": "Term Expression"
+        },
+        "termChineseExpression": {
+          "labelText": "Term Chinese Expression"
+        },
+        "termTags": {
+          "labelText": "Term Tags"
+        },
+        "termDefinitions": {
+          "labelText": "Term Definitions"
+        },
+        "termVersion": {
+          "labelText": "Term Version"
+        },
+        "termCreatedBy": {
+          "labelText": "Term Created By"
+        },
+        "termCreatedAt": {
+          "labelText": "Term Created At"
+        },
+        "termUpdatedBy": {
+          "labelText": "Term Updated By"
+        },
+        "termUpdatedAt": {
+          "labelText": "Term Updated At"
+        },
+        "termActive": {
+          "labelText": "Term Active"
+        },
+        "termDeleted": {
+          "labelText": "Term Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Term Tag Mvo",
+      "collectionLabelText": "Term Tag Mvos"
+    },
+    "PackagePartMvo": {
+      "properties": {
+        "rowVersion": {
+          "labelText": "Row Version"
+        },
+        "packagePartType": {
+          "labelText": "Package Part Type"
+        },
+        "parentPackagePartId": {
+          "labelText": "Parent Package Part Id"
+        },
+        "childPackageParts": {
+          "labelText": "Child Package Parts"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        },
+        "serialNumber": {
+          "labelText": "Serial Number"
+        },
+        "materialNumber": {
+          "labelText": "Material Number"
+        },
+        "customerNumber": {
+          "labelText": "Customer Number"
+        },
+        "workOrderNumber": {
+          "labelText": "Work Order Number"
+        },
+        "lotNumber": {
+          "labelText": "Lot Number"
+        },
+        "rank": {
+          "labelText": "Rank"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "quantity": {
+          "labelText": "Quantity"
+        },
+        "isMixed": {
+          "labelText": "Is Mixed"
+        },
+        "packageRowVersion": {
+          "labelText": "Package Row Version"
+        },
+        "packagePackageType": {
+          "labelText": "Package Package Type"
+        },
+        "packagePackageParts": {
+          "labelText": "Package Package Parts"
+        },
+        "packageRootPackageParts": {
+          "labelText": "Package Root Package Parts"
+        },
+        "packageCreatedBy": {
+          "labelText": "Package Created By"
+        },
+        "packageCreatedAt": {
+          "labelText": "Package Created At"
+        },
+        "packageUpdatedBy": {
+          "labelText": "Package Updated By"
+        },
+        "packageUpdatedAt": {
+          "labelText": "Package Updated At"
+        },
+        "packageActive": {
+          "labelText": "Package Active"
+        },
+        "packageSerialNumber": {
+          "labelText": "Package Serial Number"
+        },
+        "packageMaterialNumber": {
+          "labelText": "Package Material Number"
+        },
+        "packageCustomerNumber": {
+          "labelText": "Package Customer Number"
+        },
+        "packageWorkOrderNumber": {
+          "labelText": "Package Work Order Number"
+        },
+        "packageLotNumber": {
+          "labelText": "Package Lot Number"
+        },
+        "packageRank": {
+          "labelText": "Package Rank"
+        },
+        "packageVersion": {
+          "labelText": "Package Version"
+        },
+        "packageQuantity": {
+          "labelText": "Package Quantity"
+        },
+        "packageIsMixed": {
+          "labelText": "Package Is Mixed"
+        }
+      },
+      "methods": {},
+      "labelText": "Package Part Mvo",
+      "collectionLabelText": "Package Part Mvos"
+    },
+    "YearPlanMvo": {
+      "properties": {
+        "description": {
+          "labelText": "Description"
+        },
+        "monthPlans": {
+          "labelText": "Month Plans"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        },
+        "personRefToEntInAnotherAggInst": {
+          "labelText": "Person Ref To Ent In Another Agg Inst"
+        },
+        "personBirthDate": {
+          "labelText": "Person Birth Date"
+        },
+        "personYearPlans": {
+          "labelText": "Person Year Plans"
+        },
+        "personLoves": {
+          "labelText": "Person Loves"
+        },
+        "personEmergencyContact": {
+          "labelText": "Person Emergency Contact"
+        },
+        "personEmail": {
+          "labelText": "Person Email"
+        },
+        "personCreatedBy": {
+          "labelText": "Person Created By"
+        },
+        "personUpdatedBy": {
+          "labelText": "Person Updated By"
+        },
+        "personVersion": {
+          "labelText": "Person Version"
+        },
+        "personCreatedAt": {
+          "labelText": "Person Created At"
+        },
+        "personUpdatedAt": {
+          "labelText": "Person Updated At"
+        },
+        "personActive": {
+          "labelText": "Person Active"
+        },
+        "personDeleted": {
+          "labelText": "Person Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Year Plan Mvo",
+      "collectionLabelText": "Year Plan Mvos"
+    },
+    "MonthPlanMvo": {
+      "properties": {
+        "description": {
+          "labelText": "Description"
+        },
+        "dayPlans": {
+          "labelText": "Day Plans"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        },
+        "yearPlanDescription": {
+          "labelText": "Year Plan Description"
+        },
+        "yearPlanMonthPlans": {
+          "labelText": "Year Plan Month Plans"
+        },
+        "yearPlanCreatedBy": {
+          "labelText": "Year Plan Created By"
+        },
+        "yearPlanUpdatedBy": {
+          "labelText": "Year Plan Updated By"
+        },
+        "yearPlanVersion": {
+          "labelText": "Year Plan Version"
+        },
+        "yearPlanCreatedAt": {
+          "labelText": "Year Plan Created At"
+        },
+        "yearPlanUpdatedAt": {
+          "labelText": "Year Plan Updated At"
+        },
+        "yearPlanActive": {
+          "labelText": "Year Plan Active"
+        },
+        "yearPlanDeleted": {
+          "labelText": "Year Plan Deleted"
+        },
+        "personRefToEntInAnotherAggInst": {
+          "labelText": "Person Ref To Ent In Another Agg Inst"
+        },
+        "personBirthDate": {
+          "labelText": "Person Birth Date"
+        },
+        "personYearPlans": {
+          "labelText": "Person Year Plans"
+        },
+        "personLoves": {
+          "labelText": "Person Loves"
+        },
+        "personEmergencyContact": {
+          "labelText": "Person Emergency Contact"
+        },
+        "personEmail": {
+          "labelText": "Person Email"
+        },
+        "personCreatedBy": {
+          "labelText": "Person Created By"
+        },
+        "personUpdatedBy": {
+          "labelText": "Person Updated By"
+        },
+        "personVersion": {
+          "labelText": "Person Version"
+        },
+        "personCreatedAt": {
+          "labelText": "Person Created At"
+        },
+        "personUpdatedAt": {
+          "labelText": "Person Updated At"
+        },
+        "personActive": {
+          "labelText": "Person Active"
+        },
+        "personDeleted": {
+          "labelText": "Person Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Month Plan Mvo",
+      "collectionLabelText": "Month Plan Mvos"
+    },
+    "DayPlanMvo": {
+      "properties": {
+        "description": {
+          "labelText": "Description"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        },
+        "monthPlanDescription": {
+          "labelText": "Month Plan Description"
+        },
+        "monthPlanDayPlans": {
+          "labelText": "Month Plan Day Plans"
+        },
+        "monthPlanCreatedBy": {
+          "labelText": "Month Plan Created By"
+        },
+        "monthPlanUpdatedBy": {
+          "labelText": "Month Plan Updated By"
+        },
+        "monthPlanVersion": {
+          "labelText": "Month Plan Version"
+        },
+        "monthPlanCreatedAt": {
+          "labelText": "Month Plan Created At"
+        },
+        "monthPlanUpdatedAt": {
+          "labelText": "Month Plan Updated At"
+        },
+        "monthPlanActive": {
+          "labelText": "Month Plan Active"
+        },
+        "monthPlanDeleted": {
+          "labelText": "Month Plan Deleted"
+        },
+        "yearPlanDescription": {
+          "labelText": "Year Plan Description"
+        },
+        "yearPlanMonthPlans": {
+          "labelText": "Year Plan Month Plans"
+        },
+        "yearPlanCreatedBy": {
+          "labelText": "Year Plan Created By"
+        },
+        "yearPlanUpdatedBy": {
+          "labelText": "Year Plan Updated By"
+        },
+        "yearPlanVersion": {
+          "labelText": "Year Plan Version"
+        },
+        "yearPlanCreatedAt": {
+          "labelText": "Year Plan Created At"
+        },
+        "yearPlanUpdatedAt": {
+          "labelText": "Year Plan Updated At"
+        },
+        "yearPlanActive": {
+          "labelText": "Year Plan Active"
+        },
+        "yearPlanDeleted": {
+          "labelText": "Year Plan Deleted"
+        },
+        "personRefToEntInAnotherAggInst": {
+          "labelText": "Person Ref To Ent In Another Agg Inst"
+        },
+        "personBirthDate": {
+          "labelText": "Person Birth Date"
+        },
+        "personYearPlans": {
+          "labelText": "Person Year Plans"
+        },
+        "personLoves": {
+          "labelText": "Person Loves"
+        },
+        "personEmergencyContact": {
+          "labelText": "Person Emergency Contact"
+        },
+        "personEmail": {
+          "labelText": "Person Email"
+        },
+        "personCreatedBy": {
+          "labelText": "Person Created By"
+        },
+        "personUpdatedBy": {
+          "labelText": "Person Updated By"
+        },
+        "personVersion": {
+          "labelText": "Person Version"
+        },
+        "personCreatedAt": {
+          "labelText": "Person Created At"
+        },
+        "personUpdatedAt": {
+          "labelText": "Person Updated At"
+        },
+        "personActive": {
+          "labelText": "Person Active"
+        },
+        "personDeleted": {
+          "labelText": "Person Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Day Plan Mvo",
+      "collectionLabelText": "Day Plan Mvos"
+    },
+    "MovementEntryMvo": {
+      "properties": {
+        "locatorId": {
+          "labelText": "Locator Id"
+        },
+        "productId": {
+          "labelText": "Product Id"
+        },
+        "quantity": {
+          "labelText": "Quantity"
+        },
+        "storageQuantity": {
+          "labelText": "Storage Quantity"
+        },
+        "storageVersion": {
+          "labelText": "Storage Version"
+        },
+        "taskCommandId": {
+          "labelText": "Task Command Id"
+        },
+        "taskState": {
+          "labelText": "Task State"
+        },
+        "errorName": {
+          "labelText": "Error Name"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        },
+        "sequenceId": {
+          "labelText": "Sequence Id"
+        },
+        "errorCount": {
+          "labelText": "Error Count"
+        },
+        "message": {
+          "labelText": "Message"
+        },
+        "movementTransactionMovementEntries": {
+          "labelText": "Movement Transaction Movement Entries"
+        },
+        "movementTransactionSourceLocatorId": {
+          "labelText": "Movement Transaction Source Locator Id"
+        },
+        "movementTransactionTargetLocatorId": {
+          "labelText": "Movement Transaction Target Locator Id"
+        },
+        "movementTransactionProductId": {
+          "labelText": "Movement Transaction Product Id"
+        },
+        "movementTransactionQuantity": {
+          "labelText": "Movement Transaction Quantity"
+        },
+        "movementTransactionVersion": {
+          "labelText": "Movement Transaction Version"
+        },
+        "movementTransactionCreatedBy": {
+          "labelText": "Movement Transaction Created By"
+        },
+        "movementTransactionCreatedAt": {
+          "labelText": "Movement Transaction Created At"
+        },
+        "movementTransactionUpdatedBy": {
+          "labelText": "Movement Transaction Updated By"
+        },
+        "movementTransactionUpdatedAt": {
+          "labelText": "Movement Transaction Updated At"
+        },
+        "movementTransactionActive": {
+          "labelText": "Movement Transaction Active"
+        },
+        "movementTransactionDeleted": {
+          "labelText": "Movement Transaction Deleted"
+        },
+        "movementTransactionProcessState": {
+          "labelText": "Movement Transaction Process State"
+        },
+        "movementTransactionProcessType": {
+          "labelText": "Movement Transaction Process Type"
+        }
+      },
+      "methods": {},
+      "labelText": "Movement Entry Mvo",
+      "collectionLabelText": "Movement Entry Mvos"
+    }
+  },
+  "valueObjects": {
+    "OrganizationStructureId": {
+      "properties": {
+        "organizationStructureTypeId": {
+          "labelText": "Organization Structure Type Id"
+        },
+        "parentId": {
+          "labelText": "Parent Id"
+        },
+        "subsidiaryId": {
+          "labelText": "Subsidiary Id"
+        }
+      },
+      "labelText": "Organization Structure Id",
+      "collectionLabelText": "Organization Structure Ids"
+    },
+    "PersonalName": {
+      "properties": {
+        "firstName": {
+          "labelText": "First Name"
+        },
+        "lastName": {
+          "labelText": "Last Name"
+        }
+      },
+      "labelText": "Personal Name",
+      "collectionLabelText": "Personal Names"
+    },
+    "Contact": {
+      "properties": {
+        "personalName": {
+          "labelText": "Personal Name"
+        },
+        "phoneNumber": {
+          "labelText": "Phone Number"
+        },
+        "address": {
+          "labelText": "Address"
+        }
+      },
+      "labelText": "Contact",
+      "collectionLabelText": "Contacts"
+    },
+    "AccountingEventAtprTriggeredEventSourceId": {
+      "properties": {
+        "accountingEventId": {
+          "labelText": "Accounting Event Id"
+        },
+        "sourceId": {
+          "labelText": "Source Id"
+        }
+      },
+      "labelText": "Accounting Event Atpr Triggered Event Source Id",
+      "collectionLabelText": "Accounting Event Atpr Triggered Event Source Ids"
+    },
+    "TimePeriod": {
+      "properties": {
+        "from": {
+          "labelText": "From"
+        },
+        "to": {
+          "labelText": "To"
+        }
+      },
+      "labelText": "Time Period",
+      "collectionLabelText": "Time Periods"
+    },
+    "CarWheelId": {
+      "properties": {
+        "carId": {
+          "labelText": "Car Id"
+        },
+        "wheelId": {
+          "labelText": "Wheel Id"
+        }
+      },
+      "labelText": "Car Wheel Id",
+      "collectionLabelText": "Car Wheel Ids"
+    },
+    "CarTireId": {
+      "properties": {
+        "carId": {
+          "labelText": "Car Id"
+        },
+        "tireId": {
+          "labelText": "Tire Id"
+        }
+      },
+      "labelText": "Car Tire Id",
+      "collectionLabelText": "Car Tire Ids"
+    },
+    "CarPositionId": {
+      "properties": {
+        "carId": {
+          "labelText": "Car Id"
+        },
+        "tireId": {
+          "labelText": "Tire Id"
+        },
+        "id": {
+          "labelText": "Id"
+        }
+      },
+      "labelText": "Car Position Id",
+      "collectionLabelText": "Car Position Ids"
+    },
+    "BuildingId": {
+      "properties": {
+        "gardenId": {
+          "labelText": "Garden Id"
+        },
+        "buildingNumber": {
+          "labelText": "Building Number"
+        }
+      },
+      "labelText": "Building Id",
+      "collectionLabelText": "Building Ids"
+    },
+    "RoomId": {
+      "properties": {
+        "gardenId": {
+          "labelText": "Garden Id"
+        },
+        "buildingNumber": {
+          "labelText": "Building Number"
+        },
+        "roomNumber": {
+          "labelText": "Room Number"
+        }
+      },
+      "labelText": "Room Id",
+      "collectionLabelText": "Room Ids"
+    },
+    "TermDefinitionId": {
+      "properties": {
+        "termId": {
+          "labelText": "Term Id"
+        },
+        "sequenceNumber": {
+          "labelText": "Sequence Number"
+        }
+      },
+      "labelText": "Term Definition Id",
+      "collectionLabelText": "Term Definition Ids"
+    },
+    "TermTagId": {
+      "properties": {
+        "termId": {
+          "labelText": "Term Id"
+        },
+        "tagId": {
+          "labelText": "Tag Id"
+        }
+      },
+      "labelText": "Term Tag Id",
+      "collectionLabelText": "Term Tag Ids"
+    },
+    "PackagePartId": {
+      "properties": {
+        "packageId": {
+          "labelText": "Package Id"
+        },
+        "partId": {
+          "labelText": "Part Id"
+        }
+      },
+      "labelText": "Package Part Id",
+      "collectionLabelText": "Package Part Ids"
+    },
+    "PartyRelationshipId": {
+      "properties": {
+        "partyIdFrom": {
+          "labelText": "Party Id From"
+        },
+        "partyIdTo": {
+          "labelText": "Party Id To"
+        },
+        "roleTypeIdFrom": {
+          "labelText": "Role Type Id From"
+        },
+        "roleTypeIdTo": {
+          "labelText": "Role Type Id To"
+        },
+        "fromDate": {
+          "labelText": "From Date"
+        }
+      },
+      "labelText": "Party Relationship Id",
+      "collectionLabelText": "Party Relationship Ids"
+    },
+    "PartyRoleId": {
+      "properties": {
+        "partyId": {
+          "labelText": "Party Id"
+        },
+        "roleTypeId": {
+          "labelText": "Role Type Id"
+        }
+      },
+      "labelText": "Party Role Id",
+      "collectionLabelText": "Party Role Ids"
+    },
+    "YearPlanId": {
+      "properties": {
+        "personalName": {
+          "labelText": "Personal Name"
+        },
+        "year": {
+          "labelText": "Year"
+        }
+      },
+      "labelText": "Year Plan Id",
+      "collectionLabelText": "Year Plan Ids"
+    },
+    "MonthPlanId": {
+      "properties": {
+        "personalName": {
+          "labelText": "Personal Name"
+        },
+        "year": {
+          "labelText": "Year"
+        },
+        "month": {
+          "labelText": "Month"
+        }
+      },
+      "labelText": "Month Plan Id",
+      "collectionLabelText": "Month Plan Ids"
+    },
+    "DayPlanId": {
+      "properties": {
+        "personalName": {
+          "labelText": "Personal Name"
+        },
+        "year": {
+          "labelText": "Year"
+        },
+        "month": {
+          "labelText": "Month"
+        },
+        "day": {
+          "labelText": "Day"
+        }
+      },
+      "labelText": "Day Plan Id",
+      "collectionLabelText": "Day Plan Ids"
+    },
+    "StorageId": {
+      "properties": {
+        "productId": {
+          "labelText": "Product Id"
+        },
+        "locatorId": {
+          "labelText": "Locator Id"
+        }
+      },
+      "labelText": "Storage Id",
+      "collectionLabelText": "Storage Ids"
+    },
+    "MovementEntryId": {
+      "properties": {
+        "movementTransactionId": {
+          "labelText": "Movement Transaction Id"
+        },
+        "entryName": {
+          "labelText": "Entry Name"
+        }
+      },
+      "labelText": "Movement Entry Id",
+      "collectionLabelText": "Movement Entry Ids"
+    },
+    "AccountEventId": {
+      "properties": {
+        "id": {
+          "labelText": "Id"
+        },
+        "version": {
+          "labelText": "Version"
+        }
+      },
+      "labelText": "Account Event Id",
+      "collectionLabelText": "Account Event Ids"
+    },
+    "AccountingEventTypeEventId": {
+      "properties": {
+        "id": {
+          "labelText": "Id"
+        },
+        "version": {
+          "labelText": "Version"
+        }
+      },
+      "labelText": "Accounting Event Type Event Id",
+      "collectionLabelText": "Accounting Event Type Event Ids"
+    },
+    "AccountingEventEventId": {
+      "properties": {
+        "id": {
+          "labelText": "Id"
+        },
+        "version": {
+          "labelText": "Version"
+        }
+      },
+      "labelText": "Accounting Event Event Id",
+      "collectionLabelText": "Accounting Event Event Ids"
+    },
+    "AtprTriggeredEventSourceEventId": {
+      "properties": {
+        "accountingEventId": {
+          "labelText": "Accounting Event Id"
+        },
+        "sourceId": {
+          "labelText": "Source Id"
+        },
+        "accountingEventVersion": {
+          "labelText": "Accounting Event Version"
+        }
+      },
+      "labelText": "Atpr Triggered Event Source Event Id",
+      "collectionLabelText": "Atpr Triggered Event Source Event Ids"
+    },
+    "AccountingEventProcessLogEventId": {
+      "properties": {
+        "eventId": {
+          "labelText": "Event Id"
+        },
+        "version": {
+          "labelText": "Version"
+        }
+      },
+      "labelText": "Accounting Event Process Log Event Id",
+      "collectionLabelText": "Accounting Event Process Log Event Ids"
+    },
+    "PostingRuleEventId": {
+      "properties": {
+        "id": {
+          "labelText": "Id"
+        },
+        "version": {
+          "labelText": "Version"
+        }
+      },
+      "labelText": "Posting Rule Event Id",
+      "collectionLabelText": "Posting Rule Event Ids"
+    },
+    "AccountingTransactionEventId": {
+      "properties": {
+        "id": {
+          "labelText": "Id"
+        },
+        "version": {
+          "labelText": "Version"
+        }
+      },
+      "labelText": "Accounting Transaction Event Id",
+      "collectionLabelText": "Accounting Transaction Event Ids"
+    },
+    "EntryEventId": {
+      "properties": {
+        "id": {
+          "labelText": "Id"
+        },
+        "version": {
+          "labelText": "Version"
+        }
+      },
+      "labelText": "Entry Event Id",
+      "collectionLabelText": "Entry Event Ids"
+    },
+    "AgreementEventId": {
+      "properties": {
+        "agreementId": {
+          "labelText": "Agreement Id"
+        },
+        "version": {
+          "labelText": "Version"
+        }
+      },
+      "labelText": "Agreement Event Id",
+      "collectionLabelText": "Agreement Event Ids"
+    },
+    "CarEventId": {
+      "properties": {
+        "id": {
+          "labelText": "Id"
+        },
+        "version": {
+          "labelText": "Version"
+        }
+      },
+      "labelText": "Car Event Id",
+      "collectionLabelText": "Car Event Ids"
+    },
+    "WheelEventId": {
+      "properties": {
+        "carId": {
+          "labelText": "Car Id"
+        },
+        "wheelId": {
+          "labelText": "Wheel Id"
+        },
+        "carVersion": {
+          "labelText": "Car Version"
+        }
+      },
+      "labelText": "Wheel Event Id",
+      "collectionLabelText": "Wheel Event Ids"
+    },
+    "TireEventId": {
+      "properties": {
+        "carId": {
+          "labelText": "Car Id"
+        },
+        "tireId": {
+          "labelText": "Tire Id"
+        },
+        "carVersion": {
+          "labelText": "Car Version"
+        }
+      },
+      "labelText": "Tire Event Id",
+      "collectionLabelText": "Tire Event Ids"
+    },
+    "PositionEventId": {
+      "properties": {
+        "carId": {
+          "labelText": "Car Id"
+        },
+        "tireId": {
+          "labelText": "Tire Id"
+        },
+        "id": {
+          "labelText": "Id"
+        },
+        "carVersion": {
+          "labelText": "Car Version"
+        }
+      },
+      "labelText": "Position Event Id",
+      "collectionLabelText": "Position Event Ids"
+    },
+    "GardenEventId": {
+      "properties": {
+        "id": {
+          "labelText": "Id"
+        },
+        "version": {
+          "labelText": "Version"
+        }
+      },
+      "labelText": "Garden Event Id",
+      "collectionLabelText": "Garden Event Ids"
+    },
+    "BuildingEventId": {
+      "properties": {
+        "gardenId": {
+          "labelText": "Garden Id"
+        },
+        "buildingNumber": {
+          "labelText": "Building Number"
+        },
+        "gardenVersion": {
+          "labelText": "Garden Version"
+        }
+      },
+      "labelText": "Building Event Id",
+      "collectionLabelText": "Building Event Ids"
+    },
+    "RoomEventId": {
+      "properties": {
+        "gardenId": {
+          "labelText": "Garden Id"
+        },
+        "buildingNumber": {
+          "labelText": "Building Number"
+        },
+        "roomNumber": {
+          "labelText": "Room Number"
+        },
+        "gardenVersion": {
+          "labelText": "Garden Version"
+        }
+      },
+      "labelText": "Room Event Id",
+      "collectionLabelText": "Room Event Ids"
+    },
+    "ContextEventId": {
+      "properties": {
+        "contextId": {
+          "labelText": "Context Id"
+        },
+        "version": {
+          "labelText": "Version"
+        }
+      },
+      "labelText": "Context Event Id",
+      "collectionLabelText": "Context Event Ids"
+    },
+    "TermEventId": {
+      "properties": {
+        "termId": {
+          "labelText": "Term Id"
+        },
+        "version": {
+          "labelText": "Version"
+        }
+      },
+      "labelText": "Term Event Id",
+      "collectionLabelText": "Term Event Ids"
+    },
+    "TermDefinitionEventId": {
+      "properties": {
+        "termId": {
+          "labelText": "Term Id"
+        },
+        "sequenceNumber": {
+          "labelText": "Sequence Number"
+        },
+        "termVersion": {
+          "labelText": "Term Version"
+        }
+      },
+      "labelText": "Term Definition Event Id",
+      "collectionLabelText": "Term Definition Event Ids"
+    },
+    "TermTagEventId": {
+      "properties": {
+        "termId": {
+          "labelText": "Term Id"
+        },
+        "tagId": {
+          "labelText": "Tag Id"
+        },
+        "termVersion": {
+          "labelText": "Term Version"
+        }
+      },
+      "labelText": "Term Tag Event Id",
+      "collectionLabelText": "Term Tag Event Ids"
+    },
+    "TagEventId": {
+      "properties": {
+        "tagId": {
+          "labelText": "Tag Id"
+        },
+        "version": {
+          "labelText": "Version"
+        }
+      },
+      "labelText": "Tag Event Id",
+      "collectionLabelText": "Tag Event Ids"
+    },
+    "ImageEventId": {
+      "properties": {
+        "id": {
+          "labelText": "Id"
+        },
+        "version": {
+          "labelText": "Version"
+        }
+      },
+      "labelText": "Image Event Id",
+      "collectionLabelText": "Image Event Ids"
+    },
+    "OrganizationEventId": {
+      "properties": {
+        "organizationId": {
+          "labelText": "Organization Id"
+        },
+        "version": {
+          "labelText": "Version"
+        }
+      },
+      "labelText": "Organization Event Id",
+      "collectionLabelText": "Organization Event Ids"
+    },
+    "OrganizationStructureTypeEventId": {
+      "properties": {
+        "id": {
+          "labelText": "Id"
+        },
+        "version": {
+          "labelText": "Version"
+        }
+      },
+      "labelText": "Organization Structure Type Event Id",
+      "collectionLabelText": "Organization Structure Type Event Ids"
+    },
+    "OrganizationStructureEventId": {
+      "properties": {
+        "id": {
+          "labelText": "Id"
+        },
+        "version": {
+          "labelText": "Version"
+        }
+      },
+      "labelText": "Organization Structure Event Id",
+      "collectionLabelText": "Organization Structure Event Ids"
+    },
+    "PackageEventId": {
+      "properties": {
+        "packageId": {
+          "labelText": "Package Id"
+        },
+        "rowVersion": {
+          "labelText": "Row Version"
+        }
+      },
+      "labelText": "Package Event Id",
+      "collectionLabelText": "Package Event Ids"
+    },
+    "PackagePartEventId": {
+      "properties": {
+        "packageId": {
+          "labelText": "Package Id"
+        },
+        "partId": {
+          "labelText": "Part Id"
+        },
+        "packageRowVersion": {
+          "labelText": "Package Row Version"
+        }
+      },
+      "labelText": "Package Part Event Id",
+      "collectionLabelText": "Package Part Event Ids"
+    },
+    "PartyEventId": {
+      "properties": {
+        "partyId": {
+          "labelText": "Party Id"
+        },
+        "version": {
+          "labelText": "Version"
+        }
+      },
+      "labelText": "Party Event Id",
+      "collectionLabelText": "Party Event Ids"
+    },
+    "PartyRelationshipEventId": {
+      "properties": {
+        "partyRelationshipId": {
+          "labelText": "Party Relationship Id"
+        },
+        "version": {
+          "labelText": "Version"
+        }
+      },
+      "labelText": "Party Relationship Event Id",
+      "collectionLabelText": "Party Relationship Event Ids"
+    },
+    "PartyRoleEventId": {
+      "properties": {
+        "partyRoleId": {
+          "labelText": "Party Role Id"
+        },
+        "version": {
+          "labelText": "Version"
+        }
+      },
+      "labelText": "Party Role Event Id",
+      "collectionLabelText": "Party Role Event Ids"
+    },
+    "PersonEventId": {
+      "properties": {
+        "personalName": {
+          "labelText": "Personal Name"
+        },
+        "version": {
+          "labelText": "Version"
+        }
+      },
+      "labelText": "Person Event Id",
+      "collectionLabelText": "Person Event Ids"
+    },
+    "YearPlanEventId": {
+      "properties": {
+        "personalName": {
+          "labelText": "Personal Name"
+        },
+        "year": {
+          "labelText": "Year"
+        },
+        "personVersion": {
+          "labelText": "Person Version"
+        }
+      },
+      "labelText": "Year Plan Event Id",
+      "collectionLabelText": "Year Plan Event Ids"
+    },
+    "MonthPlanEventId": {
+      "properties": {
+        "personalName": {
+          "labelText": "Personal Name"
+        },
+        "year": {
+          "labelText": "Year"
+        },
+        "month": {
+          "labelText": "Month"
+        },
+        "personVersion": {
+          "labelText": "Person Version"
+        }
+      },
+      "labelText": "Month Plan Event Id",
+      "collectionLabelText": "Month Plan Event Ids"
+    },
+    "DayPlanEventId": {
+      "properties": {
+        "personalName": {
+          "labelText": "Personal Name"
+        },
+        "year": {
+          "labelText": "Year"
+        },
+        "month": {
+          "labelText": "Month"
+        },
+        "day": {
+          "labelText": "Day"
+        },
+        "personVersion": {
+          "labelText": "Person Version"
+        }
+      },
+      "labelText": "Day Plan Event Id",
+      "collectionLabelText": "Day Plan Event Ids"
+    },
+    "TeamEventId": {
+      "properties": {
+        "teamName": {
+          "labelText": "Team Name"
+        },
+        "version": {
+          "labelText": "Version"
+        }
+      },
+      "labelText": "Team Event Id",
+      "collectionLabelText": "Team Event Ids"
+    },
+    "RoleTypeEventId": {
+      "properties": {
+        "roleTypeId": {
+          "labelText": "Role Type Id"
+        },
+        "version": {
+          "labelText": "Version"
+        }
+      },
+      "labelText": "Role Type Event Id",
+      "collectionLabelText": "Role Type Event Ids"
+    },
+    "WarehouseEventId": {
+      "properties": {
+        "warehouseId": {
+          "labelText": "Warehouse Id"
+        },
+        "version": {
+          "labelText": "Version"
+        }
+      },
+      "labelText": "Warehouse Event Id",
+      "collectionLabelText": "Warehouse Event Ids"
+    },
+    "LocatorEventId": {
+      "properties": {
+        "locatorId": {
+          "labelText": "Locator Id"
+        },
+        "version": {
+          "labelText": "Version"
+        }
+      },
+      "labelText": "Locator Event Id",
+      "collectionLabelText": "Locator Event Ids"
+    },
+    "StorageEventId": {
+      "properties": {
+        "storageId": {
+          "labelText": "Storage Id"
+        },
+        "version": {
+          "labelText": "Version"
+        }
+      },
+      "labelText": "Storage Event Id",
+      "collectionLabelText": "Storage Event Ids"
+    },
+    "MovementTransactionEventId": {
+      "properties": {
+        "movementTransactionId": {
+          "labelText": "Movement Transaction Id"
+        },
+        "version": {
+          "labelText": "Version"
+        }
+      },
+      "labelText": "Movement Transaction Event Id",
+      "collectionLabelText": "Movement Transaction Event Ids"
+    },
+    "MovementEntryEventId": {
+      "properties": {
+        "movementTransactionId": {
+          "labelText": "Movement Transaction Id"
+        },
+        "entryName": {
+          "labelText": "Entry Name"
+        },
+        "movementTransactionVersion": {
+          "labelText": "Movement Transaction Version"
+        }
+      },
+      "labelText": "Movement Entry Event Id",
+      "collectionLabelText": "Movement Entry Event Ids"
+    },
+    "WheelMvoEventId": {
+      "properties": {
+        "carWheelId": {
+          "labelText": "Car Wheel Id"
+        },
+        "carVersion": {
+          "labelText": "Car Version"
+        }
+      },
+      "labelText": "Wheel Mvo Event Id",
+      "collectionLabelText": "Wheel Mvo Event Ids"
+    },
+    "TireMvoEventId": {
+      "properties": {
+        "carTireId": {
+          "labelText": "Car Tire Id"
+        },
+        "carVersion": {
+          "labelText": "Car Version"
+        }
+      },
+      "labelText": "Tire Mvo Event Id",
+      "collectionLabelText": "Tire Mvo Event Ids"
+    },
+    "PositionMvoEventId": {
+      "properties": {
+        "carPositionId": {
+          "labelText": "Car Position Id"
+        },
+        "carVersion": {
+          "labelText": "Car Version"
+        }
+      },
+      "labelText": "Position Mvo Event Id",
+      "collectionLabelText": "Position Mvo Event Ids"
+    },
+    "BuildingMvoEventId": {
+      "properties": {
+        "buildingId": {
+          "labelText": "Building Id"
+        },
+        "gardenVersion": {
+          "labelText": "Garden Version"
+        }
+      },
+      "labelText": "Building Mvo Event Id",
+      "collectionLabelText": "Building Mvo Event Ids"
+    },
+    "RoomMvoEventId": {
+      "properties": {
+        "roomId": {
+          "labelText": "Room Id"
+        },
+        "gardenVersion": {
+          "labelText": "Garden Version"
+        }
+      },
+      "labelText": "Room Mvo Event Id",
+      "collectionLabelText": "Room Mvo Event Ids"
+    },
+    "TermDefinitionMvoEventId": {
+      "properties": {
+        "termDefinitionId": {
+          "labelText": "Term Definition Id"
+        },
+        "termVersion": {
+          "labelText": "Term Version"
+        }
+      },
+      "labelText": "Term Definition Mvo Event Id",
+      "collectionLabelText": "Term Definition Mvo Event Ids"
+    },
+    "TermTagMvoEventId": {
+      "properties": {
+        "termTagId": {
+          "labelText": "Term Tag Id"
+        },
+        "termVersion": {
+          "labelText": "Term Version"
+        }
+      },
+      "labelText": "Term Tag Mvo Event Id",
+      "collectionLabelText": "Term Tag Mvo Event Ids"
+    },
+    "PackagePartMvoEventId": {
+      "properties": {
+        "packagePartId": {
+          "labelText": "Package Part Id"
+        },
+        "packageRowVersion": {
+          "labelText": "Package Row Version"
+        }
+      },
+      "labelText": "Package Part Mvo Event Id",
+      "collectionLabelText": "Package Part Mvo Event Ids"
+    },
+    "YearPlanMvoEventId": {
+      "properties": {
+        "yearPlanId": {
+          "labelText": "Year Plan Id"
+        },
+        "personVersion": {
+          "labelText": "Person Version"
+        }
+      },
+      "labelText": "Year Plan Mvo Event Id",
+      "collectionLabelText": "Year Plan Mvo Event Ids"
+    },
+    "MonthPlanMvoEventId": {
+      "properties": {
+        "monthPlanId": {
+          "labelText": "Month Plan Id"
+        },
+        "personVersion": {
+          "labelText": "Person Version"
+        }
+      },
+      "labelText": "Month Plan Mvo Event Id",
+      "collectionLabelText": "Month Plan Mvo Event Ids"
+    },
+    "DayPlanMvoEventId": {
+      "properties": {
+        "dayPlanId": {
+          "labelText": "Day Plan Id"
+        },
+        "personVersion": {
+          "labelText": "Person Version"
+        }
+      },
+      "labelText": "Day Plan Mvo Event Id",
+      "collectionLabelText": "Day Plan Mvo Event Ids"
+    },
+    "MovementEntryMvoEventId": {
+      "properties": {
+        "movementEntryId": {
+          "labelText": "Movement Entry Id"
+        },
+        "movementTransactionVersion": {
+          "labelText": "Movement Transaction Version"
+        }
+      },
+      "labelText": "Movement Entry Mvo Event Id",
+      "collectionLabelText": "Movement Entry Mvo Event Ids"
+    }
+  },
+  "services": {
+    "MovementService": {
+      "methods": {
+        "MoveInSameHouse": {
+          "parameters": {
+            "sourceLocatorId": {
+              "labelText": "Source Locator Id"
+            },
+            "targetLocatorId": {
+              "labelText": "Target Locator Id"
+            },
+            "productId": {
+              "labelText": "Product Id"
+            },
+            "quantity": {
+              "labelText": "Quantity"
+            },
+            "commandId": {
+              "labelText": "Command Id"
+            },
+            "requesterId": {
+              "labelText": "Requester Id"
+            }
+          },
+          "labelText": "Move In Same House"
+        },
+        "EmptyMultiLocatorToOneTarget": {
+          "parameters": {
+            "sourceLocatorIds": {
+              "labelText": "Source Locator Ids"
+            },
+            "targetLocatorId": {
+              "labelText": "Target Locator Id"
+            },
+            "commandId": {
+              "labelText": "Command Id"
+            },
+            "requesterId": {
+              "labelText": "Requester Id"
+            }
+          },
+          "labelText": "Empty Multi Locator To One Target"
+        }
+      },
+      "labelText": "Movement Service"
+    }
+  },
+  "trees": {
+    "OrganizationTree": {
+      "labelText": "Organization Tree",
+      "collectionLabelText": "Organization Trees"
+    },
+    "LocatorTree": {
+      "labelText": "Locator Tree",
+      "collectionLabelText": "Locator Trees"
+    }
+  }
+}
