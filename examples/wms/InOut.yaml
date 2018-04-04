@@ -1,0 +1,148 @@
+
+aggregates:
+    InOut:
+      description: 入库/出库单
+      id:
+        name: DocumentNumber
+        type: id
+      properties:
+        DocumentStatusId:
+          type: string
+          description: 单据状态 Id
+        Posted:
+          type: bool
+          description: 是否已过账
+        Processed:
+          type: bool
+        Processing:
+          type: string
+        DocumentTypeId:
+          type: string
+          searchable: DocumentType
+          description: 单据类型
+        Description:
+          type: string
+          description: 描述
+        OrderId:
+          type: string
+          description: 订单 Id
+        DateOrdered:
+          type: datetime
+        IsPrinted:
+          type: bool
+        MovementTypeId:
+          type: string
+          searchable: MovementType
+          description: 出入库类型
+        MovementDate:
+          type: datetime
+          description: 出入库时间
+        BusinessPartnerId:
+          type: string
+          description: 合作伙伴 Id
+        WarehouseId:
+          type: string
+          description: 仓库 Id
+        POReference:
+          type: string
+        FreightAmount:
+          type: decimal
+          description: 运费
+        ShipperId:
+          type: string
+          description: 运输商 Id
+        ChargeAmount:
+          type: decimal
+        DatePrinted:
+          type: datetime
+        CreatedFrom:
+          type: string
+        SalesRepresentativeId:
+          type: string
+        NumberOfPackages:
+          type: int
+          description: 包裹数量
+        PickDate:
+          type: datetime
+        ShipDate:
+          type: datetime
+        TrackingNumber:
+          type: string
+          description: 跟踪代码
+        DateReceived:
+          type: datetime
+        IsInTransit:
+          type: bool
+        IsApproved:
+          type: bool
+        IsInDispute:
+          type: bool
+        RmaDocumentNumber:
+          type: string
+        ReversalDocumentNumber:
+          type: string
+        InOutLines:
+          # ----------------------------
+          itemType: InOutLine
+          description: 出入库行项
+      entities:
+        InOutLine:
+          description: 入库/出库行项
+          id:
+            name: LineNumber
+            type: id
+          properties:
+            LocatorId:
+              type: string
+              description: 货位 Id
+            ProductId:
+              type: id-long
+              description: 产品 Id
+            AttributeSetInstanceId:
+              type: string
+              description: 属性集实例 Id
+            Description:
+              type: string
+            QuantityUomId:
+              type: string
+              description: 数量单位 Id
+            MovementQuantity:
+              type: decimal
+              description: 出入库数量
+            PickedQuantity:
+              type: decimal
+              description: 拣货数量
+            IsInvoiced:
+              type: bool
+            Processed:
+              type: bool
+            RmaLineNumber:
+              type: string
+            ReversalLineNumber:
+              type: string
+      methods:
+        # ----------------------------
+        AddLine:
+          description: 添加入库/出库行项
+          parameters:
+            LineNumber:
+              type: string
+            LocatorId:
+              description: 货位 Id
+              type: string
+            ProductId:
+              description: 产品 Id
+              type: id-long
+            AttributeSetInstance:
+              type: string
+              description: 属性集实例。这里是一个 Map
+            Description:
+              type: string
+              description: 数量单位 Id
+            QuantityUomId:
+              type: string
+            MovementQuantity:
+              type: decimal
+              description: 出入库数量
+              
+              

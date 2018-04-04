@@ -1,0 +1,111 @@
+
+typeDefinitions:
+    text:
+      baseType: string
+      length: 65000
+    mediumtext:
+      baseType: string
+      length: 16777000
+    longtext:
+      baseType: string
+      length: 4294967295
+    clob:
+      baseType: longtext
+    very-short:
+      baseType: string
+      length: 10
+    short-varchar:
+      baseType: string
+      length: 60
+    long-varchar:
+      baseType: string
+      length: 255
+    very-long:
+      baseType: longtext
+
+    int16:
+      baseType: number
+      length: 16
+    int32:
+      baseType: number
+      length: 32
+    int64:
+      baseType: number
+      length: 64
+    numeric:
+      baseType: int32
+    int:
+      baseType: int32
+    long:
+      baseType: int64
+
+    double:
+      baseType: decimal
+      scale: 32
+      precision: 2
+    float:
+      baseType: decimal
+      scale: 18
+      precision: 2
+
+    blob:
+      baseType: byte_array
+
+    id:
+      baseType: string
+      length: 20
+    id-long:
+      baseType: id
+      length: 60
+    id-vlong:
+      baseType: id
+      length: 250
+    id-ne:
+      baseType: id
+      notNull: true
+    id-long-ne:
+      baseType: id-ne
+      length: 60
+    id-vlong-ne:
+      baseType: id-ne
+      length: 250
+
+    comment:
+      baseType: long-varchar
+    description:
+      baseType: long-varchar
+    value:
+      baseType: long-varchar
+    credit-card-number:
+      baseType: long-varchar
+    email:
+      baseType: long-varchar
+    tel-number:
+      baseType: short-varchar
+    credit-card-date:
+      baseType: string
+      length: 7
+    name:
+      baseType: string
+      length: 100
+    url:
+      baseType: string
+      length: 2000
+
+
+    fixed-point:
+      baseType: float
+    floating-point:
+      baseType: float
+    currency-amount:
+      baseType: float
+      precision: 2
+    currency-precise:
+      baseType: float
+      precision: 3
+
+    date-time:
+      baseType: datetime
+    indicator:
+      baseType: bool
+  

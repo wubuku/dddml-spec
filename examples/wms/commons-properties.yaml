@@ -1,0 +1,54 @@
+
+# ----------------------------
+superObjects:
+  ReferenceObjectBase:
+    properties:
+        # ----------------------------
+        Version:
+          type: int64
+          description: 版本号
+          stereotype: version
+          listable: false
+          editable: false
+          searchable: false
+        Deleted:
+          type: bool
+          description: 是否被删除
+          stereotype: delete
+          listable: false
+          editable: false
+          searchable: false
+        Active:
+          type: bool
+          description: 是否处于激活
+          listable: false
+          editable: false
+          searchable: false
+        CreatedByUserLogin:
+          type: string
+          description: 创建人
+          stereotype: created_by
+          listable: false
+          editable: false
+          searchable: false
+        CreatedDate:
+          type: datetime
+          description: 创建时间
+          stereotype: created_date
+          listable: false
+          editable: false
+          searchable: false
+        LastModifiedByUserLogin:
+          type: string
+          description: 最后被谁更新
+          stereotype: last_modified_by
+          listable: false
+          editable: false
+          searchable: false
+        LastModifiedDate:
+          type: datetime
+          description: 最后更新时间
+          stereotype: last_modified_date
+          listable: false
+          editable: false
+          searchable: false

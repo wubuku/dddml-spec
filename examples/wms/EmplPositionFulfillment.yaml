@@ -1,0 +1,32 @@
+
+aggregates:
+    EmplPositionFulfillment:
+      # name: EmplPositionFulfillment
+      description: 职位履行记录
+      id:
+        name: EmplPositionFulfillmentId
+        type: EmplPositionFulfillmentId
+      # includeProperties: !include no-deleted-commons-properties.yaml
+      implements: [NoDeletedReferenceObjectBase]
+
+      properties:
+        ThruDate:
+          type: date-time
+        Comments:
+          type: comment
+      valueObjects:
+        EmplPositionFulfillmentId:
+          # name: EmplPositionFulfillmentId
+          properties:
+            EmplPositionId:
+              displayName: Position Id
+              description: 职位 Id
+              type: id-ne
+            PartyId:
+              displayName: Party(Employee) Id.
+              description: 履行职位的人（员工）的 Id
+              type: id-ne
+            FromDate:
+              name: FromDate
+              description: 开始时间
+              type: datetime

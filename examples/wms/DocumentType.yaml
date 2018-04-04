@@ -1,0 +1,41 @@
+
+aggregates:
+    DocumentType:
+      description: 单据类型
+      audited: false
+      id:
+        name: DocumentTypeId
+        type: id
+
+      properties:
+        Description:
+          type: string
+          notNull: true
+
+        ParentDocumentTypeId:
+          type: string
+          searchable: DocumentType
+          
+      enumObjects:
+        DocumentAction:
+          baseType: string
+          description: 单据操作
+          values:
+            Draft:
+              value: DRAFT
+              description: 起草
+            Complete:
+              value: COMPLETE
+              description: 完成
+            Void:
+              value: VOID
+              description: 作废
+            Close:
+              value: CLOSE
+              description: 关闭
+            Reverse:
+              value: REVERSE
+              description:  反转（完成后撤销）
+            Confirm:
+              value: CONFIRM
+              description: 确认（部分单据需要确认）
