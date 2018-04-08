@@ -24,6 +24,26 @@
             }
         },
 
+        "stateMachine": {
+            "type": "object",
+            "properties": {
+                "transitions": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "sourceState": {},
+                            "targetState": {},
+                            "trigger": {},
+                            "guard": {
+                                "type": "object"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+
         "property": {
             "type": "object",
             "properties": {
@@ -33,8 +53,11 @@
                 "itemType": {
                     "type": "string"
                 },
-                "isDerived": {
+                "notNull": {
                     "type": "boolean"
+                },
+                "length": {
+                    "type": "integer"
                 },
                 "sequenceNumber": {
                     "type": "number"
@@ -42,11 +65,65 @@
                 "stereotype": {
                     "type": "string"
                 },
+                "alias": {
+                    "type": "string"
+                },
+                "columnName": {
+                    "type": "string"
+                },
+                "columnNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "constraints": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "columnNamePrefix": {
+                    "type": "string"
+                },
+                "referenceType": {
+                    "type": "string"
+                },
+                "inverseOf": {
+                    "type": "string"
+                },
+                "defaultLogic": {
+                    "type": "object"
+                },
+                "isDerived": {
+                    "type": "boolean"
+                },
+                "derivationLogic": {
+                    "type": "object"
+                },
+                "filter": {
+                    "type": "object"
+                },
+                "enumType": {
+                    "type": "string"
+                },
+                "itemEnumType": {
+                    "type": "string"
+                },
+                "commandType": {
+                    "type": "string"
+                },
+                "commandName": {
+                    "type": "string"
+                },
                 "listable": {
                     "type": "boolean"
                 },
                 "editable": {
                     "type": "boolean"
+                },
+                "stateMachine": {
+                    "$ref": "#/definitions/stateMachine"
                 },
                 "searchable": {
                     "anyOf": [
@@ -169,6 +246,27 @@
             }
         },
 
+        "account": {
+            "type": "object",
+            "properties": {
+                "displayName": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"  
+                },
+                "balancePropertyName": {
+                    "type": "string"
+                },
+                "entryEntityName": {
+                    "type": "string"
+                },
+                "entryAmountPropertyName": {
+                    "type": "string"
+                }
+            }
+        },
+
         "entity": {
             "type": "object",
             "properties": {
@@ -230,6 +328,15 @@
                     "patternProperties": {
                         "^[A-Z_][A-Za-z_0-9]*": {
                             "$ref": "#/definitions/method"
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "accounts": {
+                    "type": "object",
+                    "patternProperties": {
+                        "^[A-Z_][A-Za-z_0-9]*": {
+                            "$ref": "#/definitions/account"
                         }
                     },
                     "additionalProperties": false
