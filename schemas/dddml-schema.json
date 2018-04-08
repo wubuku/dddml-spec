@@ -267,6 +267,18 @@
             }
         },
 
+        "entityLevelConstraint": {
+            "type": "object",
+            "properties": {
+                "displayName": {
+                    "type": "string"
+                },
+                "validationLogic": {
+                    "type": "object"
+                }
+            }
+        },
+
         "entity": {
             "type": "object",
             "properties": {
@@ -364,8 +376,16 @@
                         }
                     },
                     "additionalProperties": false
+                },
+                "constraints": {
+                    "type": "object",
+                    "patternProperties": {
+                        "^[A-Za-z_][A-Za-z_0-9]*": {
+                            "$ref": "#/definitions/entityLevelConstraint"
+                        }
+                    },
+                    "additionalProperties": false
                 }
-
             }
         },
 
@@ -401,6 +421,43 @@
                         }
                     },
                     "additionalProperties": false
+                }
+            }
+        },
+
+        "tree": {
+            "type": "object",
+            "properties": {
+                "displayName": { 
+                    "type": "string"
+                },
+                "description": { 
+                    "type": "string"
+                },
+                "nodeContentType": { 
+                    "type": "string"
+                },
+                "parentId": { 
+                    "type": "string"
+                },
+                "structureType": { 
+                    "type": "string"
+                },
+                "childId": { 
+                    "type": "string"
+                },
+                "rootParentIdValues": { 
+                    "type":"array",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    }
                 }
             }
         },
@@ -480,6 +537,16 @@
             "patternProperties": {
                 "^[A-Z_][A-Za-z_0-9]*": {
                     "$ref": "#/definitions/service"
+                }
+            },
+            "additionalProperties": false
+        },
+
+        "trees": {
+            "type": "object",
+            "patternProperties": {
+                "^[A-Z_][A-Za-z_0-9]*": {
+                    "$ref": "#/definitions/tree"
                 }
             },
             "additionalProperties": false
