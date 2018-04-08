@@ -3,6 +3,27 @@
 
     "definitions": {
 
+        "typeDefinition": {
+            "type": "object",
+            "properties": {
+                "baseType": { 
+                    "type":"string" 
+                },
+                "length": { 
+                    "type":"integer" 
+                },
+                "precision": {
+                    "type": "integer"
+                },
+                "scale": {
+                    "type": "integer"
+                },
+                "notNull": {
+                    "type": "boolean"
+                }
+            }
+        },
+
         "property": {
             "type": "object",
             "properties": {
@@ -17,6 +38,25 @@
                 },
                 "sequenceNumber": {
                     "type": "number"
+                },
+                "stereotype": {
+                    "type": "string"
+                },
+                "listable": {
+                    "type": "boolean"
+                },
+                "editable": {
+                    "type": "boolean"
+                },
+                "searchable": {
+                    "anyOf": [
+                        {
+                            "type": "boolean"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
                 }
             }
         },
@@ -24,14 +64,86 @@
         "valueObject": {
             "type": "object",
             "properties": {
+                "displayName": { 
+                    "type": "string"
+                },
+                "description": { 
+                    "type": "string"
+                },
                 "properties": {
                     "type": "object",
                     "patternProperties": {
-                        "^[A-Z_][A-Za-z_0-9]*": {
+                        "^[A-Za-z_][A-Za-z_0-9]*": {
                             "$ref": "#/definitions/property"
                         }
                     },
                     "additionalProperties": false
+                }
+            }
+        },
+        
+        "enumObjectValue": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type":"string"
+                },
+                "intValue": {
+                     "type": "integer" 
+                },
+                "strValue": {
+                     "type": "string" 
+                },
+                "value":  {
+                    "anyOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "object"
+                        }
+                    ]
+                }
+            }
+        },
+        "enumObject": {
+            "type": "object",
+            "properties": {
+                "displayName": { 
+                    "type": "string"
+                },
+                "description": { 
+                    "type": "string"
+                },
+                "baseType": {
+                    "type": "string"
+                },
+                "values": {
+                    "type": "object",
+                    "patternProperties": {
+                        "^[A-Z_][A-Za-z_0-9]*": {
+                            "$ref": "#/definitions/enumObjectValue"
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            }
+        },
+
+        "parameter": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "itemType": {
+                    "type": "string"
+                },
+                "sequenceNumber": {
+                    "type": "number"
                 }
             }
         },
@@ -42,19 +154,8 @@
                 "parameters": {
                     "type": "object",
                     "patternProperties": {
-                        "^[A-Z_][A-Za-z_0-9]*": {
-                            "type": "object",
-                            "properties": {
-                                "type": {
-                                    "type": "string"
-                                },
-                                "itemType": {
-                                    "type": "string"
-                                },
-                                "sequenceNumber": {
-                                    "type": "number"
-                                }
-                            }
+                        "^[A-Za-z_][A-Za-z_0-9]*": {
+                            "$ref": "#/definitions/parameter" 
                         }
                     },
                     "additionalProperties": false
@@ -68,6 +169,21 @@
         "entity": {
             "type": "object",
             "properties": {
+                "displayName": { 
+                    "type": "string"
+                },
+                "description": { 
+                    "type": "string"
+                },
+                "audited": {
+                    "type": "boolean"
+                },
+                "implements": {
+                    "type":"array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
                 "id": {
                     "allOf": [ 
                         { 
@@ -91,7 +207,7 @@
                 "properties": {
                     "type": "object",
                     "patternProperties": {
-                        "^[A-Z_][A-Za-z_0-9]*": {
+                        "^[A-Za-z_][A-Za-z_0-9]*": {
                             "$ref": "#/definitions/property"
                         }
                     },
@@ -114,8 +230,87 @@
                         }
                     },
                     "additionalProperties": false
+                },
+
+                "valueObjects": {
+                    "type": "object",
+                    "patternProperties": {
+                        "^[A-Z_][A-Za-z_0-9]*": {
+                            "$ref": "#/definitions/valueObject"
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "enumObjects": {
+                    "type": "object",
+                    "patternProperties": {
+                        "^[A-Z_][A-Za-z_0-9]*": {
+                            "$ref": "#/definitions/enumObject"
+                        }
+                    },
+                    "additionalProperties": false
                 }
 
+            }
+        },
+
+        "aggregate": {
+            "allOf": [ 
+                { 
+                    "$ref": "#/definitions/entity"
+                },
+                {
+                    "properties": {
+                        "aggregateRootName": {
+                            "type": "string"
+                        }
+                    }
+                }
+            ]
+        },
+
+        "service": {
+            "type": "object",
+            "properties": {
+                "displayName": { 
+                    "type": "string"
+                },
+                "description": { 
+                    "type": "string"
+                },
+                "methods": {
+                    "type": "object",
+                    "patternProperties": {
+                        "^[A-Z_][A-Za-z_0-9]*": {
+                            "$ref": "#/definitions/method"
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            }
+        },
+
+        "superObject": {
+            "type": "object",
+            "properties": {
+                "displayName": { 
+                    "type": "string"
+                },
+                "description": { 
+                    "type": "string"
+                },
+                "stereotype": {
+                    "type": "string"
+                },
+                "properties": {
+                    "type": "object",
+                    "patternProperties": {
+                        "^[A-Za-z_][A-Za-z_0-9]*": {
+                            "$ref": "#/definitions/property"
+                        }
+                    },
+                    "additionalProperties": false
+                }
             }
         }
 
@@ -124,6 +319,16 @@
     "type": "object",
 
     "properties": {
+
+        "typeDefinitions": {
+            "type": "object",
+            "patternProperties": {
+                "^[A-Za-z_][A-Za-z_0-9-]*": {
+                    "$ref": "#/definitions/typeDefinition"
+                }
+            },
+            "additionalProperties": false
+        },
 
         "valueObjects": {
             "type": "object",
@@ -135,22 +340,21 @@
             "additionalProperties": false
         },
 
+        "enumObjects": {
+            "type": "object",
+            "patternProperties": {
+                "^[A-Z_][A-Za-z_0-9]*": {
+                    "$ref": "#/definitions/enumObject"
+                }
+            },
+            "additionalProperties": false
+        },
+
         "aggregates": {
             "type": "object",
             "patternProperties": {
                 "^[A-Z_][A-Za-z_0-9]*": {
-                    "allOf": [ 
-                        { 
-                            "$ref": "#/definitions/entity"
-                        },
-                        {
-                            "properties": {
-                                "aggregateRootName": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    ]
+                    "$ref": "#/definitions/aggregate"
                 }
             },
             "additionalProperties": false
@@ -160,18 +364,17 @@
             "type": "object",
             "patternProperties": {
                 "^[A-Z_][A-Za-z_0-9]*": {
-                    "type": "object",
-                    "properties": {
-                        "methods": {
-                            "type": "object",
-                            "patternProperties": {
-                                "^[A-Z_][A-Za-z_0-9]*": {
-                                    "$ref": "#/definitions/method"
-                                }
-                            },
-                            "additionalProperties": false
-                        }
-                    }
+                    "$ref": "#/definitions/service"
+                }
+            },
+            "additionalProperties": false
+        },
+
+        "superObjects": {
+            "type": "object",
+            "patternProperties": {
+                "^[A-Z_][A-Za-z_0-9]*": {
+                    "$ref": "#/definitions/superObject"
                 }
             },
             "additionalProperties": false
