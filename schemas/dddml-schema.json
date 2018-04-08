@@ -106,6 +106,9 @@
                             "type": "object"
                         }
                     ]
+                },
+                "sequenceNumber": {
+                    "type": "number"
                 }
             }
         },
@@ -231,7 +234,12 @@
                     },
                     "additionalProperties": false
                 },
-
+                "reservedProperties": {
+                    "type": "object"
+                },
+                "metadata": {
+                    "type": "object"
+                },
                 "valueObjects": {
                     "type": "object",
                     "patternProperties": {
@@ -378,6 +386,81 @@
                 }
             },
             "additionalProperties": false
+        },
+
+        "configuration": {
+            "type": "object",
+            "properties": {
+                "boundedContextName": {
+                    "type": "string"
+                },
+                "displayName": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "defaultModule": {
+                    "type": "string"
+                },
+                "baseUri": {
+                    "type": "string"
+                },
+                "audited": {
+                    "type": "boolean"
+                },
+                "hateoas": {
+                    "type": "boolean"
+                },
+
+                "namedStringPatterns": {
+                    "type": "object"
+                },
+                "defaultReservedProperties": {
+                    "type": "object"
+                },
+                "metadata": {
+                    "type": "object"
+                },
+
+                "accountingQuantityTypes": {
+                    "patternProperties": {
+                        "^[A-Za-z_][A-Za-z_0-9-]*": {
+                            "type": "object",
+                            "properties": {
+                                "zeroLogic": {
+                                    "type": "object"
+                                },
+                                "addLogic": {
+                                    "type": "object"
+                                },
+                                "negateLogic": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "additionalProperties": false
+                },
+
+                "java": {
+                    "type": "object",
+                    "properties": {
+                        "boundedContextPackage": {
+                            "type": "string"
+                        },
+                        "specializationPackage": {
+                            "type": "string"
+                        },
+                        "isUsingSeparatedDomainAggregatePackage": {
+                            "type": "boolean"
+                        },
+                        "defaultUserIdType": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
         }
  
     }
