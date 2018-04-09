@@ -396,6 +396,9 @@
                 },
                 {
                     "properties": {
+                        "module": {
+                            "type": "string"
+                        },
                         "aggregateRootName": {
                             "type": "string"
                         }
