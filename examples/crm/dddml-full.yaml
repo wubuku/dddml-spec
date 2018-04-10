@@ -1,0 +1,1566 @@
+configuration:
+  boundedContextName: new-crm #name of the bounded context
+  displayName: New customer relation management
+  description: 通路快建-客户关系管理
+  defaultModule: com.syj.crm #namespace
+  audited: true
+  hateoas: false
+typeDefinitions: #fundamental types
+  text:
+    baseType: string
+    length: 65000
+  mediumtext:
+    baseType: string
+    length: 16777000
+  longtext:
+    baseType: string
+    length: 4294967295
+  clob:
+    baseType: longtext
+  indicator:
+    baseType: string
+    length: 1
+  very-short:
+    baseType: string
+    length: 10
+  short-varchar:
+    baseType: string
+    length: 60
+  long-varchar:
+    baseType: string
+    length: 255
+  very-long:
+    baseType: longtext
+  int16:
+    baseType: number
+    length: 16
+  int32:
+    baseType: number
+    length: 32
+  int64:
+    baseType: number
+    length: 64
+  numeric:
+    baseType: int32
+  int:
+    baseType: int32
+  long:
+    baseType: int64
+  double:
+    baseType: decimal
+    scale: 32
+    precision: 2
+  float:
+    baseType: decimal
+    scale: 18
+    precision: 2
+  blob:
+    baseType: byte_array
+  id:
+    baseType: string
+    length: 20
+  id-long:
+    baseType: id
+    length: 60
+  id-vlong:
+    baseType: id
+    length: 250
+  id-ne:
+    baseType: id
+    notNull: true
+  id-long-ne:
+    baseType: id-ne
+    length: 60
+  id-vlong-ne:
+    baseType: id-ne
+    length: 250
+  comment:
+    baseType: long-varchar
+  description:
+    baseType: long-varchar
+  value:
+    baseType: long-varchar
+  credit-card-number:
+    baseType: long-varchar
+  email:
+    baseType: long-varchar
+  tel-number:
+    baseType: short-varchar
+  credit-card-date:
+    baseType: string
+    length: 7
+  name:
+    baseType: string
+    length: 100
+  url:
+    baseType: string
+    length: 2000
+  fixed-point:
+    baseType: float
+  floating-point:
+    baseType: float
+  currency-amount:
+    baseType: float
+    precision: 2
+  currency-precise:
+    baseType: float
+    precision: 3
+  date-time:
+    baseType: datetime
+  date:
+    baseType: datetime
+superObjects:
+  CommonEntity:
+    properties:
+      Version:
+        type: int64
+        description: 版本号
+        stereotype: version
+        listable: false
+        editable: false
+        searchable: false
+      Deleted:
+        type: bool
+        description: 是否被删除
+        stereotype: delete
+        listable: false
+        editable: false
+        searchable: false
+      Active:
+        type: bool
+        description: 是否处于激活
+        listable: false
+        editable: false
+        searchable: false
+      CreatedByUserLogin:
+        type: string
+        description: 创建人
+        stereotype: created_by
+        listable: false
+        editable: false
+        searchable: false
+      CreatedDate:
+        type: datetime
+        description: 创建时间
+        stereotype: created_date
+        listable: false
+        editable: false
+        searchable: false
+      LastModifiedByUserLogin:
+        type: string
+        description: 最后被谁更新
+        stereotype: last_modified_by
+        listable: false
+        editable: false
+        searchable: false
+      LastModifiedDate:
+        type: datetime
+        description: 最后更新时间
+        stereotype: last_modified_date
+        listable: false
+        editable: false
+        searchable: false
+      CommandId:
+        type: string
+        description: Command Id
+        stereotype: command_id
+        listable: false
+        editable: false
+        searchable: false
+aggregates:
+  CommunicationEvent:
+    description: 通讯事件
+    immutable: true
+    id:
+      name: CommunicationEventId
+      type: id-ne
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      CommunicationEventTypeId:
+        type: id
+      StatusId:
+        type: id
+        editable: CommunicationEventStatus
+        description: 状态
+      ContactMechTypeId:
+        type: id
+        description: 联系方式类型 Id
+      ContactMechIdFrom:
+        type: id
+        description: 发起方联系方式 Id
+      ContactMechIdTo:
+        type: id
+        description: 接受方联系方式 Id
+      PartyIdFrom:
+        type: id
+        description: 发起方 Id
+      PartyIdTo:
+        type: id
+        description: 接受方 Id
+      EntryDate:
+        type: datetime
+        description: 记录时间
+      DatetimeStarted:
+        type: datetime
+      DatetimeEnded:
+        type: datetime
+      Subject:
+        type: long-varchar
+        description: 主题
+      ContentMimeTypeId:
+        type: id-vlong
+      Content:
+        type: very-long
+        description: 内容
+      Note:
+        type: comment
+        description: 备注
+      ReasonEnumId:
+        type: id
+        description: 原因
+      ContactListId:
+        type: id
+      HeaderString:
+        type: very-long
+      FromString:
+        type: very-long
+      CcString:
+        type: very-long
+      BccString:
+        type: very-long
+      MessageId:
+        type: value
+        description: 消息 Id
+  CommunicationEventStatus:
+    description: 通讯事件状态
+    id:
+      name: StatusId
+      type: id-ne
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      StatusName:
+        type: id-long-ne
+        description: 状态名称
+      Description:
+        type: long-varchar
+        description: 状态描述
+  CommunicationEventType:
+    description: 通讯事件类型
+    id:
+      name: CommunicationEventTypeId
+      type: id-ne
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      ParentTypeId:
+        type: id-ne
+      HasTable:
+        type: bool
+      Description:
+        type: description
+      ContactMechTypeId:
+        type: id
+  ContactMech:
+    description: 联系方式
+    displayName: Contact Mechanism
+    discriminatorValue: ContactMech
+    inheritanceMappingStrategy: TABLE_PER_CLASS
+    implements: [CommonEntity] # no includeProperties    
+    id:
+      name: ContactMechId
+      type: id-ne
+    properties:
+      InfoString:
+        type: long-varchar
+    subtypes:
+      TelecomNumber:
+        description: 电话号码
+        discriminatorValue: TelecomNumber
+        properties:
+          CountryCode:
+            description: 国家代码
+            type: very-short
+          AreaCode:
+            description: 区号
+            type: very-short
+          ContactNumber:
+            description: 电话号码
+            type: short-varchar
+          AskForName:
+            type: name
+      PostalAddress:
+        name: PostalAddress
+        description: 邮政地址
+        discriminatorValue: PostalAddress
+        properties:
+          ToName:
+            type: name
+          AttnName:
+            type: name
+          Address1:
+            type: long-varchar
+          Address2:
+            type: long-varchar
+          Directions:
+            type: long-varchar
+          City:
+            description: 城市
+            type: name
+          PostalCode:
+            description: 邮政编码
+            type: short-varchar
+          PostalCodeExt:
+            type: short-varchar
+          CountryGeoId:
+            description: 国家 Id
+            type: id
+          StateProvinceGeoId:
+            description: 省/州 Id
+            type: id
+          CountyGeoId:
+            description: 区/县 Id
+            type: id
+          PostalCodeGeoId:
+            type: id
+          GeoPointId:
+            type: id
+  ContactMechType:
+    name: ContactMechType
+    description: 联系机制类型
+    id:
+      name: ContactMechTypeId
+      type: id-ne
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      ParentTypeId:
+        type: id-ne
+      HasTable:
+        type: bool
+      Description:
+        type: description
+  EmplPosition:
+    name: EmplPosition
+    description: 职位
+    id:
+      name: EmplPositionId
+      type: id-ne
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      PartyId:
+        type: id
+      EmplPositionTypeId:
+        type: id
+      EstimatedFromDate:
+        type: datetime
+      EstimatedThruDate:
+        type: datetime
+      JobLevelId:
+        type: id
+        editable: JobLevel
+        displayName: Job Level Id.
+      SalaryFlag:
+        type: bool
+      ExemptFlag:
+        type: bool
+      FulltimeFlag:
+        type: bool
+      TemporaryFlag:
+        type: bool
+      ActualFromDate:
+        type: datetime
+      ActualThruDate:
+        type: datetime
+  JobLevel:
+    description: 职级
+    displayName: Job level
+    id:
+      name: JobLevelId
+      type: id-ne
+    implements: [CommonEntity] # no includeProperties      
+    properties:
+      Description:
+        type: very-long
+  EmplPositionFulfillment:
+    name: EmplPositionFulfillment
+    description: 职位履行记录
+    id:
+      name: EmplPositionFulfillmentId
+      type: EmplPositionFulfillmentId
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      ThruDate:
+        type: date-time
+      Comments:
+        type: comment
+    valueObjects:
+      EmplPositionFulfillmentId:
+        name: EmplPositionFulfillmentId
+        properties:
+          EmplPositionId:
+            displayName: Position Id
+            description: 职位 Id
+            type: id-ne
+          PartyId:
+            displayName: Party(Employee) Id.
+            description: 履行职位的人（员工）的 Id
+            type: id-ne
+          FromDate:
+            name: FromDate
+            description: 开始时间
+            type: datetime
+  EmplPositionReportingStruct:
+    description: 职位汇报结构
+    id:
+      name: EmplPositionReportingStructId
+      type: EmplPositionReportingStructId
+    properties:
+      ThruDate:
+        type: datetime
+      Comments:
+        type: comment
+      PrimaryFlag:
+        displayName: Is Primary Reporting Struct
+        description: 是否“主汇报关系”
+        type: bool
+    implements: [CommonEntity] # no includeProperties
+    valueObjects:
+      EmplPositionReportingStructId:
+        properties:
+          EmplPositionIdReportingTo:
+            displayName: Reporting to Position Id
+            description: 向此职位汇报（“上级”职位）
+            type: id-ne
+          EmplPositionIdManagedBy:
+            displayName: Position Id
+            description: 经营职位（“下级”职位）
+            type: id-ne
+          FromDate:
+            displayName: From date
+            type: datetime
+  EmplPositionFlattenedStruct:
+    description: “平面化”的职位（汇报）结构
+    audited: false
+    id:
+      name: EmplPositionFlattenedStructId
+      type: EmplPositionFlattenedStructId
+    properties:
+      FlattenFlag:
+        type: bool
+        description: 标记（保留）
+    valueObjects:
+      EmplPositionFlattenedStructId:
+        properties:
+          PositionId:
+            displayName: Superior Position Id
+            type: id
+            editable: EmplPosition
+            description: 上级职位
+          SelfOrSubordinatePositionId:
+            type: id
+            editable: EmplPosition
+            description: 下级（或自身）职位 Id
+  EmplPositionType:
+    description: 职位类型
+    name: EmplPositionType
+    id:
+      name: EmplPositionTypeId
+      type: id-ne
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      ParentTypeId:
+        type: id-ne
+      HasTable:
+        type: bool
+      Description:
+        type: description
+  JrttFormProjectMapping:
+    displayName: 今日头条表单线索
+    id:
+      name: FromId
+      type: id-ne
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      ProjectId:
+        type: id-ne
+  TlkjSurveyProjectMapping:
+    displayName: 通路快建问卷线索
+    id:
+      name: SurveyId
+      type: id-ne
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      ProjectId:
+        type: id-ne
+  Lead:
+    description: 销售线索
+    discriminatorValue: Lead
+    inheritanceMappingStrategy: JOINED
+    implements: [CommonEntity] # no includeProperties
+    id:
+      name: LeadId
+      type: id-ne
+    properties:
+      ContactMechId:
+        type: id
+        editable: ContactMech
+        displayName: Contact Mechanism Id
+        description: 联系方式 Id
+      LeadStatusId:
+        type: id
+        editable: LeadStatus
+        description: 线索状态
+      ProjectId:
+        type: id-ne
+        editable: Project
+        displayName: Project Id
+        description: 项目 Id
+      Salutation:
+        type: name
+        description: 称谓
+      CommentContent:
+        type: comment
+        description: 留言（评论）内容
+      EntryDate:
+        type: datetime
+        description: 录入时间（留言时间/回复时间）
+      EntryLocation:
+        type: long-varchar
+        description: 录入位置（留言位置/回复位置）
+      OwnerPositionId:
+        type: id
+        editable: EmplPosition
+        description: 所有者职位 Id
+      AssigneePositionId:
+        type: id
+        editable: EmplPosition
+        description: 受托人（负责人）职位 Id
+      DiscardedDate:
+        type: datetime
+        displayName: Discarded at
+        description: 丢弃时间
+      DiscardedByUserLogin:
+        type: id-long
+        displayName: Discarded by
+        description: 被谁丢弃
+      CustomerId:
+        type: id
+        editable: Party
+        displayName: Customer Party Id
+        description: 客户 Id（如果成交）
+      Closed:
+        type: bool
+        description: 是否已成交
+      FirstName:
+        type: name
+        description: 姓
+      LastName:
+        type: name
+        description: 名
+      PersonalTitle:
+        type: name
+        description: 个人头衔
+      Nickname:
+        type: name
+        description: 昵称
+      Gender:
+        type: indicator
+        description: 性别
+      BirthDate:
+        type: date
+        description: 生日
+      OrganizationName:
+        type: id-vlong
+        displayName: Organization name
+        description: 组织名称
+      ScheduledContactDate:
+        type: datetime
+        description: 预约回访时间
+      LastFollowupStatusId:
+        type: id
+        editable: LeadFollowupStatus
+        description: 上次跟进状态
+      LeadIntentionTypeId:
+        type: id
+        editable: LeadIntentionType
+        description: 线索成交意愿
+      Note:
+        type: very-long
+      Active:
+        type: bool
+        defaultValue: true
+      LeadFollowups:
+        type: LeadFollowup[]
+    subtypes:
+      InvestmentComment:
+        discriminatorValue: InvComment
+        displayName: Investment Project Comment
+        description: （招商）项目留言
+        properties:
+          FavoriteBusiness:
+            type: long-varchar
+            description: 感兴趣的行业（生意）
+          IntendedInvestmentAmount:
+            type: currency-amount
+            description: 计划投资金额
+          OwnedStoreStatus:
+            type: long-varchar
+            description: 自有门店状态
+          OwnedStoreArea:
+            type: short-varchar
+            description: 自有门店面积
+    entities:
+      LeadFollowup:
+        implements: [CommonEntity] # no includeProperties
+        description: 线索跟进记录
+        id:
+          name: SequenceId
+          type: numeric
+        properties:
+          FollowupStatusId:
+            type: id
+            editable: LeadFollowupStatus
+            description: 跟进状态 Id
+          ScheduledContactDate:
+            type: datetime
+            description: 预约回访时间
+          Note:
+            type: very-long
+            description: 备注
+  LeadFollowupStatus:
+    description: 线索跟进状态
+    id:
+      name: LeadFollowupStatusId
+      type: id-ne
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      LeadFollowupStatusName:
+        type: name
+        description: 跟进状态名称
+      Description:
+        type: long-varchar
+        description: 跟进状态描述
+  LeadFollowupSupplement:
+    description: 线索跟进补充信息
+    id:
+      name: LeadId
+      type: id-ne
+      editable: Lead
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      PreferredContactMechId:
+        type: id
+        editable: ContactMech
+        description: 首选的联系方式 Id
+      PreferredContactAddressId:
+        type: id
+        editable: ContactMech
+        description: 首选的联系地址 Id
+      QqNum:
+        type: id-long
+        displayName: QQ Number
+        description: QQ 号
+      WechatId:
+        type: id-long
+        displayName: Wechat Id
+        description: 微信号
+      Email:
+        type: id-long
+        displayName: Email
+        description: 邮箱
+  LeadIntentionType:
+    description: 线索（潜在客户）意愿类型
+    id:
+      name: LeadIntentionTypeId
+      type: id-ne
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      LeadIntentionTypeName:
+        type: name
+      Description:
+        type: long-varchar
+  LeadPositionAssignmentLog:
+    immutable: true
+    displayName: Lead-position Assignment Log
+    description: 线索职位分派日志
+    id:
+      name: LeadPositionAssignmentLogId
+      type: LeadPositionAssignmentLogId
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      AssigneePositionId:
+        type: id
+        editable: EmplPosition
+        description: 受托人（被分派者）职位
+      AssignerPositionId:
+        type: id
+        editable: EmplPosition
+        description: 分派者职位
+      FromLeadStatusId:
+        type: id
+        editable: LeadStatus
+        description: 从线索状态
+      ToLeadStatusId:
+        type: id
+        editable: LeadStatus
+        description: 修改为此线索状态
+      AssigneePartyId:
+        type: id
+        editable: Party
+        description: 受托人（被分派者）Id
+      AssigneeContactMechId:
+        type: id
+        editable: ContactMech
+        description: 受托人（被分派者）联系方式
+      AssignerPartyId:
+        type: id
+        editable: Party
+        description: 分派者 Id
+      AssignerContactMechId:
+        type: id
+        editable: ContactMech
+        description: 分派者联系方式
+    valueObjects:
+      LeadPositionAssignmentLogId:
+        properties:
+          LeadId:
+            type: id-ne
+            displayName: Lead Id.
+            description: 线索 Id.
+          SequenceId:
+            type: numeric
+            displayName: Sequence Id.
+            description: 顺序号
+  LeadStatus:
+    description: 线索状态
+    id:
+      name: LeadStatusId
+      type: id-ne
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      LeadStatusName:
+        type: id-long-ne
+        description: 线索状态名称
+      Description:
+        type: long-varchar
+        description: 线索状态描述
+  LeadConclusion:
+    description: 线索关闭（成交）记录
+    id:
+      name: LeadId
+      type: id-ne
+      editable: Lead
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      RepresentativeId:
+        type: id-ne
+        editable: Party
+        displayName: Representative Party Id
+        description: 销售代表（负责人）Id
+      InterviewTypeId:
+        type: id
+        editable: InterviewType
+        description: 洽谈（考察）方式
+    discriminatorValue: '*'
+    inheritanceMappingStrategy: JOINED
+    subtypes:
+      InvestmentCommentConclusion:
+        discriminatorValue: InvCommentConclusion
+        description: 招商留言成交记录
+        properties:
+          IsContractSigned:
+            type: bool
+            description: 是否已签约
+          ContractSignedAt:
+            type: datetime
+            description: 签约时间
+          InvestmentRegion:
+            type: long-varchar
+            description: 投资区域
+          InvestmentProjectId:
+            type: id-ne
+            description: 投资项目 Id
+  InterviewType:
+    description: 洽谈（考察）类型
+    id:
+      name: InterviewTypeId
+      type: id-ne
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      InterviewTypeName:
+        notNull: true
+        type: name
+  LeadConclusionType:
+    description: 线索关闭类型
+    id:
+      name: LeadConclusionTypeId
+      type: id-ne
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      ConclusionTypeName:
+        notNull: true
+        type: name
+  PaymentCollection:
+    description: 回款信息
+    id:
+      name: PaymentCollectionId
+      type: id-ne
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      LeadId:
+        type: id
+        editable: Lead
+      CustomerPartyId:
+        type: id-ne
+        notNull: true
+        editable: Party
+      ContractAmountReceivable:
+        type: currency-amount
+        description: 合同金额（签约金额）
+      ContractAmountReceived:
+        type: currency-amount
+        description: 合同履约额（已收款）
+      CommissionAmountReceivable:
+        type: currency-amount
+        description: 应收佣金
+      CommissionAmountReceived:
+        type: currency-amount
+        description: 已收佣金
+      MonthCommissionAmountReceivable:
+        type: currency-amount
+        displayName: Current Month Commission Amount Receivable
+        description: 当月应收佣金
+      ContractSpecialClauses:
+        type: long-varchar
+        displayName: SPECIAL CLAUSES in Contract
+  Project:
+    id:
+      name: ProjectId
+      type: id-ne
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      ProjectName:
+        type: id-long-ne
+      Description:
+        type: description
+  BusinessRuleSetting:
+    description: 业务规则设置
+    id:
+      name: SettingId
+      type: id-ne
+      description: 设置 Id
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      JobLevelOrderRule:
+        type: JobLevelOrderRule
+      PositionReortingRule:
+        type: PositionReortingRule
+    enumObjects:
+      JobLevelOrderRule:
+        description: 职级排序规则
+        values:
+          LH:
+            displayName: Less Is Higher
+            description: 数字越小，级别越高
+          GH:
+            displayName: Greater Is Higher
+            description: 数字越大，级别越高
+      PositionReortingRule:
+        description: 职位汇报规则
+        values:
+          One:
+            name: ONE
+          Multi:
+            name: MULTI
+  LeadDiscardTimingSetting:
+    description: 线索丢弃设置
+    id:
+      name: SettingId
+      type: id-ne
+      description: 设置 Id
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      LeadIntentionTypeId:
+        type: id-ne
+        description: 线索意愿分类（“投资者意愿/等级”）
+      DaysWithoutFollowup:
+        type: int16
+        description: 没有跟进的天数
+      Description:
+        type: description
+        description: 描述
+  Website:
+    description: 网站
+    id:
+      name: WebsiteId
+      type: id-ne
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      WebsiteUrl:
+        type: long-varchar
+      Description:
+        type: long-varchar
+  CampaignResourceGroup:
+    displayName: 营销资源分组
+    id:
+      name: GroupId
+      type: id-ne
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      GroupName:
+        type: name
+        description: 资源组名
+    discriminatorValue: '*'
+    inheritanceMappingStrategy: SINGLE_TABLE
+    subtypes:
+      PrimaryCampaignResourceGroup:
+        discriminatorValue: PrimaryCamGroup
+        displayName: 营销资源一级分组
+        description: 营销资源一级分组
+      SecondaryCampaignResourceGroup:
+        discriminatorValue: SecondaryGroup
+        displayName: 营销资源二级分组
+        description: 营销资源二级分组
+        properties:
+          OwnedByPartyId:
+            type: id
+            editable: Party
+            description: 资源所属业务实体
+          CostTypeId:
+            type: id
+            editable: CampaignCostType
+            displayName: Cost Type Id
+            description: 费用类型 Id
+          ParentGroupId:
+            type: id-ne
+            description: 父分组 Id
+  CampaignCostType:
+    description: 营销费用类型
+    id:
+      name: CampaignCostTypeId
+      type: id-ne
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      CostTypeName:
+        type: name
+      Description:
+        type: long-varchar
+  CampaignSourceTag:
+    description: （营销）推广来源标签
+    id:
+      name: TagId
+      type: id-ne
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      TagName:
+        type: name
+        description: 标签名称
+      Description:
+        type: long-varchar
+  CampaignSource:
+    description: （营销）推广来源
+    id:
+      name: SourceId
+      type: id-ne
+      description: 来源 Id
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      CampaignResourceGroupId:
+        type: id-ne
+        editable: CampaignResourceGroup
+        displayName: Campaign Resource Group Id
+        description: 营销资源分组 Id
+      TagId:
+        type: id
+        editable: CampaignSourceTag
+        displayName: Campaign Source Tag Id
+        description: 来源标签 Id
+      PartyId:
+        type: id
+        editable: Party
+        description: 来源所属的业务实体的 Id
+      EmplPositionId:
+        type: id
+        editable: EmplPosition
+        description: 来源所属的职位的 Id
+      SequenceId:
+        type: id
+        description: 顺序号
+  LeadCampaignSourceRelationship:
+    displayName: 线索-推广来源关系
+    id:
+      name: LeadId
+      type: id-ne
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      SourceId:
+        type: id-ne
+        notNull: true
+        editable: CampaignSource
+        displayName: SId(Source Id.)
+        description: 来源 Id
+      IpAddress:
+        type: id
+        description: IP 地址
+      Province:
+        type: id-long
+        description: 省
+      City:
+        type: id-long
+        description: 市
+      SemKeyword:
+        type: id-long
+        description: SEM 关键字
+      SemAccountId:
+        type: id
+        description: SEM 账号 Id
+      WebpageUrl:
+        type: long-varchar
+        description: 网站 URL
+      WebsiteId:
+        type: id
+        editable: Website
+        description: 网站 Id
+      SequenceId:
+        type: id
+    discriminatorValue: '*'
+    inheritanceMappingStrategy: SINGLE_TABLE
+    subtypes:
+      InvestmentCommentCampaignSourceRelationship:
+        description: （招商）项目留言-推广来源关系
+        discriminatorValue: InvCommentSR
+        displayName: （招商）项目留言-推广来源关系
+        properties:
+          InvestorFavoriteBusiness:
+            type: long-varchar
+            description: 投资者感兴趣的行业
+  OrderHeader:
+    id:
+      name: OrderId
+      type: id-ne
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      OrderTypeId:
+        type: id
+      OrderDate:
+        type: datetime
+      EntryDate:
+        type: datetime
+      StatusId:
+        type: id
+      CreatedBy:
+        type: id-vlong
+      TerminalId:
+        type: id-long
+      GrandTotal:
+        name: GrandTotal
+        type: currency-amount
+      PlacingCustomerId:
+        type: id-ne
+        editable: Party
+        description: 下单客户 Id
+    inheritanceMappingStrategy: SINGLE_TABLE
+    discriminatorValue: O
+    subtypes:
+      SalesOrderHeader:
+        description: 销售订单
+        discriminatorValue: SO
+        subtypes:
+          MembershipSalesOrderHeader:
+            discriminatorValue: MSO
+            description: 会费订单
+            properties:
+              PaymentMethodTypeId:
+                type: id
+                editable: PaymentMethodType
+                description: 支付方式
+  PaymentMethodType:
+    id:
+      name: PaymentMethodTypeId
+      type: id-ne
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      Description:
+        type: description
+      DefaultGlAccountId:
+        type: id
+  Party:
+    description: 业务实体
+    id:
+      name: PartyId
+      type: id-ne
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      ExternalId:
+        type: id
+        description: 外部 Id
+      PreferredCurrencyUomId:
+        type: id
+      Description:
+        type: very-long
+      IsUnread:
+        type: bool
+    inheritanceMappingStrategy: TABLE_PER_CLASS
+    discriminatorValue: Party
+    subtypes:
+      Organization:
+        description: 组织
+        properties:
+          OrganizationName:
+            type: id-vlong-ne
+            displayName: Organization name
+        discriminatorValue: Org
+        subtypes:
+          LegalOrganization:
+            description: 法人组织
+            discriminatorValue: LegalOrg
+            properties:
+              TaxIdNum:
+                type: string
+            subtypes:
+              Company:
+                displayName: Company
+                discriminatorValue: Company
+                description: 公司
+          Department:
+            displayName: Department
+            discriminatorValue: Department
+            description: 部门
+          Store:
+            displayName: Store
+            discriminatorValue: Store
+            description: 门店
+          InformalOrganization:
+            discriminatorValue: InformalOrg
+            description: 非正式组织
+            subtypes:
+              Family:
+                discriminatorValue: Family
+                description: 家庭
+                properties:
+                  FamilyName:
+                    type: id-long-ne
+                    description: 姓
+      Person:
+        description: 个人（业务实体的子类型）
+        properties:
+          Salutation:
+            type: name
+            description: 称谓（称呼）
+          FirstName:
+            type: name
+            description: 姓
+          MiddleName:
+            type: name
+          LastName:
+            type: name
+            description: 名
+          PersonalTitle:
+            type: name
+            description: 个人头衔（比如“博士”）
+          Nickname:
+            type: name
+            description: 昵称
+          MemberId:
+            type: id
+            description: 会员 Id
+          Gender:
+            type: indicator
+            description: 性别
+          BirthDate:
+            type: date
+            description: 生日
+          DeceasedDate:
+            type: date
+          Height:
+            type: floating-point
+            description: 身高
+          Weight:
+            type: floating-point
+            description: 体重
+          MaritalStatus:
+            type: bool
+            description: 婚姻状况
+          SocialSecurityNumber:
+            type: long-varchar
+            description: 社会保险号
+          PassportNumber:
+            type: long-varchar
+            description: 护照号
+          PassportExpireDate:
+            type: date
+            description: 护照过期日期
+          TotalYearsWorkExperience:
+            type: floating-point
+            description: 工作经验（年）
+          Comments:
+            type: comment
+            description: 备注
+          Occupation:
+            type: name
+            description: 职业
+          ExistingCustomer:
+            type: bool
+          CardId:
+            type: id-long
+            description: 身份证号
+          Hobbies:
+            type: long-varchar
+            description: 兴趣爱好
+          AboutFamily:
+            type: comment
+            description: 家庭情况
+        discriminatorValue: Person
+        subtypes:
+          Customer:
+            discriminatorValue: Customer
+            description: 客户
+            properties:
+              MembershipReferrerId:
+                type: id
+                editable: Party
+                description: 会员推荐人 Id
+              MembershipLevelId:
+                type: id
+                description: 会员等级（星级）
+              MemberOwnerPartyId:
+                type: id
+                editable: Party
+                description: 会员所属者（门店）Id
+              ProductsInterestedIn:
+                type: comment
+                description: 意向产品及其类别
+              PurchasedProductsNote:
+                type: comment
+                description: 已购买产品备注
+              EntryDate:
+                type: datetime
+                description: 录入时间
+              ScheduledContactDate:
+                type: datetime
+                description: 预约回访时间
+              LastCommEventStatusId:
+                type: id
+                editable: CommunicationEventStatus
+                description: 上次通讯事件状态
+          Employee:
+            discriminatorValue: Employee
+            description: 员工
+            properties:
+              EmployeeNum:
+                type: id-long-ne
+                displayName: Employee number
+                description: 工号
+  MembershipLevel:
+    id:
+      name: MembershipLevelId
+      type: id-ne
+      description: 会员等级（星级）
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      MembershipLevelName:
+        type: id-long-ne
+      Description:
+        type: description
+  PartyContactMech:
+    name: PartyContactMech
+    description: 业务实体-联系方式
+    id:
+      name: PartyContactMechId
+      type: PartyContactMechId
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      ThruDate:
+        type: date-time
+      RoleTypeId:
+        type: id
+        editable: RoleType
+        description: 在使用该联系方式的时候扮演的角色类型
+      AllowSolicitation:
+        type: bool
+      Extension:
+        description: 分机 / 扩展
+        type: long-varchar
+      Verified:
+        description: 是否已验证
+        type: bool
+      Comments:
+        type: comment
+        description: 备注
+    valueObjects:
+      PartyContactMechId:
+        name: PartyContactMechId
+        properties:
+          PartyId:
+            type: id-ne
+          ContactMechId:
+            type: id-ne
+          FromDate:
+            type: datetime
+  ProjectPositionAssignment:
+    id:
+      name: ProjectPositionAssignmentId
+      type: ProjectPositionAssignmentId
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      ProjectId:
+        type: id-ne
+    valueObjects:
+      ProjectPositionAssignmentId:
+        properties:
+          PpaiProjectId:
+            type: id-ne
+          PpaiEmplPositionId:
+            type: id-ne
+  RoleType:
+    description: 角色类型
+    id:
+      name: RoleTypeId
+      type: id-ne
+    implements: [CommonEntity] # no includeProperties
+    properties:
+      ParentTypeId:
+        type: id
+      HasTable:
+        type: bool
+      Description:
+        type: description
+services:
+  LeadFollowupService:
+    description: 线索跟进服务
+    methods:
+      UpdateAfterFollowup:
+        description: 跟进后更新
+        parameters:
+          #parameter:
+          #  type: UpdateAfterFollowupParameter
+          #valueObjects:
+          #  UpdateAfterFollowupParameter:
+          #  description: 跟进后更新的参数对象
+          #  properties:
+          LeadId:
+            type: id-ne
+            editable: Lead
+            description: 线索 Id
+          Salutation:
+            type: name
+            description: 称谓（称呼）
+          FirstName:
+            type: name
+            description: 姓
+          LastName:
+            type: name
+            description: 名
+          Gender:
+            type: bool
+            description: 性别
+          ScheduledContactDate:
+            type: datetime
+            description: 预约回访时间
+          LeadIntentionTypeId:
+            type: id
+            editable: LeadIntentionType
+            description: 意向分类 Id
+          LeadFollowupStatusId:
+            type: id
+            editable: LeadFollowupStatus
+            description: 跟进状态 Id
+          PreferredContactPhoneNumber:
+            type: id
+            description: 首选联系电话（手机）
+          PreferredContactAddress:
+            type: long-varchar
+            description: 首选联系地址
+          Note:
+            type: comment
+            description: 跟进备注
+  CustomerCommunicationService:
+    description: 客户沟通服务
+    methods:
+      UpdateAfterCommunication:
+        description: 沟通后更新（记录沟通信息）
+        parameters:
+          #parameter:
+          #  type: UpdateAfterCommunicationParameter
+          #valueObjects:
+          #  UpdateAfterCommunicationParameter:
+          #  description: 沟通后更新（记录沟通信息）的参数对象
+          #  properties:
+          CustomerPartyId:
+            type: id
+            editable: Party
+            description: 客户（Party）Id
+          Salutation:
+            type: name
+            description: 称谓（称呼）
+          FirstName:
+            type: name
+            description: 姓
+          LastName:
+            type: name
+            description: 名
+          Nickname:
+            type: name
+            description: 昵称
+          Gender:
+            type: indicator
+            description: 性别
+          BirthDate:
+            type: datetime
+            description: 生日
+          Age:
+            type: int32
+            description: 年龄
+          MobileNumber:
+            type: id
+            description: 电话（手机）
+          HomeAddress:
+            type: long-varchar
+            description: 家庭地址
+          AboutFamily:
+            type: comment
+            description: 家庭情况
+          Hobbies:
+            type: long-varchar
+            description: 兴趣爱好
+          ProductsInterestedIn:
+            type: comment
+            description: 意向产品及其类别
+          PartyIdFrom:
+            type: id
+            editable: Party
+          PartyIdTo:
+            type: id
+            editable: Party
+          ContactMechIdFrom:
+            type: id
+            editable: ContactMech
+          ContactMechIdTo:
+            type: id
+            editable: ContactMech
+          CommunicationEventStatusId:
+            type: id
+            editable: CommunicationEventStatus
+            description: 沟通状态
+          ScheduledContactDate:
+            type: datetime
+            description: 预约回访时间
+          CommunicationNote:
+            type: comment
+            description: 沟通备注            
+  CustomerServiceForOms:
+    description: 客户信息服务（for OMS）
+    valueObjects:
+      MembershipOrderHeaderVO:
+        description: 值对象
+        properties:
+          OrderId:
+            type: id-ne
+            description: 订单 Id（订单号）
+          OrderDate:
+            type: datetime
+            description: 订单日期
+          GrandTotal:
+            type: currency-amount
+            description: 订单总金额
+          PaymentMethodTypeId:
+            type: id
+            editable: PaymentMethodType
+            description: 支付方式
+    methods:
+      UpdateCustomerInfo:
+        description: 更新客户资料
+        parameters:
+          #parameter:
+          #  type: UpdateCustomerInfoParameter
+          #UpdateCustomerInfoParameter:
+          #  description: 更新客户资料的参数对象
+          #  properties:
+          CustomerId:
+            type: id-long-ne
+            description: 客户（Party）Id
+          Salutation:
+            type: name
+            description: 称谓（称呼）
+          FirstName:
+            type: name
+            description: 姓
+          LastName:
+            type: name
+            description: 名
+          Nickname:
+            type: name
+            description: 昵称
+          Gender:
+            type: indicator
+            description: 性别
+          BirthDate:
+            type: date
+            description: 生日
+          Age:
+            type: int32
+            description: 年龄
+          MobileNumber:
+            type: id
+            description: 电话（手机）
+          EntryDate:
+            type: datetime
+            description: 录入（建档）时间
+          MemberId:
+            type: id-long-ne
+            description: 会员编号
+          MemberOwnerPartyId:
+            type: id
+            editable: Party
+            description: 会员所属者（门店）Id
+          MembershipReferrerId:
+            type: id
+            editable: Party
+            description: 会员推荐人 Id
+          MembershipLevelId:
+            type: id
+            editable: MembershipLevel
+            description: 会员等级（星级）
+          HomeAddress:
+            type: long-varchar
+            description: 家庭地址
+          AboutFamily:
+            type: comment
+            description: 家庭情况
+          Hobbies:
+            type: long-varchar
+            description: 兴趣爱好
+          ProductsInterestedIn:
+            type: comment
+            description: 意向产品及其类别
+          PurchasedProductsNote:
+            type: comment
+            description: 已购买产品备注
+          MembershipOrderHeaders:
+            type: MembershipOrderHeaderVO[]
+            description: 会员订单（充值）记录
+  EmployeeAndPositionService:
+    description: 员工与职位服务
+    methods:
+      CreateEmployeeAndPositionFulfillments:
+        description: 创建员工
+        parameters:
+          FulfilledPositionIds: #no fulfilledPositionIds
+            type: id-ne[]
+            description: 线索 Id
+  StoreServiceForOms:
+    description: 门店信息服务（for OMS）
+    methods:
+      UpdateStoreInfo:
+        description: 更新门店资料
+        parameters:
+          StoreId:
+            type: id-long-ne
+            description: 门店（Party）Id
+          StoreName:
+            type: name
+            description: 门店名称
+          MobileNumber:
+            type: id
+            description: 门店手机
+          StoreAddress:
+            type: long-varchar
+            description: 门店地址
