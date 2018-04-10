@@ -588,7 +588,7 @@ aggregates:
         type: bool
         defaultValue: true
       LeadFollowups:
-        type: LeadFollowup[]
+        itemType: LeadFollowup #type: LeadFollowup[]
     subtypes:
       InvestmentComment:
         discriminatorValue: InvComment
@@ -1535,7 +1535,7 @@ services:
             type: comment
             description: 已购买产品备注
           MembershipOrderHeaders:
-            type: MembershipOrderHeaderVO[]
+            itemType: MembershipOrderHeaderVO #type: MembershipOrderHeaderVO[]
             description: 会员订单（充值）记录
   EmployeeAndPositionService:
     description: 员工与职位服务
@@ -1544,7 +1544,7 @@ services:
         description: 创建员工
         parameters:
           FulfilledPositionIds: #no fulfilledPositionIds
-            type: id-ne[]
+            itemType: id-ne #type: id-ne[]
             description: 线索 Id
   StoreServiceForOms:
     description: 门店信息服务（for OMS）
