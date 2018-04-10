@@ -20,6 +20,15 @@
                 },
                 "notNull": {
                     "type": "boolean"
+                },
+                "sqlType": {
+                    "type": "string"
+                },
+                "javaType": {
+                    "type": "string"
+                },
+                "cSharpType": {
+                    "type": "string"
                 }
             }
         },
@@ -315,6 +324,17 @@
                                 }
                             }
                         }
+                    ]
+                },
+                "inheritanceMappingStrategy": {
+                    "type": "string",
+                    "examples": [
+                        "SINGLE_TABLE",
+                         "tph",
+                        "TABLE_PER_CLASS", 
+                        "tpcc",
+                        "JOINED", 
+                        "tps"
                     ]
                 },
                 "properties": {
