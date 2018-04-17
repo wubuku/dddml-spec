@@ -1,0 +1,47 @@
+{
+	"configuration": {
+		"boundedContextName": "Dddml.Wms",
+		"displayName": "仓库管理系统(Warehouse Management System)",
+		"description": "仓库管理系统(Warehouse Management System)",
+		"defaultModule": "Dddml.Wms",
+		"audited": true,
+		"hateoas": false,
+		"baseUri": "/api",
+		"java": {
+			"boundedContextPackage": "org.dddml.wms",
+			"specializationPackage": "org.dddml.wms.specialization",
+			"isUsingSeparatedDomainAggregatePackage": true,
+			"defaultUserIdType": "string"
+		},
+		"namedStringPatterns": {
+			"AttributeId": "^[\\(A-Za-z0-9][A-Za-z0-9]*"
+		},
+		"accountingQuantityTypes": {
+			"decimal": {
+				"zeroLogic": {
+					"Java": "BigDecimal.ZERO"
+				},
+				"addLogic": {
+					"Java": "{fst}.add({snd} != null ? {snd} : BigDecimal.ZERO)"
+				},
+				"negateLogic": {
+					"Java": "{0}.negate()"
+				}
+			}
+		},
+		"defaultReservedProperties": {
+			"active": "Active",
+			"createdBy": "CreatedBy",
+			"createdAt": "CreatedAt",
+			"updatedBy": "UpdatedBy",
+			"updatedAt": "UpdatedAt",
+			"deleted": "Deleted",
+			"version": "Version"
+		},
+		"metadata": {
+			"HttpServicesAuthorizationEnabled": false,
+			"HttpPostCreationWithIdEnabled": true,
+			"HttpPutToMergePatchEnabled": true
+		}
+	}
+}

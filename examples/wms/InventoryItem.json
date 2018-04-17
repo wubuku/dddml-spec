@@ -1,0 +1,153 @@
+{
+	"aggregates": {
+		"InventoryItem": {
+			"id": {
+				"name": "InventoryItemId",
+				"type": "InventoryItemId"
+			},
+			"properties": {
+				"OnHandQuantity": {
+					"type": "decimal"
+				},
+				"InTransitQuantity": {
+					"type": "decimal"
+				},
+				"ReservedQuantity": {
+					"type": "decimal"
+				},
+				"OccupiedQuantity": {
+					"type": "decimal"
+				},
+				"VirtualQuantity": {
+					"type": "decimal"
+				},
+				"Entries": {
+					"itemType": "InventoryItemEntry"
+				}
+			},
+			"reservedProperties": {
+				"noActive": true,
+				"noDeleted": true
+			},
+			"entities": {
+				"InventoryItemEntry": {
+					"immutable": true,
+					"id": {
+						"name": "EntrySeqId",
+						"type": "long",
+						"columnName": "EntrySeqId"
+					},
+					"properties": {
+						"OnHandQuantity": {
+							"type": "decimal"
+						},
+						"InTransitQuantity": {
+							"type": "decimal"
+						},
+						"ReservedQuantity": {
+							"type": "decimal"
+						},
+						"OccupiedQuantity": {
+							"type": "decimal"
+						},
+						"VirtualQuantity": {
+							"type": "decimal"
+						},
+						"Source": {
+							"type": "InventoryItemSourceInfo",
+							"notNull": true
+						}
+					},
+					"reservedProperties": {
+						"noActive": true
+					},
+					"uniqueConstraints": {
+						"UniqueInventoryItemSource": [
+							"Source"
+						]
+					}
+				}
+			},
+			"accounts": {
+				"OnHandQuantity": {
+					"entryEntityName": "InventoryItemEntry",
+					"entryAmountPropertyName": "OnHandQuantity"
+				},
+				"InTransitQuantity": {
+					"entryEntityName": "InventoryItemEntry",
+					"entryAmountPropertyName": "InTransitQuantity"
+				},
+				"ReservedQuantity": {
+					"entryEntityName": "InventoryItemEntry",
+					"entryAmountPropertyName": "ReservedQuantity"
+				},
+				"OccupiedQuantity": {
+					"entryEntityName": "InventoryItemEntry",
+					"entryAmountPropertyName": "OccupiedQuantity"
+				},
+				"VirtualQuantity": {
+					"entryEntityName": "InventoryItemEntry",
+					"entryAmountPropertyName": "VirtualQuantity"
+				}
+			},
+			"metadata": {
+				"AggregateEventListenerName": "inventoryItemEventListener"
+			},
+			"methods": {
+				"Create": {
+					"isInternal": true
+				},
+				"Patch": {
+					"isInternal": true
+				},
+				"Delete": {
+					"isInternal": true
+				}
+			},
+			"valueObjects": {
+				"InventoryItemId": {
+					"properties": {
+						"ProductId": {
+							"type": "id-long",
+							"columnName": "ProductId",
+							"length": 60
+						},
+						"LocatorId": {
+							"type": "string",
+							"columnName": "LocatorId",
+							"length": 50
+						},
+						"AttributeSetInstanceId": {
+							"type": "string",
+							"columnName": "AttributeSetInstanceId",
+							"length": 50
+						}
+					}
+				},
+				"InventoryItemSourceInfo": {
+					"properties": {
+						"DocumentTypeId": {
+							"type": "string",
+							"referenceType": "DocumentType",
+							"notNull": true,
+							"columnName": "DocumentTypeId"
+						},
+						"DocumentNumber": {
+							"type": "string",
+							"notNull": true,
+							"columnName": "DocumentNumber"
+						},
+						"LineNumber": {
+							"type": "string",
+							"columnName": "LineNumber"
+						},
+						"LineSubSeqId": {
+							"type": "int",
+							"columnName": "LineSeqId"
+						}
+					}
+				}
+			}
+		}
+	}
+}

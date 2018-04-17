@@ -1,0 +1,164 @@
+{
+	"aggregates": {
+		"Movement": {
+			"id": {
+				"name": "DocumentNumber",
+				"type": "string"
+			},
+			"properties": {
+				"DocumentStatusId": {
+					"type": "string",
+					"commandType": "DocumentAction",
+					"commandName": "DocumentAction",
+					"stateMachine": {
+						"transitions": [
+							{
+								"sourceState": null,
+								"trigger": null,
+								"targetState": "Drafted"
+							},
+							{
+								"sourceState": "Drafted",
+								"trigger": "Void",
+								"targetState": "Voided"
+							},
+							{
+								"sourceState": "Drafted",
+								"trigger": "Complete",
+								"targetState": "Completed",
+								"guard": {
+									"Java": "{this}.getIsInTransit() == false",
+									"CSharp": "{this}.IsInTransit == false"
+								}
+							},
+							{
+								"sourceState": "Drafted",
+								"trigger": "Complete",
+								"targetState": "InProgress",
+								"guard": {
+									"Java": "{this}.getIsInTransit() == true",
+									"CSharp": "{this}.IsInTransit == true"
+								}
+							},
+							{
+								"sourceState": "InProgress",
+								"trigger": "Confirm",
+								"targetState": "Complete"
+							},
+							{
+								"sourceState": "Completed",
+								"trigger": "Close",
+								"targetState": "Closed"
+							},
+							{
+								"sourceState": "Completed",
+								"trigger": "Reverse",
+								"targetState": "Reversed",
+								"guard": {
+									"Java": "{this}.getIsInTransit() == false",
+									"CSharp": "{this}.IsInTransit == false"
+								}
+							}
+						]
+					}
+				},
+				"MovementDate": {
+					"type": "DateTime"
+				},
+				"Posted": {
+					"type": "bool"
+				},
+				"Processed": {
+					"type": "bool"
+				},
+				"Processing": {
+					"type": "string"
+				},
+				"DateReceived": {
+					"type": "DateTime"
+				},
+				"DocumentTypeId": {
+					"referenceType": "DocumentType"
+				},
+				"IsInTransit": {
+					"type": "bool"
+				},
+				"IsApproved": {
+					"type": "bool"
+				},
+				"ApprovalAmount": {
+					"type": "decimal"
+				},
+				"ShipperId": {
+					"type": "string"
+				},
+				"SalesRepresentativeId": {
+					"type": "string"
+				},
+				"BusinessPartnerId": {
+					"type": "string"
+				},
+				"ChargeAmount": {
+					"type": "decimal"
+				},
+				"CreateFrom": {
+					"type": "string"
+				},
+				"FreightAmount": {
+					"type": "decimal"
+				},
+				"ReversalDocumentNumber": {
+					"type": "string"
+				},
+				"WarehouseIdFrom": {
+					"type": "string"
+				},
+				"WarehouseIdTo": {
+					"type": "string"
+				},
+				"Description": {
+					"type": "string"
+				},
+				"MovementLines": {
+					"itemType": "MovementLine"
+				}
+			},
+			"entities": {
+				"MovementLine": {
+					"id": {
+						"name": "LineNumber",
+						"type": "string"
+					},
+					"properties": {
+						"MovementQuantity": {
+							"type": "decimal",
+							"displayName": "Quantity of a product moved.",
+							"description": "The Movement Quantity indicates the quantity of a product that has been moved."
+						},
+						"ProductId": {
+							"type": "id-long"
+						},
+						"LocatorIdFrom": {
+							"type": "string"
+						},
+						"LocatorIdTo": {
+							"type": "string"
+						},
+						"AttributeSetInstanceId": {
+							"type": "string"
+						},
+						"Processed": {
+							"type": "bool"
+						},
+						"ReversalLineNumber": {
+							"type": "string"
+						}
+					}
+				}
+			},
+			"metadata": {
+				"JavaAggregateApplicationServiceImplementClassName": "MovementApplicationServiceImpl"
+			}
+		}
+	}
+}

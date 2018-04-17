@@ -1,0 +1,61 @@
+{
+	"aggregates": {
+		"Locator": {
+			"id": {
+				"name": "LocatorId",
+				"type": "string"
+			},
+			"properties": {
+				"WarehouseId": {
+					"type": "string",
+					"notNull": true
+				},
+				"ParentLocatorId": {
+					"type": "string"
+				},
+				"LocatorType": {
+					"type": "string"
+				},
+				"PriorityNumber": {
+					"type": "string"
+				},
+				"IsDefault": {
+					"type": "bool"
+				},
+				"X": {
+					"type": "string"
+				},
+				"Y": {
+					"type": "string"
+				},
+				"Z": {
+					"type": "string"
+				},
+				"Description": {
+					"type": "string"
+				},
+				"LocatorTypeId": {
+					"referenceType": "LocatorType"
+				}
+			},
+			"constraints": {
+				"LocatorIdConstraint": {
+					"validationLogic": {
+						"CSharp": "{this}.LocatorId.StartsWith({this}.WarehouseId)",
+						"Java": "getLocatorId().startsWith(getWarehouseId())"
+					}
+				}
+			}
+		}
+	},
+	"trees": {
+		"LocatorTree": {
+			"nodeContentType": "Locator",
+			"parentId": "ParentLocatorId",
+			"rootParentIdValues": [
+				null,
+				""
+			]
+		}
+	}
+}
