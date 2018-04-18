@@ -5,6 +5,15 @@ configuration:
   defaultModule: com.syj.crm #namespace
   audited: true
   hateoas: false
+  defaultReservedProperties:
+    createdBy: CreatedByUserLogin
+    createdAt: CreatedDate
+    updatedBy: LastModifiedByUserLogin
+    updatedAt: LastModifiedByUserLogin
+    version: Version
+    deleted: Deleted
+    active: Active
+    
 typeDefinitions: #fundamental types
   text:
     baseType: string

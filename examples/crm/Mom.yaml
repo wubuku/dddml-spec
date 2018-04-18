@@ -6,7 +6,8 @@
 aggregates:
 
   Mom:
-            
+    displayName: MinutesOfMeeting
+    description: Minutes of meeting.
     id:
       name: Id
       type: string
@@ -23,18 +24,25 @@ aggregates:
       ChairPerson:
         type: string
       
-      DiscussionLines:
-        itemType: DiscussionLine
+      DiscussionDetails:
+        itemType: DiscussionDetail
         
-      ParticipantLines:
-        itemType: ParticipantLine
-          
+      MeetingParticipants:
+        itemType: MeetingParticipant
+
+      PendingDiscussionDetails:
+        itemType: DiscussionDetail
+        # isDerived: ture
+        # filter is also a type of dirivation logic
+        filter:
+          Java: d -> d.getStatusId()=="OPEN" || d.getStatusId()=="ON_HOLD"
+
     # ------------------------------
     # Nested Entities    
     entities: 
     
       # ------------------------------
-      DiscussionLine:
+      DiscussionDetail:
         
         id: 
           name: LineNumber
@@ -42,19 +50,23 @@ aggregates:
           length: 50
         
         properties:
-        
+
+          StatusId:
+            type: string
+            columnName: c_mom_status_id
+
           Description: 
             type: string  
 
-      ParticipantLine:
+      MeetingParticipant:
       
         id:
           name: Name
           type: string
           length: 50
           
-        properties:
-          
+        properties:          
+        
           Company:
             type: string
             
