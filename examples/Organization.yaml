@@ -69,16 +69,11 @@ aggregates:
 
 trees:
     
-    OrganizationTree:
-    
-      nodeContentType: Organization
-      
-      structureType: OrganizationStructure
-      
-      parentId: Id.ParentId
-      
-      childId: Id.SubsidiaryId
-      
-      rootParentIdValues: [""]
+    OrganizationTree:    
+      nodeContentType: Organization      
+      structureType: OrganizationStructure      
+      parentId: Id.ParentId      
+      childId: Id.SubsidiaryId      
+      #rootParentIdValues: [""]
 
       
