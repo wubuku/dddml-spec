@@ -139,6 +139,16 @@ aggregates:
                     isAggregateVersion: true
                   RoomName:
                     type: string
-
+                
+                verificationLogic:
+                  CSharp: >
+                    if ({this}.Buildings.Get(BuildingNumber).Rooms.Get(RoomNumber).Name == RoomName)
+                    { throw new InvalidOperationException("Same as old name.");}
+                    if (RoomName.StartsWith("f", StringComparison.InvariantCultureIgnoreCase))
+                    { throw new InvalidCastException("NoGood name!"); }
+                    
+                mutationLogic:
+                  CSharp: |
+                    {this}.Buildings.Get(buildingNumber).Rooms.Get(roomNumber).Name = RoomName;
                 
                     
