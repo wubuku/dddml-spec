@@ -69,7 +69,7 @@ configuration:
     ClrRamlClientSubNamespace: "HttpServices.ClientProxies.Raml"
     ClrRamlClientMainClassName: "DddmlTestsRamlClient"
 
-    JavaRestfulClientPackage: "org.dddml.templates.tests.rest"
+    JavaRestfulClientPackage: "org.dddml.templates.tests.rest.clientinterface"
     
     TypeScriptJsonUsingCamelCasePropertyName: true
 
