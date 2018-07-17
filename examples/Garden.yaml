@@ -147,7 +147,7 @@ aggregates:
                     if ({this}.Buildings.Get(BuildingNumber).Rooms.Get(RoomNumber).Name == RoomName)
                     { throw new InvalidOperationException("Same as old name.");}
                     if (RoomName.StartsWith("f", StringComparison.InvariantCultureIgnoreCase))
-                    { throw new InvalidCastException("NoGood name!"); }
+                    { throw new InvalidOperationException("NoGood name!"); }
                   Java: >
                     if ({this}.getBuildings().get(BuildingNumber).getRooms().get(RoomNumber).getName().equalsIgnoreCase(RoomName)) { throw new IllegalArgumentException("Same as old name."); }
                     if (RoomName.substring(0, 1).equalsIgnoreCase("f")) { throw new IllegalArgumentException("NoGood name!"); }
