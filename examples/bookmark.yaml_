@@ -1,0 +1,136 @@
+#%DDDML 0.1
+---
+
+aggregates:
+
+  # ------------------------------
+  BookmarkType:
+    id: 
+      name: BookmarkTypeId
+      type: id
+    properties:
+      BookmarkTypeName:
+        type: id-long
+      Description:
+        type: description
+      IsSingleton:
+        type: bool
+      SequenceNumber:
+        type: long
+  
+  
+  # ------------------------------
+  BookmarkRelationshipType:
+    id:
+      name: BookmarkRelationshipTypeId
+      type: id-long
+    properties:
+      BookmarkTypeIdValidFrom:
+        #type: id
+        referenceType: BookmarkType
+      BookmarkTypeIdValidTo:
+        #type: id
+        referenceType: BookmarkType
+      IsChildToParent:
+        type: bool
+
+        
+  # ------------------------------
+  Book:
+    id:
+      name: BookId
+      type: id-long
+    properties:
+
+    
+  # ------------------------------
+  Bookmark:
+    
+    id:
+      name: BookmarkId
+      type: id-long
+      description: 书签的 Id
+    
+    properties:
+    
+      ParentBookmarkId:
+        description: 父书签的 Id
+        #type: id-long
+        referenceType: Bookmark
+        
+      BookmarkTypeId:
+        description: 书签类型 Id
+        referenceType: BookmarkType
+        
+      BookId:
+        description: 图书的 Id
+        referenceType: Book
+        
+      PartId:
+        description: 书的部分的 Id
+        type: id
+        
+      ChapterId:
+        description: 章的 Id
+        type: id
+        
+      SectionId:
+        description: 节的 Id
+        type: id
+        
+      H1Id:
+        description: 一级标题的序号
+        type: id
+      H2Id:
+        description: 二级标题的序号
+        type: id
+      H3Id:
+        description: 三级标题的序号
+        type: id
+      H4Id:
+        description: 四级标题的序号
+        type: id
+      H5Id:
+        description: 五级标题的序号
+        type: id
+      H6Id:
+        description: 六级标题的序号
+        type: id
+      
+      ParagraphId:
+        description: 段的 Id
+        type: id
+      
+      QuotationId:
+        description: 引文的 Id
+        type: id-long
+        
+      ReferenceId:
+        description: 引用的 Id
+        type: id-long
+        
+      BibliographyEntryId:
+        description: 参考文献条目 Id
+        type: id-long
+        
+      AppendixId:
+        description: 附录的 Id
+        type: id
+        
+      IndexEntryId:
+        description: 索引条目的 Id
+        type: id
+        
+      Text:
+        description: 文本
+        type: long-varchar
+        
+      PageNumber:
+        description: 页码
+        type: id
+        
+      SequenceNumber:
+        type: long
+        
+        
+        

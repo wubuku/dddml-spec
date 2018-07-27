@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+	<!-- 书 Book				（b） -->
+	<BookmarkType bookmarkTypeName="Book" bookmarkTypeId="b" description="书" sequenceNumber="0" />
+	<!-- 赞誉 Praise			（prs） -->
+	<BookmarkType bookmarkTypeName="Praise" bookmarkTypeId="prs" description="赞誉" sequenceNumber="0" isSingleton="true" />
+	<!-- 目录 TableOfContents	（toc） -->
+	<BookmarkType bookmarkTypeName="TableOfContents" bookmarkTypeId="toc" description="目录" sequenceNumber="0" isSingleton="true" />
+	<!-- 前言 Foreword			（frw） -->
+	<BookmarkType bookmarkTypeName="Foreword" bookmarkTypeId="frw" description="前言" sequenceNumber="0" isSingleton="true" />
+	<!-- 致谢 Acknowledgments	（ack） -->
+	<BookmarkType bookmarkTypeName="Acknowledgments" bookmarkTypeId="ack" description="致谢" sequenceNumber="0" isSingleton="true" />
+	<!-- 摘要 Abstract			（abs） -->
+	<BookmarkType bookmarkTypeName="Abstract" bookmarkTypeId="abs" description="摘要" sequenceNumber="0" isSingleton="true" />
+	<!-- 关键词 KeyWords		（kyw） -->
+	<BookmarkType bookmarkTypeName="KeyWords" bookmarkTypeId="kws" description="关键词列表" sequenceNumber="0" isSingleton="true" />
+	<!-- 引言 Introduction		（int） -->
+	<BookmarkType bookmarkTypeName="Introduction" bookmarkTypeId="int" description="引言" sequenceNumber="0" isSingleton="true" />
+	<!-- 概述 Overview			（ovr） -->
+	<BookmarkType bookmarkTypeName="Overview" bookmarkTypeId="ovr" description="概述" sequenceNumber="0" isSingleton="true" />
+	<!-- 正文 Body			（bdy） -->
+	<BookmarkType bookmarkTypeName="Body" bookmarkTypeId="bdy" description="正文" sequenceNumber="0" isSingleton="true" />
+	<!-- 部分 Part				·（prt） -->
+	<BookmarkType bookmarkTypeName="Part" bookmarkTypeId="prt" description="部分" sequenceNumber="0" />
+	<!-- 章 Chapter			（c） -->
+	<BookmarkType bookmarkTypeName="Chapter" bookmarkTypeId="c" description="章" sequenceNumber="0" />
+	<!-- 节 Section		（sct） -->
+	<BookmarkType bookmarkTypeName="Section" bookmarkTypeId="sct" description="节" sequenceNumber="0" />
+	<!-- 标题 Heading -->
+	<!-- H1				（h1） -->
+	<BookmarkType bookmarkTypeName="H1" bookmarkTypeId="h1" description="一级标题" sequenceNumber="0" />
+	<!-- H2				（h2） -->
+	<BookmarkType bookmarkTypeName="H2" bookmarkTypeId="h2" description="二级标题" sequenceNumber="0" />
+	<!-- H3				（h3） -->
+	<BookmarkType bookmarkTypeName="H3" bookmarkTypeId="h3" description="三级标题" sequenceNumber="0" />
+	<!-- H4 -->
+	<BookmarkType bookmarkTypeName="H4" bookmarkTypeId="h4" description="四级标题" sequenceNumber="0" />
+	<!-- H5 -->
+	<BookmarkType bookmarkTypeName="H5" bookmarkTypeId="h5" description="五级标题" sequenceNumber="0" />
+	<!-- H6 -->
+	<BookmarkType bookmarkTypeName="H6" bookmarkTypeId="h6" description="六级标题" sequenceNumber="0" />
+	<!-- 段 Paragraph		（p） -->
+	<BookmarkType bookmarkTypeName="Paragraph" bookmarkTypeId="p" description="段" sequenceNumber="0" />
+	<!-- 引文 Quotation		（q） -->
+	<BookmarkType bookmarkTypeName="Quotation" bookmarkTypeId="q" description="引文" sequenceNumber="0" />
+
+	<!-- 结束语 Conclusion		（cnc） -->
+	<BookmarkType bookmarkTypeName="Conclusion" bookmarkTypeId="cnc" description="结束语" sequenceNumber="0" isSingleton="true" />
+	
+	<!-- 引用 References		（rfs） -->
+	<BookmarkType bookmarkTypeName="References" bookmarkTypeId="rfs" description="引用列表" sequenceNumber="0" isSingleton="true" />
+	<BookmarkType bookmarkTypeName="Reference" bookmarkTypeId="ref" description="引用" sequenceNumber="0" />
+	
+	<!-- 参考文献 Bibliography	（bbl） -->
+	<BookmarkType bookmarkTypeName="Bibliography" bookmarkTypeId="bbl" description="参考文献列表" sequenceNumber="0" isSingleton="true" />
+	<BookmarkType bookmarkTypeName="BibliographyEntry" bookmarkTypeId="bbe" description="参考文献" sequenceNumber="0" />
+
+	<!-- 附录 Appendix			（apx） -->
+	<BookmarkType bookmarkTypeName="Appendix" bookmarkTypeId="apx" description="附录" sequenceNumber="0" />
+	<!-- 索引 Index			（idx） -->
+	<BookmarkType bookmarkTypeName="Index" bookmarkTypeId="idx" description="索引" sequenceNumber="0" isSingleton="true" />
+	<!-- 索引条目 IndexEntry	（ide） -->
+	<BookmarkType bookmarkTypeName="IndexEntry" bookmarkTypeId="ide" description="索引条目" sequenceNumber="0" />
+
+	<!-- 绝对定位的书签类型： -->
+	<!-- 页 Page				（pg） -->
+	<BookmarkType bookmarkTypeName="Page" bookmarkTypeId="pg" description="页" sequenceNumber="0" />
+
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="praise-of-book" bookmarkTypeIdValidFrom="prs" bookmarkTypeIdValidTo="b" isChildToParent="true" />
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="tableofcontents-of-book" bookmarkTypeIdValidFrom="toc" bookmarkTypeIdValidTo="b" isChildToParent="true" />
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="foreword-of-book" bookmarkTypeIdValidFrom="frw" bookmarkTypeIdValidTo="b" isChildToParent="true" />
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="acknowledgments-of-book" bookmarkTypeIdValidFrom="ack" bookmarkTypeIdValidTo="b" isChildToParent="true" />
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="abstract-of-book" bookmarkTypeIdValidFrom="abs" bookmarkTypeIdValidTo="b" isChildToParent="true" />
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="keywords-of-book" bookmarkTypeIdValidFrom="kws" bookmarkTypeIdValidTo="b" isChildToParent="true" />
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="introduction-of-book" bookmarkTypeIdValidFrom="int" bookmarkTypeIdValidTo="b" isChildToParent="true" />
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="overview-of-book" bookmarkTypeIdValidFrom="ovr" bookmarkTypeIdValidTo="b" isChildToParent="true" />
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="body-of-book" bookmarkTypeIdValidFrom="bdy" bookmarkTypeIdValidTo="b" isChildToParent="true" />
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="part-of-book" bookmarkTypeIdValidFrom="prt" bookmarkTypeIdValidTo="b" isChildToParent="true" />
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="chapter-of-book" bookmarkTypeIdValidFrom="c" bookmarkTypeIdValidTo="b" isChildToParent="true" />
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="conclusion-of-book" bookmarkTypeIdValidFrom="cnc" bookmarkTypeIdValidTo="b" isChildToParent="true" />
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="references-of-book" bookmarkTypeIdValidFrom="rfs" bookmarkTypeIdValidTo="b" isChildToParent="true" />
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="bibliography-of-book" bookmarkTypeIdValidFrom="bbl" bookmarkTypeIdValidTo="b" isChildToParent="true" />
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="appendix-of-book" bookmarkTypeIdValidFrom="apx" bookmarkTypeIdValidTo="b" isChildToParent="true" />
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="index-of-book" bookmarkTypeIdValidFrom="idx" bookmarkTypeIdValidTo="b" isChildToParent="true" />
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="page-of-book" bookmarkTypeIdValidFrom="pg" bookmarkTypeIdValidTo="b" isChildToParent="true" />
+	
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="section-of-chapter" bookmarkTypeIdValidFrom="sct" bookmarkTypeIdValidTo="c" isChildToParent="true" />
+	
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="h1-of-chapter" bookmarkTypeIdValidFrom="h1" bookmarkTypeIdValidTo="c" isChildToParent="true" />
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="h1-of-appendix" bookmarkTypeIdValidFrom="h1" bookmarkTypeIdValidTo="apx" isChildToParent="true" />
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="h2-of-h1" bookmarkTypeIdValidFrom="h2" bookmarkTypeIdValidTo="h1" isChildToParent="true" />
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="h3-of-h2" bookmarkTypeIdValidFrom="h3" bookmarkTypeIdValidTo="h2" isChildToParent="true" />
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="h4-of-h3" bookmarkTypeIdValidFrom="h4" bookmarkTypeIdValidTo="h3" isChildToParent="true" />
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="h5-of-h4" bookmarkTypeIdValidFrom="h5" bookmarkTypeIdValidTo="h4" isChildToParent="true" />
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="h6-of-h5" bookmarkTypeIdValidFrom="h6" bookmarkTypeIdValidTo="h5" isChildToParent="true" />
+	
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="paragraph-of-chapter" bookmarkTypeIdValidFrom="p" bookmarkTypeIdValidTo="c" isChildToParent="true" />
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="paragraph-of-appendix" bookmarkTypeIdValidFrom="p" bookmarkTypeIdValidTo="apx" isChildToParent="true" />
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="paragraph-of-h1" bookmarkTypeIdValidFrom="p" bookmarkTypeIdValidTo="h1" isChildToParent="true" />
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="paragraph-of-h2" bookmarkTypeIdValidFrom="p" bookmarkTypeIdValidTo="h2" isChildToParent="true" />
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="paragraph-of-h3" bookmarkTypeIdValidFrom="p" bookmarkTypeIdValidTo="h3" isChildToParent="true" />
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="paragraph-of-h4" bookmarkTypeIdValidFrom="p" bookmarkTypeIdValidTo="h4" isChildToParent="true" />
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="paragraph-of-h5" bookmarkTypeIdValidFrom="p" bookmarkTypeIdValidTo="h5" isChildToParent="true" />
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="paragraph-of-h6" bookmarkTypeIdValidFrom="p" bookmarkTypeIdValidTo="h6" isChildToParent="true" />
+
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="quotation-of-paragraph" bookmarkTypeIdValidFrom="q" bookmarkTypeIdValidTo="p" isChildToParent="true" />
+	
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="entry-of-references" bookmarkTypeIdValidFrom="ref" bookmarkTypeIdValidTo="rfs" isChildToParent="true" />
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="entry-of-bibliography" bookmarkTypeIdValidFrom="bbe" bookmarkTypeIdValidTo="bbl" isChildToParent="true" />
+	<BookmarkRelationshipType bookmarkRelationshipTypeId="entry-of-index" bookmarkTypeIdValidFrom="ide" bookmarkTypeIdValidTo="idx" isChildToParent="true" />
+	
+</entity-engine-xml>
