@@ -41,6 +41,11 @@
 	<BookmarkType bookmarkTypeName="H6" bookmarkTypeId="h6" description="六级标题" sequenceNumber="0" />
 	<!-- 段 Paragraph		（p） -->
 	<BookmarkType bookmarkTypeName="Paragraph" bookmarkTypeId="p" description="段" sequenceNumber="0" />
+	
+	<BookmarkType bookmarkTypeName="Figure" bookmarkTypeId="f" description="图" sequenceNumber="0" />
+	
+	<BookmarkType bookmarkTypeName="Table" bookmarkTypeId="t" description="表" sequenceNumber="0" />
+	
 	<!-- 引文 Quotation		（q） -->
 	<BookmarkType bookmarkTypeName="Quotation" bookmarkTypeId="q" description="引文" sequenceNumber="0" />
 
@@ -66,47 +71,50 @@
 	<!-- 页 Page				（pg） -->
 	<BookmarkType bookmarkTypeName="Page" bookmarkTypeId="pg" description="页" sequenceNumber="0" />
 
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="praise-of-book" bookmarkTypeIdValidFrom="prs" bookmarkTypeIdValidTo="b" isChildToParent="true" />
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="tableofcontents-of-book" bookmarkTypeIdValidFrom="toc" bookmarkTypeIdValidTo="b" isChildToParent="true" />
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="foreword-of-book" bookmarkTypeIdValidFrom="frw" bookmarkTypeIdValidTo="b" isChildToParent="true" />
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="acknowledgments-of-book" bookmarkTypeIdValidFrom="ack" bookmarkTypeIdValidTo="b" isChildToParent="true" />
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="abstract-of-book" bookmarkTypeIdValidFrom="abs" bookmarkTypeIdValidTo="b" isChildToParent="true" />
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="keywords-of-book" bookmarkTypeIdValidFrom="kws" bookmarkTypeIdValidTo="b" isChildToParent="true" />
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="introduction-of-book" bookmarkTypeIdValidFrom="int" bookmarkTypeIdValidTo="b" isChildToParent="true" />
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="overview-of-book" bookmarkTypeIdValidFrom="ovr" bookmarkTypeIdValidTo="b" isChildToParent="true" />
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="body-of-book" bookmarkTypeIdValidFrom="bdy" bookmarkTypeIdValidTo="b" isChildToParent="true" />
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="part-of-book" bookmarkTypeIdValidFrom="prt" bookmarkTypeIdValidTo="b" isChildToParent="true" />
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="chapter-of-book" bookmarkTypeIdValidFrom="c" bookmarkTypeIdValidTo="b" isChildToParent="true" />
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="conclusion-of-book" bookmarkTypeIdValidFrom="cnc" bookmarkTypeIdValidTo="b" isChildToParent="true" />
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="references-of-book" bookmarkTypeIdValidFrom="rfs" bookmarkTypeIdValidTo="b" isChildToParent="true" />
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="bibliography-of-book" bookmarkTypeIdValidFrom="bbl" bookmarkTypeIdValidTo="b" isChildToParent="true" />
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="appendix-of-book" bookmarkTypeIdValidFrom="apx" bookmarkTypeIdValidTo="b" isChildToParent="true" />
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="index-of-book" bookmarkTypeIdValidFrom="idx" bookmarkTypeIdValidTo="b" isChildToParent="true" />
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="page-of-book" bookmarkTypeIdValidFrom="pg" bookmarkTypeIdValidTo="b" isChildToParent="true" />
+	<BookmarkRelationshipType description="praise-of-book" bookmarkTypeIdValidFrom="prs" bookmarkTypeIdValidTo="b" bookmarkRelationshipTypeClass="child-to-parent" />
+	<BookmarkRelationshipType description="tableofcontents-of-book" bookmarkTypeIdValidFrom="toc" bookmarkTypeIdValidTo="b" bookmarkRelationshipTypeClass="child-to-parent" />
+	<BookmarkRelationshipType description="foreword-of-book" bookmarkTypeIdValidFrom="frw" bookmarkTypeIdValidTo="b" bookmarkRelationshipTypeClass="child-to-parent" />
+	<BookmarkRelationshipType description="acknowledgments-of-book" bookmarkTypeIdValidFrom="ack" bookmarkTypeIdValidTo="b" bookmarkRelationshipTypeClass="child-to-parent" />
+	<BookmarkRelationshipType description="abstract-of-book" bookmarkTypeIdValidFrom="abs" bookmarkTypeIdValidTo="b" bookmarkRelationshipTypeClass="child-to-parent" />
+	<BookmarkRelationshipType description="keywords-of-book" bookmarkTypeIdValidFrom="kws" bookmarkTypeIdValidTo="b" bookmarkRelationshipTypeClass="child-to-parent" />
+	<BookmarkRelationshipType description="introduction-of-book" bookmarkTypeIdValidFrom="int" bookmarkTypeIdValidTo="b" bookmarkRelationshipTypeClass="child-to-parent" />
+	<BookmarkRelationshipType description="overview-of-book" bookmarkTypeIdValidFrom="ovr" bookmarkTypeIdValidTo="b" bookmarkRelationshipTypeClass="child-to-parent" />
+	<BookmarkRelationshipType description="body-of-book" bookmarkTypeIdValidFrom="bdy" bookmarkTypeIdValidTo="b" bookmarkRelationshipTypeClass="child-to-parent" />
+	<BookmarkRelationshipType description="part-of-book" bookmarkTypeIdValidFrom="prt" bookmarkTypeIdValidTo="b" bookmarkRelationshipTypeClass="child-to-parent" />
+	<BookmarkRelationshipType description="chapter-of-book" bookmarkTypeIdValidFrom="c" bookmarkTypeIdValidTo="b" bookmarkRelationshipTypeClass="child-to-parent" />
+	<BookmarkRelationshipType description="conclusion-of-book" bookmarkTypeIdValidFrom="cnc" bookmarkTypeIdValidTo="b" bookmarkRelationshipTypeClass="child-to-parent" />
+	<BookmarkRelationshipType description="references-of-book" bookmarkTypeIdValidFrom="rfs" bookmarkTypeIdValidTo="b" bookmarkRelationshipTypeClass="child-to-parent" />
+	<BookmarkRelationshipType description="bibliography-of-book" bookmarkTypeIdValidFrom="bbl" bookmarkTypeIdValidTo="b" bookmarkRelationshipTypeClass="child-to-parent" />
+	<BookmarkRelationshipType description="appendix-of-book" bookmarkTypeIdValidFrom="apx" bookmarkTypeIdValidTo="b" bookmarkRelationshipTypeClass="child-to-parent" />
+	<BookmarkRelationshipType description="index-of-book" bookmarkTypeIdValidFrom="idx" bookmarkTypeIdValidTo="b" bookmarkRelationshipTypeClass="child-to-parent" />
+	<BookmarkRelationshipType description="page-of-book" bookmarkTypeIdValidFrom="pg" bookmarkTypeIdValidTo="b" bookmarkRelationshipTypeClass="child-to-parent" />
 	
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="section-of-chapter" bookmarkTypeIdValidFrom="sct" bookmarkTypeIdValidTo="c" isChildToParent="true" />
+	<BookmarkRelationshipType description="section-of-chapter" bookmarkTypeIdValidFrom="sct" bookmarkTypeIdValidTo="c" bookmarkRelationshipTypeClass="child-to-parent" />
 	
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="h1-of-chapter" bookmarkTypeIdValidFrom="h1" bookmarkTypeIdValidTo="c" isChildToParent="true" />
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="h1-of-appendix" bookmarkTypeIdValidFrom="h1" bookmarkTypeIdValidTo="apx" isChildToParent="true" />
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="h2-of-h1" bookmarkTypeIdValidFrom="h2" bookmarkTypeIdValidTo="h1" isChildToParent="true" />
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="h3-of-h2" bookmarkTypeIdValidFrom="h3" bookmarkTypeIdValidTo="h2" isChildToParent="true" />
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="h4-of-h3" bookmarkTypeIdValidFrom="h4" bookmarkTypeIdValidTo="h3" isChildToParent="true" />
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="h5-of-h4" bookmarkTypeIdValidFrom="h5" bookmarkTypeIdValidTo="h4" isChildToParent="true" />
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="h6-of-h5" bookmarkTypeIdValidFrom="h6" bookmarkTypeIdValidTo="h5" isChildToParent="true" />
+	<BookmarkRelationshipType description="h1-of-chapter" bookmarkTypeIdValidFrom="h1" bookmarkTypeIdValidTo="c" bookmarkRelationshipTypeClass="child-to-parent" />
+	<BookmarkRelationshipType description="h1-of-appendix" bookmarkTypeIdValidFrom="h1" bookmarkTypeIdValidTo="apx" bookmarkRelationshipTypeClass="child-to-parent" />
+	<BookmarkRelationshipType description="h2-of-h1" bookmarkTypeIdValidFrom="h2" bookmarkTypeIdValidTo="h1" bookmarkRelationshipTypeClass="child-to-parent" />
+	<BookmarkRelationshipType description="h3-of-h2" bookmarkTypeIdValidFrom="h3" bookmarkTypeIdValidTo="h2" bookmarkRelationshipTypeClass="child-to-parent" />
+	<BookmarkRelationshipType description="h4-of-h3" bookmarkTypeIdValidFrom="h4" bookmarkTypeIdValidTo="h3" bookmarkRelationshipTypeClass="child-to-parent" />
+	<BookmarkRelationshipType description="h5-of-h4" bookmarkTypeIdValidFrom="h5" bookmarkTypeIdValidTo="h4" bookmarkRelationshipTypeClass="child-to-parent" />
+	<BookmarkRelationshipType description="h6-of-h5" bookmarkTypeIdValidFrom="h6" bookmarkTypeIdValidTo="h5" bookmarkRelationshipTypeClass="child-to-parent" />
 	
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="paragraph-of-chapter" bookmarkTypeIdValidFrom="p" bookmarkTypeIdValidTo="c" isChildToParent="true" />
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="paragraph-of-appendix" bookmarkTypeIdValidFrom="p" bookmarkTypeIdValidTo="apx" isChildToParent="true" />
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="paragraph-of-h1" bookmarkTypeIdValidFrom="p" bookmarkTypeIdValidTo="h1" isChildToParent="true" />
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="paragraph-of-h2" bookmarkTypeIdValidFrom="p" bookmarkTypeIdValidTo="h2" isChildToParent="true" />
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="paragraph-of-h3" bookmarkTypeIdValidFrom="p" bookmarkTypeIdValidTo="h3" isChildToParent="true" />
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="paragraph-of-h4" bookmarkTypeIdValidFrom="p" bookmarkTypeIdValidTo="h4" isChildToParent="true" />
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="paragraph-of-h5" bookmarkTypeIdValidFrom="p" bookmarkTypeIdValidTo="h5" isChildToParent="true" />
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="paragraph-of-h6" bookmarkTypeIdValidFrom="p" bookmarkTypeIdValidTo="h6" isChildToParent="true" />
+	<BookmarkRelationshipType description="paragraph-of-chapter" bookmarkTypeIdValidFrom="p" bookmarkTypeIdValidTo="c" bookmarkRelationshipTypeClass="child-to-parent" />
+	<BookmarkRelationshipType description="paragraph-of-appendix" bookmarkTypeIdValidFrom="p" bookmarkTypeIdValidTo="apx" bookmarkRelationshipTypeClass="child-to-parent" />
+	<BookmarkRelationshipType description="paragraph-of-h1" bookmarkTypeIdValidFrom="p" bookmarkTypeIdValidTo="h1" bookmarkRelationshipTypeClass="child-to-parent" />
+	<BookmarkRelationshipType description="paragraph-of-h2" bookmarkTypeIdValidFrom="p" bookmarkTypeIdValidTo="h2" bookmarkRelationshipTypeClass="child-to-parent" />
+	<BookmarkRelationshipType description="paragraph-of-h3" bookmarkTypeIdValidFrom="p" bookmarkTypeIdValidTo="h3" bookmarkRelationshipTypeClass="child-to-parent" />
+	<BookmarkRelationshipType description="paragraph-of-h4" bookmarkTypeIdValidFrom="p" bookmarkTypeIdValidTo="h4" bookmarkRelationshipTypeClass="child-to-parent" />
+	<BookmarkRelationshipType description="paragraph-of-h5" bookmarkTypeIdValidFrom="p" bookmarkTypeIdValidTo="h5" bookmarkRelationshipTypeClass="child-to-parent" />
+	<BookmarkRelationshipType description="paragraph-of-h6" bookmarkTypeIdValidFrom="p" bookmarkTypeIdValidTo="h6" bookmarkRelationshipTypeClass="child-to-parent" />
 
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="quotation-of-paragraph" bookmarkTypeIdValidFrom="q" bookmarkTypeIdValidTo="p" isChildToParent="true" />
+	<BookmarkRelationshipType description="figure-of-chapter" bookmarkTypeIdValidFrom="f" bookmarkTypeIdValidTo="c" bookmarkRelationshipTypeClass="child-to-parent" />
+	<BookmarkRelationshipType description="table-of-chapter" bookmarkTypeIdValidFrom="t" bookmarkTypeIdValidTo="c" bookmarkRelationshipTypeClass="child-to-parent" />
+
+	<BookmarkRelationshipType description="quotation-of-paragraph" bookmarkTypeIdValidFrom="q" bookmarkTypeIdValidTo="p" bookmarkRelationshipTypeClass="child-to-parent" />
 	
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="entry-of-references" bookmarkTypeIdValidFrom="ref" bookmarkTypeIdValidTo="rfs" isChildToParent="true" />
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="entry-of-bibliography" bookmarkTypeIdValidFrom="bbe" bookmarkTypeIdValidTo="bbl" isChildToParent="true" />
-	<BookmarkRelationshipType bookmarkRelationshipTypeId="entry-of-index" bookmarkTypeIdValidFrom="ide" bookmarkTypeIdValidTo="idx" isChildToParent="true" />
+	<BookmarkRelationshipType description="entry-of-references" bookmarkTypeIdValidFrom="ref" bookmarkTypeIdValidTo="rfs" bookmarkRelationshipTypeClass="child-to-parent" />
+	<BookmarkRelationshipType description="entry-of-bibliography" bookmarkTypeIdValidFrom="bbe" bookmarkTypeIdValidTo="bbl" bookmarkRelationshipTypeClass="child-to-parent" />
+	<BookmarkRelationshipType description="entry-of-index" bookmarkTypeIdValidFrom="ide" bookmarkTypeIdValidTo="idx" bookmarkRelationshipTypeClass="child-to-parent" />
 	
 </entity-engine-xml>

@@ -74,6 +74,22 @@ trees:
       structureType: OrganizationStructure      
       parentId: Id.ParentId      
       childId: Id.SubsidiaryId      
-      #rootParentIdValues: [""]
-
-      
+      # rootParentIdValues: [""]
+      # structureTypeFilter:
+        # Criterion:
+          # type: "or"
+          # lhs: 
+              # type: "eq"
+              # property: "OrganizationStructureId.OrganizationStructureTypeId"
+              # value: "test-org-struct-type3"
+          # rhs:
+              # type: "disjunction"
+              # criteria:
+                # - type: "eq"
+                  # property: "OrganizationStructureId.OrganizationStructureTypeId"
+                  # value: "test-org-struct-type1"
+                # - type: "eq"
+                  # property: "OrganizationStructureId.OrganizationStructureTypeId"
+                  # value: "test-org-struct-type2"
+              
+          

@@ -23,16 +23,32 @@ aggregates:
   BookmarkRelationshipType:
     id:
       name: BookmarkRelationshipTypeId
-      type: id-long
+      type: BookmarkRelationshipTypeId
     properties:
-      BookmarkTypeIdValidFrom:
-        #type: id
-        referenceType: BookmarkType
-      BookmarkTypeIdValidTo:
-        #type: id
-        referenceType: BookmarkType
-      IsChildToParent:
-        type: bool
+      Description:
+        type: description
+        
+    valueObjects:
+      BookmarkRelationshipTypeId:
+        properties:
+          BookmarkTypeIdValidFrom:
+            #type: id
+            referenceType: BookmarkType
+          BookmarkTypeIdValidTo:
+            #type: id
+            referenceType: BookmarkType
+          BookmarkRelationshipTypeClass:
+            type: BookmarkRelationshipTypeClass
+            
+    enumObjects:
+      BookmarkRelationshipTypeClass:
+        baseType: string
+        #length: 50
+        values:
+          ChildToParent:
+            stringValue: "child-to-parent"
+            description: Child to parent.
+      
 
         
   # ------------------------------
@@ -41,8 +57,12 @@ aggregates:
       name: BookId
       type: id-long
     properties:
-
-    
+      # 国际标准书号
+      Isbn:
+        type: id
+      description:
+        type: description
+        
   # ------------------------------
   Bookmark:
     
@@ -132,5 +152,25 @@ aggregates:
       SequenceNumber:
         type: long
         
-        
-        
+trees:
+
+  BookmarkTypeTree:
+    nodeContentType: BookmarkType
+    structureType: BookmarkRelationshipType
+    parentId: BookmarkRelationshipTypeId.BookmarkTypeIdValidTo
+    childId: BookmarkRelationshipTypeId.BookmarkTypeIdValidFrom
+    #rootParentIdValues: ["NOT_NEED"]
+    structureTypeFilter:
+      Criterion:
+        type: "eq"
+        property: "BookmarkRelationshipTypeId.BookmarkRelationshipTypeClass"
+        value: "child-to-parent"
+    
+
+  BookmarkTree:
+    nodeContentType: Bookmark
+    parentId: ParentBookmarkId
+    rootParentIdValues: [null, ""]
+    
+    
+    
