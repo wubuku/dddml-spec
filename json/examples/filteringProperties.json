@@ -408,6 +408,270 @@
         }
       }
     },
+    "BookmarkType": {
+      "filteringProperties": {
+        "BookmarkTypeId": {
+          "type": "string",
+          "canonicalName": "bookmarkTypeId"
+        },
+        "BookmarkTypeName": {
+          "type": "string",
+          "canonicalName": "bookmarkTypeName"
+        },
+        "Description": {
+          "type": "string",
+          "canonicalName": "description"
+        },
+        "IsSingleton": {
+          "type": "bool",
+          "canonicalName": "isSingleton"
+        },
+        "SequenceNumber": {
+          "type": "long",
+          "canonicalName": "sequenceNumber"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        }
+      }
+    },
+    "BookmarkRelationshipType": {
+      "filteringProperties": {
+        "Description": {
+          "type": "string",
+          "canonicalName": "description"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        },
+        "BookmarkRelationshipTypeId.BookmarkTypeIdValidFrom": {
+          "type": "string",
+          "canonicalName": "bookmarkRelationshipTypeId.bookmarkTypeIdValidFrom"
+        },
+        "BookmarkRelationshipTypeId.BookmarkTypeIdValidTo": {
+          "type": "string",
+          "canonicalName": "bookmarkRelationshipTypeId.bookmarkTypeIdValidTo"
+        },
+        "BookmarkRelationshipTypeId.BookmarkRelationshipTypeClass": {
+          "type": "string",
+          "canonicalName": "bookmarkRelationshipTypeId.bookmarkRelationshipTypeClass"
+        }
+      }
+    },
+    "Book": {
+      "filteringProperties": {
+        "BookId": {
+          "type": "string",
+          "canonicalName": "bookId"
+        },
+        "Isbn": {
+          "type": "string",
+          "canonicalName": "isbn"
+        },
+        "Description": {
+          "type": "string",
+          "canonicalName": "description"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        }
+      }
+    },
+    "Bookmark": {
+      "filteringProperties": {
+        "BookmarkId": {
+          "type": "string",
+          "canonicalName": "bookmarkId"
+        },
+        "ParentBookmarkId": {
+          "type": "string",
+          "canonicalName": "parentBookmarkId"
+        },
+        "BookmarkTypeId": {
+          "type": "string",
+          "canonicalName": "bookmarkTypeId"
+        },
+        "BookId": {
+          "type": "string",
+          "canonicalName": "bookId"
+        },
+        "PartId": {
+          "type": "string",
+          "canonicalName": "partId"
+        },
+        "ChapterId": {
+          "type": "string",
+          "canonicalName": "chapterId"
+        },
+        "SectionId": {
+          "type": "string",
+          "canonicalName": "sectionId"
+        },
+        "H1Id": {
+          "type": "string",
+          "canonicalName": "h1Id"
+        },
+        "H2Id": {
+          "type": "string",
+          "canonicalName": "h2Id"
+        },
+        "H3Id": {
+          "type": "string",
+          "canonicalName": "h3Id"
+        },
+        "H4Id": {
+          "type": "string",
+          "canonicalName": "h4Id"
+        },
+        "H5Id": {
+          "type": "string",
+          "canonicalName": "h5Id"
+        },
+        "H6Id": {
+          "type": "string",
+          "canonicalName": "h6Id"
+        },
+        "ParagraphId": {
+          "type": "string",
+          "canonicalName": "paragraphId"
+        },
+        "QuotationId": {
+          "type": "string",
+          "canonicalName": "quotationId"
+        },
+        "ReferenceId": {
+          "type": "string",
+          "canonicalName": "referenceId"
+        },
+        "BibliographyEntryId": {
+          "type": "string",
+          "canonicalName": "bibliographyEntryId"
+        },
+        "AppendixId": {
+          "type": "string",
+          "canonicalName": "appendixId"
+        },
+        "IndexEntryId": {
+          "type": "string",
+          "canonicalName": "indexEntryId"
+        },
+        "Text": {
+          "type": "string",
+          "canonicalName": "text"
+        },
+        "PageNumber": {
+          "type": "string",
+          "canonicalName": "pageNumber"
+        },
+        "SequenceNumber": {
+          "type": "long",
+          "canonicalName": "sequenceNumber"
+        },
+        "Version": {
+          "type": "long",
+          "canonicalName": "version"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        }
+      }
+    },
     "Car": {
       "filteringProperties": {
         "Id": {
@@ -830,30 +1094,6 @@
           "type": "int",
           "canonicalName": "packageType"
         },
-        "CreatedBy": {
-          "type": "string",
-          "canonicalName": "createdBy"
-        },
-        "CreatedAt": {
-          "type": "DateTime",
-          "canonicalName": "createdAt"
-        },
-        "UpdatedBy": {
-          "type": "string",
-          "canonicalName": "updatedBy"
-        },
-        "UpdatedAt": {
-          "type": "DateTime",
-          "canonicalName": "updatedAt"
-        },
-        "Active": {
-          "type": "bool",
-          "canonicalName": "active"
-        },
-        "Deleted": {
-          "type": "bool",
-          "canonicalName": "deleted"
-        },
         "SerialNumber": {
           "type": "string",
           "canonicalName": "serialNumber"
@@ -889,6 +1129,30 @@
         "IsMixed": {
           "type": "bool",
           "canonicalName": "isMixed"
+        },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
         }
       }
     },
@@ -2126,30 +2390,6 @@
           "type": "long",
           "canonicalName": "parentPackagePartId"
         },
-        "CreatedBy": {
-          "type": "string",
-          "canonicalName": "createdBy"
-        },
-        "CreatedAt": {
-          "type": "DateTime",
-          "canonicalName": "createdAt"
-        },
-        "UpdatedBy": {
-          "type": "string",
-          "canonicalName": "updatedBy"
-        },
-        "UpdatedAt": {
-          "type": "DateTime",
-          "canonicalName": "updatedAt"
-        },
-        "Active": {
-          "type": "bool",
-          "canonicalName": "active"
-        },
-        "Deleted": {
-          "type": "bool",
-          "canonicalName": "deleted"
-        },
         "SerialNumber": {
           "type": "string",
           "canonicalName": "serialNumber"
@@ -2186,6 +2426,30 @@
           "type": "bool",
           "canonicalName": "isMixed"
         },
+        "CreatedBy": {
+          "type": "string",
+          "canonicalName": "createdBy"
+        },
+        "CreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "createdAt"
+        },
+        "UpdatedBy": {
+          "type": "string",
+          "canonicalName": "updatedBy"
+        },
+        "UpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "updatedAt"
+        },
+        "Active": {
+          "type": "bool",
+          "canonicalName": "active"
+        },
+        "Deleted": {
+          "type": "bool",
+          "canonicalName": "deleted"
+        },
         "PackageRowVersion": {
           "type": "long",
           "canonicalName": "packageRowVersion"
@@ -2193,26 +2457,6 @@
         "PackagePackageType": {
           "type": "int",
           "canonicalName": "packagePackageType"
-        },
-        "PackageCreatedBy": {
-          "type": "string",
-          "canonicalName": "packageCreatedBy"
-        },
-        "PackageCreatedAt": {
-          "type": "DateTime",
-          "canonicalName": "packageCreatedAt"
-        },
-        "PackageUpdatedBy": {
-          "type": "string",
-          "canonicalName": "packageUpdatedBy"
-        },
-        "PackageUpdatedAt": {
-          "type": "DateTime",
-          "canonicalName": "packageUpdatedAt"
-        },
-        "PackageActive": {
-          "type": "bool",
-          "canonicalName": "packageActive"
         },
         "PackageSerialNumber": {
           "type": "string",
@@ -2249,6 +2493,26 @@
         "PackageIsMixed": {
           "type": "bool",
           "canonicalName": "packageIsMixed"
+        },
+        "PackageCreatedBy": {
+          "type": "string",
+          "canonicalName": "packageCreatedBy"
+        },
+        "PackageCreatedAt": {
+          "type": "DateTime",
+          "canonicalName": "packageCreatedAt"
+        },
+        "PackageUpdatedBy": {
+          "type": "string",
+          "canonicalName": "packageUpdatedBy"
+        },
+        "PackageUpdatedAt": {
+          "type": "DateTime",
+          "canonicalName": "packageUpdatedAt"
+        },
+        "PackageActive": {
+          "type": "bool",
+          "canonicalName": "packageActive"
         },
         "PackagePartId.PackageId": {
           "type": "long",

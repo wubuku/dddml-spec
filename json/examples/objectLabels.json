@@ -384,6 +384,202 @@
       "labelText": "Agreement",
       "collectionLabelText": "Agreements"
     },
+    "BookmarkType": {
+      "properties": {
+        "bookmarkTypeName": {
+          "labelText": "Bookmark Type Name"
+        },
+        "description": {
+          "labelText": "Description"
+        },
+        "isSingleton": {
+          "labelText": "Is Singleton"
+        },
+        "sequenceNumber": {
+          "labelText": "Sequence Number"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Bookmark Type",
+      "collectionLabelText": "Bookmark Types"
+    },
+    "BookmarkRelationshipType": {
+      "properties": {
+        "description": {
+          "labelText": "Description"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Bookmark Relationship Type",
+      "collectionLabelText": "Bookmark Relationship Types"
+    },
+    "Book": {
+      "properties": {
+        "isbn": {
+          "labelText": "Isbn"
+        },
+        "description": {
+          "labelText": "Description"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Book",
+      "collectionLabelText": "Books"
+    },
+    "Bookmark": {
+      "properties": {
+        "parentBookmarkId": {
+          "labelText": "Parent Bookmark Id"
+        },
+        "bookmarkTypeId": {
+          "labelText": "Bookmark Type Id"
+        },
+        "bookId": {
+          "labelText": "Book Id"
+        },
+        "partId": {
+          "labelText": "Part Id"
+        },
+        "chapterId": {
+          "labelText": "Chapter Id"
+        },
+        "sectionId": {
+          "labelText": "Section Id"
+        },
+        "h1Id": {
+          "labelText": "H1 Id"
+        },
+        "h2Id": {
+          "labelText": "H2 Id"
+        },
+        "h3Id": {
+          "labelText": "H3 Id"
+        },
+        "h4Id": {
+          "labelText": "H4 Id"
+        },
+        "h5Id": {
+          "labelText": "H5 Id"
+        },
+        "h6Id": {
+          "labelText": "H6 Id"
+        },
+        "paragraphId": {
+          "labelText": "Paragraph Id"
+        },
+        "quotationId": {
+          "labelText": "Quotation Id"
+        },
+        "referenceId": {
+          "labelText": "Reference Id"
+        },
+        "bibliographyEntryId": {
+          "labelText": "Bibliography Entry Id"
+        },
+        "appendixId": {
+          "labelText": "Appendix Id"
+        },
+        "indexEntryId": {
+          "labelText": "Index Entry Id"
+        },
+        "text": {
+          "labelText": "Text"
+        },
+        "pageNumber": {
+          "labelText": "Page Number"
+        },
+        "sequenceNumber": {
+          "labelText": "Sequence Number"
+        },
+        "version": {
+          "labelText": "Version"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        }
+      },
+      "methods": {},
+      "labelText": "Bookmark",
+      "collectionLabelText": "Bookmarks"
+    },
     "Car": {
       "properties": {
         "wheels": {
@@ -1020,24 +1216,6 @@
         "rootPackageParts": {
           "labelText": "Root Package Parts"
         },
-        "createdBy": {
-          "labelText": "Created By"
-        },
-        "createdAt": {
-          "labelText": "Created At"
-        },
-        "updatedBy": {
-          "labelText": "Updated By"
-        },
-        "updatedAt": {
-          "labelText": "Updated At"
-        },
-        "active": {
-          "labelText": "Active"
-        },
-        "deleted": {
-          "labelText": "Deleted"
-        },
         "serialNumber": {
           "labelText": "Serial Number"
         },
@@ -1064,6 +1242,24 @@
         },
         "isMixed": {
           "labelText": "Is Mixed"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
         }
       },
       "methods": {},
@@ -1084,24 +1280,6 @@
         "childPackageParts": {
           "labelText": "Child Package Parts"
         },
-        "createdBy": {
-          "labelText": "Created By"
-        },
-        "createdAt": {
-          "labelText": "Created At"
-        },
-        "updatedBy": {
-          "labelText": "Updated By"
-        },
-        "updatedAt": {
-          "labelText": "Updated At"
-        },
-        "active": {
-          "labelText": "Active"
-        },
-        "deleted": {
-          "labelText": "Deleted"
-        },
         "serialNumber": {
           "labelText": "Serial Number"
         },
@@ -1128,6 +1306,24 @@
         },
         "isMixed": {
           "labelText": "Is Mixed"
+        },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
         }
       },
       "methods": {},
@@ -2252,24 +2448,6 @@
         "childPackageParts": {
           "labelText": "Child Package Parts"
         },
-        "createdBy": {
-          "labelText": "Created By"
-        },
-        "createdAt": {
-          "labelText": "Created At"
-        },
-        "updatedBy": {
-          "labelText": "Updated By"
-        },
-        "updatedAt": {
-          "labelText": "Updated At"
-        },
-        "active": {
-          "labelText": "Active"
-        },
-        "deleted": {
-          "labelText": "Deleted"
-        },
         "serialNumber": {
           "labelText": "Serial Number"
         },
@@ -2297,6 +2475,24 @@
         "isMixed": {
           "labelText": "Is Mixed"
         },
+        "createdBy": {
+          "labelText": "Created By"
+        },
+        "createdAt": {
+          "labelText": "Created At"
+        },
+        "updatedBy": {
+          "labelText": "Updated By"
+        },
+        "updatedAt": {
+          "labelText": "Updated At"
+        },
+        "active": {
+          "labelText": "Active"
+        },
+        "deleted": {
+          "labelText": "Deleted"
+        },
         "packageRowVersion": {
           "labelText": "Package Row Version"
         },
@@ -2308,21 +2504,6 @@
         },
         "packageRootPackageParts": {
           "labelText": "Package Root Package Parts"
-        },
-        "packageCreatedBy": {
-          "labelText": "Package Created By"
-        },
-        "packageCreatedAt": {
-          "labelText": "Package Created At"
-        },
-        "packageUpdatedBy": {
-          "labelText": "Package Updated By"
-        },
-        "packageUpdatedAt": {
-          "labelText": "Package Updated At"
-        },
-        "packageActive": {
-          "labelText": "Package Active"
         },
         "packageSerialNumber": {
           "labelText": "Package Serial Number"
@@ -2350,6 +2531,21 @@
         },
         "packageIsMixed": {
           "labelText": "Package Is Mixed"
+        },
+        "packageCreatedBy": {
+          "labelText": "Package Created By"
+        },
+        "packageCreatedAt": {
+          "labelText": "Package Created At"
+        },
+        "packageUpdatedBy": {
+          "labelText": "Package Updated By"
+        },
+        "packageUpdatedAt": {
+          "labelText": "Package Updated At"
+        },
+        "packageActive": {
+          "labelText": "Package Active"
         }
       },
       "methods": {},
@@ -2812,6 +3008,21 @@
       "labelText": "Accounting Event Atpr Triggered Event Source Id",
       "collectionLabelText": "Accounting Event Atpr Triggered Event Source Ids"
     },
+    "BookmarkRelationshipTypeId": {
+      "properties": {
+        "bookmarkTypeIdValidFrom": {
+          "labelText": "Bookmark Type Id Valid From"
+        },
+        "bookmarkTypeIdValidTo": {
+          "labelText": "Bookmark Type Id Valid To"
+        },
+        "bookmarkRelationshipTypeClass": {
+          "labelText": "Bookmark Relationship Type Class"
+        }
+      },
+      "labelText": "Bookmark Relationship Type Id",
+      "collectionLabelText": "Bookmark Relationship Type Ids"
+    },
     "TimePeriod": {
       "properties": {
         "from": {
@@ -3138,6 +3349,54 @@
       },
       "labelText": "Agreement Event Id",
       "collectionLabelText": "Agreement Event Ids"
+    },
+    "BookmarkTypeEventId": {
+      "properties": {
+        "bookmarkTypeId": {
+          "labelText": "Bookmark Type Id"
+        },
+        "version": {
+          "labelText": "Version"
+        }
+      },
+      "labelText": "Bookmark Type Event Id",
+      "collectionLabelText": "Bookmark Type Event Ids"
+    },
+    "BookmarkRelationshipTypeEventId": {
+      "properties": {
+        "bookmarkRelationshipTypeId": {
+          "labelText": "Bookmark Relationship Type Id"
+        },
+        "version": {
+          "labelText": "Version"
+        }
+      },
+      "labelText": "Bookmark Relationship Type Event Id",
+      "collectionLabelText": "Bookmark Relationship Type Event Ids"
+    },
+    "BookEventId": {
+      "properties": {
+        "bookId": {
+          "labelText": "Book Id"
+        },
+        "version": {
+          "labelText": "Version"
+        }
+      },
+      "labelText": "Book Event Id",
+      "collectionLabelText": "Book Event Ids"
+    },
+    "BookmarkEventId": {
+      "properties": {
+        "bookmarkId": {
+          "labelText": "Bookmark Id"
+        },
+        "version": {
+          "labelText": "Version"
+        }
+      },
+      "labelText": "Bookmark Event Id",
+      "collectionLabelText": "Bookmark Event Ids"
     },
     "CarEventId": {
       "properties": {
@@ -3767,6 +4026,14 @@
     }
   },
   "trees": {
+    "BookmarkTypeTree": {
+      "labelText": "Bookmark Type Tree",
+      "collectionLabelText": "Bookmark Type Trees"
+    },
+    "BookmarkTree": {
+      "labelText": "Bookmark Tree",
+      "collectionLabelText": "Bookmark Trees"
+    },
     "OrganizationTree": {
       "labelText": "Organization Tree",
       "collectionLabelText": "Organization Trees"

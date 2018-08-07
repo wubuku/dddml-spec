@@ -57,10 +57,32 @@ aggregates:
       name: BookId
       type: id-long
     properties:
+      # 书名
+      BookName:
+        type: id-long
+      # 作者
+      Author:
+        type: id-long
+      # 出版社
+      Publisher:
+        type: id-long
+      # 出版时间：
+      Published:
+        type: date
+      # 版本：
+      Edition:
+        type: id
+      # 装帧
+      Binding:
+        type: id
+      # 定价
+      ListPrice:
+        type: id
       # 国际标准书号
       Isbn:
         type: id
-      description:
+      # 描述
+      Description:
         type: description
         
   # ------------------------------

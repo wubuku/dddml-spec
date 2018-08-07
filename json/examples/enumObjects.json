@@ -68,6 +68,14 @@
         }
       }
     },
+    "BookmarkRelationshipTypeClass": {
+      "values": {
+        "ChildToParent": {
+          "sequenceNumber": 0,
+          "value": "child-to-parent"
+        }
+      }
+    },
     "WheelId": {
       "values": {
         "LF": {

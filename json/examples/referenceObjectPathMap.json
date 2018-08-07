@@ -52,6 +52,18 @@
   "Agreement": [
     "Agreement"
   ],
+  "BookmarkType": [
+    "BookmarkType"
+  ],
+  "BookmarkRelationshipType": [
+    "BookmarkRelationshipType"
+  ],
+  "Book": [
+    "Book"
+  ],
+  "Bookmark": [
+    "Bookmark"
+  ],
   "Car": [
     "Car"
   ],

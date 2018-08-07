@@ -1,5 +1,15 @@
 {
   "trees": {
+    "BookmarkTypeTree": {
+      "nodeContentType": "BookmarkType",
+      "structureType": "BookmarkRelationshipType",
+      "parentId": "bookmarkRelationshipTypeId.bookmarkTypeIdValidTo",
+      "childId": "bookmarkRelationshipTypeId.bookmarkTypeIdValidFrom"
+    },
+    "BookmarkTree": {
+      "nodeContentType": "Bookmark",
+      "parentId": "parentBookmarkId"
+    },
     "OrganizationTree": {
       "nodeContentType": "Organization",
       "structureType": "OrganizationStructure",

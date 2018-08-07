@@ -172,6 +172,73 @@
         }
       }
     },
+    "BookmarkTypeEventId": {
+      "properties": {
+        "bookmarkTypeId": {
+          "type": "string",
+          "sequenceNumber": 0
+        },
+        "version": {
+          "type": "long",
+          "sequenceNumber": 1
+        }
+      }
+    },
+    "BookmarkRelationshipTypeId": {
+      "properties": {
+        "bookmarkTypeIdValidFrom": {
+          "type": "string",
+          "referenceType": "BookmarkType",
+          "sequenceNumber": 0
+        },
+        "bookmarkTypeIdValidTo": {
+          "type": "string",
+          "referenceType": "BookmarkType",
+          "sequenceNumber": 1
+        },
+        "bookmarkRelationshipTypeClass": {
+          "type": "string",
+          "enumType": "BookmarkRelationshipTypeClass",
+          "sequenceNumber": 2
+        }
+      }
+    },
+    "BookmarkRelationshipTypeEventId": {
+      "properties": {
+        "bookmarkRelationshipTypeId": {
+          "type": "BookmarkRelationshipTypeId",
+          "sequenceNumber": 0
+        },
+        "version": {
+          "type": "long",
+          "sequenceNumber": 1
+        }
+      }
+    },
+    "BookEventId": {
+      "properties": {
+        "bookId": {
+          "type": "string",
+          "sequenceNumber": 0
+        },
+        "version": {
+          "type": "long",
+          "sequenceNumber": 1
+        }
+      }
+    },
+    "BookmarkEventId": {
+      "properties": {
+        "bookmarkId": {
+          "type": "string",
+          "sequenceNumber": 0
+        },
+        "version": {
+          "type": "long",
+          "sequenceNumber": 1
+        }
+      }
+    },
     "TimePeriod": {
       "properties": {
         "from": {
