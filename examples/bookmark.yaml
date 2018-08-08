@@ -48,8 +48,6 @@ aggregates:
           ChildToParent:
             stringValue: "child-to-parent"
             description: Child to parent.
-      
-
         
   # ------------------------------
   Book:
@@ -84,9 +82,10 @@ aggregates:
       # 描述
       Description:
         type: description
-        
+  
   # ------------------------------
   Bookmark:
+  
     
     id:
       name: BookmarkId
@@ -173,7 +172,20 @@ aggregates:
         
       SequenceNumber:
         type: long
-        
+
+  # ------------------------------
+  Comment:
+    id:
+      name: CommentId
+      type: id-long
+    properties:
+      BookmarkId:
+        referenceType: Bookmark
+      Content:
+        type: comment
+    metadata:
+      HttpPostCreationEnabled: true
+  
 trees:
 
   BookmarkTypeTree:
