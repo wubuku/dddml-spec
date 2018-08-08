@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <entity-engine-xml>
-  
-	<Book bookId="dmrbv1" bookName="The Data Model Resource Book, Vol. 1: A Library of Universal Data Models for All Enterprises" isbn="9780471380238" 
-		author="Len Silverston" publisher="Wiley" published="2001-03-01" edition="Revised" binding="Paperback" listPrice="$75.00" />
-	
+
 	<!-- 书 Book				（b） -->
 	<BookmarkType bookmarkTypeName="Book" bookmarkTypeId="b" description="书" sequenceNumber="0" />
 	<!-- 赞誉 Praise			（prs） -->
