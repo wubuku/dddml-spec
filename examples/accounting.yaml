@@ -69,7 +69,7 @@ aggregates:
       WhenNoticed: 
         type: DateTime
       
-      WhenOccured: 
+      WhenOccurred: 
         type: DateTime 
 
       # @OneToMany(cascade=CascadeType.ALL, orphanRemoval=true, mappedBy="event")
