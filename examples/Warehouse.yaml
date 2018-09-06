@@ -225,7 +225,7 @@ services:
             ProcessAggregateAutoPropertiesEnabled: true
             
         #authorizationEnabled: true
-        #requiredRoles: [xxxx]
+        #requiredAnyRole: [xxxx]
     
         EmptyMultiLocatorToOneTarget:
           parameters:
