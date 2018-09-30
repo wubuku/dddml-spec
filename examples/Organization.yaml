@@ -75,14 +75,25 @@ trees:
       parentId: Id.ParentId      
       childId: Id.SubsidiaryId      
       # rootParentIdValues: [""]
+      
+      parameters:
+        OrganizationStructureTypeId:
+          type: string
+          
       structureTypeFilter:
         Criterion:
-          type: "or"
+          type: "and"
           lhs: 
             type: "eq"
             property: "Id.OrganizationStructureTypeId"
-            value: "test-org-struct-type3"
+            value: "{OrganizationStructureTypeId}"
           rhs:
+            type: "or"
+            lhs: 
+            type: "eq"
+            property: "Id.OrganizationStructureTypeId"
+            value: "test-org-struct-type3"
+            rhs:
             type: "disjunction"
             criteria:
               - type: "eq"
