@@ -156,6 +156,6 @@ aggregates:
                   CSharp: |
                     {this}.Buildings.Get(buildingNumber).Rooms.Get(roomNumber).Name = RoomName;
                   Java: |
-                    {this}.getBuildings().get(buildingNumber).getRooms().get(roomNumber).setName(RoomName);
+                    ((RoomState.MutableRoomState){this}.getBuildings().get(buildingNumber).getRooms().get(roomNumber)).setName(RoomName);
                 
                     
