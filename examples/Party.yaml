@@ -1,71 +1,46 @@
-﻿!Dddml.Core.Domain.DocumentRoot,%20Dddml.Core,%20Version=1.0.6345.24862,%20Culture=neutral,%20PublicKeyToken=null
-aggregates:
-  Party: &o0
-    name: Party
+﻿aggregates:
+
+  Party:
     tableName: PARTY
     polymorphic: true
     id:
       name: PartyId
       columnName: PARTY_ID
-      entity: *o0
       type: id-ne
     properties:
       PartyTypeId:
-        name: PartyTypeId
         columnName: PARTY_TYPE_ID
-        entity: *o0
         type: id-ne
       ExternalId:
-        name: ExternalId
         columnName: EXTERNAL_ID
-        entity: *o0
         type: id
       PreferredCurrencyUomId:
-        name: PreferredCurrencyUomId
         columnName: PREFERRED_CURRENCY_UOM_ID
-        entity: *o0
         type: id-ne
       Description:
-        name: Description
         columnName: DESCRIPTION
-        entity: *o0
         type: very-long
       StatusId:
-        name: StatusId
         columnName: STATUS_ID
-        entity: *o0
         type: id-ne
       CreatedDate:
-        name: CreatedDate
         columnName: CREATED_DATE
-        entity: *o0
         type: date-time
       CreatedByUserLogin:
-        name: CreatedByUserLogin
         columnName: CREATED_BY_USER_LOGIN
-        entity: *o0
         type: id-vlong
       LastModifiedDate:
-        name: LastModifiedDate
         columnName: LAST_MODIFIED_DATE
-        entity: *o0
         type: date-time
       LastModifiedByUserLogin:
-        name: LastModifiedByUserLogin
         columnName: LAST_MODIFIED_BY_USER_LOGIN
-        entity: *o0
         type: id-vlong
       DataSourceId:
-        name: DataSourceId
         columnName: DATA_SOURCE_ID
-        entity: *o0
         type: id
       IsUnread:
-        name: IsUnread
         columnName: IS_UNREAD
-        entity: *o0
         type: indicator
-    references: {}
     reservedProperties:
       active: Active
       createdBy: CreatedByUserLogin
@@ -87,26 +62,23 @@ aggregates:
         properties:
           TaxIdNum:
             type: string
-            
+
       InformalOrganization:
         discriminatorValue: "InformalOrganization"
         abstract: true
-        
+
         subtypes:
         
           Family:            
             discriminatorValue: "Family"
-            
             properties:
               Surname:
                 type: string
-                
             methods:
               ChangeSurname:
                 parameters:
                   NewName:
                     type: string
-                    
+
     # --------------------------  
-    metadata: !System.Collections.Generic.Dictionary%602[[System.String,%20mscorlib,%20Version=4.0.0.0,%20Culture=neutral,%20PublicKeyToken=b77a5c561934e089],[System.Object,%20mscorlib,%20Version=4.0.0.0,%20Culture=neutral,%20PublicKeyToken=b77a5c561934e089]],%20mscorlib,%20Version=4.0.0.0,%20Culture=neutral,%20PublicKeyToken=b77a5c561934e089
-      StateEventDatabaseTableName: PARTY_STATE_EVENT
+    metadata: {}
