@@ -8,7 +8,6 @@ valueObjects:
 
   # ------------------------------
   PersonalName:
-  
     properties:
       FirstName:
         type: string
@@ -18,10 +17,16 @@ valueObjects:
         type: string
         description: Last Name
         length: 50
-    
+  # ------------------------------
+  PersonId:
+    properties:
+      PersonalName:
+        type: PersonalName
+      SequenceId:
+        type: int
+        
   # ------------------------------
   Contact:
-    
     properties:
       PersonalName:
         type: PersonalName
@@ -38,21 +43,25 @@ aggregates:
   Person:
 
     id:
-      name: PersonalName
-      type: PersonalName
+      name: PersonId
+      type: PersonId
     
     properties:
-    
+
+      # JUST FOR TEST
       RefToEntInAnotherAggInst:
         type: PackagePartId
         referenceType: PackagePart
       
+      # -----------------------
       BirthDate:
         type: DateTime
         description: 出生日期
-        
+      Titles:
+        itemType: string
       YearPlans:
         itemType: YearPlan
+      # -----------------------
       
       Loves:
         #type: PersonalName
@@ -73,8 +82,8 @@ aggregates:
       
       ChangeEmail:
         parameters:
-          PersonalName:
-            type: PersonalName
+          PersonId:
+            type: PersonId
             isAggregateId: true
           PersonVersion:
             type: long
@@ -98,7 +107,7 @@ aggregates:
           type: int
           
         outerId:
-          name: PersonalName
+          name: PersonId
           
         globalId: 
           name: YearPlanId
@@ -125,11 +134,11 @@ aggregates:
               name: Month
               type: int
               
-            outerIds:
-              PersonalName:
-                referenceType: Person
-              Year:  
-                referenceType: YearPlan
+            # outerIds:
+              # PersonId:
+                # referenceType: Person
+              # Year:  
+                # referenceType: YearPlan
               
             globalId:
               name: MonthPlanId
@@ -157,7 +166,7 @@ aggregates:
                   type: int
                   
                 outerIds:
-                  PersonalName:
+                  PersonId:
                     referenceType: Person
                   Year:  
                     referenceType: YearPlan

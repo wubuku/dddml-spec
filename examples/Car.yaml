@@ -21,6 +21,14 @@ aggregates:
 
       Tires:
         itemType: Tire
+    
+    methods:
+      # -----------------------------
+      Rotate:
+        parameters:
+          # 4 tire/wheel ID pairs
+          TireWheelIdPairs:
+            itemType: TireWheelIdPair
 
     # -----------------------------
     entities:
@@ -70,9 +78,10 @@ aggregates:
           Position:
           
             id:
+              name: PositionId
               type: long
-              #local: true
               arbitrary: true
+              #local: true
 
             properties:  
 
@@ -93,28 +102,35 @@ aggregates:
     
     # -----------------------------
     valueObjects:
-                
-          TimePeriod:
-            properties:
-              From: 
-                type: DateTime  
-              To: 
-                type: DateTime
-                 
+      # -----------------------------
+      TireWheelIdPair:
+        properties:
+          TireId:
+            type: string
+          WheelId:
+            type: WheelId
+          
+      # -----------------------------
+      TimePeriod:
+        properties:
+          From: 
+            type: DateTime  
+          To: 
+            type: DateTime
+             
     # -----------------------------        
     enumObjects:
-
-          WheelId:
-            baseType: string
-              
-            values:
-              LF:
-                description: left front
-              LR:
-                description: left rear 
-              RF: 
-                description: right front
-              RR:
-                description: right rear
-      
+      # -------------------------------
+      WheelId:
+        baseType: string
+        values:
+          LF:
+            description: left front
+          LR:
+            description: left rear 
+          RF: 
+            description: right front
+          RR:
+            description: right rear
+  
 
