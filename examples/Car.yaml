@@ -15,7 +15,9 @@ aggregates:
       type: string
     
     properties:
-      
+      Description:
+        type: string
+        
       Wheels:
         itemType: Wheel                  
 
@@ -25,6 +27,7 @@ aggregates:
     methods:
       # -----------------------------
       Rotate:
+        eventName: TireWheelPairsRotated
         parameters:
           # 4 tire/wheel ID pairs
           TireWheelIdPairs:
