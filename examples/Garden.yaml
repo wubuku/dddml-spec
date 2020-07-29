@@ -157,6 +157,10 @@ aggregates:
                     {this}.Buildings.Get(buildingNumber).Rooms.Get(roomNumber).Name = RoomName;
                   Java: "{_DEFAULT_MUTATION_LOGIC_}"
                     #((RoomState.MutableRoomState){this}.getBuildings().get(buildingNumber).getRooms().get(roomNumber)).setName(RoomName);
-
+                
+                metadata:
+                  JavaStaticInvokingLogicFunctions: true
+                    
+                    
                     
                     

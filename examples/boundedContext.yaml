@@ -260,6 +260,10 @@ configuration:
 
   aggregates:
   
+    Car:
+      metadata:
+        AutoAggregateMethodJavaDefautLogicEnabled: true
+
     Garden:
     
       metadata:
