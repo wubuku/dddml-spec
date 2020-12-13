@@ -5,7 +5,8 @@ configuration:
 
   boundedContextName: "DddmlTests"
   
-  defaultModule: "Dddml.T4.Templates.Tests.Generated"
+  defaultModule:
+    name: "Dddml.T4.Templates.Tests.Generated"
 
   genericTypes: ["TAccountId", "TQuantity"]
   isGenericTypeAsType: true
