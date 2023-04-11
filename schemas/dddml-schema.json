@@ -1,16 +1,14 @@
 {
     "$schema": "http://json-schema.org/schema#",
-
     "definitions": {
-
         "typeDefinition": {
             "type": "object",
             "properties": {
-                "baseType": { 
-                    "type":"string" 
+                "baseType": {
+                    "type": "string"
                 },
-                "length": { 
-                    "type":"integer" 
+                "length": {
+                    "type": "integer"
                 },
                 "precision": {
                     "type": "integer"
@@ -32,7 +30,6 @@
                 }
             }
         },
-
         "stateMachine": {
             "type": "object",
             "properties": {
@@ -52,7 +49,6 @@
                 }
             }
         },
-
         "property": {
             "type": "object",
             "properties": {
@@ -61,6 +57,9 @@
                 },
                 "itemType": {
                     "type": "string"
+                },
+                "optional": {
+                    "type": "boolean"
                 },
                 "notNull": {
                     "type": "boolean"
@@ -143,17 +142,19 @@
                             "type": "string"
                         }
                     ]
+                },
+                "isOwner": {
+                    "type": "boolean"
                 }
             }
         },
-
         "valueObject": {
             "type": "object",
             "properties": {
-                "displayName": { 
+                "displayName": {
                     "type": "string"
                 },
-                "description": { 
+                "description": {
                     "type": "string"
                 },
                 "properties": {
@@ -167,20 +168,19 @@
                 }
             }
         },
-        
         "enumObjectValue": {
             "type": "object",
             "properties": {
                 "description": {
-                    "type":"string"
+                    "type": "string"
                 },
                 "intValue": {
-                     "type": "integer" 
+                    "type": "integer"
                 },
                 "strValue": {
-                     "type": "string" 
+                    "type": "string"
                 },
-                "value":  {
+                "value": {
                     "anyOf": [
                         {
                             "type": "number"
@@ -201,10 +201,10 @@
         "enumObject": {
             "type": "object",
             "properties": {
-                "displayName": { 
+                "displayName": {
                     "type": "string"
                 },
-                "description": { 
+                "description": {
                     "type": "string"
                 },
                 "baseType": {
@@ -221,7 +221,6 @@
                 }
             }
         },
-
         "parameter": {
             "type": "object",
             "properties": {
@@ -231,12 +230,14 @@
                 "itemType": {
                     "type": "string"
                 },
+                "referenceType": {
+                    "type": "string"
+                },
                 "sequenceNumber": {
                     "type": "number"
                 }
             }
         },
-
         "method": {
             "type": "object",
             "properties": {
@@ -244,14 +245,14 @@
                     "type": "object",
                     "patternProperties": {
                         "^[A-Za-z_][A-Za-z_0-9]*": {
-                            "$ref": "#/definitions/parameter" 
+                            "$ref": "#/definitions/parameter"
                         }
                     },
                     "additionalProperties": false
                 },
                 "isCreationCommand": {
                     "type": "boolean"
-                },   
+                },
                 "isInternal": {
                     "type": "boolean"
                 },
@@ -260,6 +261,12 @@
                     "properties": {
                         "name": {
                             "type": "string"
+                        },
+                        "isObjectShared": {
+                            "type": "boolean"
+                        },
+                        "isObjectFrozen": {
+                            "type": "boolean"
                         },
                         "properties": {
                             "type": "object",
@@ -274,7 +281,6 @@
                 }
             }
         },
-
         "account": {
             "type": "object",
             "properties": {
@@ -282,7 +288,7 @@
                     "type": "string"
                 },
                 "description": {
-                    "type": "string"  
+                    "type": "string"
                 },
                 "balancePropertyName": {
                     "type": "string"
@@ -295,7 +301,6 @@
                 }
             }
         },
-
         "entityLevelConstraint": {
             "type": "object",
             "properties": {
@@ -307,29 +312,28 @@
                 }
             }
         },
-
         "entity": {
             "type": "object",
             "properties": {
-                "displayName": { 
+                "displayName": {
                     "type": "string"
                 },
-                "description": { 
+                "description": {
                     "type": "string"
                 },
                 "audited": {
                     "type": "boolean"
                 },
                 "implements": {
-                    "type":"array",
+                    "type": "array",
                     "items": {
                         "type": "string"
                     }
                 },
                 "id": {
-                    "allOf": [ 
-                        { 
-                            "$ref": "#/definitions/property" 
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/property"
                         },
                         {
                             "properties": {
@@ -341,19 +345,49 @@
                                 },
                                 "isServerSideGenerated": {
                                     "type": "boolean"
+                                },
+                                "generator": {
+                                    "type": "object",
+                                    "properties": {
+                                        "class": {
+                                            "type": "string"
+                                        },
+                                        "tableName": {
+                                            "type": "string"
+                                        },
+                                        "structName": {
+                                            "type": "string"
+                                        }
+                                    }
                                 }
                             }
                         }
                     ]
                 },
+                "globalId": {
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "type": {
+                            "type": "string"
+                        },
+                        "columnNames": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
                 "inheritanceMappingStrategy": {
                     "type": "string",
                     "examples": [
                         "SINGLE_TABLE",
-                         "tph",
-                        "TABLE_PER_CLASS", 
+                        "tph",
+                        "TABLE_PER_CLASS",
                         "tpcc",
-                        "JOINED", 
+                        "JOINED",
                         "tps"
                     ]
                 },
@@ -428,10 +462,9 @@
                 }
             }
         },
-
         "aggregate": {
-            "allOf": [ 
-                { 
+            "allOf": [
+                {
                     "$ref": "#/definitions/entity"
                 },
                 {
@@ -446,14 +479,13 @@
                 }
             ]
         },
-
         "service": {
             "type": "object",
             "properties": {
-                "displayName": { 
+                "displayName": {
                     "type": "string"
                 },
-                "description": { 
+                "description": {
                     "type": "string"
                 },
                 "methods": {
@@ -467,30 +499,29 @@
                 }
             }
         },
-
         "tree": {
             "type": "object",
             "properties": {
-                "displayName": { 
+                "displayName": {
                     "type": "string"
                 },
-                "description": { 
+                "description": {
                     "type": "string"
                 },
-                "nodeContentType": { 
+                "nodeContentType": {
                     "type": "string"
                 },
-                "parentId": { 
+                "parentId": {
                     "type": "string"
                 },
-                "structureType": { 
+                "structureType": {
                     "type": "string"
                 },
-                "childId": { 
+                "childId": {
                     "type": "string"
                 },
-                "rootParentIdValues": { 
-                    "type":"array",
+                "rootParentIdValues": {
+                    "type": "array",
                     "items": {
                         "anyOf": [
                             {
@@ -504,14 +535,13 @@
                 }
             }
         },
-
         "superObject": {
             "type": "object",
             "properties": {
-                "displayName": { 
+                "displayName": {
                     "type": "string"
                 },
-                "description": { 
+                "description": {
                     "type": "string"
                 },
                 "stereotype": {
@@ -528,13 +558,9 @@
                 }
             }
         }
-
     },
-
     "type": "object",
-
     "properties": {
-
         "typeDefinitions": {
             "type": "object",
             "patternProperties": {
@@ -544,7 +570,6 @@
             },
             "additionalProperties": false
         },
-
         "valueObjects": {
             "type": "object",
             "patternProperties": {
@@ -554,7 +579,6 @@
             },
             "additionalProperties": false
         },
-
         "enumObjects": {
             "type": "object",
             "patternProperties": {
@@ -564,7 +588,6 @@
             },
             "additionalProperties": false
         },
-
         "aggregates": {
             "type": "object",
             "patternProperties": {
@@ -574,7 +597,6 @@
             },
             "additionalProperties": false
         },
-
         "services": {
             "type": "object",
             "patternProperties": {
@@ -584,7 +606,6 @@
             },
             "additionalProperties": false
         },
-
         "trees": {
             "type": "object",
             "patternProperties": {
@@ -594,7 +615,6 @@
             },
             "additionalProperties": false
         },
-
         "superObjects": {
             "type": "object",
             "patternProperties": {
@@ -604,7 +624,6 @@
             },
             "additionalProperties": false
         },
-
         "configuration": {
             "type": "object",
             "properties": {
@@ -629,7 +648,6 @@
                 "hateoas": {
                     "type": "boolean"
                 },
-
                 "namedStringPatterns": {
                     "type": "object"
                 },
@@ -639,7 +657,6 @@
                 "metadata": {
                     "type": "object"
                 },
-
                 "accountingQuantityTypes": {
                     "patternProperties": {
                         "^[A-Za-z_][A-Za-z_0-9-]*": {
@@ -659,7 +676,6 @@
                     },
                     "additionalProperties": false
                 },
-
                 "java": {
                     "type": "object",
                     "properties": {
@@ -679,6 +695,5 @@
                 }
             }
         }
- 
     }
 }
