@@ -249,8 +249,28 @@
                     },
                     "additionalProperties": false
                 },
+                "isCreationCommand": {
+                    "type": "boolean"
+                },   
                 "isInternal": {
                     "type": "boolean"
+                },
+                "event": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "properties": {
+                            "type": "object",
+                            "patternProperties": {
+                                "^[A-Za-z_][A-Za-z_0-9]*": {
+                                    "$ref": "#/definitions/property"
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    }
                 }
             }
         },
