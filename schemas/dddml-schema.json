@@ -1,9 +1,13 @@
 {
   "$schema": "http://json-schema.org/schema#",
   "definitions": {
+    "metadata": {
+      "anyOf": [{ "type": "object" }, { "type": "null" }]
+    },
     "typeDefinition": {
       "type": "object",
       "properties": {
+        "metadata": { "$ref": "#/definitions/metadata" },
         "baseType": {
           "type": "string"
         },
@@ -28,7 +32,8 @@
         "cSharpType": {
           "type": "string"
         }
-      }
+      },
+      "additionalProperties": true
     },
     "stateMachine": {
       "type": "object",
@@ -52,6 +57,7 @@
     "property": {
       "type": "object",
       "properties": {
+        "metadata": { "$ref": "#/definitions/metadata" },
         "type": {
           "type": "string"
         },
@@ -145,6 +151,13 @@
         },
         "isOwner": {
           "type": "boolean"
+        },
+        "description": { "type": "string" },
+        "tableName": { "type": "string" },
+        "indexColumnName": { "type": "string" },
+        "itemColumnNames": {
+          "type": "array",
+          "items": { "type": "string" }
         }
       },
       "additionalProperties": true
@@ -152,6 +165,7 @@
     "valueObject": {
       "type": "object",
       "properties": {
+        "metadata": { "$ref": "#/definitions/metadata" },
         "displayName": {
           "type": "string"
         },
@@ -203,6 +217,7 @@
     "enumObject": {
       "type": "object",
       "properties": {
+        "metadata": { "$ref": "#/definitions/metadata" },
         "displayName": {
           "type": "string"
         },
@@ -233,6 +248,7 @@
     "parameter": {
       "type": "object",
       "properties": {
+        "metadata": { "$ref": "#/definitions/metadata" },
         "type": {
           "type": "string"
         },
@@ -244,12 +260,18 @@
         },
         "sequenceNumber": {
           "type": "number"
-        }
-      }
+        },
+        "isMutableReference": { "type": "boolean" },
+        "isIgnoredInEvent": { "type": "boolean" },
+        "eventPropertyName": { "type": "string" },
+        "description": { "type": "string" }
+      },
+      "additionalProperties": true
     },
     "method": {
       "type": "object",
       "properties": {
+        "metadata": { "$ref": "#/definitions/metadata" },
         "parameters": {
           "anyOf": [
             {
@@ -271,9 +293,6 @@
         },
         "isInternal": {
           "type": "boolean"
-        },
-        "metadata": {
-          "type": "object"
         },
         "event": {
           "type": "object",
@@ -301,7 +320,17 @@
         },
         "requiredPermission": {
           "type": "string"
-        }
+        },
+        "result": {
+          "type": "object",
+          "properties": {
+            "isObjectReturned": { "type": "boolean" },
+            "type": { "type": "string" }
+          },
+          "additionalProperties": true
+        },
+        "inheritsFrom": { "type": "string" },
+        "shouldCreateOnDemand": { "type": "boolean" }
       },
       "additionalProperties": true
     },
@@ -451,12 +480,8 @@
           },
           "additionalProperties": false
         },
-        "reservedProperties": {
-          "type": "object"
-        },
-        "metadata": {
-          "anyOf": [{ "type": "object" }, { "type": "null" }]
-        },
+        "metadata": { "$ref": "#/definitions/metadata" },
+        "reservedProperties": { "$ref": "#/definitions/metadata" },
         "friends": {
           "type": "array",
           "items": {
@@ -494,27 +519,64 @@
       "additionalProperties": true
     },
     "aggregate": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/entity"
+      "type": "object",
+      "properties": {
+        "metadata": { "$ref": "#/definitions/metadata" },
+        "reservedProperties": { "$ref": "#/definitions/metadata" },
+        "friends": {
+          "type": "array",
+          "items": { "type": "string" }
         },
-        {
+        "id": {
           "type": "object",
           "properties": {
-            "module": {
-              "type": "string"
-            },
-            "aggregateRootName": {
-              "type": "string"
+            "name": { "type": "string" },
+            "type": { "type": "string" },
+            "generator": {
+              "type": "object",
+              "properties": {
+                "class": { "type": "string" },
+                "tableName": { "type": "string" }
+              },
+              "additionalProperties": true
             }
-          }
+          },
+          "additionalProperties": true
+        },
+        "properties": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Za-z_][A-Za-z_0-9]*": {
+              "$ref": "#/definitions/property"
+            }
+          },
+          "additionalProperties": false
+        },
+        "methods": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Za-z_][A-Za-z_0-9]*": {
+              "$ref": "#/definitions/method"
+            }
+          },
+          "additionalProperties": false
+        },
+        "entities": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Za-z_][A-Za-z_0-9]*": {
+              "$ref": "#/definitions/entity"
+            }
+          },
+          "additionalProperties": false
         }
-      ],
+      },
       "additionalProperties": true
     },
     "service": {
       "type": "object",
       "properties": {
+        "metadata": { "$ref": "#/definitions/metadata" },
         "displayName": {
           "type": "string"
         },
@@ -571,6 +633,7 @@
     "superObject": {
       "type": "object",
       "properties": {
+        "metadata": { "$ref": "#/definitions/metadata" },
         "displayName": {
           "type": "string"
         },
@@ -588,8 +651,19 @@
             }
           },
           "additionalProperties": false
+        },
+        "isTemplate": { "type": "boolean" },
+        "methods": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Za-z_][A-Za-z_0-9]*": {
+              "$ref": "#/definitions/method"
+            }
+          },
+          "additionalProperties": false
         }
-      }
+      },
+      "additionalProperties": true
     }
   },
   "type": "object",
@@ -601,7 +675,7 @@
           "$ref": "#/definitions/typeDefinition"
         }
       },
-      "additionalProperties": false
+      "additionalProperties": true
     },
     "valueObjects": {
       "type": "object",
@@ -696,6 +770,7 @@
     "configuration": {
       "type": "object",
       "properties": {
+        "metadata": { "$ref": "#/definitions/metadata" },
         "boundedContextName": {
           "type": "string"
         },
@@ -753,9 +828,6 @@
           "type": "object"
         },
         "defaultReservedProperties": {
-          "type": "object"
-        },
-        "metadata": {
           "type": "object"
         },
         "accountingQuantityTypes": {
