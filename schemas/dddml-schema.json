@@ -78,7 +78,7 @@
                     "type": "string"
                 },
                 "columnName": {
-                    "type": "string"
+                    "type": ["string", "boolean"]
                 },
                 "columnNames": {
                     "type": "array",
@@ -144,7 +144,8 @@
                         }
                     ]
                 }
-            }
+            },
+            "additionalProperties": true
         },
 
         "valueObject": {
@@ -163,9 +164,10 @@
                             "$ref": "#/definitions/property"
                         }
                     },
-                    "additionalProperties": false
+                    "additionalProperties": true
                 }
-            }
+            },
+            "additionalProperties": true
         },
         
         "enumObjectValue": {
@@ -214,12 +216,22 @@
                     "type": "object",
                     "patternProperties": {
                         "^[A-Z_][A-Za-z_0-9]*": {
-                            "$ref": "#/definitions/enumObjectValue"
+                            "type": "object",
+                            "properties": {
+                                "value": {
+                                    "anyOf": [
+                                        { "type": "number" },
+                                        { "type": "string" }
+                                    ]
+                                }
+                            },
+                            "additionalProperties": true
                         }
                     },
                     "additionalProperties": false
                 }
-            }
+            },
+            "additionalProperties": true
         },
 
         "parameter": {
@@ -241,18 +253,38 @@
             "type": "object",
             "properties": {
                 "parameters": {
-                    "type": "object",
-                    "patternProperties": {
-                        "^[A-Za-z_][A-Za-z_0-9]*": {
-                            "$ref": "#/definitions/parameter" 
+                    "anyOf": [
+                        {
+                            "type": "object",
+                            "patternProperties": {
+                                "^[A-Za-z_][A-Za-z_0-9]*": {
+                                    "$ref": "#/definitions/parameter" 
+                                }
+                            },
+                            "additionalProperties": false
+                        },
+                        {
+                            "type": "null"
                         }
-                    },
-                    "additionalProperties": false
+                    ]
                 },
                 "isInternal": {
                     "type": "boolean"
+                },
+                "metadata": {
+                    "type": "object"
+                },
+                "event": {
+                    "type": "object"
+                },
+                "requiredPermission": {
+                    "type": "string"
+                },
+                "isCreationCommand": {
+                    "type": "boolean"
                 }
-            }
+            },
+            "additionalProperties": true
         },
 
         "account": {
@@ -377,7 +409,16 @@
                     "type": "object"
                 },
                 "metadata": {
-                    "type": "object"
+                    "anyOf": [
+                        { "type": "object" },
+                        { "type": "null" }
+                    ]
+                },
+                "friends": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 },
                 "valueObjects": {
                     "type": "object",
@@ -406,7 +447,8 @@
                     },
                     "additionalProperties": false
                 }
-            }
+            },
+            "additionalProperties": true
         },
 
         "aggregate": {
@@ -415,6 +457,7 @@
                     "$ref": "#/definitions/entity"
                 },
                 {
+                    "type": "object",
                     "properties": {
                         "module": {
                             "type": "string"
@@ -424,7 +467,8 @@
                         }
                     }
                 }
-            ]
+            ],
+            "additionalProperties": true
         },
 
         "service": {
@@ -532,17 +576,38 @@
                     "$ref": "#/definitions/valueObject"
                 }
             },
-            "additionalProperties": false
+            "additionalProperties": true
         },
 
         "enumObjects": {
             "type": "object",
             "patternProperties": {
                 "^[A-Z_][A-Za-z_0-9]*": {
-                    "$ref": "#/definitions/enumObject"
+                    "type": "object",
+                    "properties": {
+                        "baseType": {
+                            "type": "string"
+                        },
+                        "values": {
+                            "type": "object",
+                            "patternProperties": {
+                                "^[A-Z_][A-Za-z_0-9]*": {
+                                    "type": "object",
+                                    "properties": {
+                                        "value": {
+                                            "type": ["number", "string"]
+                                        }
+                                    },
+                                    "additionalProperties": true
+                                }
+                            },
+                            "additionalProperties": true
+                        }
+                    },
+                    "additionalProperties": true
                 }
             },
-            "additionalProperties": false
+            "additionalProperties": true
         },
 
         "aggregates": {
@@ -579,7 +644,22 @@
             "type": "object",
             "patternProperties": {
                 "^[A-Z_][A-Za-z_0-9]*": {
-                    "$ref": "#/definitions/superObject"
+                    "type": "object",
+                    "properties": {
+                        "isTemplate": {
+                            "type": "boolean"
+                        },
+                        "methods": {
+                            "type": "object",
+                            "patternProperties": {
+                                "^[A-Z_][A-Za-z_0-9]*": {
+                                    "$ref": "#/definitions/method"
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    },
+                    "additionalProperties": true
                 }
             },
             "additionalProperties": false
