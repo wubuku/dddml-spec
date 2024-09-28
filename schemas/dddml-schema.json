@@ -1,805 +1,799 @@
 {
-    "$schema": "http://json-schema.org/schema#",
-    "definitions": {
-        "typeDefinition": {
+  "$schema": "http://json-schema.org/schema#",
+  "definitions": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "baseType": {
+          "type": "string"
+        },
+        "length": {
+          "type": "integer"
+        },
+        "precision": {
+          "type": "integer"
+        },
+        "scale": {
+          "type": "integer"
+        },
+        "notNull": {
+          "type": "boolean"
+        },
+        "sqlType": {
+          "type": "string"
+        },
+        "javaType": {
+          "type": "string"
+        },
+        "cSharpType": {
+          "type": "string"
+        }
+      }
+    },
+    "stateMachine": {
+      "type": "object",
+      "properties": {
+        "transitions": {
+          "type": "array",
+          "items": {
             "type": "object",
             "properties": {
-                "baseType": {
-                    "type": "string"
-                },
-                "length": {
-                    "type": "integer"
-                },
-                "precision": {
-                    "type": "integer"
-                },
-                "scale": {
-                    "type": "integer"
-                },
-                "notNull": {
-                    "type": "boolean"
-                },
-                "sqlType": {
-                    "type": "string"
-                },
-                "javaType": {
-                    "type": "string"
-                },
-                "cSharpType": {
-                    "type": "string"
-                }
+              "sourceState": {},
+              "targetState": {},
+              "trigger": {},
+              "guard": {
+                "type": "object"
+              }
             }
+          }
+        }
+      }
+    },
+    "property": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "itemType": {
+          "type": "string"
+        },
+        "optional": {
+          "type": "boolean"
+        },
+        "notNull": {
+          "type": "boolean"
+        },
+        "length": {
+          "type": "integer"
+        },
+        "sequenceNumber": {
+          "type": "number"
+        },
+        "stereotype": {
+          "type": "string"
+        },
+        "alias": {
+          "type": "string"
+        },
+        "columnName": {
+          "type": ["string", "boolean"]
+        },
+        "columnNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "constraints": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "columnNamePrefix": {
+          "type": "string"
+        },
+        "referenceType": {
+          "type": "string"
+        },
+        "inverseOf": {
+          "type": "string"
+        },
+        "defaultLogic": {
+          "type": "object"
+        },
+        "isDerived": {
+          "type": "boolean"
+        },
+        "derivationLogic": {
+          "type": "object"
+        },
+        "filter": {
+          "type": "object"
+        },
+        "enumType": {
+          "type": "string"
+        },
+        "itemEnumType": {
+          "type": "string"
+        },
+        "commandType": {
+          "type": "string"
+        },
+        "commandName": {
+          "type": "string"
+        },
+        "listable": {
+          "type": "boolean"
+        },
+        "editable": {
+          "type": "boolean"
         },
         "stateMachine": {
-            "type": "object",
-            "properties": {
-                "transitions": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "sourceState": {},
-                            "targetState": {},
-                            "trigger": {},
-                            "guard": {
-                                "type": "object"
-                            }
-                        }
-                    }
-                }
-            }
+          "$ref": "#/definitions/stateMachine"
         },
-        "property": {
-            "type": "object",
-            "properties": {
-                "type": {
-                    "type": "string"
-                },
-                "itemType": {
-                    "type": "string"
-                },
-                "optional": {
-                    "type": "boolean"
-                },
-                "notNull": {
-                    "type": "boolean"
-                },
-                "length": {
-                    "type": "integer"
-                },
-                "sequenceNumber": {
-                    "type": "number"
-                },
-                "stereotype": {
-                    "type": "string"
-                },
-                "alias": {
-                    "type": "string"
-                },
-                "columnName": {
-                    "type": ["string", "boolean"]
-                },
-                "columnNames": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "constraints": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "columnNamePrefix": {
-                    "type": "string"
-                },
-                "referenceType": {
-                    "type": "string"
-                },
-                "inverseOf": {
-                    "type": "string"
-                },
-                "defaultLogic": {
-                    "type": "object"
-                },
-                "isDerived": {
-                    "type": "boolean"
-                },
-                "derivationLogic": {
-                    "type": "object"
-                },
-                "filter": {
-                    "type": "object"
-                },
-                "enumType": {
-                    "type": "string"
-                },
-                "itemEnumType": {
-                    "type": "string"
-                },
-                "commandType": {
-                    "type": "string"
-                },
-                "commandName": {
-                    "type": "string"
-                },
-                "listable": {
-                    "type": "boolean"
-                },
-                "editable": {
-                    "type": "boolean"
-                },
-                "stateMachine": {
-                    "$ref": "#/definitions/stateMachine"
-                },
-                "searchable": {
-                    "anyOf": [
-                        {
-                            "type": "boolean"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                },
-                "isOwner": {
-                    "type": "boolean"
-                }
+        "searchable": {
+          "anyOf": [
+            {
+              "type": "boolean"
             },
-            "additionalProperties": true
-        },
-        "valueObject": {
-            "type": "object",
-            "properties": {
-                "displayName": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "properties": {
-                    "type": "object",
-                    "patternProperties": {
-                        "^[A-Za-z_][A-Za-z_0-9]*": {
-                            "$ref": "#/definitions/property"
-                        }
-                    },
-                    "additionalProperties": true
-                }
-            },
-            "additionalProperties": true
-        },
-        "enumObjectValue": {
-            "type": "object",
-            "properties": {
-                "description": {
-                    "type": "string"
-                },
-                "intValue": {
-                    "type": "integer"
-                },
-                "strValue": {
-                    "type": "string"
-                },
-                "value": {
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "object"
-                        }
-                    ]
-                },
-                "sequenceNumber": {
-                    "type": "number"
-                }
+            {
+              "type": "string"
             }
+          ]
         },
-        "enumObject": {
-            "type": "object",
-            "properties": {
-                "displayName": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "baseType": {
-                    "type": "string"
-                },
-                "values": {
-                    "type": "object",
-                    "patternProperties": {
-                        "^[A-Z_][A-Za-z_0-9]*": {
-                            "type": "object",
-                            "properties": {
-                                "value": {
-                                    "anyOf": [
-                                        { "type": "number" },
-                                        { "type": "string" }
-                                    ]
-                                }
-                            },
-                            "additionalProperties": true
-                        }
-                    },
-                    "additionalProperties": false
-                }
-            },
-            "additionalProperties": true
-        },
-        "parameter": {
-            "type": "object",
-            "properties": {
-                "type": {
-                    "type": "string"
-                },
-                "itemType": {
-                    "type": "string"
-                },
-                "referenceType": {
-                    "type": "string"
-                },
-                "sequenceNumber": {
-                    "type": "number"
-                }
-            }
-        },
-        "method": {
-            "type": "object",
-            "properties": {
-                "parameters": {
-                    "anyOf": [
-                        {
-                            "type": "object",
-                            "patternProperties": {
-                                "^[A-Za-z_][A-Za-z_0-9]*": {
-                                    "$ref": "#/definitions/parameter" 
-                                }
-                            },
-                            "additionalProperties": false
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
-                },
-                "isCreationCommand": {
-                    "type": "boolean"
-                },
-                "isInternal": {
-                    "type": "boolean"
-                },
-                "metadata": {
-                    "type": "object"
-                },
-                "event": {
-                    "type": "object",
-                    "properties": {
-                        "name": {
-                            "type": "string"
-                        },
-                        "isObjectShared": {
-                            "type": "boolean"
-                        },
-                        "isObjectFrozen": {
-                            "type": "boolean"
-                        },
-                        "properties": {
-                            "type": "object",
-                            "patternProperties": {
-                                "^[A-Za-z_][A-Za-z_0-9]*": {
-                                    "$ref": "#/definitions/property"
-                                }
-                            },
-                            "additionalProperties": false
-                        }
-                    },
-                    "additionalProperties": true
-                },
-                "requiredPermission": {
-                    "type": "string"
-                }
-            },
-            "additionalProperties": true
-        },
-        "account": {
-            "type": "object",
-            "properties": {
-                "displayName": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "balancePropertyName": {
-                    "type": "string"
-                },
-                "entryEntityName": {
-                    "type": "string"
-                },
-                "entryAmountPropertyName": {
-                    "type": "string"
-                }
-            }
-        },
-        "entityLevelConstraint": {
-            "type": "object",
-            "properties": {
-                "displayName": {
-                    "type": "string"
-                },
-                "validationLogic": {
-                    "type": "object"
-                }
-            }
-        },
-        "entity": {
-            "type": "object",
-            "properties": {
-                "displayName": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "audited": {
-                    "type": "boolean"
-                },
-                "implements": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "id": {
-                    "allOf": [
-                        {
-                            "$ref": "#/definitions/property"
-                        },
-                        {
-                            "properties": {
-                                "name": {
-                                    "type": "string"
-                                },
-                                "arbitrary": {
-                                    "type": "boolean"
-                                },
-                                "isServerSideGenerated": {
-                                    "type": "boolean"
-                                },
-                                "generator": {
-                                    "type": "object",
-                                    "properties": {
-                                        "class": {
-                                            "type": "string"
-                                        },
-                                        "tableName": {
-                                            "type": "string"
-                                        },
-                                        "structName": {
-                                            "type": "string"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    ]
-                },
-                "globalId": {
-                    "properties": {
-                        "name": {
-                            "type": "string"
-                        },
-                        "type": {
-                            "type": "string"
-                        },
-                        "columnNames": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                },
-                "inheritanceMappingStrategy": {
-                    "type": "string",
-                    "examples": [
-                        "SINGLE_TABLE",
-                        "tph",
-                        "TABLE_PER_CLASS",
-                        "tpcc",
-                        "JOINED",
-                        "tps"
-                    ]
-                },
-                "properties": {
-                    "type": "object",
-                    "patternProperties": {
-                        "^[A-Za-z_][A-Za-z_0-9]*": {
-                            "$ref": "#/definitions/property"
-                        }
-                    },
-                    "additionalProperties": false
-                },
-                "entities": {
-                    "type": "object",
-                    "patternProperties": {
-                        "^[A-Z_][A-Za-z_0-9]*": {
-                            "$ref": "#/definitions/entity"
-                        }
-                    },
-                    "additionalProperties": false
-                },
-                "methods": {
-                    "type": "object",
-                    "patternProperties": {
-                        "^[A-Z_][A-Za-z_0-9]*": {
-                            "$ref": "#/definitions/method"
-                        }
-                    },
-                    "additionalProperties": false
-                },
-                "accounts": {
-                    "type": "object",
-                    "patternProperties": {
-                        "^[A-Z_][A-Za-z_0-9]*": {
-                            "$ref": "#/definitions/account"
-                        }
-                    },
-                    "additionalProperties": false
-                },
-                "reservedProperties": {
-                    "type": "object"
-                },
-                "metadata": {
-                    "anyOf": [
-                        { "type": "object" },
-                        { "type": "null" }
-                    ]
-                },
-                "friends": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "valueObjects": {
-                    "type": "object",
-                    "patternProperties": {
-                        "^[A-Z_][A-Za-z_0-9]*": {
-                            "$ref": "#/definitions/valueObject"
-                        }
-                    },
-                    "additionalProperties": false
-                },
-                "enumObjects": {
-                    "type": "object",
-                    "patternProperties": {
-                        "^[A-Z_][A-Za-z_0-9]*": {
-                            "$ref": "#/definitions/enumObject"
-                        }
-                    },
-                    "additionalProperties": false
-                },
-                "constraints": {
-                    "type": "object",
-                    "patternProperties": {
-                        "^[A-Za-z_][A-Za-z_0-9]*": {
-                            "$ref": "#/definitions/entityLevelConstraint"
-                        }
-                    },
-                    "additionalProperties": false
-                }
-            },
-            "additionalProperties": true
-        },
-        "aggregate": {
-            "allOf": [
-                {
-                    "$ref": "#/definitions/entity"
-                },
-                {
-                    "type": "object",
-                    "properties": {
-                        "module": {
-                            "type": "string"
-                        },
-                        "aggregateRootName": {
-                            "type": "string"
-                        }
-                    }
-                }
-            ],
-            "additionalProperties": true
-        },
-        "service": {
-            "type": "object",
-            "properties": {
-                "displayName": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "methods": {
-                    "type": "object",
-                    "patternProperties": {
-                        "^[A-Z_][A-Za-z_0-9]*": {
-                            "$ref": "#/definitions/method"
-                        }
-                    },
-                    "additionalProperties": false
-                }
-            }
-        },
-        "tree": {
-            "type": "object",
-            "properties": {
-                "displayName": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "nodeContentType": {
-                    "type": "string"
-                },
-                "parentId": {
-                    "type": "string"
-                },
-                "structureType": {
-                    "type": "string"
-                },
-                "childId": {
-                    "type": "string"
-                },
-                "rootParentIdValues": {
-                    "type": "array",
-                    "items": {
-                        "anyOf": [
-                            {
-                                "type": "string"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ]
-                    }
-                }
-            }
-        },
-        "superObject": {
-            "type": "object",
-            "properties": {
-                "displayName": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "stereotype": {
-                    "type": "string"
-                },
-                "properties": {
-                    "type": "object",
-                    "patternProperties": {
-                        "^[A-Za-z_][A-Za-z_0-9]*": {
-                            "$ref": "#/definitions/property"
-                        }
-                    },
-                    "additionalProperties": false
-                }
-            }
+        "isOwner": {
+          "type": "boolean"
         }
+      },
+      "additionalProperties": true
     },
-    "type": "object",
-    "properties": {
-        "typeDefinitions": {
-            "type": "object",
-            "patternProperties": {
-                "^[A-Za-z_][A-Za-z_0-9-]*": {
-                    "$ref": "#/definitions/typeDefinition"
-                }
+    "valueObject": {
+      "type": "object",
+      "properties": {
+        "displayName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "properties": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Za-z_][A-Za-z_0-9]*": {
+              "$ref": "#/definitions/property"
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "enumObjectValue": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "intValue": {
+          "type": "integer"
+        },
+        "strValue": {
+          "type": "string"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
             },
-            "additionalProperties": false
+            {
+              "type": "string"
+            },
+            {
+              "type": "object"
+            }
+          ]
+        },
+        "sequenceNumber": {
+          "type": "number"
+        }
+      }
+    },
+    "enumObject": {
+      "type": "object",
+      "properties": {
+        "displayName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "baseType": {
+          "type": "string"
+        },
+        "values": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Z_][A-Za-z_0-9]*": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "anyOf": [{ "type": "number" }, { "type": "string" }]
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": true
+    },
+    "parameter": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "itemType": {
+          "type": "string"
+        },
+        "referenceType": {
+          "type": "string"
+        },
+        "sequenceNumber": {
+          "type": "number"
+        }
+      }
+    },
+    "method": {
+      "type": "object",
+      "properties": {
+        "parameters": {
+          "anyOf": [
+            {
+              "type": "object",
+              "patternProperties": {
+                "^[A-Za-z_][A-Za-z_0-9]*": {
+                  "$ref": "#/definitions/parameter"
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "isCreationCommand": {
+          "type": "boolean"
+        },
+        "isInternal": {
+          "type": "boolean"
+        },
+        "metadata": {
+          "type": "object"
+        },
+        "event": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "isObjectShared": {
+              "type": "boolean"
+            },
+            "isObjectFrozen": {
+              "type": "boolean"
+            },
+            "properties": {
+              "type": "object",
+              "patternProperties": {
+                "^[A-Za-z_][A-Za-z_0-9]*": {
+                  "$ref": "#/definitions/property"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": true
+        },
+        "requiredPermission": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "account": {
+      "type": "object",
+      "properties": {
+        "displayName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "balancePropertyName": {
+          "type": "string"
+        },
+        "entryEntityName": {
+          "type": "string"
+        },
+        "entryAmountPropertyName": {
+          "type": "string"
+        }
+      }
+    },
+    "entityLevelConstraint": {
+      "type": "object",
+      "properties": {
+        "displayName": {
+          "type": "string"
+        },
+        "validationLogic": {
+          "type": "object"
+        }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "displayName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "audited": {
+          "type": "boolean"
+        },
+        "implements": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/property"
+            },
+            {
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "arbitrary": {
+                  "type": "boolean"
+                },
+                "isServerSideGenerated": {
+                  "type": "boolean"
+                },
+                "generator": {
+                  "type": "object",
+                  "properties": {
+                    "class": {
+                      "type": "string"
+                    },
+                    "tableName": {
+                      "type": "string"
+                    },
+                    "structName": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "globalId": {
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "columnNames": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "inheritanceMappingStrategy": {
+          "type": "string",
+          "examples": [
+            "SINGLE_TABLE",
+            "tph",
+            "TABLE_PER_CLASS",
+            "tpcc",
+            "JOINED",
+            "tps"
+          ]
+        },
+        "properties": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Za-z_][A-Za-z_0-9]*": {
+              "$ref": "#/definitions/property"
+            }
+          },
+          "additionalProperties": false
+        },
+        "entities": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Z_][A-Za-z_0-9]*": {
+              "$ref": "#/definitions/entity"
+            }
+          },
+          "additionalProperties": false
+        },
+        "methods": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Z_][A-Za-z_0-9]*": {
+              "$ref": "#/definitions/method"
+            }
+          },
+          "additionalProperties": false
+        },
+        "accounts": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Z_][A-Za-z_0-9]*": {
+              "$ref": "#/definitions/account"
+            }
+          },
+          "additionalProperties": false
+        },
+        "reservedProperties": {
+          "type": "object"
+        },
+        "metadata": {
+          "anyOf": [{ "type": "object" }, { "type": "null" }]
+        },
+        "friends": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "valueObjects": {
-            "type": "object",
-            "patternProperties": {
-                "^[A-Z_][A-Za-z_0-9]*": {
-                    "$ref": "#/definitions/valueObject"
-                }
-            },
-            "additionalProperties": true
+          "type": "object",
+          "patternProperties": {
+            "^[A-Z_][A-Za-z_0-9]*": {
+              "$ref": "#/definitions/valueObject"
+            }
+          },
+          "additionalProperties": false
         },
         "enumObjects": {
-            "type": "object",
-            "patternProperties": {
-                "^[A-Z_][A-Za-z_0-9]*": {
-                    "type": "object",
-                    "properties": {
-                        "baseType": {
-                            "type": "string"
-                        },
-                        "values": {
-                            "type": "object",
-                            "patternProperties": {
-                                "^[A-Z_][A-Za-z_0-9]*": {
-                                    "type": "object",
-                                    "properties": {
-                                        "value": {
-                                            "type": ["number", "string"]
-                                        }
-                                    },
-                                    "additionalProperties": true
-                                }
-                            },
-                            "additionalProperties": true
-                        }
-                    },
-                    "additionalProperties": true
-                }
-            },
-            "additionalProperties": true
+          "type": "object",
+          "patternProperties": {
+            "^[A-Z_][A-Za-z_0-9]*": {
+              "$ref": "#/definitions/enumObject"
+            }
+          },
+          "additionalProperties": false
         },
-        "aggregates": {
-            "type": "object",
-            "patternProperties": {
-                "^[A-Z_][A-Za-z_0-9]*": {
-                    "$ref": "#/definitions/aggregate"
-                }
-            },
-            "additionalProperties": false
-        },
-        "services": {
-            "type": "object",
-            "patternProperties": {
-                "^[A-Z_][A-Za-z_0-9]*": {
-                    "$ref": "#/definitions/service"
-                }
-            },
-            "additionalProperties": false
-        },
-        "trees": {
-            "type": "object",
-            "patternProperties": {
-                "^[A-Z_][A-Za-z_0-9]*": {
-                    "$ref": "#/definitions/tree"
-                }
-            },
-            "additionalProperties": false
-        },
-        "superObjects": {
-            "type": "object",
-            "patternProperties": {
-                "^[A-Z_][A-Za-z_0-9]*": {
-                    "type": "object",
-                    "properties": {
-                        "isTemplate": {
-                            "type": "boolean"
-                        },
-                        "methods": {
-                            "type": "object",
-                            "patternProperties": {
-                                "^[A-Z_][A-Za-z_0-9]*": {
-                                    "$ref": "#/definitions/method"
-                                }
-                            },
-                            "additionalProperties": false
-                        }
-                    },
-                    "additionalProperties": true
-                }
-            },
-            "additionalProperties": false
-        },
-        "configuration": {
-            "type": "object",
-            "properties": {
-                "boundedContextName": {
-                    "type": "string"
-                },
-                "displayName": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "defaultModule": {
-                    "anyOf": [
-                        { "type": "string" },
-                        {
-                            "type": "object",
-                            "properties": {
-                                "name": { "type": "string" },
-                                "requiredModules": {
-                                    "type": "array",
-                                    "items": { "type": "string" }
-                                }
-                            },
-                            "required": ["name"],
-                            "additionalProperties": false
-                        }
-                    ]
-                },
-                "submodules": {
-                    "type": "object",
-                    "patternProperties": {
-                        "^[A-Za-z_][A-Za-z_0-9]*": {
-                            "type": "object",
-                            "properties": {
-                                "requiredModules": {
-                                    "type": "array",
-                                    "items": { "type": "string" }
-                                }
-                            },
-                            "additionalProperties": false
-                        }
-                    },
-                    "additionalProperties": false
-                },
-                "baseUri": {
-                    "type": "string"
-                },
-                "audited": {
-                    "type": "boolean"
-                },
-                "hateoas": {
-                    "type": "boolean"
-                },
-                "namedStringPatterns": {
-                    "type": "object"
-                },
-                "defaultReservedProperties": {
-                    "type": "object"
-                },
-                "metadata": {
-                    "type": "object"
-                },
-                "accountingQuantityTypes": {
-                    "patternProperties": {
-                        "^[A-Za-z_][A-Za-z_0-9-]*": {
-                            "type": "object",
-                            "properties": {
-                                "zeroLogic": {
-                                    "type": "object"
-                                },
-                                "addLogic": {
-                                    "type": "object"
-                                },
-                                "negateLogic": {
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    },
-                    "additionalProperties": false
-                },
-                "java": {
-                    "type": "object",
-                    "properties": {
-                        "boundedContextPackage": {
-                            "type": "string"
-                        },
-                        "specializationPackage": {
-                            "type": "string"
-                        },
-                        "isUsingSeparatedDomainAggregatePackage": {
-                            "type": "boolean"
-                        },
-                        "defaultUserIdType": {
-                            "type": "string"
-                        }
-                    }
-                }
-            },
-            "additionalProperties": true
+        "constraints": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Za-z_][A-Za-z_0-9]*": {
+              "$ref": "#/definitions/entityLevelConstraint"
+            }
+          },
+          "additionalProperties": false
         }
+      },
+      "additionalProperties": true
+    },
+    "aggregate": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/entity"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "module": {
+              "type": "string"
+            },
+            "aggregateRootName": {
+              "type": "string"
+            }
+          }
+        }
+      ],
+      "additionalProperties": true
+    },
+    "service": {
+      "type": "object",
+      "properties": {
+        "displayName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "methods": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Z_][A-Za-z_0-9]*": {
+              "$ref": "#/definitions/method"
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "tree": {
+      "type": "object",
+      "properties": {
+        "displayName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "nodeContentType": {
+          "type": "string"
+        },
+        "parentId": {
+          "type": "string"
+        },
+        "structureType": {
+          "type": "string"
+        },
+        "childId": {
+          "type": "string"
+        },
+        "rootParentIdValues": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "superObject": {
+      "type": "object",
+      "properties": {
+        "displayName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "stereotype": {
+          "type": "string"
+        },
+        "properties": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Za-z_][A-Za-z_0-9]*": {
+              "$ref": "#/definitions/property"
+            }
+          },
+          "additionalProperties": false
+        }
+      }
     }
+  },
+  "type": "object",
+  "properties": {
+    "typeDefinitions": {
+      "type": "object",
+      "patternProperties": {
+        "^[A-Za-z_][A-Za-z_0-9-]*": {
+          "$ref": "#/definitions/typeDefinition"
+        }
+      },
+      "additionalProperties": false
+    },
+    "valueObjects": {
+      "type": "object",
+      "patternProperties": {
+        "^[A-Z_][A-Za-z_0-9]*": {
+          "$ref": "#/definitions/valueObject"
+        }
+      },
+      "additionalProperties": true
+    },
+    "enumObjects": {
+      "type": "object",
+      "patternProperties": {
+        "^[A-Z_][A-Za-z_0-9]*": {
+          "type": "object",
+          "properties": {
+            "baseType": {
+              "type": "string"
+            },
+            "values": {
+              "type": "object",
+              "patternProperties": {
+                "^[A-Z_][A-Za-z_0-9]*": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": ["number", "string"]
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "aggregates": {
+      "type": "object",
+      "patternProperties": {
+        "^[A-Z_][A-Za-z_0-9]*": {
+          "$ref": "#/definitions/aggregate"
+        }
+      },
+      "additionalProperties": false
+    },
+    "services": {
+      "type": "object",
+      "patternProperties": {
+        "^[A-Z_][A-Za-z_0-9]*": {
+          "$ref": "#/definitions/service"
+        }
+      },
+      "additionalProperties": false
+    },
+    "trees": {
+      "type": "object",
+      "patternProperties": {
+        "^[A-Z_][A-Za-z_0-9]*": {
+          "$ref": "#/definitions/tree"
+        }
+      },
+      "additionalProperties": false
+    },
+    "superObjects": {
+      "type": "object",
+      "patternProperties": {
+        "^[A-Z_][A-Za-z_0-9]*": {
+          "type": "object",
+          "properties": {
+            "isTemplate": {
+              "type": "boolean"
+            },
+            "methods": {
+              "type": "object",
+              "patternProperties": {
+                "^[A-Z_][A-Za-z_0-9]*": {
+                  "$ref": "#/definitions/method"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "configuration": {
+      "type": "object",
+      "properties": {
+        "boundedContextName": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "defaultModule": {
+          "anyOf": [
+            { "type": "string" },
+            {
+              "type": "object",
+              "properties": {
+                "name": { "type": "string" },
+                "requiredModules": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                }
+              },
+              "required": ["name"],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "submodules": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Za-z_][A-Za-z_0-9]*": {
+              "type": "object",
+              "properties": {
+                "requiredModules": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "baseUri": {
+          "type": "string"
+        },
+        "audited": {
+          "type": "boolean"
+        },
+        "hateoas": {
+          "type": "boolean"
+        },
+        "namedStringPatterns": {
+          "type": "object"
+        },
+        "defaultReservedProperties": {
+          "type": "object"
+        },
+        "metadata": {
+          "type": "object"
+        },
+        "accountingQuantityTypes": {
+          "patternProperties": {
+            "^[A-Za-z_][A-Za-z_0-9-]*": {
+              "type": "object",
+              "properties": {
+                "zeroLogic": {
+                  "type": "object"
+                },
+                "addLogic": {
+                  "type": "object"
+                },
+                "negateLogic": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "java": {
+          "type": "object",
+          "properties": {
+            "boundedContextPackage": {
+              "type": "string"
+            },
+            "specializationPackage": {
+              "type": "string"
+            },
+            "isUsingSeparatedDomainAggregatePackage": {
+              "type": "boolean"
+            },
+            "defaultUserIdType": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  }
 }
