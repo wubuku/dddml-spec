@@ -715,10 +715,11 @@
                 "requiredModules": {
                   "type": "array",
                   "items": { "type": "string" }
-                }
+                },
+                "isAptosExternalStoreEnabled": { "type": "boolean" }
               },
               "required": ["name"],
-              "additionalProperties": false
+              "additionalProperties": true
             }
           ]
         },
@@ -731,9 +732,10 @@
                 "requiredModules": {
                   "type": "array",
                   "items": { "type": "string" }
-                }
+                },
+                "isAptosExternalStoreEnabled": { "type": "boolean" }
               },
-              "additionalProperties": false
+              "additionalProperties": true
             }
           },
           "additionalProperties": false
