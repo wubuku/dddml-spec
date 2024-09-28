@@ -678,7 +678,37 @@
                     "type": "string"
                 },
                 "defaultModule": {
-                    "type": "string"
+                    "anyOf": [
+                        { "type": "string" },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "name": { "type": "string" },
+                                "requiredModules": {
+                                    "type": "array",
+                                    "items": { "type": "string" }
+                                }
+                            },
+                            "required": ["name"],
+                            "additionalProperties": false
+                        }
+                    ]
+                },
+                "submodules": {
+                    "type": "object",
+                    "patternProperties": {
+                        "^[A-Za-z_][A-Za-z_0-9]*": {
+                            "type": "object",
+                            "properties": {
+                                "requiredModules": {
+                                    "type": "array",
+                                    "items": { "type": "string" }
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    },
+                    "additionalProperties": false
                 },
                 "baseUri": {
                     "type": "string"
@@ -737,7 +767,8 @@
                         }
                     }
                 }
-            }
+            },
+            "additionalProperties": true
         }
  
     }
