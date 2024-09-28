@@ -2,7 +2,15 @@
   "$schema": "http://json-schema.org/schema#",
   "definitions": {
     "metadata": {
-      "anyOf": [{ "type": "object" }, { "type": "null" }]
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": true
+        },
+        {
+          "type": "null"
+        }
+      ]
     },
     "typeDefinition": {
       "type": "object",
@@ -271,7 +279,22 @@
     "method": {
       "type": "object",
       "properties": {
-        "metadata": { "$ref": "#/definitions/metadata" },
+        "metadata": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "IsOnlyOpenToFriends": { "type": "boolean" },
+                "MudSystemName": { "type": "string" },
+                "GlobalName": { "type": "string" }
+              },
+              "additionalProperties": true
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
         "parameters": {
           "anyOf": [
             {
@@ -521,7 +544,27 @@
     "aggregate": {
       "type": "object",
       "properties": {
-        "metadata": { "$ref": "#/definitions/metadata" },
+        "metadata": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "Preprocessors": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                },
+                "CRUD_IT_NO_UPDATE": { "type": "boolean" },
+                "CRUD_IT_NO_DELETE": { "type": "boolean" },
+                "IsAbstractMudSystem": { "type": "boolean" },
+                "MudStoreValueCheckMaxFieldCount": { "type": "integer" }
+              },
+              "additionalProperties": true
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
         "reservedProperties": { "$ref": "#/definitions/metadata" },
         "friends": {
           "type": "array",
@@ -576,7 +619,20 @@
     "service": {
       "type": "object",
       "properties": {
-        "metadata": { "$ref": "#/definitions/metadata" },
+        "metadata": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "GlobalFunctionNamePrefix": { "type": "string" }
+              },
+              "additionalProperties": true
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
         "displayName": {
           "type": "string"
         },
