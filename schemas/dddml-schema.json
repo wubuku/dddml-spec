@@ -39,7 +39,9 @@
         },
         "cSharpType": {
           "type": "string"
-        }
+        },
+        "moveType": { "type": "string" },
+        "droppable": { "type": "boolean" }
       },
       "additionalProperties": true
     },
@@ -290,7 +292,8 @@
                 "ParametersIncludedInMutationFunction": {
                   "type": "array",
                   "items": { "type": "string" }
-                }
+                },
+                "IsExternalStoreAddressNotRequired": { "type": "boolean" }
               },
               "additionalProperties": true
             },
@@ -867,7 +870,22 @@
     "configuration": {
       "type": "object",
       "properties": {
-        "metadata": { "$ref": "#/definitions/metadata" },
+        "metadata": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "NO_MOVE_EVENT_MODULE": { "type": "boolean" },
+                "AlwaysGeneratingEventClobProperties": { "type": "boolean" },
+                "AlwaysGeneratingClobEventProperties": { "type": "boolean" }
+              },
+              "additionalProperties": true
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
         "boundedContextName": {
           "type": "string"
         },
@@ -987,6 +1005,15 @@
           }
         },
         "sui": {
+          "type": "object",
+          "properties": {
+            "offChainObjectNames": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        },
+        "aptos": {
           "type": "object",
           "properties": {
             "offChainObjectNames": {
