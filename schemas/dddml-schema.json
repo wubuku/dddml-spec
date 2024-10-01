@@ -825,11 +825,18 @@
           "type": "object",
           "patternProperties": {
             "^[A-Za-z_][A-Za-z_0-9]*": {
-              "type": "object",
-              "properties": {
-                "extractionPath": { "type": "string" }
-              },
-              "additionalProperties": true
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "extractionPath": { "type": "string" }
+                  },
+                  "additionalProperties": true
+                },
+                {
+                  "type": "null"
+                }
+              ]
             }
           }
         },
