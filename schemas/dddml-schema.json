@@ -629,13 +629,20 @@
           "additionalProperties": true
         },
         "properties": {
-          "type": "object",
-          "patternProperties": {
-            "^[A-Za-z_][A-Za-z_0-9]*": {
-              "$ref": "#/definitions/property"
+          "anyOf": [
+            {
+              "type": "object",
+              "patternProperties": {
+                "^[A-Za-z_][A-Za-z_0-9]*": {
+                  "$ref": "#/definitions/property"
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
             }
-          },
-          "additionalProperties": false
+          ]
         },
         "methods": {
           "type": "object",
