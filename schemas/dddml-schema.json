@@ -375,7 +375,18 @@
             }
           },
           "additionalProperties": false
-        }
+        },
+        "typeParameters": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Z_][A-Za-z_0-9]*": {}
+          }
+        },
+        "objectTypeArguments": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "isDeletionCommand": { "type": "boolean" }
       },
       "additionalProperties": true
     },
@@ -572,6 +583,10 @@
               "type": "object",
               "properties": {
                 "HasStoreAbility": { "type": "boolean" },
+                "TypeParameterOffChainPropertyNameFormats": {
+                  "type": "object",
+                  "additionalProperties": { "type": "string" }
+                },
                 "Preprocessors": { 
                   "type": "array",
                   "items": { "type": "string" }
@@ -667,7 +682,13 @@
           "type": "array",
           "items": { "type": "string" }
         },
-        "noSurrogateId": { "type": "boolean" }
+        "noSurrogateId": { "type": "boolean" },
+        "typeParameters": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Z_][A-Za-z_0-9]*": {}
+          }
+        }
       },
       "additionalProperties": true
     },
@@ -772,6 +793,12 @@
             }
           },
           "additionalProperties": false
+        },
+        "typeParameters": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Z_][A-Za-z_0-9]*": {}
+          }
         }
       },
       "additionalProperties": true
@@ -1042,6 +1069,15 @@
               "items": { "type": "string" }
             }
           }
+        },
+        "typeDefinitions": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Za-z_][A-Za-z_0-9-]*": {
+              "$ref": "#/definitions/typeDefinition"
+            }
+          },
+          "additionalProperties": true
         }
       },
       "additionalProperties": true
