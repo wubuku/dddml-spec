@@ -241,13 +241,7 @@
           "type": "object",
           "patternProperties": {
             "^[A-Z_][A-Za-z_0-9]*": {
-              "type": "object",
-              "properties": {
-                "value": {
-                  "anyOf": [{ "type": "number" }, { "type": "string" }]
-                }
-              },
-              "additionalProperties": true
+             "$ref": "#/definitions/enumObjectValue"
             }
           },
           "additionalProperties": false
@@ -293,7 +287,8 @@
                   "type": "array",
                   "items": { "type": "string" }
                 },
-                "IsExternalStoreAddressNotRequired": { "type": "boolean" }
+                "IsExternalStoreAddressNotRequired": { "type": "boolean" },
+                "MessagingCommandName": { "type": "string" }
               },
               "additionalProperties": true
             },
@@ -371,7 +366,16 @@
             }
           }
         },
-        "verificationLogic": { "type": "object" }
+        "verificationLogic": { "type": "object" },
+        "steps": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Za-z_][A-Za-z_0-9]*": {
+              "$ref": "#/definitions/methodStep"
+            }
+          },
+          "additionalProperties": false
+        }
       },
       "additionalProperties": true
     },
@@ -764,6 +768,52 @@
         }
       },
       "additionalProperties": true
+    },
+    "methodStep": {
+      "type": "object",
+      "properties": {
+        "prepareRequest": {
+          "type": "object",
+          "properties": {
+            "Lua": { "type": "string" }
+          },
+          "additionalProperties": true
+        },
+        "invokeParticipant": { "type": "string" },
+        "onReply": {
+          "type": "object",
+          "properties": {
+            "Lua": { "type": "string" }
+          },
+          "additionalProperties": true
+        },
+        "exportVariables": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Za-z_][A-Za-z_0-9]*": {
+              "type": "object",
+              "properties": {
+                "extractionPath": { "type": "string" }
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "withCompensation": { "type": "string" },
+        "compensationArguments": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "invokeLocal": { "type": "string" },
+        "expression": {
+          "type": "object",
+          "properties": {
+            "Lua": { "type": "string" }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
     }
   },
   "type": "object",
@@ -790,28 +840,7 @@
       "type": "object",
       "patternProperties": {
         "^[A-Z_][A-Za-z_0-9]*": {
-          "type": "object",
-          "properties": {
-            "baseType": {
-              "type": "string"
-            },
-            "values": {
-              "type": "object",
-              "patternProperties": {
-                "^[A-Z_][A-Za-z_0-9]*": {
-                  "type": "object",
-                  "properties": {
-                    "value": {
-                      "type": ["number", "string"]
-                    }
-                  },
-                  "additionalProperties": true
-                }
-              },
-              "additionalProperties": true
-            }
-          },
-          "additionalProperties": true
+          "$ref": "#/definitions/enumObject"
         }
       },
       "additionalProperties": true
@@ -847,22 +876,7 @@
       "type": "object",
       "patternProperties": {
         "^[A-Z_][A-Za-z_0-9]*": {
-          "type": "object",
-          "properties": {
-            "isTemplate": {
-              "type": "boolean"
-            },
-            "methods": {
-              "type": "object",
-              "patternProperties": {
-                "^[A-Z_][A-Za-z_0-9]*": {
-                  "$ref": "#/definitions/method"
-                }
-              },
-              "additionalProperties": false
-            }
-          },
-          "additionalProperties": true
+          "$ref": "#/definitions/superObject"
         }
       },
       "additionalProperties": false
