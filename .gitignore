@@ -1,3 +1,4 @@
 examples/crm/.vscode/settings.json
 examples/wms/.vscode/settings.json
 examples/crm/testADempiere.json
+schemas/__*.yaml
