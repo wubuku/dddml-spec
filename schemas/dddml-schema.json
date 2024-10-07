@@ -67,9 +67,11 @@
     "property": {
       "type": "object",
       "properties": {
-        "metadata": { "$ref": "#/definitions/metadata" },
         "type": {
           "type": "string"
+        },
+        "isList": {
+          "type": "boolean"
         },
         "itemType": {
           "type": "string"
@@ -168,9 +170,11 @@
         "itemColumnNames": {
           "type": "array",
           "items": { "type": "string" }
-        }
+        },
+        "initializationLogic": { "type": "object" },
+        "immutable": { "type": "boolean" }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "valueObject": {
       "type": "object",
@@ -189,10 +193,10 @@
               "$ref": "#/definitions/property"
             }
           },
-          "additionalProperties": true
+          "additionalProperties": false
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "enumObjectValue": {
       "type": "object",
@@ -241,13 +245,13 @@
           "type": "object",
           "patternProperties": {
             "^[A-Z_][A-Za-z_0-9]*": {
-             "$ref": "#/definitions/enumObjectValue"
+              "$ref": "#/definitions/enumObjectValue"
             }
           },
           "additionalProperties": false
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "parameter": {
       "type": "object",
@@ -270,7 +274,7 @@
         "eventPropertyName": { "type": "string" },
         "description": { "type": "string" }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "method": {
       "type": "object",
@@ -319,6 +323,7 @@
         "isInternal": {
           "type": "boolean"
         },
+        "description": { "type": "string" },
         "event": {
           "type": "object",
           "properties": {
@@ -341,7 +346,7 @@
               "additionalProperties": false
             }
           },
-          "additionalProperties": true
+          "additionalProperties": false
         },
         "requiredPermission": {
           "type": "string"
@@ -352,7 +357,7 @@
             "isObjectReturned": { "type": "boolean" },
             "type": { "type": "string" }
           },
-          "additionalProperties": true
+          "additionalProperties": false
         },
         "inheritsFrom": { "type": "string" },
         "shouldCreateOnDemand": { "type": "boolean" },
@@ -384,11 +389,11 @@
         },
         "objectTypeArguments": {
           "type": "object",
-          "additionalProperties": true
+          "additionalProperties": false
         },
         "isDeletionCommand": { "type": "boolean" }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "account": {
       "type": "object",
@@ -440,38 +445,25 @@
           }
         },
         "id": {
-          "allOf": [
-            {
-              "$ref": "#/definitions/property"
-            },
-            {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "type": { "type": "string" },
+            "generator": {
+              "type": "object",
               "properties": {
-                "name": {
+                "class": { "type": "string" },
+                "tableName": {
                   "type": "string"
                 },
-                "arbitrary": {
-                  "type": "boolean"
-                },
-                "isServerSideGenerated": {
-                  "type": "boolean"
-                },
-                "generator": {
-                  "type": "object",
-                  "properties": {
-                    "class": {
-                      "type": "string"
-                    },
-                    "tableName": {
-                      "type": "string"
-                    },
-                    "structName": {
-                      "type": "string"
-                    }
-                  }
+                "structName": {
+                  "type": "string"
                 }
-              }
+              },
+              "additionalProperties": false
             }
-          ]
+          },
+          "additionalProperties": false
         },
         "globalId": {
           "properties": {
@@ -572,7 +564,7 @@
           "additionalProperties": false
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "aggregate": {
       "type": "object",
@@ -587,7 +579,7 @@
                   "type": "object",
                   "additionalProperties": { "type": "string" }
                 },
-                "Preprocessors": { 
+                "Preprocessors": {
                   "type": "array",
                   "items": { "type": "string" }
                 },
@@ -596,12 +588,16 @@
                 "IsAbstractMudSystem": { "type": "boolean" },
                 "MudStoreValueCheckMaxFieldCount": { "type": "integer" },
                 "ShouldIssuePublisherObject": { "type": "boolean" },
-                "ENABLE_PULLING_MULTI_TYPE_EVENTS_AT_ONCE": { "type": "boolean" },
+                "ENABLE_PULLING_MULTI_TYPE_EVENTS_AT_ONCE": {
+                  "type": "boolean"
+                },
                 "DataAccessFriends": {
                   "type": "array",
                   "items": { "type": "string" }
                 },
-                "GENERATE_PULLING_ALL_ON_CHAIN_INSTANCE_STATES": { "type": "boolean" },
+                "GENERATE_PULLING_ALL_ON_CHAIN_INSTANCE_STATES": {
+                  "type": "boolean"
+                },
                 "MOVE_AGGREGATE_MODULE_ATTRIBUTES": { "type": "string" },
                 "IS_MOVE_SCHEMA_VERSIONED": { "type": "boolean" },
                 "CRUD_IT_CREATE_METHOD_NAME": { "type": "string" },
@@ -636,12 +632,17 @@
               "type": "object",
               "properties": {
                 "class": { "type": "string" },
-                "tableName": { "type": "string" }
+                "tableName": {
+                  "type": "string"
+                },
+                "structName": {
+                  "type": "string"
+                }
               },
-              "additionalProperties": true
+              "additionalProperties": false
             }
           },
-          "additionalProperties": true
+          "additionalProperties": false
         },
         "properties": {
           "anyOf": [
@@ -690,11 +691,12 @@
           }
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "service": {
       "type": "object",
       "properties": {
+        "abstract": { "type": "boolean" },
         "metadata": {
           "anyOf": [
             {
@@ -721,10 +723,31 @@
             "^[A-Z_][A-Za-z_0-9]*": {
               "$ref": "#/definitions/method"
             }
+          }
+        },
+        "requiredComponents": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Z_][A-Za-z_0-9]*": {
+              "type": "object",
+              "properties": {
+                "type": { "type": "string" }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "valueObjects": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Z_][A-Za-z_0-9]*": {
+              "$ref": "#/definitions/valueObject"
+            }
           },
           "additionalProperties": false
         }
-      }
+      },
+      "additionalProperties": false
     },
     "tree": {
       "type": "object",
@@ -801,7 +824,7 @@
           }
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "methodStep": {
       "type": "object",
@@ -821,6 +844,20 @@
           },
           "additionalProperties": true
         },
+        "arguments": {
+          "anyOf": [
+            {
+              "type": "object",
+              "patternProperties": {
+                "^[A-Za-z_][A-Za-z_0-9]*": {}
+              },
+              "additionalProperties": true
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
         "exportVariables": {
           "type": "object",
           "patternProperties": {
@@ -831,7 +868,7 @@
                   "properties": {
                     "extractionPath": { "type": "string" }
                   },
-                  "additionalProperties": true
+                  "additionalProperties": false
                 },
                 {
                   "type": "null"
@@ -851,10 +888,10 @@
           "properties": {
             "Lua": { "type": "string" }
           },
-          "additionalProperties": true
+          "additionalProperties": false
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     }
   },
   "type": "object",
@@ -866,7 +903,7 @@
           "$ref": "#/definitions/typeDefinition"
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "valueObjects": {
       "type": "object",
@@ -875,7 +912,7 @@
           "$ref": "#/definitions/valueObject"
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "enumObjects": {
       "type": "object",
@@ -884,7 +921,7 @@
           "$ref": "#/definitions/enumObject"
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "aggregates": {
       "type": "object",
@@ -964,7 +1001,7 @@
                 "isAptosExternalStoreEnabled": { "type": "boolean" }
               },
               "required": ["name"],
-              "additionalProperties": true
+              "additionalProperties": false
             }
           ]
         },
@@ -980,7 +1017,7 @@
                 },
                 "isAptosExternalStoreEnabled": { "type": "boolean" }
               },
-              "additionalProperties": true
+              "additionalProperties": false
             }
           },
           "additionalProperties": false
@@ -1084,10 +1121,12 @@
               "$ref": "#/definitions/typeDefinition"
             }
           },
-          "additionalProperties": true
+          "additionalProperties": false
         }
       },
-      "additionalProperties": true
-    }
-  }
+      "additionalProperties": false
+    },
+    "additionalProperties": false
+  },
+  "additionalProperties": false
 }
