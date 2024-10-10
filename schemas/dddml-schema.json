@@ -705,6 +705,15 @@
             "type": { "type": "string" },
             "length": { "type": "integer" },
             "arbitrary": { "type": "boolean" },
+            "columnName": {
+              "type": ["string", "boolean"]
+            },
+            "columnNames": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
             "generator": {
               "type": "object",
               "properties": {
@@ -721,15 +730,6 @@
                   { "type": "object" }
                 ] },
                 "isNamedObject": { "type": "boolean" }
-              },
-              "columnName": {
-                "type": ["string", "boolean"]
-              },
-              "columnNames": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
               },
               "additionalProperties": false
             }
