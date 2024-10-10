@@ -497,6 +497,7 @@
         "description": {
           "type": "string"
         },
+        "inheritsFrom": { "type": "string" },
         "audited": {
           "type": "boolean"
         },
@@ -761,6 +762,7 @@
           },
           "additionalProperties": false
         },
+        "inheritsFrom": { "type": "string" },
         "entities": {
           "type": "object",
           "patternProperties": {
@@ -893,6 +895,7 @@
           "type": "array",
           "items": { "type": "string" }
         },
+        "inheritsFrom": { "type": "string" },
         "noSurrogateId": { "type": "boolean" },
         "typeParameters": {
           "type": "object",
