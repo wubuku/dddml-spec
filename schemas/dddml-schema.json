@@ -151,6 +151,19 @@
         "stateMachine": {
           "$ref": "#/definitions/stateMachine"
         },
+        "typeArguments": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "object"
+              }
+            ]
+          }
+        },
         "searchable": {
           "anyOf": [
             {
@@ -180,17 +193,28 @@
       "type": "object",
       "properties": {
         "metadata": { "$ref": "#/definitions/metadata" },
+        "module": { "type": "string" },
         "displayName": {
           "type": "string"
         },
         "description": {
           "type": "string"
         },
+        "hibernateMappingType": { "type": "string" },
         "properties": {
           "type": "object",
           "patternProperties": {
             "^[A-Za-z_][A-Za-z_0-9]*": {
               "$ref": "#/definitions/property"
+            }
+          },
+          "additionalProperties": false
+        },
+        "methods": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Za-z_][A-Za-z_0-9]*": {
+              "$ref": "#/definitions/method"
             }
           },
           "additionalProperties": false
@@ -232,6 +256,7 @@
       "type": "object",
       "properties": {
         "metadata": { "$ref": "#/definitions/metadata" },
+        "module": { "type": "string" },
         "displayName": {
           "type": "string"
         },
@@ -260,15 +285,18 @@
         "type": {
           "type": "string"
         },
+        "length": { "type": "integer" },
         "itemType": {
           "type": "string"
         },
+        "isList": { "type": "boolean" },
         "referenceType": {
           "type": "string"
         },
         "sequenceNumber": {
           "type": "number"
         },
+        "optional": { "type": "boolean" },
         "isMutableReference": { "type": "boolean" },
         "isIgnoredInEvent": { "type": "boolean" },
         "eventPropertyName": { "type": "string" },
@@ -323,18 +351,32 @@
         "isInternal": {
           "type": "boolean"
         },
+        "callObjectBy": { "type": "string" },
+        "eventName": { "type": "string" },
         "description": { "type": "string" },
+        "implementationLogic": {
+          "type": "object"
+        },
+        "isConstructor": { "type": "boolean" },
         "event": {
           "type": "object",
+          "eventObject": { "type": "string" },
           "properties": {
             "name": {
               "type": "string"
             },
+            "type": { "type": "string" },
             "isObjectShared": {
               "type": "boolean"
             },
             "isObjectFrozen": {
               "type": "boolean"
+            },
+            "discriminatorValue": {
+              "anyOf": [
+                { "type": "string" },
+                { "type": "integer" }
+              ]
             },
             "properties": {
               "type": "object",
@@ -351,11 +393,32 @@
         "requiredPermission": {
           "type": "string"
         },
+        "implementLogic": {
+          "type": "object",
+          "properties": {
+            "Lua": { "type": "string" },
+            "Move": { "type": "string" }
+          },
+          "additionalProperties": true
+        },
         "result": {
           "type": "object",
           "properties": {
             "isObjectReturned": { "type": "boolean" },
-            "type": { "type": "string" }
+            "type": { "type": "string" },
+            "itemType": { "type": "string" },
+            "isList": { "type": "boolean" },
+            "name": { "type": "string" },
+            "tupleItems": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "type": { "type": "string" }
+                }
+              }
+            }
           },
           "additionalProperties": false
         },
@@ -388,8 +451,7 @@
           }
         },
         "objectTypeArguments": {
-          "type": "object",
-          "additionalProperties": false
+          "type": "object"
         },
         "isDeletionCommand": { "type": "boolean" }
       },
@@ -449,6 +511,10 @@
           "properties": {
             "name": { "type": "string" },
             "type": { "type": "string" },
+            "length": { "type": "integer" },
+            "arbitrary": { "type": "boolean" },
+            "columnName": { "type": "string" },
+            "columnNames": { "type": "array", "items": { "type": "string" } },
             "generator": {
               "type": "object",
               "properties": {
@@ -457,6 +523,15 @@
                   "type": "string"
                 },
                 "structName": {
+                  "type": "string"
+                }
+              },
+              "columnName": {
+                "type": ["string", "boolean"]
+              },
+              "columnNames": {
+                "type": "array",
+                "items": {
                   "type": "string"
                 }
               },
@@ -628,6 +703,8 @@
           "properties": {
             "name": { "type": "string" },
             "type": { "type": "string" },
+            "length": { "type": "integer" },
+            "arbitrary": { "type": "boolean" },
             "generator": {
               "type": "object",
               "properties": {
@@ -637,12 +714,145 @@
                 },
                 "structName": {
                   "type": "string"
+                },
+                "creatorType": { "type": "string" },
+                "seed": { "anyOf": [
+                  { "type": "string" },
+                  { "type": "object" }
+                ] },
+                "isNamedObject": { "type": "boolean" }
+              },
+              "columnName": {
+                "type": ["string", "boolean"]
+              },
+              "columnNames": {
+                "type": "array",
+                "items": {
+                  "type": "string"
                 }
               },
               "additionalProperties": false
             }
           },
           "additionalProperties": false
+        },
+        "properties": {
+          "anyOf": [
+            {
+              "type": "object",
+              "patternProperties": {
+                "^[A-Za-z_][A-Za-z_0-9]*": {
+                  "$ref": "#/definitions/property"
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "methods": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Za-z_][A-Za-z_0-9]*": {
+              "$ref": "#/definitions/method"
+            }
+          },
+          "additionalProperties": false
+        },
+        "entities": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Za-z_][A-Za-z_0-9]*": {
+              "$ref": "#/definitions/entity"
+            }
+          },
+          "additionalProperties": false
+        },
+        "valueObjects": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Z_][A-Za-z_0-9]*": {
+              "$ref": "#/definitions/valueObject"
+            }
+          },
+          "additionalProperties": false
+        },
+        "eventObjects": {
+          "type": "object"
+        },
+        "module": { "type": "string" },
+        "implements": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "noSurrogateId": { "type": "boolean" },
+        "typeParameters": {
+          "type": "object",
+          "patternProperties": {
+            "^[A-Z_][A-Za-z_0-9]*": {}
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "singletonObject": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "HasStoreAbility": { "type": "boolean" },
+                "TypeParameterOffChainPropertyNameFormats": {
+                  "type": "object",
+                  "additionalProperties": { "type": "string" }
+                },
+                "Preprocessors": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                },
+                "CRUD_IT_NO_UPDATE": { "type": "boolean" },
+                "CRUD_IT_NO_DELETE": { "type": "boolean" },
+                "IsAbstractMudSystem": { "type": "boolean" },
+                "MudStoreValueCheckMaxFieldCount": { "type": "integer" },
+                "ShouldIssuePublisherObject": { "type": "boolean" },
+                "ENABLE_PULLING_MULTI_TYPE_EVENTS_AT_ONCE": {
+                  "type": "boolean"
+                },
+                "DataAccessFriends": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                },
+                "GENERATE_PULLING_ALL_ON_CHAIN_INSTANCE_STATES": {
+                  "type": "boolean"
+                },
+                "MOVE_AGGREGATE_MODULE_ATTRIBUTES": { "type": "string" },
+                "IS_MOVE_SCHEMA_VERSIONED": { "type": "boolean" },
+                "CRUD_IT_CREATE_METHOD_NAME": { "type": "string" },
+                "CRUD_IT_DELETE_METHOD_NAME": { "type": "string" },
+                "SUI_DISPLAY_KEYS": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                },
+                "SUI_DISPLAY_VALUES": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                }
+              },
+              "additionalProperties": true
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reservedProperties": { "$ref": "#/definitions/metadata" },
+        "friends": {
+          "type": "array",
+          "items": { "type": "string" }
         },
         "properties": {
           "anyOf": [
@@ -789,6 +999,7 @@
       "type": "object",
       "properties": {
         "metadata": { "$ref": "#/definitions/metadata" },
+        "module": { "type": "string" },
         "displayName": {
           "type": "string"
         },
@@ -835,6 +1046,13 @@
             "Lua": { "type": "string" }
           },
           "additionalProperties": true
+        },
+        "exportVariable": {
+          "anyOf": [
+            { "type": "string" },
+            { "type": "null" },
+            { "type": "object" }
+          ]
         },
         "invokeParticipant": { "type": "string" },
         "onReply": {
@@ -886,9 +1104,11 @@
         "expression": {
           "type": "object",
           "properties": {
-            "Lua": { "type": "string" }
-          },
-          "additionalProperties": false
+            "Lua": { "type": "string" },
+            "Move": { "type": "string" },
+            "TypeScript": { "type": "string" },
+            "Java": { "type": "string" }
+          }
         }
       },
       "additionalProperties": false
@@ -928,6 +1148,15 @@
       "patternProperties": {
         "^[A-Z_][A-Za-z_0-9]*": {
           "$ref": "#/definitions/aggregate"
+        }
+      },
+      "additionalProperties": false
+    },
+    "singletonObjects": {
+      "type": "object",
+      "patternProperties": {
+        "^[A-Z_][A-Za-z_0-9]*": {
+          "$ref": "#/definitions/singletonObject"
         }
       },
       "additionalProperties": false
@@ -1114,12 +1343,55 @@
             }
           }
         },
+        "rust": {
+          "type": "object"
+        },
+        "ao": {
+          "type": "object"
+        },
+        "php": {
+          "type": "object"
+        },
+        "internetComputer": {
+          "type": "object"
+        },
+        "ignoreEntityImmutable": { "type": "boolean" },
+        "aggregateEventVersionProperty": { 
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "type": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "databaseNamingConvention": {
+          "anyOf": [
+            { "type": "string" },
+            { "type": "object" },
+            { "type": "null" }
+          ]
+        },
+        "isGenericTypeAsType": { "type": "boolean" },
+        "nHibernate": {
+          "type": "object"
+        },
+        "typeScript": {
+          "type": "object"
+        },
+        "valueObjectBaseTypes": {
+          "type": "object"
+        },
         "typeDefinitions": {
           "type": "object",
           "patternProperties": {
             "^[A-Za-z_][A-Za-z_0-9-]*": {
               "$ref": "#/definitions/typeDefinition"
             }
+          },
+          "additionalProperties": false
+        },
+        "aggregates": {
+          "type": "object"
           },
           "additionalProperties": false
         }
