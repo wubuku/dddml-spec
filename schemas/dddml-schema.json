@@ -1291,19 +1291,83 @@
         "java": {
           "type": "object",
           "properties": {
+            "isUsingSeparatedDomainAggregatePackage": {
+              "type": "boolean"
+            },
             "boundedContextPackage": {
               "type": "string"
             },
             "specializationPackage": {
               "type": "string"
             },
-            "isUsingSeparatedDomainAggregatePackage": {
+            "typeMappings": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "typePackages": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "serializationAnnotationTypes": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "validationConstraintAnnotations": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "eventLobPropertiesName": {
+              "type": "string"
+            },
+            "eventLobPropertiesSqlType": {
+              "type": "string"
+            },
+            "eventClobPropertiesPersistenceName": {
+              "type": "string"
+            },
+            "eventClobPropertiesSqlType": {
+              "type": "string"
+            },
+            "eventLobPropertiesEnabled": {
               "type": "boolean"
             },
-            "defaultUserIdType": {
+            "stateLobPropertiesName": {
+              "type": "string"
+            },
+            "stateLobPropertiesSqlType": {
+              "type": "string"
+            },
+            "stateLobPropertiesEnabled": {
+              "type": "boolean"
+            },
+            "noGeneratingMutateStateByEventMethods": {
+              "type": "boolean"
+            },
+            "isSurrogateIdPreferred": {
+              "type": "boolean"
+            },
+            "aggregateIdWhenSingletonObjectAsAggregate": {
+              "type": "object"
+            },
+            "eventProcessingInterfaceName": {
+              "type": "string"
+            },
+            "eventProcessingStatusPropertyName": {
+              "type": "string"
+            },
+            "eventProcessingStatusPropertyType": {
               "type": "string"
             }
-          }
+          },
+          "additionalProperties": true
         },
         "sequenceNumber": { "type": "integer" },
         "sqlTypes": {
@@ -1318,15 +1382,33 @@
               "additionalProperties": {
                 "type": "object",
                 "properties": {
+                  "name": { "type": "string" },
+                  "displayName": { "type": "string" },
                   "mappingType": { "type": "string" },
+                  "propertyNames": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                  },
+                  "propertyTypes": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                  },
                   "parameters": {
                     "type": "object",
                     "additionalProperties": { "type": "string" }
+                  },
+                  "sequenceNumber": {
+                    "type": ["integer", "null"]
                   }
-                }
+                },
+                "additionalProperties": false
               }
-            }
-          }
+            },
+            "timestampMappingType": { "type": "string" },
+            "isSecondLevelCacheDisabled": { "type": "boolean" },
+            "sequenceIdGeneratorHbmXmlTemplate": { "type": "string" }
+          },
+          "additionalProperties": true
         },
         "sui": {
           "type": "object",
