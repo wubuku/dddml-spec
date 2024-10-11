@@ -1357,14 +1357,20 @@
             "aggregateIdWhenSingletonObjectAsAggregate": {
               "type": "object"
             },
-            "eventProcessingInterfaceName": {
-              "type": "string"
-            },
-            "eventProcessingStatusPropertyName": {
-              "type": "string"
-            },
-            "eventProcessingStatusPropertyType": {
-              "type": "string"
+            "eventProcessing": {
+              "type": "object",
+              "properties": {
+                "disabled": { "type": "boolean" },
+                "eventProcessingInterfaceName": {
+                  "type": "string"
+                },
+                "eventProcessingStatusPropertyName": {
+                  "type": "string"
+                },
+                "eventProcessingStatusPropertyType": {
+                  "type": "string"
+                }    
+              }
             }
           },
           "additionalProperties": true
