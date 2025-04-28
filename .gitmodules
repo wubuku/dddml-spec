@@ -1,0 +1,27 @@
+[submodule "@example-repos/infinite-sea"]
+	path = @example-repos/infinite-sea
+	url = https://github.com/wubuku/infinite-sea.git
+[submodule "@example-repos/A-AO-Demo"]
+	path = @example-repos/A-AO-Demo
+	url = https://github.com/dddappp/A-AO-Demo.git
+[submodule "@example-repos/AI-Assisted-AO-Dapp-Example"]
+	path = @example-repos/AI-Assisted-AO-Dapp-Example
+	url = https://github.com/dddappp/AI-Assisted-AO-Dapp-Example.git
+[submodule "@example-repos/hello-mud"]
+	path = @example-repos/hello-mud
+	url = https://github.com/wubuku/hello-mud.git
+[submodule "@example-repos/aptos-infinite-seas"]
+	path = @example-repos/aptos-infinite-seas
+	url = https://github.com/wubuku/aptos-infinite-seas.git
+[submodule "@example-repos/sui-interface-demo"]
+	path = @example-repos/sui-interface-demo
+	url = https://github.com/dddappp/sui-interface-demo.git
+[submodule "@example-repos/sui-flex-swap"]
+	path = @example-repos/sui-flex-swap
+	url = https://github.com/dddappp/sui-flex-swap.git
+[submodule "@example-repos/Dapp-LCDP-Demo"]
+	path = @example-repos/Dapp-LCDP-Demo
+	url = https://github.com/wubuku/Dapp-LCDP-Demo.git
+[submodule "@example-repos/CLM"]
+	path = @example-repos/CLM
+	url = https://github.com/wubuku/CLM.git
