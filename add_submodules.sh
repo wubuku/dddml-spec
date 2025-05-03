@@ -26,6 +26,7 @@ add_submodule https://github.com/dddappp/sui-interface-demo.git @example-repos/s
 add_submodule https://github.com/dddappp/sui-flex-swap.git @example-repos/sui-flex-swap
 add_submodule https://github.com/wubuku/Dapp-LCDP-Demo.git @example-repos/Dapp-LCDP-Demo
 add_submodule https://github.com/wubuku/CLM.git @example-repos/CLM
+add_submodule https://github.com/wubuku/FreshFruitAndVegetableTraceability.git @example-repos/FreshFruitAndVegetableTraceability
 
 # Initialize and update submodules
 git submodule init

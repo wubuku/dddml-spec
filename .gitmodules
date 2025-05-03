@@ -25,3 +25,6 @@
 [submodule "@example-repos/CLM"]
 	path = @example-repos/CLM
 	url = https://github.com/wubuku/CLM.git
+[submodule "@example-repos/FreshFruitAndVegetableTraceability"]
+	path = @example-repos/FreshFruitAndVegetableTraceability
+	url = https://github.com/wubuku/FreshFruitAndVegetableTraceability.git

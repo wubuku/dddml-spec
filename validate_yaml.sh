@@ -56,6 +56,7 @@ patterns=(
     "$SCRIPT_DIR/@example-repos/sui-flex-swap/dddml/*.yaml"
     "$SCRIPT_DIR/@example-repos/Dapp-LCDP-Demo/domain-model/**/*.yaml"
     "$SCRIPT_DIR/@example-repos/CLM/dddml/*.yaml"
+    "$SCRIPT_DIR/@example-repos/FreshFruitAndVegetableTraceability/dddml/*.yaml"
 )
 
 ALL_FILES=()

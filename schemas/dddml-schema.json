@@ -70,6 +70,9 @@
         "type": {
           "type": "string"
         },
+        "name": {
+          "type": "string"
+        },
         "isList": {
           "type": "boolean"
         },
@@ -93,6 +96,14 @@
         },
         "alias": {
           "type": "string"
+        },
+        "exampleValue": {
+          "anyOf": [
+            { "type": "string" },
+            { "type": "number" },
+            { "type": "boolean" },
+            { "type": "object" }
+          ]
         },
         "columnName": {
           "type": ["string", "boolean"]
@@ -266,6 +277,9 @@
         "baseType": {
           "type": "string"
         },
+        "length": {
+          "type": "integer"
+        },
         "values": {
           "type": "object",
           "patternProperties": {
@@ -351,6 +365,15 @@
         "isInternal": {
           "type": "boolean"
         },
+        "httpMethod": {
+          "type": "string"
+        },
+        "isQuery": {
+          "type": "boolean"
+        },
+        "restfulResourceName": {
+          "type": "string"
+        },
         "callObjectBy": { "type": "string" },
         "eventName": { "type": "string" },
         "description": { "type": "string" },
@@ -360,8 +383,8 @@
         "isConstructor": { "type": "boolean" },
         "event": {
           "type": "object",
-          "eventObject": { "type": "string" },
           "properties": {
+            "eventObject": { "type": "string" },
             "name": {
               "type": "string"
             },
@@ -525,15 +548,15 @@
                 },
                 "structName": {
                   "type": "string"
-                }
-              },
-              "columnName": {
-                "type": ["string", "boolean"]
-              },
-              "columnNames": {
-                "type": "array",
-                "items": {
-                  "type": "string"
+                },
+                "columnName": {
+                  "type": ["string", "boolean"]
+                },
+                "columnNames": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 }
               },
               "additionalProperties": false
@@ -542,6 +565,7 @@
           "additionalProperties": false
         },
         "globalId": {
+          "type": "object",
           "properties": {
             "name": {
               "type": "string"
@@ -605,7 +629,7 @@
           "additionalProperties": false
         },
         "metadata": { "$ref": "#/definitions/metadata" },
-        "reservedProperties": { "$ref": "#/definitions/metadata" },
+        "reservedPropertyMetadata": { "$ref": "#/definitions/metadata" },
         "friends": {
           "type": "array",
           "items": {
@@ -694,10 +718,25 @@
             }
           ]
         },
-        "reservedProperties": { "$ref": "#/definitions/metadata" },
+        "reservedPropertyMetadata": { "$ref": "#/definitions/metadata" },
         "friends": {
           "type": "array",
           "items": { "type": "string" }
+        },
+        "discriminator": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "columnName": { "type": "string" },
+                "type": { "type": "string" }
+              },
+              "additionalProperties": true
+            },
+            {
+              "type": "string"
+            }
+          ]
         },
         "id": {
           "type": "object",
@@ -724,6 +763,15 @@
                 },
                 "structName": {
                   "type": "string"
+                },
+                "columnName": {
+                  "type": ["string", "boolean"]
+                },
+                "columnNames": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "creatorType": { "type": "string" },
                 "seed": { "anyOf": [
@@ -782,7 +830,29 @@
           "additionalProperties": false
         },
         "eventObjects": {
-          "type": "object"
+          "type": "object",
+          "patternProperties": {
+            "^[A-Za-z_][A-Za-z_0-9]*": {
+              "type": "object",
+              "properties": {
+                "properties": {
+                  "type": "object",
+                  "patternProperties": {
+                    "^[A-Za-z_][A-Za-z_0-9]*": {
+                      "$ref": "#/definitions/property"
+                    }
+                  }
+                },
+                "discriminatorValue": {
+                  "anyOf": [
+                    { "type": "string" },
+                    { "type": "integer" }
+                  ]
+                }
+              }
+            }
+          },
+          "additionalProperties": true
         },
         "module": { "type": "string" },
         "implements": {
@@ -795,6 +865,9 @@
           "patternProperties": {
             "^[A-Z_][A-Za-z_0-9]*": {}
           }
+        },
+        "references": {
+          "type": "object"
         }
       },
       "additionalProperties": false
@@ -851,7 +924,7 @@
             }
           ]
         },
-        "reservedProperties": { "$ref": "#/definitions/metadata" },
+        "reservedPropertyMetadata": { "$ref": "#/definitions/metadata" },
         "friends": {
           "type": "array",
           "items": { "type": "string" }
@@ -928,6 +1001,9 @@
           "type": "string"
         },
         "description": {
+          "type": "string"
+        },
+        "restfulResourceName": {
           "type": "string"
         },
         "methods": {
@@ -1147,13 +1223,7 @@
       "additionalProperties": false
     },
     "aggregates": {
-      "type": "object",
-      "patternProperties": {
-        "^[A-Z_][A-Za-z_0-9]*": {
-          "$ref": "#/definitions/aggregate"
-        }
-      },
-      "additionalProperties": false
+      "type": "object"
     },
     "singletonObjects": {
       "type": "object",
@@ -1219,6 +1289,53 @@
         "description": {
           "type": "string"
         },
+        "onCommandExecuting": {
+          "type": "object"
+        },
+        "associationMappingsEnabled": {
+          "type": "boolean"
+        },
+        "defaultReservedPropertyMetadata": {
+          "type": "object"
+        },
+        "onRestfulCommandExecuting": {
+          "type": "object"
+        },
+        "onRestfulMethodStart": {
+          "type": "object"
+        },
+        "onRestfulMethodEnd": {
+          "type": "object"
+        },
+        "defaultTimestampType": {
+          "type": "string"
+        },
+        "defaultUserIdType": {
+          "type": "string"
+        },
+        "isSurrogateIdMandatory": {
+          "type": "boolean"
+        },
+        "defaultSurrogateId": {
+          "type": "object"
+        },
+        "isSingletonObjectSurrogateIdMandatory": {
+          "type": "boolean"
+        },
+        "mandatoryAggregateImplements": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "mandatoryAggregateEventImplements": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "multiTenancy": {
+          "type": "object"
+        },
+        "validationConstraints": {
+          "type": "object"
+        },
         "defaultModule": {
           "anyOf": [
             { "type": "string" },
@@ -1270,6 +1387,7 @@
           "type": "object"
         },
         "accountingQuantityTypes": {
+          "type": "object",
           "patternProperties": {
             "^[A-Za-z_][A-Za-z_0-9-]*": {
               "type": "object",
@@ -1472,6 +1590,18 @@
         "valueObjectBaseTypes": {
           "type": "object"
         },
+        "move": {
+          "type": "object"
+        },
+        "solidity": {
+          "type": "object"
+        },
+        "rooch": {
+          "type": "object"
+        },
+        "solana": {
+          "type": "object"
+        },
         "typeDefinitions": {
           "type": "object",
           "patternProperties": {
@@ -1483,8 +1613,6 @@
         },
         "aggregates": {
           "type": "object"
-          },
-          "additionalProperties": false
         }
       },
       "additionalProperties": false
