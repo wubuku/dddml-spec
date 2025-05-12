@@ -1006,6 +1006,9 @@
         "restfulResourceName": {
           "type": "string"
         },
+        "restfulApiScaffoldOnly": {
+          "type": "boolean"
+        },
         "methods": {
           "type": "object",
           "patternProperties": {
