@@ -106,7 +106,7 @@
           ]
         },
         "columnName": {
-          "type": ["string", "boolean"]
+          "anyOf": [{ "type": "string" }, { "type": "boolean" }]
         },
         "columnNames": {
           "type": "array",
@@ -396,10 +396,7 @@
               "type": "boolean"
             },
             "discriminatorValue": {
-              "anyOf": [
-                { "type": "string" },
-                { "type": "integer" }
-              ]
+              "anyOf": [{ "type": "string" }, { "type": "integer" }]
             },
             "properties": {
               "type": "object",
@@ -415,6 +412,28 @@
         },
         "requiredPermission": {
           "type": "string"
+        },
+        "requiredAnyRole": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "authenticatedOnly": {
+          "type": "boolean"
+        },
+        "anonymousAllowed": {
+          "type": "boolean"
+        },
+        "isIdOptional": {
+          "type": "boolean"
         },
         "implementLogic": {
           "type": "object",
@@ -432,6 +451,7 @@
             "itemType": { "type": "string" },
             "isList": { "type": "boolean" },
             "name": { "type": "string" },
+            "description": { "type": "string" },
             "tupleItems": {
               "type": "array",
               "items": {
@@ -550,7 +570,7 @@
                   "type": "string"
                 },
                 "columnName": {
-                  "type": ["string", "boolean"]
+                  "anyOf": [{ "type": "string" }, { "type": "boolean" }]
                 },
                 "columnNames": {
                   "type": "array",
@@ -746,7 +766,7 @@
             "length": { "type": "integer" },
             "arbitrary": { "type": "boolean" },
             "columnName": {
-              "type": ["string", "boolean"]
+              "anyOf": [{ "type": "string" }, { "type": "boolean" }]
             },
             "columnNames": {
               "type": "array",
@@ -765,7 +785,7 @@
                   "type": "string"
                 },
                 "columnName": {
-                  "type": ["string", "boolean"]
+                  "anyOf": [{ "type": "string" }, { "type": "boolean" }]
                 },
                 "columnNames": {
                   "type": "array",
@@ -774,10 +794,9 @@
                   }
                 },
                 "creatorType": { "type": "string" },
-                "seed": { "anyOf": [
-                  { "type": "string" },
-                  { "type": "object" }
-                ] },
+                "seed": {
+                  "anyOf": [{ "type": "string" }, { "type": "object" }]
+                },
                 "isNamedObject": { "type": "boolean" }
               },
               "additionalProperties": false
@@ -844,10 +863,7 @@
                   }
                 },
                 "discriminatorValue": {
-                  "anyOf": [
-                    { "type": "string" },
-                    { "type": "integer" }
-                  ]
+                  "anyOf": [{ "type": "string" }, { "type": "integer" }]
                 }
               }
             }
@@ -1037,6 +1053,12 @@
             }
           },
           "additionalProperties": false
+        },
+        "authenticatedOnly": {
+          "type": "boolean"
+        },
+        "anonymousAllowed": {
+          "type": "boolean"
         }
       },
       "additionalProperties": false
@@ -1490,7 +1512,7 @@
                 },
                 "eventProcessingStatusPropertyType": {
                   "type": "string"
-                }    
+                }
               }
             }
           },
@@ -1521,11 +1543,18 @@
                     "items": { "type": "string" }
                   },
                   "parameters": {
-                    "type": "object",
-                    "additionalProperties": { "type": "string" }
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "additionalProperties": { "type": "string" }
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
                   },
                   "sequenceNumber": {
-                    "type": ["integer", "null"]
+                    "anyOf": [{ "type": "integer" }, { "type": "null" }]
                   }
                 },
                 "additionalProperties": false
@@ -1568,7 +1597,7 @@
           "type": "object"
         },
         "ignoreEntityImmutable": { "type": "boolean" },
-        "aggregateEventVersionProperty": { 
+        "aggregateEventVersionProperty": {
           "type": "object",
           "properties": {
             "name": { "type": "string" },
@@ -1616,6 +1645,19 @@
         },
         "aggregates": {
           "type": "object"
+        },
+        "defaultAggregateRequiredAnyRole": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "type": "string"
+            }
+          ]
         }
       },
       "additionalProperties": false
