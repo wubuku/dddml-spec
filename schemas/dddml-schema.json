@@ -1059,6 +1059,9 @@
         },
         "anonymousAllowed": {
           "type": "boolean"
+        },
+        "module": {
+          "type": "string"
         }
       },
       "additionalProperties": false
