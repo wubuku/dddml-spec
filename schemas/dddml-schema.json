@@ -1216,6 +1216,23 @@
             "TypeScript": { "type": "string" },
             "Java": { "type": "string" }
           }
+        },
+        "description": { "type": "string" },
+        "waitForEvent": { "type": "string" },
+        "maxWaitTime": { "type": "string" },
+        "onSuccess": {
+          "type": "object",
+          "properties": {
+            "Lua": { "type": "string" }
+          },
+          "additionalProperties": true
+        },
+        "onFailure": {
+          "type": "object",
+          "properties": {
+            "Lua": { "type": "string" }
+          },
+          "additionalProperties": true
         }
       },
       "additionalProperties": false

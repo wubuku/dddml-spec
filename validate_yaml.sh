@@ -48,6 +48,7 @@ patterns=(
     "$SCRIPT_DIR/@example-repos/infinite-sea/dddml/*.yaml"
     "$SCRIPT_DIR/@example-repos/A-AO-Demo/dddml/a-ao-demo.yaml"
     "$SCRIPT_DIR/@example-repos/A-AO-Demo/dddml/blog.yaml"
+    "$SCRIPT_DIR/@example-repos/A-AO-Demo/dddml/nft-escrow.yaml"
     "$SCRIPT_DIR/@example-repos/AI-Assisted-AO-Dapp-Example/dddml/blog.yaml"
     "$SCRIPT_DIR/@example-repos/AI-Assisted-AO-Dapp-Example/dddml/InventoryItem.yaml"
     "$SCRIPT_DIR/@example-repos/hello-mud/dddml/*.yaml"
